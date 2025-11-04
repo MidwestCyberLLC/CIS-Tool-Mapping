@@ -1,0 +1,43 @@
+[
+  {
+    "ID": "T1",
+    "Name": "AdvancedNet Scanner",
+    "Description": "A tool for network discovery and security auditing.",
+    "URL": "https://example.com/advancednet",
+    "EducationUse": true,
+    "Cost": "$$$"
+  },
+  {
+    "ID": "T2",
+    "Name": "LogGuardian Pro",
+    "Description": "Centralized log management and analysis platform.",
+    "URL": "https://example.com/logguardian",
+    "EducationUse": false,
+    "Cost": "$$$$$"
+  },
+  {
+    "ID": "T3",
+    "Name": "EndpointShield",
+    "Description": "Endpoint detection and response (EDR) solution.",
+    "URL": "https://example.com/endpointshield",
+    "EducationUse": true,
+    "Cost": "$$$$"
+  },
+  {
+    "ID": "T4",
+    "Name": "AccessMatrix",
+    "Description": "Identity and Access Management (IAM) for enterprise.",
+    "URL": "https://example.com/accessmatrix",
+    "EducationUse": false,
+    "Cost": "$$$$"
+  },
+  {
+    "ID": "T5",
+    "Name": "SecureConfig",
+    "Description": "Configuration hardening and compliance checking utility.",
+    "URL": "https://example.com/secureconfig",
+    "EducationUse": true,
+    "Cost": "$"
+  }
+]
+
