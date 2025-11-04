@@ -1,0 +1,22 @@
+[
+    { "ID": "SG1.1", "ControlNumber": 1, "SafeguardNumber": 1, "Title": "Establish and Maintain Detailed Enterprise Asset Inventory", "Description": "Use an active discovery tool to identify assets...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG1.2", "ControlNumber": 1, "SafeguardNumber": 2, "Title": "Address Unauthorized Assets", "Description": "Ensure unauthorized assets are removed from the network...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG3.1", "ControlNumber": 3, "SafeguardNumber": 1, "Title": "Establish and Maintain a Data Management Process", "Description": "Develop process to identify and classify data.", "IGNumber": 1, "TierNumber": 2 },
+    { "ID": "SG3.5", "ControlNumber": 3, "SafeguardNumber": 5, "Title": "Protect Data at Rest", "Description": "Encrypt sensitive data stored on systems.", "IGNumber": 2, "TierNumber": 2 },
+    { "ID": "SG4.1", "ControlNumber": 4, "SafeguardNumber": 1, "Title": "Establish and Maintain a Secure Configuration Process", "Description": "Document and apply security configuration standards.", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG5.1", "ControlNumber": 5, "SafeguardNumber": 1, "Title": "Establish and Maintain an Inventory of Accounts", "Description": "Use processes to ensure all accounts are managed.", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG2.1", "ControlNumber": 2, "SafeguardNumber": 1, "Title": "Mock Safeguard 2.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG6.1", "ControlNumber": 6, "SafeguardNumber": 1, "Title": "Mock Safeguard 6.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG7.1", "ControlNumber": 7, "SafeguardNumber": 1, "Title": "Mock Safeguard 7.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG8.1", "ControlNumber": 8, "SafeguardNumber": 1, "Title": "Mock Safeguard 8.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG9.1", "ControlNumber": 9, "SafeguardNumber": 1, "Title": "Mock Safeguard 9.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG10.1", "ControlNumber": 10, "SafeguardNumber": 1, "Title": "Mock Safeguard 10.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG11.1", "ControlNumber": 11, "SafeguardNumber": 1, "Title": "Mock Safeguard 11.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG12.1", "ControlNumber": 12, "SafeguardNumber": 1, "Title": "Mock Safeguard 12.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG13.1", "ControlNumber": 13, "SafeguardNumber": 1, "Title": "Mock Safeguard 13.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG14.1", "ControlNumber": 14, "SafeguardNumber": 1, "Title": "Mock Safeguard 14.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG15.1", "ControlNumber": 15, "SafeguardNumber": 1, "Title": "Mock Safeguard 15.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG16.1", "ControlNumber": 16, "SafeguardNumber": 1, "Title": "Mock Safeguard 16.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG17.1", "ControlNumber": 17, "SafeguardNumber": 1, "Title": "Mock Safeguard 17.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
+    { "ID": "SG18.1", "ControlNumber": 18, "SafeguardNumber": 1, "Title": "Mock Safeguard 18.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 }
+]
