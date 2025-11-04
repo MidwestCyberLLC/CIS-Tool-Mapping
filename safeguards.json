@@ -1,22 +1,1379 @@
 [
-    { "ID": "SG1.1", "ControlNumber": 1, "SafeguardNumber": 1, "Title": "Establish and Maintain Detailed Enterprise Asset Inventory", "Description": "Use an active discovery tool to identify assets...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG1.2", "ControlNumber": 1, "SafeguardNumber": 2, "Title": "Address Unauthorized Assets", "Description": "Ensure unauthorized assets are removed from the network...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG3.1", "ControlNumber": 3, "SafeguardNumber": 1, "Title": "Establish and Maintain a Data Management Process", "Description": "Develop process to identify and classify data.", "IGNumber": 1, "TierNumber": 2 },
-    { "ID": "SG3.5", "ControlNumber": 3, "SafeguardNumber": 5, "Title": "Protect Data at Rest", "Description": "Encrypt sensitive data stored on systems.", "IGNumber": 2, "TierNumber": 2 },
-    { "ID": "SG4.1", "ControlNumber": 4, "SafeguardNumber": 1, "Title": "Establish and Maintain a Secure Configuration Process", "Description": "Document and apply security configuration standards.", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG5.1", "ControlNumber": 5, "SafeguardNumber": 1, "Title": "Establish and Maintain an Inventory of Accounts", "Description": "Use processes to ensure all accounts are managed.", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG2.1", "ControlNumber": 2, "SafeguardNumber": 1, "Title": "Mock Safeguard 2.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG6.1", "ControlNumber": 6, "SafeguardNumber": 1, "Title": "Mock Safeguard 6.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG7.1", "ControlNumber": 7, "SafeguardNumber": 1, "Title": "Mock Safeguard 7.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG8.1", "ControlNumber": 8, "SafeguardNumber": 1, "Title": "Mock Safeguard 8.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG9.1", "ControlNumber": 9, "SafeguardNumber": 1, "Title": "Mock Safeguard 9.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG10.1", "ControlNumber": 10, "SafeguardNumber": 1, "Title": "Mock Safeguard 10.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG11.1", "ControlNumber": 11, "SafeguardNumber": 1, "Title": "Mock Safeguard 11.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG12.1", "ControlNumber": 12, "SafeguardNumber": 1, "Title": "Mock Safeguard 12.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG13.1", "ControlNumber": 13, "SafeguardNumber": 1, "Title": "Mock Safeguard 13.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG14.1", "ControlNumber": 14, "SafeguardNumber": 1, "Title": "Mock Safeguard 14.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG15.1", "ControlNumber": 15, "SafeguardNumber": 1, "Title": "Mock Safeguard 15.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG16.1", "ControlNumber": 16, "SafeguardNumber": 1, "Title": "Mock Safeguard 16.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG17.1", "ControlNumber": 17, "SafeguardNumber": 1, "Title": "Mock Safeguard 17.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 },
-    { "ID": "SG18.1", "ControlNumber": 18, "SafeguardNumber": 1, "Title": "Mock Safeguard 18.1", "Description": "Desc...", "IGNumber": 1, "TierNumber": 1 }
+    {
+        "ID":  "SG1.1",
+        "ControlNumber":  "1",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain Detailed Enterprise Asset Inventory",
+        "Description":  "Establish and maintain an accurate, detailed, and up-to-date inventory of all enterprise assets with the potential to store or process data, to include: end-user devices (including portable and mobile), network devices, non-computing/IoT devices, and servers. Ensure the inventory records the network address (if static), hardware address, machine name, enterprise asset owner, department for each asset, and whether the asset has been approved to connect to the network. For mobile end-user devices, MDM type tools can support this process, where appropriate. This inventory includes assets connected to the infrastructure physically, virtually, remotely, and those within cloud environments. Additionally, it includes assets that are regularly connected to the enterprise’s network infrastructure, even if they are not under control of the enterprise. Review and update the inventory of all enterprise assets bi-annually, or more frequently.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG1.2",
+        "ControlNumber":  "1",
+        "SafeguardNumber":  "2",
+        "Title":  "Address Unauthorized Assets",
+        "Description":  "Ensure that a process exists to address unauthorized assets on a weekly basis. The enterprise may choose to remove the asset from the network, deny the asset from connecting remotely to the network, or quarantine the asset.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG1.3",
+        "ControlNumber":  "1",
+        "SafeguardNumber":  "3",
+        "Title":  "Utilize an Active Discovery Tool",
+        "Description":  "Utilize an active discovery tool to identify assets connected to the enterprise’s network. Configure the active discovery tool to execute daily, or more frequently.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG1.4",
+        "ControlNumber":  "1",
+        "SafeguardNumber":  "4",
+        "Title":  "Use Dynamic Host Configuration Protocol (DHCP) Logging to Update Enterprise Asset Inventory",
+        "Description":  "Use DHCP logging on all DHCP servers or Internet Protocol (IP) address management tools to update the enterprise’s asset inventory. Review and use logs to update the enterprise’s asset inventory weekly, or more frequently.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG1.5",
+        "ControlNumber":  "1",
+        "SafeguardNumber":  "5",
+        "Title":  "Use a Passive Asset Discovery Tool",
+        "Description":  "Use a passive discovery tool to identify assets connected to the enterprise’s network. Review and use scans to update the enterprise’s asset inventory at least weekly, or more frequently.",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG2.1",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Software Inventory",
+        "Description":  "Establish and maintain a detailed inventory of all licensed software installed on enterprise assets. The software inventory must document the title, publisher, initial install/use date, and business purpose for each entry; where appropriate, include the Uniform Resource Locator (URL), app store(s), version(s), deployment mechanism, decommission date, and number of licenses. Review and update the software inventory bi-annually, or more frequently.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG2.2",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "2",
+        "Title":  "Ensure Authorized Software is Currently Supported",
+        "Description":  "Ensure that only currently supported software is designated as authorized in the software inventory for enterprise assets. If software is unsupported, yet necessary for the fulfillment of the enterprise’s mission, document an exception detailing mitigating controls and residual risk acceptance. For any unsupported software without an exception documentation, designate as unauthorized. Review the software list to verify software support at least monthly, or more frequently.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG2.3",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "3",
+        "Title":  "Address Unauthorized Software",
+        "Description":  "Ensure that unauthorized software is either removed from use on enterprise assets or receives a documented exception. Review monthly, or more frequently.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG2.4",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "4",
+        "Title":  "Utilize Automated Software Inventory Tools",
+        "Description":  "Utilize software inventory tools, when possible, throughout the enterprise to automate the discovery and documentation of installed software. ",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG2.5",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "5",
+        "Title":  "Allowlist Authorized Software",
+        "Description":  "Use technical controls, such as application allowlisting, to ensure that only authorized software can execute or be accessed. Reassess bi-annually, or more frequently.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG2.6",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "6",
+        "Title":  "Allowlist Authorized Libraries",
+        "Description":  "Use technical controls to ensure that only authorized software libraries, such as specific .dll, .ocx, and .so files, are allowed to load into a system process. Block unauthorized libraries from loading into a system process. Reassess bi-annually, or more frequently.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG2.7",
+        "ControlNumber":  "2",
+        "SafeguardNumber":  "7",
+        "Title":  "Allowlist Authorized Scripts",
+        "Description":  "Use technical controls, such as digital signatures and version control, to ensure that only authorized scripts, such as specific .ps1 and .py files, are allowed to execute. Block unauthorized scripts from executing. Reassess bi-annually, or more frequently.",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG3.1",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Data Management Process",
+        "Description":  "Establish and maintain a documented data management process. In the process, address data sensitivity, data owner, handling of data, data retention limits, and disposal requirements, based on sensitivity and retention standards for the enterprise. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG3.2",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain a Data Inventory",
+        "Description":  "Establish and maintain a data inventory based on the enterprise’s data management process. Inventory sensitive data, at a minimum. Review and update inventory annually, at a minimum, with a priority on sensitive data.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG3.3",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "3",
+        "Title":  "Configure Data Access Control Lists",
+        "Description":  "Configure data access control lists based on a user’s need to know. Apply data access control lists, also known as access permissions, to local and remote file systems, databases, and applications.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG3.4",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "4",
+        "Title":  "Enforce Data Retention",
+        "Description":  "Retain data according to the enterprise’s documented data management process. Data retention must include both minimum and maximum timelines.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG3.5",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "5",
+        "Title":  "Securely Dispose of Data",
+        "Description":  "Securely dispose of data as outlined in the enterprise’s documented data management process. Ensure the disposal process and method are commensurate with the data sensitivity.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG3.6",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "6",
+        "Title":  "Encrypt Data on End-User Devices",
+        "Description":  "Encrypt data on end-user devices containing sensitive data. Example implementations can include: Windows BitLocker®, Apple FileVault®, Linux® dm-crypt.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG3.7",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "7",
+        "Title":  "Establish and Maintain a Data Classification Scheme",
+        "Description":  "Establish and maintain an overall data classification scheme for the enterprise. Enterprises may use labels, such as “Sensitive,” “Confidential,” and “Public,” and classify their data according to those labels. Review and update the classification scheme annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG3.8",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "8",
+        "Title":  "Document Data Flows",
+        "Description":  "Document data flows. Data flow documentation includes service provider data flows and should be based on the enterprise’s data management process. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG3.9",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "9",
+        "Title":  "Encrypt Data on Removable Media",
+        "Description":  "Encrypt data on removable media.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG3.10",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "10",
+        "Title":  "Encrypt Sensitive Data in Transit",
+        "Description":  "Encrypt sensitive data in transit. Example implementations can include: Transport Layer Security (TLS) and Open Secure Shell (OpenSSH).",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG3.11",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "11",
+        "Title":  "Encrypt Sensitive Data At Rest",
+        "Description":  "Encrypt sensitive data at rest on servers, applications, and databases. Storage-layer encryption, also known as server-side encryption, meets the minimum requirement of this Safeguard. Additional encryption methods may include application-layer encryption, also known as client-side encryption, where access to the data storage device(s) does not permit access to the plain-text data.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG3.12",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "12",
+        "Title":  "Segment Data Processing and Storage Based on Sensitivity",
+        "Description":  "Segment data processing and storage based on the sensitivity of the data. Do not process sensitive data on enterprise assets intended for lower sensitivity data.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG3.13",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "13",
+        "Title":  "Deploy a Data Loss Prevention Solution",
+        "Description":  "Implement an automated tool, such as a host-based Data Loss Prevention (DLP) tool to identify all sensitive data stored, processed, or transmitted through enterprise assets, including those located onsite or at a remote service provider, and update the enterprise\u0027s data inventory.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG3.14",
+        "ControlNumber":  "3",
+        "SafeguardNumber":  "14",
+        "Title":  "Log Sensitive Data Access",
+        "Description":  "Log sensitive data access, including modification and disposal. ",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG4.1",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Secure Configuration Process",
+        "Description":  "Establish and maintain a documented secure configuration process for enterprise assets (end-user devices, including portable and mobile, non-computing/IoT devices, and servers) and software (operating systems and applications). Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG4.2",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain a Secure Configuration Process for Network Infrastructure",
+        "Description":  "Establish and maintain a documented secure configuration process for network devices. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG4.3",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "3",
+        "Title":  "Configure Automatic Session Locking on Enterprise Assets",
+        "Description":  "Configure automatic session locking on enterprise assets after a defined period of inactivity. For general purpose operating systems, the period must not exceed 15 minutes. For mobile end-user devices, the period must not exceed 2 minutes.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG4.4",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "4",
+        "Title":  "Implement and Manage a Firewall on Servers",
+        "Description":  "Implement and manage a firewall on servers, where supported. Example implementations include a virtual firewall, operating system firewall, or a third-party firewall agent.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG4.5",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "5",
+        "Title":  "Implement and Manage a Firewall on End-User Devices",
+        "Description":  "Implement and manage a host-based firewall or port-filtering tool on end-user devices, with a default-deny rule that drops all traffic except those services and ports that are explicitly allowed.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG4.6",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "6",
+        "Title":  "Securely Manage Enterprise Assets and Software",
+        "Description":  "Securely manage enterprise assets and software. Example implementations include managing configuration through version-controlled Infrastructure-as-Code (IaC) and accessing administrative interfaces over secure network protocols, such as Secure Shell (SSH) and Hypertext Transfer Protocol Secure (HTTPS). Do not use insecure management protocols, such as Telnet (Teletype Network) and HTTP, unless operationally essential.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG4.7",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "7",
+        "Title":  "Manage Default Accounts on Enterprise Assets and Software",
+        "Description":  "Manage default accounts on enterprise assets and software, such as root, administrator, and other pre-configured vendor accounts. Example implementations can include: disabling default accounts or making them unusable.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG4.8",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "8",
+        "Title":  "Uninstall or Disable Unnecessary Services on Enterprise Assets and Software",
+        "Description":  "Uninstall or disable unnecessary services on enterprise assets and software, such as an unused file sharing service, web application module, or service function.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG4.9",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "9",
+        "Title":  "Configure Trusted DNS Servers on Enterprise Assets",
+        "Description":  "Configure trusted DNS servers on network infrastructure. Example implementations include configuring network devices to use enterprise-controlled DNS servers and/or reputable externally accessible DNS servers. ",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG4.10",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "10",
+        "Title":  "Enforce Automatic Device Lockout on Portable End-User Devices",
+        "Description":  "Enforce automatic device lockout following a predetermined threshold of local failed authentication attempts on portable end-user devices, where supported. For laptops, do not allow more than 20 failed authentication attempts; for tablets and smartphones, no more than 10 failed authentication attempts. Example implementations include Microsoft® InTune Device Lock and Apple® Configuration Profile maxFailedAttempts.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG4.11",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "11",
+        "Title":  "Enforce Remote Wipe Capability on Portable End-User Devices",
+        "Description":  "Remotely wipe enterprise data from enterprise-owned portable end-user devices when deemed appropriate such as lost or stolen devices, or when an individual no longer supports the enterprise.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG4.12",
+        "ControlNumber":  "4",
+        "SafeguardNumber":  "12",
+        "Title":  "Separate Enterprise Workspaces on Mobile End-User Devices",
+        "Description":  "Ensure separate enterprise workspaces are used on mobile end-user devices, where supported. Example implementations include using an Apple® Configuration Profile or Android™ Work Profile to separate enterprise applications and data from personal applications and data.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG5.1",
+        "ControlNumber":  "5",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain an Inventory of Accounts",
+        "Description":  "Establish and maintain an inventory of all accounts managed in the enterprise. The inventory must at a minimum include user, administrator, and service accounts. The inventory, at a minimum, should contain the person’s name, username, start/stop dates, and department. Validate that all active accounts are authorized, on a recurring schedule at a minimum quarterly, or more frequently.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG5.2",
+        "ControlNumber":  "5",
+        "SafeguardNumber":  "2",
+        "Title":  "Use Unique Passwords",
+        "Description":  "Use unique passwords for all enterprise assets. Best practice implementation includes, at a minimum, an 8-character password for accounts using Multi-Factor Authentication (MFA) and a 14-character password for accounts not using MFA. ",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG5.3",
+        "ControlNumber":  "5",
+        "SafeguardNumber":  "3",
+        "Title":  "Disable Dormant Accounts",
+        "Description":  "Delete or disable any dormant accounts after a period of 45 days of inactivity, where supported.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG5.4",
+        "ControlNumber":  "5",
+        "SafeguardNumber":  "4",
+        "Title":  "Restrict Administrator Privileges to Dedicated Administrator Accounts",
+        "Description":  "Restrict administrator privileges to dedicated administrator accounts on enterprise assets. Conduct general computing activities, such as internet browsing, email, and productivity suite use, from the user’s primary, non-privileged account.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG5.5",
+        "ControlNumber":  "5",
+        "SafeguardNumber":  "5",
+        "Title":  "Establish and Maintain an Inventory of Service Accounts",
+        "Description":  "Establish and maintain an inventory of service accounts. The inventory, at a minimum, must contain department owner, review date, and purpose. Perform service account reviews to validate that all active accounts are authorized, on a recurring schedule at a minimum quarterly, or more frequently.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG5.6",
+        "ControlNumber":  "5",
+        "SafeguardNumber":  "6",
+        "Title":  "Centralize Account Management",
+        "Description":  "Centralize account management through a directory or identity service.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG6.1",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish an Access Granting Process",
+        "Description":  "Establish and follow a documented process, preferably automated, for granting access to enterprise assets upon new hire or role change of a user.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG6.2",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish an Access Revoking Process",
+        "Description":  "Establish and follow a process, preferably automated, for revoking access to enterprise assets, through disabling accounts immediately upon termination, rights revocation, or role change of a user. Disabling accounts, instead of deleting accounts, may be necessary to preserve audit trails.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG6.3",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "3",
+        "Title":  "Require MFA for Externally-Exposed Applications",
+        "Description":  "Require all externally-exposed enterprise or third-party applications to enforce MFA, where supported. Enforcing MFA through a directory service or SSO provider is a satisfactory implementation of this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG6.4",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "4",
+        "Title":  "Require MFA for Remote Network Access",
+        "Description":  "Require MFA for remote network access.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG6.5",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "5",
+        "Title":  "Require MFA for Administrative Access",
+        "Description":  "Require MFA for all administrative access accounts, where supported, on all enterprise assets, whether managed on-site or through a service provider.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG6.6",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "6",
+        "Title":  "Establish and Maintain an Inventory of Authentication and Authorization Systems",
+        "Description":  "Establish and maintain an inventory of the enterprise’s authentication and authorization systems, including those hosted on-site or at a remote service provider. Review and update the inventory, at a minimum, annually, or more frequently.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG6.7",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "7",
+        "Title":  "Centralize Access Control",
+        "Description":  "Centralize access control for all enterprise assets through a directory service or SSO provider, where supported.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG6.8",
+        "ControlNumber":  "6",
+        "SafeguardNumber":  "8",
+        "Title":  "Define and Maintain Role-Based Access Control",
+        "Description":  "Define and maintain role-based access control, through determining and documenting the access rights necessary for each role within the enterprise to successfully carry out its assigned duties. Perform access control reviews of enterprise assets to validate that all privileges are authorized, on a recurring schedule at a minimum annually, or more frequently.",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG7.1",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Vulnerability Management Process",
+        "Description":  "Establish and maintain a documented vulnerability management process for enterprise assets. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG7.2",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain a Remediation Process",
+        "Description":  "Establish and maintain a risk-based remediation strategy documented in a remediation process, with monthly, or more frequent, reviews.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG7.3",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "3",
+        "Title":  "Perform Automated Operating System Patch Management",
+        "Description":  "Perform operating system updates on enterprise assets through automated patch management on a monthly, or more frequent, basis.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG7.4",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "4",
+        "Title":  "Perform Automated Application Patch Management",
+        "Description":  "Perform application updates on enterprise assets through automated patch management on a monthly, or more frequent, basis.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG7.5",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "5",
+        "Title":  "Perform Automated Vulnerability Scans of Internal Enterprise Assets",
+        "Description":  "Perform automated vulnerability scans of internal enterprise assets on a quarterly, or more frequent, basis. Conduct both authenticated and unauthenticated scans.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG7.6",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "6",
+        "Title":  "Perform Automated Vulnerability Scans of Externally-Exposed Enterprise Assets",
+        "Description":  "Perform automated vulnerability scans of externally-exposed enterprise assets. Perform scans on a monthly, or more frequent, basis. ",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG7.7",
+        "ControlNumber":  "7",
+        "SafeguardNumber":  "7",
+        "Title":  "Remediate Detected Vulnerabilities",
+        "Description":  "Remediate detected vulnerabilities in software through processes and tooling on a monthly, or more frequent, basis, based on the remediation process.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG8.1",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain an Audit Log Management Process",
+        "Description":  "Establish and maintain a documented audit log management process that defines the enterprise’s logging requirements. At a minimum, address the collection, review, and retention of audit logs for enterprise assets. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG8.2",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "2",
+        "Title":  "Collect Audit Logs",
+        "Description":  "Collect audit logs. Ensure that logging, per the enterprise’s audit log management process, has been enabled across enterprise assets.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG8.3",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "3",
+        "Title":  "Ensure Adequate Audit Log Storage",
+        "Description":  "Ensure that logging destinations maintain adequate storage to comply with the enterprise’s audit log management process.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG8.4",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "4",
+        "Title":  "Standardize Time Synchronization",
+        "Description":  "Standardize time synchronization. Configure at least two synchronized time sources across enterprise assets, where supported.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG8.5",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "5",
+        "Title":  "Collect Detailed Audit Logs",
+        "Description":  "Configure detailed audit logging for enterprise assets containing sensitive data. Include event source, date, username, timestamp, source addresses, destination addresses, and other useful elements that could assist in a forensic investigation.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG8.6",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "6",
+        "Title":  "Collect DNS Query Audit Logs",
+        "Description":  "Collect DNS query audit logs on enterprise assets, where appropriate and supported.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG8.7",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "7",
+        "Title":  "Collect URL Request Audit Logs",
+        "Description":  "Collect URL request audit logs on enterprise assets, where appropriate and supported.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG8.8",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "8",
+        "Title":  "Collect Command-Line Audit Logs",
+        "Description":  "Collect command-line audit logs. Example implementations include collecting audit logs from PowerShell®, BASH™, and remote administrative terminals.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG8.9",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "9",
+        "Title":  "Centralize Audit Logs",
+        "Description":  "Centralize, to the extent possible, audit log collection and retention across enterprise assets in accordance with the documented audit log management process. Example implementations primarily include leveraging a SIEM tool to centralize multiple log sources.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG8.10",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "10",
+        "Title":  "Retain Audit Logs",
+        "Description":  "Retain audit logs across enterprise assets for a minimum of 90 days.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG8.11",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "11",
+        "Title":  "Conduct Audit Log Reviews",
+        "Description":  "Conduct reviews of audit logs to detect anomalies or abnormal events that could indicate a potential threat. Conduct reviews on a weekly, or more frequent, basis.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG8.12",
+        "ControlNumber":  "8",
+        "SafeguardNumber":  "12",
+        "Title":  "Collect Service Provider Logs",
+        "Description":  "Collect service provider logs, where supported. Example implementations include collecting authentication and authorization events, data creation and disposal events, and user management events.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG9.1",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "1",
+        "Title":  "Ensure Use of Only Fully Supported Browsers and Email Clients",
+        "Description":  "Ensure only fully supported browsers and email clients are allowed to execute in the enterprise, only using the latest version of browsers and email clients provided through the vendor.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG9.2",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "2",
+        "Title":  "Use DNS Filtering Services",
+        "Description":  "Use DNS filtering services on all end-user devices, including remote and on-premises assets, to block access to known malicious domains.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG9.3",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "3",
+        "Title":  "Maintain and Enforce Network-Based URL Filters",
+        "Description":  "Enforce and update network-based URL filters to limit an enterprise asset from connecting to potentially malicious or unapproved websites. Example implementations include category-based filtering, reputation-based filtering, or through the use of block lists. Enforce filters for all enterprise assets.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG9.4",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "4",
+        "Title":  "Restrict Unnecessary or Unauthorized Browser and Email Client Extensions",
+        "Description":  "Restrict, either through uninstalling or disabling, any unauthorized or unnecessary browser or email client plugins, extensions, and add-on applications.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG9.5",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "5",
+        "Title":  "Implement DMARC",
+        "Description":  "To lower the chance of spoofed or modified emails from valid domains, implement DMARC policy and verification, starting with implementing the Sender Policy Framework (SPF) and the DomainKeys Identified Mail (DKIM) standards.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG9.6",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "6",
+        "Title":  "Block Unnecessary File Types",
+        "Description":  "Block unnecessary file types attempting to enter the enterprise’s email gateway.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG9.7",
+        "ControlNumber":  "9",
+        "SafeguardNumber":  "7",
+        "Title":  "Deploy and Maintain Email Server Anti-Malware Protections",
+        "Description":  "Deploy and maintain email server anti-malware protections, such as attachment scanning and/or sandboxing.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG10.1",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "1",
+        "Title":  "Deploy and Maintain Anti-Malware Software",
+        "Description":  "Deploy and maintain anti-malware software on all enterprise assets.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG10.2",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "2",
+        "Title":  "Configure Automatic Anti-Malware Signature Updates",
+        "Description":  "Configure automatic updates for anti-malware signature files on all enterprise assets.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG10.3",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "3",
+        "Title":  "Disable Autorun and Autoplay for Removable Media",
+        "Description":  "Disable autorun and autoplay auto-execute functionality for removable media.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG10.4",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "4",
+        "Title":  "Configure Automatic Anti-Malware Scanning of Removable Media",
+        "Description":  "Configure anti-malware software to automatically scan removable media.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG10.5",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "5",
+        "Title":  "Enable Anti-Exploitation Features",
+        "Description":  "Enable anti-exploitation features on enterprise assets and software, where possible, such as Microsoft® Data Execution Prevention (DEP), Windows® Defender Exploit Guard (WDEG), or Apple® System Integrity Protection (SIP) and Gatekeeper™.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG10.6",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "6",
+        "Title":  "Centrally Manage Anti-Malware Software",
+        "Description":  "Centrally manage anti-malware software.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG10.7",
+        "ControlNumber":  "10",
+        "SafeguardNumber":  "7",
+        "Title":  "Use Behavior-Based Anti-Malware Software",
+        "Description":  "Use behavior-based anti-malware software.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG11.1",
+        "ControlNumber":  "11",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Data Recovery Process",
+        "Description":  "Establish and maintain a documented data recovery process that includes detailed backup procedures. In the process, address the scope of data recovery activities, recovery prioritization, and the security of backup data. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG11.2",
+        "ControlNumber":  "11",
+        "SafeguardNumber":  "2",
+        "Title":  "Perform Automated Backups",
+        "Description":  "Perform automated backups of in-scope enterprise assets. Run backups weekly, or more frequently, based on the sensitivity of the data.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG11.3",
+        "ControlNumber":  "11",
+        "SafeguardNumber":  "3",
+        "Title":  "Protect Recovery Data",
+        "Description":  "Protect recovery data with equivalent controls to the original data. Reference encryption or data separation, based on requirements.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG11.4",
+        "ControlNumber":  "11",
+        "SafeguardNumber":  "4",
+        "Title":  "Establish and Maintain an Isolated Instance of Recovery Data",
+        "Description":  "Establish and maintain an isolated instance of recovery data. Example implementations include, version controlling backup destinations through offline, cloud, or off-site systems or services.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG11.5",
+        "ControlNumber":  "11",
+        "SafeguardNumber":  "5",
+        "Title":  "Test Data Recovery",
+        "Description":  "Test backup recovery quarterly, or more frequently, for a sampling of in-scope enterprise assets.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG12.1",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "1",
+        "Title":  "Ensure Network Infrastructure is Up-to-Date",
+        "Description":  "Ensure network infrastructure is kept up-to-date. Example implementations include running the latest stable release of software and/or using currently supported network as a service (NaaS) offerings. Review software versions monthly, or more frequently, to verify software support.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG12.2",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain a Secure Network Architecture",
+        "Description":  "Design and maintain a secure network architecture. A secure network architecture must address segmentation, least privilege, and availability, at a minimum. Example implementations may include documentation, policy, and design components.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG12.3",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "3",
+        "Title":  "Securely Manage Network Infrastructure",
+        "Description":  "Securely manage network infrastructure. Example implementations include version-controlled Infrastructure-as-Code (IaC), and the use of secure network protocols, such as SSH and HTTPS. ",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG12.4",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "4",
+        "Title":  "Establish and Maintain Architecture Diagram(s)",
+        "Description":  "Establish and maintain architecture diagram(s) and/or other network system documentation. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG12.5",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "5",
+        "Title":  "Centralize Network Authentication, Authorization, and Auditing (AAA)",
+        "Description":  "Centralize network AAA.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG12.6",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "6",
+        "Title":  "Use of Secure Network Management and Communication Protocols",
+        "Description":  "Adopt secure network management protocols (e.g., 802.1X) and secure communication protocols (e.g., Wi-Fi Protected Access 2 (WPA2) Enterprise or more secure alternatives).",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG12.7",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "7",
+        "Title":  "Ensure Remote Devices Utilize a VPN and are Connecting to an Enterprise’s AAA Infrastructure",
+        "Description":  "Require users to authenticate to enterprise-managed VPN and authentication services prior to accessing enterprise resources on end-user devices.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG12.8",
+        "ControlNumber":  "12",
+        "SafeguardNumber":  "8",
+        "Title":  "Establish and Maintain Dedicated Computing Resources for All Administrative Work",
+        "Description":  "Establish and maintain dedicated computing resources, either physically or logically separated, for all administrative tasks or tasks requiring administrative access. The computing resources should be segmented from the enterprise\u0027s primary network and not be allowed internet access.",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    },
+    {
+        "ID":  "SG13.1",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "1",
+        "Title":  "Centralize Security Event Alerting",
+        "Description":  "Centralize security event alerting across enterprise assets for log correlation and analysis. Best practice implementation requires the use of a SIEM, which includes vendor-defined event correlation alerts. A log analytics platform configured with security-relevant correlation alerts also satisfies this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG13.2",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "2",
+        "Title":  "Deploy a Host-Based Intrusion Detection Solution",
+        "Description":  "Deploy a host-based intrusion detection solution on enterprise assets, where appropriate and/or supported.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG13.3",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "3",
+        "Title":  "Deploy a Network Intrusion Detection Solution",
+        "Description":  "Deploy a network intrusion detection solution on enterprise assets, where appropriate. Example implementations include the use of a Network Intrusion Detection System (NIDS) or equivalent cloud service provider (CSP) service.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG13.4",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "4",
+        "Title":  "Perform Traffic Filtering Between Network Segments",
+        "Description":  "Perform traffic filtering between network segments, where appropriate.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG13.5",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "5",
+        "Title":  "Manage Access Control for Remote Assets",
+        "Description":  "Manage access control for assets remotely connecting to enterprise resources. Determine amount of access to enterprise resources based on: up-to-date anti-malware software installed, configuration compliance with the enterprise’s secure configuration process, and ensuring the operating system and applications are up-to-date.  ",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG13.6",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "6",
+        "Title":  "Collect Network Traffic Flow Logs",
+        "Description":  "Collect network traffic flow logs and/or network traffic to review and alert upon from network devices.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG13.7",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "7",
+        "Title":  "Deploy a Host-Based Intrusion Prevention Solution",
+        "Description":  "Deploy a host-based intrusion prevention solution on enterprise assets, where appropriate and/or supported. Example implementations include use of an Endpoint Detection and Response (EDR) client or host-based IPS agent.",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    },
+    {
+        "ID":  "SG13.8",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "8",
+        "Title":  "Deploy a Network Intrusion Prevention Solutions",
+        "Description":  "Deploy a network intrusion prevention solution, where appropriate. Example implementations include the use of a Network Intrusion Prevention System (NIPS) or equivalent CSP service.",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    },
+    {
+        "ID":  "SG13.9",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "9",
+        "Title":  "Deploy Port-Level Access Control",
+        "Description":  "Deploy port-level access control. Port-level access control utilizes 802.1x, or similar network access control protocols, such as certificates, and may incorporate user and/or device authentication.",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    },
+    {
+        "ID":  "SG13.10",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "10",
+        "Title":  "Perform Application Layer Filtering",
+        "Description":  "Perform application layer filtering. Example implementations include a filtering proxy, application layer firewall, or gateway.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG13.11",
+        "ControlNumber":  "13",
+        "SafeguardNumber":  "11",
+        "Title":  "Tune Security Event Alerting Thresholds",
+        "Description":  "Tune security event alerting thresholds monthly, or more frequently.",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    },
+    {
+        "ID":  "SG14.1",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Security Awareness Program",
+        "Description":  "Establish and maintain a security awareness program. The purpose of a security awareness program is to educate the enterprise’s workforce on how to interact with enterprise assets and data in a secure manner. Conduct training at hire and, at a minimum, annually. Review and update content annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG14.2",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "2",
+        "Title":  "Train Workforce Members to Recognize Social Engineering Attacks",
+        "Description":  "Train workforce members to recognize social engineering attacks, such as phishing, business email compromise (BEC), pretexting, and tailgating. ",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG14.3",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "3",
+        "Title":  "Train Workforce Members on Authentication Best Practices",
+        "Description":  "Train workforce members on authentication best practices. Example topics include MFA, password composition, and credential management.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG14.4",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "4",
+        "Title":  "Train Workforce on Data Handling Best Practices",
+        "Description":  "Train workforce members on how to identify and properly store, transfer, archive, and destroy sensitive data. This also includes training workforce members on clear screen and desk best practices, such as locking their screen when they step away from their enterprise asset, erasing physical and virtual whiteboards at the end of meetings, and storing data and assets securely.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG14.5",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "5",
+        "Title":  "Train Workforce Members on Causes of Unintentional Data Exposure",
+        "Description":  "Train workforce members to be aware of causes for unintentional data exposure. Example topics include mis-delivery of sensitive data, losing a portable end-user device, or publishing data to unintended audiences.",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG14.6",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "6",
+        "Title":  "Train Workforce Members on Recognizing and Reporting Security Incidents",
+        "Description":  "Train workforce members to be able to recognize a potential incident and be able to report such an incident. ",
+        "IGNumber":  "1",
+        "TierNumber":  "3"
+    },
+    {
+        "ID":  "SG14.7",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "7",
+        "Title":  "Train Workforce on How to Identify and Report if Their Enterprise Assets are Missing Security Updates",
+        "Description":  "Train workforce to understand how to verify and report out-of-date software patches or any failures in automated processes and tools. Part of this training should include notifying IT personnel of any failures in automated processes and tools.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG14.8",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "8",
+        "Title":  "Train Workforce on the Dangers of Connecting to and Transmitting Enterprise Data Over Insecure Networks",
+        "Description":  "Train workforce members on the dangers of connecting to, and transmitting data over, insecure networks for enterprise activities. If the enterprise has remote workers, training must include guidance to ensure that all users securely configure their home network infrastructure.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG14.9",
+        "ControlNumber":  "14",
+        "SafeguardNumber":  "9",
+        "Title":  "Conduct Role-Specific Security Awareness and Skills Training",
+        "Description":  "Conduct role-specific security awareness and skills training. Example implementations include secure system administration courses for IT professionals, OWASP® Top 10 vulnerability awareness and prevention training for web application developers, and advanced social engineering awareness training for high-profile roles.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG15.1",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain an Inventory of Service Providers",
+        "Description":  "Establish and maintain an inventory of service providers. The inventory is to list all known service providers, include classification(s), and designate an enterprise contact for each service provider. Review and update the inventory annually, or when significant enterprise changes occur that could impact this Safeguard. ",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG15.2",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain a Service Provider Management Policy",
+        "Description":  "Establish and maintain a service provider management policy. Ensure the policy addresses the classification, inventory, assessment, monitoring, and decommissioning of service providers. Review and update the policy annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG15.3",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "3",
+        "Title":  "Classify Service Providers",
+        "Description":  "Classify service providers. Classification consideration may include one or more characteristics, such as data sensitivity, data volume, availability requirements, applicable regulations, inherent risk, and mitigated risk. Update and review classifications annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG15.4",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "4",
+        "Title":  "Ensure Service Provider Contracts Include Security Requirements",
+        "Description":  "Ensure service provider contracts include security requirements. Example requirements may include minimum security program requirements, security incident and/or data breach notification and response, data encryption requirements, and data disposal commitments. These security requirements must be consistent with the enterprise’s service provider management policy. Review service provider contracts annually to ensure contracts are not missing security requirements.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG15.5",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "5",
+        "Title":  "Assess Service Providers",
+        "Description":  "Assess service providers consistent with the enterprise’s service provider management policy. Assessment scope may vary based on classification(s), and may include review of standardized assessment reports, such as Service Organization Control 2 (SOC 2) and Payment Card Industry (PCI) Attestation of Compliance (AoC), customized questionnaires, or other appropriately rigorous processes. Reassess service providers annually, at a minimum, or with new and renewed contracts.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG15.6",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "6",
+        "Title":  "Monitor Service Providers",
+        "Description":  "Monitor service providers consistent with the enterprise’s service provider management policy. Monitoring may include periodic reassessment of service provider compliance, monitoring service provider release notes, and dark web monitoring.",
+        "IGNumber":  "3",
+        "TierNumber":  "8"
+    },
+    {
+        "ID":  "SG15.7",
+        "ControlNumber":  "15",
+        "SafeguardNumber":  "7",
+        "Title":  "Securely Decommission Service Providers",
+        "Description":  "Securely decommission service providers. Example considerations include user and service account deactivation, termination of data flows, and secure disposal of enterprise data within service provider systems. ",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    },
+    {
+        "ID":  "SG16.1",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Secure Application Development Process",
+        "Description":  "Establish and maintain a secure application development process. In the process, address such items as: secure application design standards, secure coding practices, developer training, vulnerability management, security of third-party code, and application security testing procedures. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG16.2",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain a Process to Accept and Address Software Vulnerabilities",
+        "Description":  "Establish and maintain a process to accept and address reports of software vulnerabilities, including providing a means for external entities to report. The process is to include such items as: a vulnerability handling policy that identifies reporting process, responsible party for handling vulnerability reports, and a process for intake, assignment, remediation, and remediation testing. As part of the process, use a vulnerability tracking system that includes severity ratings and metrics for measuring timing for identification, analysis, and remediation of vulnerabilities. Review and update documentation annually, or when significant enterprise changes occur that could impact this Safeguard.\n\nThird-party application developers need to consider this an externally-facing policy that helps to set expectations for outside stakeholders.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG16.3",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "3",
+        "Title":  "Perform Root Cause Analysis on Security Vulnerabilities",
+        "Description":  "Perform root cause analysis on security vulnerabilities. When reviewing vulnerabilities, root cause analysis is the task of evaluating underlying issues that create vulnerabilities in code, and allows development teams to move beyond just fixing individual vulnerabilities as they arise.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG16.4",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "4",
+        "Title":  "Establish and Manage an Inventory of Third-Party Software Components",
+        "Description":  "Establish and manage an updated inventory of third-party components used in development, often referred to as a “bill of materials,” as well as components slated for future use. This inventory is to include any risks that each third-party component could pose. Evaluate the list at least monthly to identify any changes or updates to these components, and validate that the component is still supported. ",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.5",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "5",
+        "Title":  "Use Up-to-Date and Trusted Third-Party Software Components",
+        "Description":  "Use up-to-date and trusted third-party software components. When possible, choose established and proven frameworks and libraries that provide adequate security. Acquire these components from trusted sources or evaluate the software for vulnerabilities before use.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.6",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "6",
+        "Title":  "Establish and Maintain a Severity Rating System and Process for Application Vulnerabilities",
+        "Description":  "Establish and maintain a severity rating system and process for application vulnerabilities that facilitates prioritizing the order in which discovered vulnerabilities are fixed. This process includes setting a minimum level of security acceptability for releasing code or applications. Severity ratings bring a systematic way of triaging vulnerabilities that improves risk management and helps ensure the most severe bugs are fixed first. Review and update the system and process annually.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG16.7",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "7",
+        "Title":  "Use Standard Hardening Configuration Templates for Application Infrastructure",
+        "Description":  "Use standard, industry-recommended hardening configuration templates for application infrastructure components. This includes underlying servers, databases, and web servers, and applies to cloud containers, Platform as a Service (PaaS) components, and SaaS components. Do not allow in-house developed software to weaken configuration hardening.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.8",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "8",
+        "Title":  "Separate Production and Non-Production Systems",
+        "Description":  "Maintain separate environments for production and non-production systems.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.9",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "9",
+        "Title":  "Train Developers in Application Security Concepts and Secure Coding",
+        "Description":  "Ensure that all software development personnel receive training in writing secure code for their specific development environment and responsibilities. Training can include general security principles and application security standard practices. Conduct training at least annually and design in a way to promote security within the development team, and build a culture of security among the developers.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.10",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "10",
+        "Title":  "Apply Secure Design Principles in Application Architectures",
+        "Description":  "Apply secure design principles in application architectures. Secure design principles include the concept of least privilege and enforcing mediation to validate every operation that the user makes, promoting the concept of \"never trust user input.\" Examples include ensuring that explicit error checking is performed and documented for all input, including for size, data type, and acceptable ranges or formats. Secure design also means minimizing the application infrastructure attack surface, such as turning off unprotected ports and services, removing unnecessary programs and files, and renaming or removing default accounts.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.11",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "11",
+        "Title":  "Leverage Vetted Modules or Services for Application Security Components",
+        "Description":  "Leverage vetted modules or services for application security components, such as identity management, encryption, auditing, and logging. Using platform features in critical security functions will reduce developers’ workload and minimize the likelihood of design or implementation errors. Modern operating systems provide effective mechanisms for identification, authentication, and authorization and make those mechanisms available to applications. Use only standardized, currently accepted, and extensively reviewed encryption algorithms. Operating systems also provide mechanisms to create and maintain secure audit logs.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG16.12",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "12",
+        "Title":  "Implement Code-Level Security Checks",
+        "Description":  "Apply static and dynamic analysis tools within the application life cycle to verify that secure coding practices are being followed.",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG16.13",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "13",
+        "Title":  "Conduct Application Penetration Testing",
+        "Description":  "Conduct application penetration testing. For critical applications, authenticated penetration testing is better suited to finding business logic vulnerabilities than code scanning and automated security testing. Penetration testing relies on the skill of the tester to manually manipulate an application as an authenticated and unauthenticated user. ",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG16.14",
+        "ControlNumber":  "16",
+        "SafeguardNumber":  "14",
+        "Title":  "Conduct Threat Modeling",
+        "Description":  "Conduct threat modeling. Threat modeling is the process of identifying and addressing application security design flaws within a design, before code is created. It is conducted through specially trained individuals who evaluate the application design and gauge security risks for each entry point and access level. The goal is to map out the application, architecture, and infrastructure in a structured way to understand its weaknesses.",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG17.1",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "1",
+        "Title":  "Designate Personnel to Manage Incident Handling",
+        "Description":  "Designate one key person, and at least one backup, who will manage the enterprise’s incident handling process. Management personnel are responsible for the coordination and documentation of incident response and recovery efforts and can consist of employees internal to the enterprise, service providers, or a hybrid approach. If using a service provider, designate at least one person internal to the enterprise to oversee any third-party work. Review annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "4"
+    },
+    {
+        "ID":  "SG17.2",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "2",
+        "Title":  "Establish and Maintain Contact Information for Reporting Security Incidents",
+        "Description":  "Establish and maintain contact information for parties that need to be informed of security incidents. Contacts may include internal staff, service providers, law enforcement, cyber insurance providers, relevant government agencies, Information Sharing and Analysis Center (ISAC) partners, or other stakeholders. Verify contacts annually to ensure that information is up-to-date.",
+        "IGNumber":  "1",
+        "TierNumber":  "2"
+    },
+    {
+        "ID":  "SG17.3",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "3",
+        "Title":  "Establish and Maintain an Enterprise Process for Reporting Incidents",
+        "Description":  "Establish and maintain a documented enterprise process for the workforce to report security incidents. The process includes reporting timeframe, personnel to report to, mechanism for reporting, and the minimum information to be reported. Ensure the process is publicly available to all of the workforce. Review annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "1"
+    },
+    {
+        "ID":  "SG17.4",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "4",
+        "Title":  "Establish and Maintain an Incident Response Process",
+        "Description":  "Establish and maintain a documented incident response process that addresses roles and responsibilities, compliance requirements, and a communication plan. Review annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG17.5",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "5",
+        "Title":  "Assign Key Roles and Responsibilities",
+        "Description":  "Assign key roles and responsibilities for incident response, including staff from legal, IT, information security, facilities, public relations, human resources, incident responders, analysts, and relevant third parties. Review annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG17.6",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "6",
+        "Title":  "Define Mechanisms for Communicating During Incident Response",
+        "Description":  "Determine which primary and secondary mechanisms will be used to communicate and report during a security incident. Mechanisms can include phone calls, emails, secure chat, or notification letters. Keep in mind that certain mechanisms, such as emails, can be affected during a security incident. Review annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG17.7",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "7",
+        "Title":  "Conduct Routine Incident Response Exercises",
+        "Description":  "Plan and conduct routine incident response exercises and scenarios for key personnel involved in the incident response process to prepare for responding to real-world incidents. Exercises need to test communication channels, decision making, and workflows. Conduct testing on an annual basis, at a minimum.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG17.8",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "8",
+        "Title":  "Conduct Post-Incident Reviews",
+        "Description":  "Conduct post-incident reviews. Post-incident reviews help prevent incident recurrence through identifying lessons learned and follow-up action.",
+        "IGNumber":  "2",
+        "TierNumber":  "7"
+    },
+    {
+        "ID":  "SG17.9",
+        "ControlNumber":  "17",
+        "SafeguardNumber":  "9",
+        "Title":  "Establish and Maintain Security Incident Thresholds",
+        "Description":  "Establish and maintain security incident thresholds, including, at a minimum, differentiating between an incident and an event. Examples can include: abnormal activity, security vulnerability, security weakness, data breach, privacy incident, etc. Review annually, or when significant enterprise changes occur that could impact this Safeguard.",
+        "IGNumber":  "1",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG18.1",
+        "ControlNumber":  "18",
+        "SafeguardNumber":  "1",
+        "Title":  "Establish and Maintain a Penetration Testing Program",
+        "Description":  "Establish and maintain a penetration testing program appropriate to the size, complexity, industry, and maturity of the enterprise. Penetration testing program characteristics include scope, such as network, web application, Application Programming Interface (API), hosted services, and physical premise controls; frequency; limitations, such as acceptable hours, and excluded attack types; point of contact information; remediation, such as how findings will be routed internally; and retrospective requirements.",
+        "IGNumber":  "2",
+        "TierNumber":  "5"
+    },
+    {
+        "ID":  "SG18.2",
+        "ControlNumber":  "18",
+        "SafeguardNumber":  "2",
+        "Title":  "Perform Periodic External Penetration Tests",
+        "Description":  "Perform periodic external penetration tests based on program requirements, no less than annually. External penetration testing must include enterprise and environmental reconnaissance to detect exploitable information. Penetration testing requires specialized skills and experience and must be conducted through a qualified party. The testing may be clear box or opaque box.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG18.3",
+        "ControlNumber":  "18",
+        "SafeguardNumber":  "3",
+        "Title":  "Remediate Penetration Test Findings",
+        "Description":  "Remediate penetration test findings based on the enterprise’s documented vulnerability remediation process. This should include determining a timeline and level of effort based on the impact and prioritization of each identified finding.",
+        "IGNumber":  "2",
+        "TierNumber":  "6"
+    },
+    {
+        "ID":  "SG18.4",
+        "ControlNumber":  "18",
+        "SafeguardNumber":  "4",
+        "Title":  "Validate Security Measures",
+        "Description":  "Validate security measures after each penetration test. If deemed necessary, modify rulesets and capabilities to detect the techniques used during testing.",
+        "IGNumber":  "3",
+        "TierNumber":  "10"
+    },
+    {
+        "ID":  "SG18.5",
+        "ControlNumber":  "18",
+        "SafeguardNumber":  "5",
+        "Title":  "Perform Periodic Internal Penetration Tests",
+        "Description":  "Perform periodic internal penetration tests based on program requirements, no less than annually. The testing may be clear box or opaque box.",
+        "IGNumber":  "3",
+        "TierNumber":  "9"
+    }
 ]
