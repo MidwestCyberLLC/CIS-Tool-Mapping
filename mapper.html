@@ -1,0 +1,710 @@
+<html>
+    <head>    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        /* Use Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Smooth transition for arrow rotation */
+        .arrow-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+        /* Custom styling for checkbox dropdowns */
+        .filter-dropdown {
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        /* Style for the filter buttons */
+        .filter-btn {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold text-blue-800">CIS Controls Tool Mapper</h1>
+            <p class="text-lg text-gray-600 mt-1">Browse tools and their associated CIS Safeguards.</p>
+        </header>
+
+        <nav class="mb-6 flex space-x-2">
+            <button id="btnViewByControl" class="tab-btn active-tab">
+                View by Control
+            </button>
+            <button id="btnViewByTool" class="tab-btn">
+                View by Tool
+            </button>
+        </nav>
+
+        <div class="mb-6">
+            <input type="search" id="searchInput" placeholder="Search safeguards (e.g., 5.1), controls (e.g., control 5), tools, descriptions..." class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" aria-label="Search">
+        </div>
+        
+        <!-- UPDATED MULTI-SELECT FILTER CONTROLS -->
+        <div class="mb-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <!-- IG Filter Dropdown -->
+            <div class="flex-1 relative">
+                <label for="igFilterBtn" class="block text-sm font-medium text-gray-700 mb-1">Filter by Implementation Group (IG)</label>
+                <button id="igFilterBtn" class="filter-btn w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span id="igFilterText" class="truncate">All IG Levels</span>
+                    <svg class="h-5 w-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="igFilterDropdown" class="filter-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    <div class="p-3 space-y-2">
+                        <label class="flex items-center space-x-2 font-normal text-gray-700">
+                            <input type="checkbox" class="ig-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="1">
+                            <span>IG 1</span>
+                        </label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700">
+                            <input type="checkbox" class="ig-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="2">
+                            <span>IG 2</span>
+                        </label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700">
+                            <input type="checkbox" class="ig-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="3">
+                            <span>IG 3</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Tier Filter Dropdown -->
+            <div class="flex-1 relative">
+                <label for="tierFilterBtn" class="block text-sm font-medium text-gray-700 mb-1">Filter by Tier</label>
+                <button id="tierFilterBtn" class="filter-btn w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-white text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <span id="tierFilterText" class="truncate">All Tiers</span>
+                    <svg class="h-5 w-5 text-gray-500 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.23 8.29a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div id="tierFilterDropdown" class="filter-dropdown hidden absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    <div class="p-3 space-y-2">
+                        <!-- Generate 10 tiers -->
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="1"><span>Tier 1</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="2"><span>Tier 2</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="3"><span>Tier 3</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="4"><span>Tier 4</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="5"><span>Tier 5</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="6"><span>Tier 6</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="7"><span>Tier 7</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="8"><span>Tier 8</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="9"><span>Tier 9</span></label>
+                        <label class="flex items-center space-x-2 font-normal text-gray-700"><input type="checkbox" class="tier-filter-cb h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" value="10"><span>Tier 10</span></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END NEW FILTER CONTROLS -->
+
+
+        <main>
+            <div id="loadingMessage" class="text-center p-8">
+                <p class="text-lg text-gray-600 animate-pulse">Loading data...</p>
+            </div>
+
+            <div id="controlsView" class="hidden"> </div>
+
+            <div id="toolsView" class="hidden">
+                </div>
+        </main>
+    </div>
+
+    <svg id="arrow-svg-template" class="h-5 w-5 text-gray-500 arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="display: none;">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+    </svg>
+
+    <script>
+        // --- DOM Elements ---
+        const controlsView = document.getElementById('controlsView');
+        const toolsView = document.getElementById('toolsView');
+        const loadingMessage = document.getElementById('loadingMessage');
+        const btnViewByControl = document.getElementById('btnViewByControl');
+        const btnViewByTool = document.getElementById('btnViewByTool');
+        const arrowTemplate = document.getElementById('arrow-svg-template');
+        
+        let searchInput; // Will be assigned in DOMContentLoaded
+        
+        // --- NEW Filter DOM Elements ---
+        let igFilterBtn, tierFilterBtn, igFilterDropdown, tierFilterDropdown;
+        let igFilterCheckboxes, tierFilterCheckboxes;
+        let igFilterText, tierFilterText;
+        // --- END NEW ---
+
+        // --- DATA & LOOKUP MAPS (will be populated from JSON) ---
+        let tools = [];
+        let safeguards = [];
+        let mapping = [];
+        let toolMap = new Map();
+        let safeguardMap = new Map();
+
+        // --- STYLING CLASSES ---
+        const tabClasses = 'px-4 py-2 rounded-md font-medium text-sm transition-all';
+        const activeTabClasses = 'bg-blue-700 text-white shadow';
+        const inactiveTabClasses = 'bg-white text-blue-700 hover:bg-blue-50';
+        
+        const cardClasses = 'bg-white shadow-sm rounded-lg mb-2';
+        const headerClasses = 'flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 rounded-t-lg';
+        const contentClasses = 'p-4 border-t border-gray-200 hidden'; // Hidden by default
+        const nestedContentClasses = 'pl-4 ' + contentClasses;
+        const finalContentClasses = 'pl-8 ' + contentClasses;
+
+        // --- UTILITY FUNCTIONS ---
+
+        /**
+         * Creates a clone of the arrow icon.
+         */
+        function getArrowIcon() {
+            return arrowTemplate.cloneNode(true);
+        }
+
+        /**
+         * Toggles the visibility of a collapsible section and rotates its arrow.
+         */
+        function toggleCollapse(event) {
+            const header = event.currentTarget;
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow-icon');
+
+            if (content.classList.contains('hidden')) {
+                // Expand
+                content.classList.remove('hidden');
+                arrow.classList.add('rotate-90');
+            } else {
+                // Collapse
+                content.classList.add('hidden');
+                arrow.classList.remove('rotate-90');
+            }
+        }
+        
+        /**
+         * Creates a collapsible header element.
+         */
+        function createCollapsibleHeader(title, subtitle = null) {
+            const header = document.createElement('div');
+            header.className = headerClasses;
+            header.onclick = toggleCollapse;
+
+            const titleDiv = document.createElement('div');
+            const titleElement = document.createElement('h3');
+            titleElement.className = 'font-semibold text-gray-900';
+            titleElement.textContent = title; // <-- FIX: This line was missing
+            titleDiv.appendChild(titleElement);
+
+            if (subtitle) {
+                const subtitleElement = document.createElement('p');
+                subtitleElement.className = 'text-sm text-gray-500';
+                subtitleElement.textContent = subtitle;
+                titleDiv.appendChild(subtitleElement);
+            }
+            
+            header.appendChild(titleDiv);
+            const arrow = getArrowIcon();
+            arrow.style.display = 'block'; // Make it visible
+            header.appendChild(arrow);
+            return header;
+        }
+
+        /**
+         * Creates a span tag for Tool properties (Cost, Education).
+         */
+        function createToolTag(text, colorClasses) {
+            const tag = document.createElement('span');
+            tag.className = `text-xs font-medium inline-block rounded-full px-2 py-0.5 ml-2 ${colorClasses}`;
+            tag.textContent = text;
+            return tag;
+        }
+        
+        /**
+         * NEW: Updates the filter button text based on selected checkboxes.
+         */
+        function updateFilterText(checkboxes, textElement, defaultText, prefix) {
+            const selected = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            
+            if (selected.length === 0) {
+                textElement.textContent = defaultText;
+            } else if (selected.length > 3) {
+                 textElement.textContent = `${prefix}: ${selected.length} selected`;
+            } else {
+                textElement.textContent = `${prefix}: ${selected.join(', ')}`;
+            }
+        }
+
+        // --- RENDER FUNCTIONS ---
+
+        /**
+         * Renders the "View by Control".
+         */
+        function renderControlsView() {
+            controlsView.innerHTML = ''; // Clear existing content
+
+            // Group safeguards by ControlNumber
+            const controls = new Map();
+            for (let i = 1; i <= 18; i++) {
+                controls.set(i, []);
+            }
+            safeguards.forEach(sg => {
+                // *** FIX ***
+                // Convert ControlNumber from string (in JSON) to number (for Map key)
+                const controlNum = Number(sg.ControlNumber);
+                if (controlNum && controls.has(controlNum)) {
+                    controls.get(controlNum).push(sg);
+                }
+                // *** END FIX ***
+            });
+
+            // Iterate and render each of the 18 controls
+            for (const [controlNumber, controlSafeguards] of controls.entries()) {
+                const controlCard = document.createElement('div');
+                controlCard.className = `${cardClasses} control-card`;
+
+                const controlTitle = `CIS Control ${controlNumber}`;
+                const controlHeader = createCollapsibleHeader(controlTitle, `${controlSafeguards.length} Safeguard(s)`);
+                controlCard.appendChild(controlHeader);
+
+                const controlContent = document.createElement('div');
+                controlContent.className = nestedContentClasses;
+                
+                if (controlSafeguards.length === 0) {
+                     controlContent.innerHTML = '<p class="text-gray-500 italic">No safeguards defined for this control.</p>';
+                } else {
+                    // Render safeguards for this control
+                    controlSafeguards.forEach(sg => {
+                        const sgCard = document.createElement('div');
+                        sgCard.className = `${cardClasses} safeguard-card`; // Nested cards
+
+                        // --- NEW: Add data attributes for filtering ---
+                        sgCard.dataset.ignumber = sg.IGNumber;
+                        sgCard.dataset.tiernumber = sg.TierNumber;
+                        // --- END NEW ---
+
+                        const sgTitle = `Safeguard ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
+                        // Find related tools
+                        const relatedToolIDs = mapping
+                            .filter(m => m.SafeguardID === sg.ID)
+                            .map(m => m.ToolID);
+                        
+                        const sgHeader = createCollapsibleHeader(sgTitle, `${relatedToolIDs.length} Tool(s)`);
+                        
+                        // --- NEW: Add IG and Tier tags to the safeguard header ---
+                        const titleDiv = sgHeader.querySelector('h3').parentElement;
+                        if (titleDiv) {
+                            titleDiv.appendChild(createToolTag(`IG${sg.IGNumber}`, 'bg-gray-200 text-gray-800'));
+                            titleDiv.appendChild(createToolTag(`Tier ${sg.TierNumber}`, 'bg-blue-100 text-blue-800'));
+                        }
+                        // --- END NEW ---
+                        
+                        sgCard.appendChild(sgHeader);
+
+                        const sgContent = document.createElement('div');
+                        sgContent.className = finalContentClasses;
+
+                        // --- MODIFICATION START ---
+                        // Add the safeguard description at the top
+                        const sgDescription = document.createElement('p');
+                        sgDescription.className = 'text-sm text-gray-700 mb-4'; // Added margin-bottom
+                        sgDescription.textContent = sg.Description;
+                        sgContent.appendChild(sgDescription);
+                        // --- MODIFICATION END ---
+
+                        // --- MODIFICATION START: Updated Search Text ---
+                        // This text will be used for searching
+                        let safeguardSearchText = [
+                            sg.Title, 
+                            sg.Description,
+                            `control ${sg.ControlNumber}`, // e.g., "control 5"
+                            `${sg.ControlNumber}.${sg.SafeguardNumber}`, // e.g., "5.1"
+                            `ig${sg.IGNumber}`, // Add IG to search
+                            `tier ${sg.TierNumber}` // Add Tier to search
+                        ].join(' ').toLowerCase();
+                        // --- MODIFICATION END ---
+
+                        if (relatedToolIDs.length === 0) {
+                            // --- MODIFICATION ---
+                            // Use appendChild so it doesn't overwrite the description
+                            const noToolsMessage = document.createElement('p');
+                            noToolsMessage.className = 'text-gray-500 italic';
+                            noToolsMessage.textContent = 'No tools mapped to this safeguard.';
+                            sgContent.appendChild(noToolsMessage);
+                            // --- MODIFICATION END ---
+                        } else {
+                            // Render tools for this safeguard
+                            const toolList = document.createElement('ul');
+                            // --- MODIFICATION ---
+                            // Add a border-top and padding-top to separate from description
+                            toolList.className = 'space-y-3 pt-4 border-t border-gray-200 mt-4';
+                            // --- MODIFICATION END ---
+                            
+                            relatedToolIDs.forEach(toolID => {
+                                const tool = toolMap.get(toolID);
+                                if (tool) {
+                                    // Add tool info to search text
+                                    safeguardSearchText += ` ${tool.Name} ${tool.Description}`.toLowerCase();
+
+                                    const li = document.createElement('li');
+                                    
+                                    const toolLink = document.createElement('a');
+                                    toolLink.href = tool.URL;
+                                    toolLink.target = "_blank";
+                                    toolLink.rel = "noopener noreferrer";
+                                    toolLink.className = "font-medium text-blue-600 hover:underline";
+                                    toolLink.textContent = tool.Name;
+                                    
+                                    li.appendChild(toolLink);
+                                    
+                                    // Add new Cost and Education tags
+                                    li.appendChild(createToolTag(tool.Cost, 'bg-green-100 text-green-800'));
+                                    if (tool.EducationUse) {
+                                        li.appendChild(createToolTag('Education Use', 'bg-yellow-100 text-yellow-800'));
+                                    }
+                                    
+                                    const desc = document.createElement('p');
+                                    desc.className = "text-sm text-gray-600";
+                                    desc.textContent = tool.Description;
+                                    li.appendChild(desc);
+                                    
+                                    toolList.appendChild(li);
+                                }
+                            });
+                            sgContent.appendChild(toolList);
+                        }
+                        // Set the searchable data on the safeguard card
+                        sgCard.dataset.search = safeguardSearchText;
+
+                        sgCard.appendChild(sgContent);
+                        controlContent.appendChild(sgCard);
+                    });
+                }
+                controlCard.appendChild(controlContent);
+                controlsView.appendChild(controlCard);
+            }
+        }
+
+        /**
+         * Renders the "View by Tool".
+         */
+        function renderToolsView() {
+            toolsView.innerHTML = ''; // Clear existing content
+
+            tools.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = `${cardClasses} tool-card`;
+
+                // This text will be used for searching
+                let toolSearchText = [tool.Name, tool.Description, tool.Cost].join(' ').toLowerCase();
+                if (tool.EducationUse) {
+                    toolSearchText += ' education use';
+                }
+
+                // Find related safeguards
+                const relatedSafeguardIDs = mapping
+                    .filter(m => m.ToolID === tool.ID)
+                    .map(m => m.SafeguardID);
+                
+                const toolHeader = createCollapsibleHeader(tool.Name, `${relatedSafeguardIDs.length} Safeguard(s)`);
+                
+                // Add Cost and Education tags to the header
+                const titleDiv = toolHeader.querySelector('div'); // Get the title container
+                titleDiv.appendChild(createToolTag(tool.Cost, 'bg-green-100 text-green-800'));
+                if (tool.EducationUse) {
+                    titleDiv.appendChild(createToolTag('Education Use', 'bg-yellow-100 text-yellow-800'));
+                }
+
+                toolCard.appendChild(toolHeader);
+
+                const toolContent = document.createElement('div');
+                toolContent.className = nestedContentClasses;
+
+                // --- NEW: Sets to store unique IG/Tier numbers for this tool ---
+                const igNumbers = new Set();
+                const tierNumbers = new Set();
+                // --- END NEW ---
+
+                if (relatedSafeguardIDs.length === 0) {
+                    toolContent.innerHTML = '<p class="text-gray-500 italic">No safeguards mapped to this tool.</p>';
+                } else {
+                    // Render safeguards for this tool
+                    const sgList = document.createElement('ul');
+                    sgList.className = 'space-y-3';
+                    relatedSafeguardIDs.forEach(sgID => {
+                        const sg = safeguardMap.get(sgID);
+                        if (sg) {
+                            // --- NEW: Add to sets ---
+                            igNumbers.add(sg.IGNumber);
+                            tierNumbers.add(sg.TierNumber);
+                            // --- END NEW ---
+
+                            // --- MODIFICATION START: Updated Search Text ---
+                            // Add safeguard info to search text
+                            const safeguardSearchInfo = [
+                                sg.Title,
+                                sg.Description,
+                                `control ${sg.ControlNumber}`,
+                                `${sg.ControlNumber}.${sg.SafeguardNumber}`,
+                                `ig${sg.IGNumber}`, // Add IG to search
+                                `tier ${sg.TierNumber}` // Add Tier to search
+                            ].join(' ');
+                            
+                            toolSearchText += ` ${safeguardSearchInfo.toLowerCase()}`;
+                            // --- MODIFICATION END ---
+
+                            const li = document.createElement('li');
+                            li.innerHTML = `
+                                <h4 class="font-medium text-gray-800">Safeguard ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}</h4>
+                                <p class="text-sm text-gray-600">${sg.Description}</p>
+                                <div class="text-xs text-gray-500 mt-1">
+                                    <span class="inline-block bg-gray-200 rounded-full px-2 py-0.5">IG${sg.IGNumber}</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 ml-1">Tier ${sg.TierNumber}</span>
+                                </div>
+                            `;
+                            sgList.appendChild(li);
+                        }
+                    });
+                    toolContent.appendChild(sgList);
+                }
+                // Set the searchable data on the tool card
+                toolCard.dataset.search = toolSearchText;
+                
+                // --- NEW: Set data attributes for filters ---
+                toolCard.dataset.ignumber = Array.from(igNumbers).join(' ');
+                toolCard.dataset.tiernumber = Array.from(tierNumbers).join(' ');
+                // --- END NEW ---
+                
+                toolCard.appendChild(toolContent);
+                toolsView.appendChild(toolCard);
+            });
+        }
+
+        // --- EVENT LISTENERS ---
+
+        // Toggle button styling
+        function updateTabs(activeButton) {
+            [btnViewByControl, btnViewByTool].forEach(btn => {
+                btn.className = tabClasses; // Reset
+                if (btn === activeButton) {
+                    btn.classList.add(...activeTabClasses.split(' '));
+                } else {
+                    btn.classList.add(...inactiveTabClasses.split(' '));
+                }
+            });
+        }
+        
+        // Tab switching logic
+        btnViewByControl.addEventListener('click', () => {
+            controlsView.classList.remove('hidden');
+            toolsView.classList.add('hidden');
+            updateTabs(btnViewByControl);
+            applySearchFilter(); // Re-apply filters when switching tabs
+        });
+
+        btnViewByTool.addEventListener('click', () => {
+            controlsView.classList.add('hidden');
+            toolsView.classList.remove('hidden');
+            updateTabs(btnViewByTool);
+            applySearchFilter(); // Re-apply filters when switching tabs
+        });
+
+        // --- UPDATED MULTI-SELECT SEARCH & FILTER FUNCTION ---
+        function applySearchFilter() {
+            const searchText = searchInput.value.toLowerCase().trim();
+            
+            const selectedIGs = Array.from(igFilterCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+                
+            const selectedTiers = Array.from(tierFilterCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            // Check which view is active
+            if (!controlsView.classList.contains('hidden')) {
+                // --- Filter Controls View ---
+                const allControls = document.querySelectorAll('.control-card');
+                const anyFilterActive = searchText !== '' || selectedIGs.length > 0 || selectedTiers.length > 0;
+                
+                allControls.forEach(controlCard => {
+                    const allSafeguards = controlCard.querySelectorAll('.safeguard-card');
+                    let visibleSafeguards = 0;
+
+                    allSafeguards.forEach(sgCard => {
+                        const searchData = sgCard.dataset.search || '';
+                        
+                        // Check against all filters
+                        const matchesSearch = (searchText === '') || searchData.includes(searchText);
+                        const matchesIG = (selectedIGs.length === 0) || selectedIGs.includes(sgCard.dataset.ignumber);
+                        const matchesTier = (selectedTiers.length === 0) || selectedTiers.includes(sgCard.dataset.tiernumber);
+
+                        if (matchesSearch && matchesIG && matchesTier) {
+                            sgCard.style.display = ''; // Show
+                            visibleSafeguards++;
+                        } else {
+                            sgCard.style.display = 'none'; // Hide
+                        }
+                    });
+                    
+                    // --- *** NEW LOGIC START *** ---
+                    // Get the subtitle element for the *control* header (not safeguard headers)
+                    // The header is the first child of the controlCard
+                    if (controlCard.children.length > 0) {
+                        const controlHeader = controlCard.children[0];
+                        const subtitleElement = controlHeader.querySelector('p.text-sm'); // Get the subtitle <p> tag
+                        
+                        if (subtitleElement) {
+                            if (anyFilterActive) {
+                                subtitleElement.textContent = `${visibleSafeguards} Matching Safeguard(s)`;
+                            } else {
+                                // Reset to total count if no filters are active
+                                subtitleElement.textContent = `${allSafeguards.length} Safeguard(s)`;
+                            }
+                        }
+                    }
+                    // --- *** NEW LOGIC END *** ---
+
+                    // Hide the entire control if no safeguards match AND a filter is active
+                    if (visibleSafeguards > 0 || !anyFilterActive) {
+                        controlCard.style.display = ''; // Show
+                    } else {
+                        controlCard.style.display = 'none'; // Hide
+                    }
+                });
+
+            } else {
+                // --- Filter Tools View ---
+                const allTools = document.querySelectorAll('.tool-card');
+                allTools.forEach(toolCard => {
+                    const searchData = toolCard.dataset.search || '';
+                    const toolIGs = (toolCard.dataset.ignumber || '').split(' ');
+                    const toolTiers = (toolCard.dataset.tiernumber || '').split(' ');
+
+                    // Check against all filters
+                    const matchesSearch = (searchText === '') || searchData.includes(searchText);
+                    // Check if *at least one* selected filter matches the tool's safeguards
+                    const matchesIG = (selectedIGs.length === 0) || selectedIGs.some(ig => toolIGs.includes(ig));
+                    const matchesTier = (selectedTiers.length === 0) || selectedTiers.some(tier => toolTiers.includes(tier));
+
+                    if (matchesSearch && matchesIG && matchesTier) {
+                        toolCard.style.display = ''; // Show
+                    } else {
+                        toolCard.style.display = 'none'; // Hide
+                    }
+                });
+            }
+        }
+
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply initial tab styles
+            btnViewByControl.className = `${tabClasses} ${activeTabClasses}`;
+            btnViewByTool.className = `${tabClasses} ${inactiveTabClasses}`;
+            
+            // Get interactive elements
+            searchInput = document.getElementById('searchInput');
+            
+            // --- NEW Filter Element Assignment ---
+            igFilterBtn = document.getElementById('igFilterBtn');
+            tierFilterBtn = document.getElementById('tierFilterBtn');
+            igFilterDropdown = document.getElementById('igFilterDropdown');
+            tierFilterDropdown = document.getElementById('tierFilterDropdown');
+            igFilterText = document.getElementById('igFilterText');
+            tierFilterText = document.getElementById('tierFilterText');
+            
+            igFilterCheckboxes = document.querySelectorAll('.ig-filter-cb');
+            tierFilterCheckboxes = document.querySelectorAll('.tier-filter-cb');
+            // --- END NEW ---
+
+            // --- NEW Filter Event Listeners ---
+            searchInput.addEventListener('input', applySearchFilter);
+
+            // Toggle dropdowns
+            igFilterBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent document click listener
+                igFilterDropdown.classList.toggle('hidden');
+                tierFilterDropdown.classList.add('hidden'); // Close other
+            });
+
+            tierFilterBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent document click listener
+                tierFilterDropdown.classList.toggle('hidden');
+                igFilterDropdown.classList.add('hidden'); // Close other
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', () => {
+                igFilterDropdown.classList.add('hidden');
+                tierFilterDropdown.classList.add('hidden');
+            });
+
+            // Stop propagation for clicks inside dropdown (so they don't close)
+            igFilterDropdown.addEventListener('click', (e) => e.stopPropagation());
+            tierFilterDropdown.addEventListener('click', (e) => e.stopPropagation());
+
+            // Add change listeners to all checkboxes
+            igFilterCheckboxes.forEach(cb => cb.addEventListener('change', () => {
+                updateFilterText(igFilterCheckboxes, igFilterText, 'All IG Levels', 'IG');
+                applySearchFilter();
+            }));
+            tierFilterCheckboxes.forEach(cb => cb.addEventListener('change', () => {
+                updateFilterText(tierFilterCheckboxes, tierFilterText, 'All Tiers', 'Tier');
+                applySearchFilter();
+            }));
+            // --- END NEW ---
+
+            // Load data from JSON files
+            async function loadData() {
+                try {
+                    // --- IMPORTANT ---
+                    // Replace these placeholders with the full URLs
+                    // from your WordPress Media Library or other host.
+                    const toolsURL = 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json';
+                    const safeguardsURL = 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json';
+                    const mappingURL = 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json';
+
+                    // Fetch all three files in parallel
+                    const [toolsRes, safeguardsRes, mappingRes] = await Promise.all([
+                        fetch(toolsURL),
+                        fetch(safeguardsURL),
+                        fetch(mappingURL)
+                    ]);
+
+                    // Check if all responses are ok
+                    if (!toolsRes.ok || !safeguardsRes.ok || !mappingRes.ok) {
+                        throw new Error('Network response was not ok for one or more data files.');
+                    }
+
+                    // Parse JSON data
+                    tools = await toolsRes.json();
+                    safeguards = await safeguardsRes.json();
+                    mapping = await mappingRes.json();
+
+                    // --- BUILD LOOKUP MAPS (after data is fetched) ---
+                    toolMap = new Map(tools.map(t => [t.ID, t]));
+                    safeguardMap = new Map(safeguards.map(sg => [sg.ID, sg]));
+
+                    // Hide loading message
+                    loadingMessage.classList.add('hidden');
+                    // Show default view
+                    controlsView.classList.remove('hidden');
+
+                    // Render views now that data is loaded
+                    renderControlsView();
+                    renderToolsView(); // Pre-render the tools view so it's ready
+
+                } catch (error) {
+                    console.error('Failed to load data:', error);
+                    loadingMessage.innerHTML = '<p class="text-red-600 font-semibold">Failed to load data. Please check the console and try refreshing the page.</p>';
+                    loadingMessage.classList.remove('animate-pulse');
+                }
+            }
+
+            loadData();
+        });
+    </script>
+</body>
+</html>
+
