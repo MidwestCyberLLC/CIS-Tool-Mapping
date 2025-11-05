@@ -1,43 +1,3586 @@
 [
-  {
-    "ID": "T1",
-    "Name": "AdvancedNet Scanner",
-    "Description": "A tool for network discovery and security auditing.",
-    "URL": "https://example.com/advancednet",
-    "EducationUse": true,
-    "Cost": "$$$"
-  },
-  {
-    "ID": "T2",
-    "Name": "LogGuardian Pro",
-    "Description": "Centralized log management and analysis platform.",
-    "URL": "https://example.com/logguardian",
-    "EducationUse": false,
-    "Cost": "$$$$$"
-  },
-  {
-    "ID": "T3",
-    "Name": "EndpointShield",
-    "Description": "Endpoint detection and response (EDR) solution.",
-    "URL": "https://example.com/endpointshield",
-    "EducationUse": true,
-    "Cost": "$$$$"
-  },
-  {
-    "ID": "T4",
-    "Name": "AccessMatrix",
-    "Description": "Identity and Access Management (IAM) for enterprise.",
-    "URL": "https://example.com/accessmatrix",
-    "EducationUse": false,
-    "Cost": "$$$$"
-  },
-  {
-    "ID": "T5",
-    "Name": "SecureConfig",
-    "Description": "Configuration hardening and compliance checking utility.",
-    "URL": "https://example.com/secureconfig",
-    "EducationUse": true,
-    "Cost": "$"
-  }
+    {
+        "ID":  "T355",
+        "Name":  "Endpoint Management Software (e.g., Microsoft Intune, Jamf)",
+        "Description":  "These platforms offer centralized control over device settings, including autoplay policies, for managed devices.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-intune https://www.jamf.com/pro/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T543",
+        "Name":  "ServiceNow Governance, Risk, and Compliance (GRC)",
+        "Description":  "This platform provides a centralized framework for managing service provider risk assessments, contracts, and compliance requirements.",
+        "URL":  "https://www.servicenow.com/products/governance-risk-management/grc.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T586",
+        "Name":  "Splunk SOAR (Security Orchestration, Automation and Response)",
+        "Description":  "Integrates with various security tools to correlate events and automate RCA workflows for faster incident resolution.",
+        "URL":  "https://www.splunk.com/en_us/software/security-orchestration.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T175",
+        "Name":  "1Password",
+        "Description":  "Another leading password manager offering secure password generation, storage, and sharing capabilities with robust security features.",
+        "URL":  "https://1password.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T385",
+        "Name":  "Acronis Cyber Protect",
+        "Description":  "Acronis combines backup, antivirus, and endpoint management into a single solution with customizable scheduling for automated backups.",
+        "URL":  "https://www.acronis.com/en-us/products/cyber-protect",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T380",
+        "Name":  "Acronis Cyber Protect Cloud",
+        "Description":  "Acronis combines backup, disaster recovery, and cybersecurity into a single, integrated platform for comprehensive data protection.",
+        "URL":  "https://www.acronis.com/en-us/products/cyber-protect-cloud",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T682",
+        "Name":  "After Incident Report (GitHub)",
+        "Description":  "A simple, open-source template to standardize post-incident reports within a GitHub repository.",
+        "URL":  "https://github.com/jeremyong/after-incident-report",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T61",
+        "Name":  "Alation Data Catalog",
+        "Description":  "Alation\u0027s catalog automatically discovers, profiles, and catalogs data across your organization to provide a searchable inventory with business context.",
+        "URL":  "https://www.alation.com/data-catalog/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T103",
+        "Name":  "Amazon Certificate Manager (ACM)",
+        "Description":  "Easily provisions, manages, and deploys public and private SSL/TLS certificates for use with AWS services.",
+        "URL":  "https://aws.amazon.com/certificate-manager/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T78",
+        "Name":  "Amazon S3 Glacier Deep Archive",
+        "Description":  "Offers extremely low-cost archival storage with a retrieval time of 12-48 hours, suitable for long-term data retention that eventually needs secure deletion.",
+        "URL":  "https://aws.amazon.com/s3/glacier-deep-archive/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T71",
+        "Name":  "Amazon S3 Lifecycle Policies",
+        "Description":  "Configure automated data tiering and deletion rules for objects stored in Amazon S3 based on age or other criteria.",
+        "URL":  "https://aws.amazon.com/s3/lifecycle/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T268",
+        "Name":  "Amazon TimeSync Service (AWS)",
+        "Description":  "Provides highly accurate time synchronization for AWS resources using Precision Time Protocol (PTP).",
+        "URL":  "https://aws.amazon.com/timestream/time-sync-service/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T437",
+        "Name":  "Amazon VPC (Virtual Private Cloud)",
+        "Description":  "Enables the creation of isolated virtual networks within AWS, allowing for dedicated computing resources without internet access.",
+        "URL":  "https://aws.amazon.com/vpc/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T610",
+        "Name":  "Amazon Web Services (AWS) - Multiple AWS Accounts",
+        "Description":  "Utilize distinct AWS accounts to isolate production and non-production environments, providing strong logical separation and resource control.",
+        "URL":  "https://aws.amazon.com/accounts/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T168",
+        "Name":  "Android Enterprise - Google Play for Work",
+        "Description":  "This service allows organizations to manage Android devices, including utilizing work profiles that create a separate workspace for enterprise applications and data.",
+        "URL":  "https://play.google.com/work/public/about/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T412",
+        "Name":  "Ansible",
+        "Description":  "Simplifies network automation through playbooks that define desired states, ensuring consistent and secure network configurations across devices.",
+        "URL":  "https://www.ansible.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T135",
+        "Name":  "Ansible Automation Platform",
+        "Description":  "Enables automated software deployment, configuration management, and application lifecycle management with secure SSH-based communication.",
+        "URL":  "https://www.ansible.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T363",
+        "Name":  "Apple System Integrity Protection (SIP)",
+        "Description":  "SIP is a core security feature built into macOS that protects system processes and files from unauthorized modification, significantly reducing the attack surface for exploits.",
+        "URL":  "https://support.apple.com/en-us/HT204169",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T52",
+        "Name":  "AppLocker (Microsoft)",
+        "Description":  "AppLocker allows administrators to control which applications and scripts users can run by specifying rules based on file paths, publishers, or file hashes.",
+        "URL":  "https://learn.microsoft.com/en-us/windows/security/threat-protection/application-control/applocker",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T624",
+        "Name":  "Aqua Security",
+        "Description":  "This platform provides security throughout the entire application lifecycle, including container scanning and vulnerability management to minimize infrastructure attack surface.",
+        "URL":  "https://www.aquasecurity.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T427",
+        "Name":  "Aruba ClearPass Policy Manager",
+        "Description":  "Aruba\u0027s ClearPass offers policy management and access control with support for 802.1X, WPA3 Enterprise, and other secure protocols across wired and wireless networks.",
+        "URL":  "https://www.arubanetworks.com/en-us/solutions/network-access-control/clearpass",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T3",
+        "Name":  "Asset Panda",
+        "Description":  "Asset Panda offers a mobile-first asset tracking platform for managing physical and digital assets with customizable fields and reporting features.",
+        "URL":  "https://assetpanda.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T64",
+        "Name":  "Atlan",
+        "Description":  "Atlan is a modern data workspace that includes data cataloging capabilities to help you discover, understand, and trust your data assets.",
+        "URL":  "https://atlan.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T663",
+        "Name":  "Atlassian Jira Service Management",
+        "Description":  "While not solely an incident response tool, Jira Service Management can be customized to manage incidents, track progress, and facilitate communication within a defined process.",
+        "URL":  "https://www.atlassian.com/software/jira-service-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T566",
+        "Name":  "AuditBoard Cloud Platform",
+        "Description":  "Streamlines audit workflows, allowing for continuous monitoring of service provider controls and documentation.",
+        "URL":  "https://www.auditboard.com/cloud-platform/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T547",
+        "Name":  "AuditBoard Vendor Management",
+        "Description":  "AuditBoard streamlines the vendor management process with automated assessments, documentation, and reporting for continuous compliance.",
+        "URL":  "https://www.auditboard.com/vendor-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T288",
+        "Name":  "Auditd (Linux)",
+        "Description":  "A built-in Linux auditing system that allows for detailed tracking of system calls, including those from the command line.",
+        "URL":  "https://man7.org/linux/man-pages/man8/auditd.8.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T198",
+        "Name":  "Auth0",
+        "Description":  "A flexible identity platform allowing developers to easily add authentication and authorization to applications with centralized user accounts.",
+        "URL":  "https://auth0.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T238",
+        "Name":  "Automox",
+        "Description":  "Automox provides automated patching, configuration management, and vulnerability remediation across all operating systems and devices.",
+        "URL":  "https://automox.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T356",
+        "Name":  "Autoruns (Sysinternals)",
+        "Description":  "This free utility from Microsoft allows users to view and disable various startup programs, including those triggered by removable media.",
+        "URL":  "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T388",
+        "Name":  "AWS Backup",
+        "Description":  "AWS Backup centrally manages backups across various AWS services, with encryption options to safeguard recovery data.",
+        "URL":  "https://aws.amazon.com/backup/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T283",
+        "Name":  "AWS CloudTrail",
+        "Description":  "A service that records API calls made to AWS resources, which can include URL requests if those URLs are accessed through AWS services.",
+        "URL":  "https://aws.amazon.com/cloudtrail/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T66",
+        "Name":  "AWS Identity and Access Management (IAM)",
+        "Description":  "Provides centralized control over AWS resources by defining granular permissions for users and groups.",
+        "URL":  "https://aws.amazon.com/iam/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T104",
+        "Name":  "AWS Key Management Service (KMS)",
+        "Description":  "AWS KMS enables you to easily create and control cryptographic keys used to encrypt your data at rest.",
+        "URL":  "https://aws.amazon.com/kms/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T109",
+        "Name":  "AWS Lake Formation",
+        "Description":  "This service builds a secure data lake by centralizing governance and security policies across your data, enabling you to control access based on sensitivity levels.",
+        "URL":  "https://aws.amazon.com/lake-formation/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T213",
+        "Name":  "AWS Multi-Factor Authentication (MFA)",
+        "Description":  "Enforces MFA for AWS accounts to protect against unauthorized access.",
+        "URL":  "https://aws.amazon.com/iam/features/mfa/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T125",
+        "Name":  "AWS Network Firewall",
+        "Description":  "A managed cloud firewall service that simplifies the process of deploying, configuring, and managing firewalls in AWS environments.",
+        "URL":  "https://aws.amazon.com/networkfirewall/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T403",
+        "Name":  "AWS Network Manager",
+        "Description":  "AWS Network Manager provides centralized visibility and management of your hybrid network infrastructure, simplifying updates and ensuring consistent configurations.",
+        "URL":  "https://aws.amazon.com/network-manager/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T391",
+        "Name":  "AWS S3 Glacier Deep Archive",
+        "Description":  "This service provides extremely low-cost, offline storage for infrequently accessed data, offering isolation from primary systems.",
+        "URL":  "https://aws.amazon.com/s3/glacier-deep-archive/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T607",
+        "Name":  "AWS Systems Manager Automation",
+        "Description":  "Allows you to automate operational tasks like applying security patches and hardening configurations on AWS resources.",
+        "URL":  "https://aws.amazon.com/systems-manager/automation/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T490",
+        "Name":  "AWS Web Application Firewall (WAF)",
+        "Description":  "A managed service that protects web applications from common attacks, providing application layer filtering at scale.",
+        "URL":  "https://aws.amazon.com/waf/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T67",
+        "Name":  "Azure Active Directory (Azure AD)",
+        "Description":  "Cloud-based identity and access management service that allows you to manage user access to applications and data.",
+        "URL":  "https://azure.microsoft.com/en-us/services/active-directory/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T392",
+        "Name":  "Azure Archive Storage",
+        "Description":  "Similar to AWS Glacier Deep Archive, Azure Archive Storage offers a cost-effective solution for long-term data retention with offline storage capabilities.",
+        "URL":  "https://azure.microsoft.com/en-us/products/storage/archive-storage/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T383",
+        "Name":  "Azure Backup",
+        "Description":  "Azure Backup offers cloud-based backup as a service to protect your on-premises and Azure workloads with automated scheduling options.",
+        "URL":  "https://azure.microsoft.com/en-us/services/backup/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T105",
+        "Name":  "Azure Disk Encryption",
+        "Description":  "Azure Disk Encryption provides encryption at-rest for Azure virtual machine disks using industry-standard encryption algorithms.",
+        "URL":  "https://azure.microsoft.com/en-us/products/disk-encryption/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T457",
+        "Name":  "Azure Firewall",
+        "Description":  "A cloud-native firewall service that filters traffic between virtual networks and on-premises environments within Azure.",
+        "URL":  "https://azure.microsoft.com/en-us/services/firewall/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T263",
+        "Name":  "Azure Monitor Logs",
+        "Description":  "A fully managed cloud service for collecting, storing, searching, analyzing, and acting on telemetry data from your applications and infrastructure within Azure.",
+        "URL":  "https://azure.microsoft.com/en-us/services/monitor/logs/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T408",
+        "Name":  "Azure Network Watcher",
+        "Description":  "This service provides tools to monitor and diagnose network issues in Azure, aiding in architecture design validation and ongoing security maintenance.",
+        "URL":  "https://azure.microsoft.com/en-us/services/network-watcher/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T387",
+        "Name":  "Azure Recovery Services Vault",
+        "Description":  "Azure\u0027s vault provides encrypted backup copies of your data, ensuring protection during the recovery process.",
+        "URL":  "https://azure.microsoft.com/en-us/services/recovery-services/vaults/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T608",
+        "Name":  "Azure Security Benchmark (formerly CIS Azure Foundations Benchmark)",
+        "Description":  "Offers a set of prescriptive guidance for securing Azure deployments, aligning with industry best practices and CIS benchmarks.",
+        "URL":  "https://learn.microsoft.com/en-us/azure/security/benchmarks/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T377",
+        "Name":  "Azure Site Recovery",
+        "Description":  "Microsoft\u0027s Azure Site Recovery offers disaster recovery as a service (DRaaS), replicating workloads to Azure for failover and recovery.",
+        "URL":  "https://azure.microsoft.com/en-us/products/site-recovery/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T438",
+        "Name":  "Azure Virtual Network",
+        "Description":  "Offers similar functionality to AWS VPC, providing logically isolated network environments in Azure for administrative tasks.",
+        "URL":  "https://azure.microsoft.com/en-us/services/virtual-network/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T393",
+        "Name":  "Backblaze B2 Cloud Storage",
+        "Description":  "This service provides affordable cloud storage with options for lifecycle rules to move data to colder, more isolated tiers.",
+        "URL":  "https://www.backblaze.com/b2/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T335",
+        "Name":  "Barracuda Email Security Gateway",
+        "Description":  "Barracuda\u0027s gateway provides attachment filtering capabilities, enabling the blocking of specific file types based on organizational needs.",
+        "URL":  "https://www.barracuda.com/products/email-security-gateway",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T340",
+        "Name":  "Barracuda Email Security Service",
+        "Description":  "Delivers cloud-based email security with features like attachment sandboxing, spam filtering, and anti-phishing capabilities.",
+        "URL":  "https://www.barracuda.com/products/email-security",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T322",
+        "Name":  "Barracuda Web Security Gateway",
+        "Description":  "Filters web traffic, blocks malicious sites, and enforces acceptable use policies with customizable block lists and reputation-based filtering.",
+        "URL":  "https://www.barracuda-networks.com/products/web-security-gateway",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T193",
+        "Name":  "BeyondTrust Privileged Remote Access",
+        "Description":  "Discovers and manages privileged accounts, including service accounts, with features for access reviews and automated remediation.",
+        "URL":  "https://www.beyondtrust.com/privileged-remote-access/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T149",
+        "Name":  "BIND (Berkeley Internet Domain Name Server)",
+        "Description":  "A widely used, highly configurable DNS server software allowing for complete control over internal DNS resolution.",
+        "URL":  "https://www.isc.org/bind/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T695",
+        "Name":  "Bishop Fox",
+        "Description":  "Bishop Fox is a cybersecurity consultancy offering comprehensive external penetration testing services, including enterprise reconnaissance and various testing methodologies.",
+        "URL":  "https://bishopfox.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T692",
+        "Name":  "Bishop Fox Managed Security Services",
+        "Description":  "Bishop Fox offers comprehensive pentesting services including program development, scoping, execution, and reporting tailored to specific organizational needs.",
+        "URL":  "https://bishopfox.com/services/penetration-testing/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T53",
+        "Name":  "Bit9 (Now part of Cardinal Peak)",
+        "Description":  "Bit9\u0027s Integrity Engine provides application allowlisting and control, verifying the authenticity and integrity of applications before execution.",
+        "URL":  "https://www.cardinalpeak.com/products/bit9-integrity-engine/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T358",
+        "Name":  "Bitdefender GravityZone",
+        "Description":  "Bitdefender\u0027s solution provides centralized management of endpoint security, including automatic scanning of removable storage devices.",
+        "URL":  "https://www.bitdefender.com/business/gravityzone/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T80",
+        "Name":  "BitLocker (Windows)",
+        "Description":  "Microsoft\u0027s BitLocker provides full-disk encryption for Windows devices, protecting data at rest.",
+        "URL":  "https://learn.microsoft.com/en-us/windows/security/encryption-bitlocker",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T95",
+        "Name":  "BitLocker Drive Encryption (Windows)",
+        "Description":  "Built into Windows Pro and Enterprise, BitLocker provides full-disk encryption for removable drives.",
+        "URL":  "https://learn.microsoft.com/en-us/windows/security/encryption-bitlocker",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T176",
+        "Name":  "Bitwarden",
+        "Description":  "An open-source password manager providing end-to-end encryption for passwords and other sensitive data.",
+        "URL":  "https://bitwarden.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T589",
+        "Name":  "Black Duck (Synopsys)",
+        "Description":  "Black Duck provides comprehensive software composition analysis to identify components, track licenses, and detect security vulnerabilities across the entire development lifecycle.",
+        "URL":  "https://www.synopsys.com/software-integrity/blackduck",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T679",
+        "Name":  "Blameless",
+        "Description":  "Provides a collaborative platform for conducting thorough postmortems focused on learning and improvement rather than assigning blame.",
+        "URL":  "https://blameless.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T76",
+        "Name":  "Blancco Drive Eraser",
+        "Description":  "Provides certified data erasure solutions for hard drives, SSDs, and USB drives, verifying complete data removal according to industry standards.",
+        "URL":  "https://www.blancco.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T84",
+        "Name":  "Boxcryptor (Cross-Platform)",
+        "Description":  "Boxcryptor encrypts files stored in cloud storage services like Google Drive or Dropbox, adding an extra layer of security.",
+        "URL":  "https://boxcryptor.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T711",
+        "Name":  "Burp Suite Professional",
+        "Description":  "An integrated platform for performing web application penetration testing, useful for assessing internal web-based applications.",
+        "URL":  "https://portswigger.net/burp",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T49",
+        "Name":  "Carbon Black App Control",
+        "Description":  "This tool uses a dynamic approach to application control, allowing you to define policies based on file characteristics and behavior rather than just signatures.",
+        "URL":  "https://www.paloaltonetworks.com/products/carbon-black/app-control",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T448",
+        "Name":  "Carbon Black EDR",
+        "Description":  "Carbon Black provides endpoint detection and response (EDR) capabilities, including behavioral analysis and threat hunting to identify malicious activity.",
+        "URL":  "https://www.paloaltonetworks.com/products/carbon-black/edr",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T374",
+        "Name":  "Carbon Black EDR (now VMware Carbon Black)",
+        "Description":  "It provides real-time behavioral monitoring and threat hunting capabilities to detect and respond to advanced attacks.",
+        "URL":  "https://www.vmware.com/products/carbon-black.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T473",
+        "Name":  "Carbon Black EDR (VMware Carbon Black Cloud Endpoint Standard)",
+        "Description":  "Provides endpoint visibility, threat detection, and response capabilities to prevent malicious activity.",
+        "URL":  "https://www.vmware.com/products/carbon-black/cloud-endpoint-standard.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T370",
+        "Name":  "Carbon Black Endpoint",
+        "Description":  "Provides centralized visibility and control over endpoint security, including anti-malware policies and threat response actions.",
+        "URL":  "https://www.broadcom.com/products/carbon-black-endpoint",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T361",
+        "Name":  "Carbon Black Endpoint Standard",
+        "Description":  "Carbon Black\u0027s endpoint security solution can be configured to scan removable media for threats as part of its continuous monitoring capabilities.",
+        "URL":  "https://www.broadcom.com/products/security/carbon-black-endpoint",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T480",
+        "Name":  "Check Point Security Gateway",
+        "Description":  "Offers comprehensive security, including intrusion prevention, application control, and URL filtering to protect network traffic.",
+        "URL":  "https://www.checkpoint.com/products/security-gateway/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T621",
+        "Name":  "Checkmarx CxSAST",
+        "Description":  "This Static Application Security Testing (SAST) tool analyzes source code to identify security flaws, promoting secure coding practices and adherence to design principles like least privilege.",
+        "URL":  "https://checkmarx.com/cxsaast/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T605",
+        "Name":  "Chef Infrastructure Automation",
+        "Description":  "Enables consistent configuration management and enforcement of security baselines for servers, databases, and other infrastructure elements.",
+        "URL":  "https://www.chef.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T148",
+        "Name":  "Chef/Puppet/Ansible",
+        "Description":  "These configuration management tools automate the process of installing, configuring, and removing software, including disabling services, across your infrastructure as code.",
+        "URL":  "https://www.chef.io/ https://puppet.com/ https://www.ansible.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T310",
+        "Name":  "Chrome Enterprise Policy",
+        "Description":  "Chrome Enterprise provides policies to control which browser features are enabled and the minimum version allowed, ensuring users stay on supported versions.",
+        "URL":  "https://chromeenterprise.google/policies/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T267",
+        "Name":  "Chronosync",
+        "Description":  "A robust NTP server software designed for high accuracy and reliability in time synchronization.",
+        "URL":  "https://www.chronosync.net/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T603",
+        "Name":  "CIS Benchmarks",
+        "Description":  "Provides industry-recognized security configuration baselines for various operating systems, cloud platforms, and applications, ensuring consistent hardening practices.",
+        "URL":  "https://www.cisecurity.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T430",
+        "Name":  "Cisco AnyConnect Secure Mobility Client",
+        "Description":  "This client provides secure remote access through a VPN connection integrated with Ciscoâ€™s AAA infrastructure for authentication and authorization.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T404",
+        "Name":  "Cisco DNA Center",
+        "Description":  "Cisco DNA Center offers automated network provisioning, assurance, and analytics to streamline software upgrades and maintain optimal performance.",
+        "URL":  "https://www.cisco.com/c/en/us/products/software/dna-center/index.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T456",
+        "Name":  "Cisco Firepower NGFW",
+        "Description":  "Provides advanced threat protection and application visibility with robust filtering capabilities across network segments.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/firepower-next-generation-firewall.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T423",
+        "Name":  "Cisco Identity Services Engine (ISE)",
+        "Description":  "Cisco ISE is a network administration tool that centralizes AAA, policy enforcement, and guest access management.",
+        "URL":  "https://www.google.com/search?q=https://www.cisco.com/c/en/us/products/security/identity-services-engine/index.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T426",
+        "Name":  "Cisco ISE",
+        "Description":  "Cisco Identity Services Engine provides centralized network access control using 802.1X authentication and policy enforcement for wired and wireless networks.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/identity-services-engine/index.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T481",
+        "Name":  "Cisco ISE (Identity Services Engine)",
+        "Description":  "Cisco ISE provides centralized network access control, including 802.1x authentication and policy enforcement for wired and wireless networks.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/ise.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T342",
+        "Name":  "Cisco Secure Email",
+        "Description":  "Offers advanced threat detection and prevention, including sandboxing and URL filtering, to protect against email-borne attacks.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/email-security.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T336",
+        "Name":  "Cisco Secure Email Gateway",
+        "Description":  "Cisco SEG offers attachment sandboxing and filtering to prevent malicious or unwanted file types from reaching users\u0027 inboxes.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/secure-email-gateway.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T476",
+        "Name":  "Cisco Secure Firewall (formerly Firepower)",
+        "Description":  "Provides advanced threat prevention, including intrusion prevention, malware protection, and application control.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/secure-firewall.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T467",
+        "Name":  "Cisco Stealthwatch",
+        "Description":  "Cisco Stealthwatch provides comprehensive network behavior analytics by collecting flow data from various sources to detect anomalies and security threats.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/stealthwatch.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T318",
+        "Name":  "Cisco Umbrella",
+        "Description":  " Provides DNS-layer security with category-based filtering, threat intelligence, and secure web gateway capabilities to block malicious websites.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/umbrella.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T167",
+        "Name":  "Citrix Endpoint Management",
+        "Description":  "Citrix Endpoint Management supports both Apple Configuration Profiles and Android Work Profiles to isolate enterprise data and applications within dedicated workspaces.",
+        "URL":  "https://www.citrix.com/products/endpoint-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T317",
+        "Name":  "CleanBrowsing",
+        "Description":  "Offers family-friendly and content-filtering DNS services with various levels of protection.",
+        "URL":  "https://cleanbrowsing.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T420",
+        "Name":  "Cloudcraft",
+        "Description":  "Specifically designed for visualizing cloud infrastructure (AWS, Azure, GCP), Cloudcraft helps build and maintain accurate architectural representations.",
+        "URL":  "https://cloudcraft.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T208",
+        "Name":  "Cloudflare Access",
+        "Description":  "Cloudflare Access offers zero trust access to internal applications with MFA and granular policy controls.",
+        "URL":  "https://www.cloudflare.com/zero-trust/access/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T151",
+        "Name":  "Cloudflare DNS",
+        "Description":  "A public DNS service offering speed, security, and reliability that can be configured as trusted resolvers for enterprise assets.",
+        "URL":  "https://www.cloudflare.com/dns/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T100",
+        "Name":  "Cloudflare Tunnel",
+        "Description":  "Creates an outbound-only connection, encrypting traffic between your server and Cloudflareâ€™s network without opening inbound ports.",
+        "URL":  "https://www.cloudflare.com/tunnel/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T487",
+        "Name":  "Cloudflare Web Application Firewall (WAF)",
+        "Description":  "Protects applications from common web exploits by inspecting traffic at the application layer.",
+        "URL":  "https://www.cloudflare.com/waf/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T696",
+        "Name":  "Coalition Strike",
+        "Description":  "Coalition Strike provides managed pentesting services with experienced professionals to conduct thorough external assessments and identify vulnerabilities.",
+        "URL":  "https://coalition.com/strike/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T690",
+        "Name":  "Cobalt Blue (Tenable)",
+        "Description":  "Cobalt Blue is a managed pentesting service that provides ongoing assessments, reporting, and remediation support for various attack surfaces.",
+        "URL":  "https://www.tenable.com/solutions/managed-pentest",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T713",
+        "Name":  "Cobalt Strike",
+        "Description":  "A commercial platform used by red teams to simulate advanced persistent threats and conduct realistic attack simulations within an organization.",
+        "URL":  "https://www.cobaltstrike.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T635",
+        "Name":  "Cobalt.io",
+        "Description":  "Cobalt provides a managed pentesting platform connecting you with experienced security professionals to perform comprehensive application assessments.",
+        "URL":  "https://www.cobalt.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T619",
+        "Name":  "Codecademy",
+        "Description":  "Offers interactive courses on programming fundamentals and security concepts, suitable for introductory developer training.",
+        "URL":  "https://www.codecademy.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T389",
+        "Name":  "Cohesity DataProtect",
+        "Description":  "Cohesity provides a comprehensive data protection platform with built-in encryption and granular control over backup copies for secure recovery.",
+        "URL":  "https://www.cohesity.com/products/dataprotect/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T93",
+        "Name":  "Collibra Data Intelligence Cloud",
+        "Description":  "This platform offers data lineage capabilities that automatically map data flows across systems, providing a visual representation of data movement.",
+        "URL":  "https://www.collibra.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T74",
+        "Name":  "Commvault Data Management",
+        "Description":  "Commvault offers robust data protection and retention features for diverse environments, including cloud, on-premises, and virtualized systems.",
+        "URL":  "https://www.commvault.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T371",
+        "Name":  "CrowdStrike Falcon",
+        "Description":  "This platform uses behavioral analysis and machine learning to detect and prevent malware, even previously unknown threats.",
+        "URL":  "https://www.crowdstrike.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T38",
+        "Name":  "CrowdStrike Falcon Discover",
+        "Description":  "This tool discovers all applications running on endpoints, enabling organizations to identify unauthorized software and manage risk.",
+        "URL":  "https://www.crowdstrike.com/products/falcon-discover/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T129",
+        "Name":  "CrowdStrike Falcon Host",
+        "Description":  "A cloud-delivered endpoint protection platform that includes a host firewall to prevent unauthorized network connections.",
+        "URL":  "https://www.crowdstrike.com/products/falcon-host/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T57",
+        "Name":  "CrowdStrike Falcon Insight",
+        "Description":  "CrowdStrike\u0027s platform provides scripting allowlisting capabilities through its behavioral detection and prevention features, enabling granular control over script execution.",
+        "URL":  "https://www.crowdstrike.com/products/falcon-insight/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T514",
+        "Name":  "Curricula",
+        "Description":  "Curricula provides automated security awareness training with personalized learning paths, covering topics like secure data storage and transfer.",
+        "URL":  "https://curricula.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T598",
+        "Name":  "CVSS Calculator",
+        "Description":  "This online tool allows you to calculate CVSS scores based on vulnerability characteristics, providing a standardized severity rating.",
+        "URL":  "https://www.first.org/cvss/calculator/3.1",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T216",
+        "Name":  "CyberArk Privileged Access Management",
+        "Description":  "This solution discovers and inventories privileged accounts, including those used for authentication and authorization, across various systems and applications.",
+        "URL":  "https://www.cyberark.com/products/privileged-access-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T171",
+        "Name":  "CyberArk Privileged Access Management (PAM)",
+        "Description":  "Centralizes and secures privileged accounts, including service accounts, providing visibility and control over access.",
+        "URL":  "https://www.cyberark.com/product/privileged-access-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T185",
+        "Name":  "CyberArk Privileged Access Manager",
+        "Description":  "CyberArk provides a comprehensive solution to manage and control privileged accounts, including dedicated administrator accounts, with granular access controls and session monitoring.",
+        "URL":  "https://www.cyberark.com/products/privileged-access-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T675",
+        "Name":  "Cyberbit Range",
+        "Description":  "Provides a realistic, gamified training platform to simulate cyberattacks and train incident response teams in a controlled environment.",
+        "URL":  "https://cyberbit.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T617",
+        "Name":  "Cybrary",
+        "Description":  "Delivers a wide range of cybersecurity training content, including developer-focused tracks on secure coding and application security.",
+        "URL":  "https://www.cybrary.it/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T468",
+        "Name":  "Darktrace Network Traffic Analysis (NTA)",
+        "Description":  "Darktrace NTA uses machine learning to detect unusual network activity and potential threats by analyzing traffic flow data.",
+        "URL":  "https://www.darktrace.com/solutions/network-traffic-analysis/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T63",
+        "Name":  "Data Advantage Data Inventory",
+        "Description":  "This tool automatically discovers and catalogs data across various sources, providing a centralized view of your data landscape.",
+        "URL":  "https://dataadvantage.io/data-inventory/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T280",
+        "Name":  "Datadog",
+        "Description":  "Provides monitoring and analytics for cloud-scale applications, offering log management capabilities to capture and analyze URL request audit trails.",
+        "URL":  "https://www.datadoghq.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T276",
+        "Name":  "Datadog Network Monitoring",
+        "Description":  "Datadog offers network monitoring capabilities that include DNS query logging and analysis for visibility into domain resolution activity.",
+        "URL":  "https://www.datadoghq.com/products/network-monitoring/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T595",
+        "Name":  "Dependabot (GitHub)",
+        "Description":  "Automatically checks for outdated or vulnerable dependencies within your GitHub repositories and creates pull requests to update them.",
+        "URL":  "https://github.com/features/dependabot",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T116",
+        "Name":  "Digital Guardian",
+        "Description":  "Digital Guardian provides a data security platform that focuse",
+        "URL":  "https://digitalguardian.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T329",
+        "Name":  "Dmarcian",
+        "Description":  "Offers a platform for DMARC implementation, analysis, and enforcement with guided configuration and expert support.",
+        "URL":  "https://dmarcian.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T614",
+        "Name":  "Docker Containers (with Orchestration)",
+        "Description":  "Containerize applications and deploy them across distinct Docker hosts or Kubernetes clusters to create logically separated production and development environments.",
+        "URL":  "https://www.docker.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T557",
+        "Name":  "Drata",
+        "Description":  "Automates SOC 2 compliance and continuous monitoring, providing standardized assessment reports for service providers to review.",
+        "URL":  "https://www.drata.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T91",
+        "Name":  "draw.io (Diagrams.net)",
+        "Description":  "A free, open-source diagramming application that supports data flow diagrams and can be integrated with various storage platforms.",
+        "URL":  "https://www.diagrams.net/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T379",
+        "Name":  "Druva Data Protection Cloud",
+        "Description":  "Druva provides cloud-native data protection and disaster recovery, offering backup, archival, and ransomware prevention capabilities.",
+        "URL":  "https://www.druva.com/solutions/data-protection/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T203",
+        "Name":  "Duo Security",
+        "Description":  "Duo provides a simple yet powerful MFA solution that integrates with many applications and offers flexible deployment options.",
+        "URL":  "https://duo.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T328",
+        "Name":  "EasyDMARC",
+        "Description":  "Provides comprehensive DMARC management, including SPF and DKIM setup assistance, monitoring, and reporting.",
+        "URL":  "https://easydmarc.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T686",
+        "Name":  "Elastic Security",
+        "Description":  "Elastic\u0027s SIEM solution provides anomaly detection and machine learning capabilities for establishing thresholds and identifying unusual activity that warrants investigation.",
+        "URL":  "https://www.elastic.co/security/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T494",
+        "Name":  "Elastic Security (formerly Elastic SIEM)",
+        "Description":  "Elastic Security provides centralized security monitoring and threat detection capabilities with flexible alerting configuration options for ongoing refinement.",
+        "URL":  "https://www.elastic.co/security/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T286",
+        "Name":  "Elastic Security (formerly ELK Stack)",
+        "Description":  "An open-source solution for security information and event management, capable of ingesting and analyzing command-line audit logs from Linux and Windows systems.",
+        "URL":  "https://www.elastic.co/solutions/security",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T629",
+        "Name":  "Elasticsearch (for Auditing)",
+        "Description":  "A powerful search and analytics engine that can be configured to collect, store, and analyze audit logs from various sources.",
+        "URL":  "https://www.elastic.co/elasticsearch/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T290",
+        "Name":  "Elasticsearch (with Beats \u0026 Logstash)",
+        "Description":  "An open-source search and analytics suite that can be used to centralize logs through the Elastic Stack.",
+        "URL":  "https://www.elastic.co/stack/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T271",
+        "Name":  "Elasticsearch (with Beats)",
+        "Description":  "Elasticsearch combined with the Beats agents allows for flexible collection and analysis of audit logs from diverse systems, providing detailed forensic information.",
+        "URL":  "https://www.elastic.co/beats",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T295",
+        "Name":  "Elasticsearch (with Elastic Stack)",
+        "Description":  "An open-source search and analytics suite that can ingest, store, and analyze large volumes of log data for extended periods.",
+        "URL":  "https://www.elastic.co/elasticsearch/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T260",
+        "Name":  "Elasticsearch (with Kibana \u0026 Beats)",
+        "Description":  "An open-source search and analytics suite that can ingest and store large volumes of audit log data with flexible scaling capabilities.",
+        "URL":  "https://www.elastic.co/elasticsearch/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T300",
+        "Name":  "Elasticsearch (with Kibana)",
+        "Description":  "This open-source solution allows you to search, analyze, and visualize large volumes of log data, facilitating the identification of unusual patterns in audit logs.",
+        "URL":  "https://www.elastic.co/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T306",
+        "Name":  "Elasticsearch (with Logstash \u0026 Kibana - the ELK Stack)",
+        "Description":  "A powerful open-source stack for centralized logging, enabling you to collect, parse, and visualize service provider logs.",
+        "URL":  "https://www.elastic.co/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T282",
+        "Name":  "Elasticsearch (with Logstash and Kibana - ELK Stack)",
+        "Description":  "An open-source solution for searching, analyzing, and visualizing machine data, suitable for collecting and examining URL request logs.",
+        "URL":  "https://www.elastic.co/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T118",
+        "Name":  "Endpoint Protector by CoSoSys",
+        "Description":  "Endpoint Protector offers a host-based DLP solution focused on preventing data leakage from endpoint devices through various channels.",
+        "URL":  "https://www.cososys.com/endpoint-protector/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T92",
+        "Name":  "Enterprise Architect",
+        "Description":  "A comprehensive modeling tool supporting UML, BPMN, and other notations to document complex data flows within an enterprise architecture context.",
+        "URL":  "https://sparxsystems.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T352",
+        "Name":  "ESET Endpoint Security",
+        "Description":  "Delivers automatic signature updates and threat intelligence to protect endpoints against the latest malware threats.",
+        "URL":  "https://www.eset.com/us/endpoint-security",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T570",
+        "Name":  "Exabeam Security Management Platform",
+        "Description":  "Helps identify and monitor user activity across service providers to ensure complete account deactivation during decommissioning.",
+        "URL":  "https://www.exabeam.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T485",
+        "Name":  "Extreme Networks ExtremeControl",
+        "Description":  "ExtremeControl provides centralized network access control with 802.1x and device profiling, enabling secure onboarding and policy enforcement.",
+        "URL":  "https://extremenetworks.com/products/software/extremecontrol/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T96",
+        "Name":  "FileVault (macOS)",
+        "Description":  "macOS\u0027s built-in full-disk encryption feature can also be used to protect data on external drives connected to a Mac.",
+        "URL":  "https://support.apple.com/en-us/HT204016",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T325",
+        "Name":  "Firefox Organizational Policies",
+        "Description":  "Allows IT departments to manage and restrict Firefox extensions through configuration policies, ensuring a secure browsing environment.",
+        "URL":  "https://support.mozilla.org/en-US/kb/managing-firefox-extensions-organizational-policies",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T681",
+        "Name":  "FireHydrant",
+        "Description":  "Automates incident response playbooks and includes features for structured post-incident review documentation and action item tracking.",
+        "URL":  "https://firehydant.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T33",
+        "Name":  "Flexera One",
+        "Description":  "Flexera\u0027s solution offers comprehensive software asset management, including support status visibility and exception management capabilities for unsupported software.",
+        "URL":  "https://www.flexera.com/solutions/software-asset-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T117",
+        "Name":  "Forcepoint DLP",
+        "Description":  "Forcepoint\u0027s solution helps organizations discover, monitor, and protect sensitive data across endpoints, networks, and cloud applications.",
+        "URL":  "https://www.forcepoint.com/products/dlp",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T632",
+        "Name":  "Fortify Static Code Analyzer",
+        "Description":  "A SAST solution that identifies and prioritizes security flaws within applications, providing developers with actionable remediation guidance.",
+        "URL":  "https://www.microfocus.com/en-us/products/application-security/fortify/static-code-analyzer",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T431",
+        "Name":  "Fortinet FortiClient VPN",
+        "Description":  "FortiClient offers a comprehensive VPN solution that integrates with Fortinet\u0027s security fabric and AAA services for secure remote access.",
+        "URL":  "https://www.fortinet.com/solutions/remote-access/forticlient",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T319",
+        "Name":  "Fortinet FortiGate",
+        "Description":  "Offers web filtering capabilities as part of its Next-Generation Firewall, allowing for granular control over website access based on categories and reputation.",
+        "URL":  "https://www.fortinet.com/solutions/security-fabric/web-filtering",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T477",
+        "Name":  "Fortinet FortiGate Next-Generation Firewall",
+        "Description":  "Delivers intrusion prevention alongside other security features like VPN and web filtering in a single appliance.",
+        "URL":  "https://www.fortinet.com/solutions/firewall",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T428",
+        "Name":  "Fortinet FortiNAC",
+        "Description":  "FortiNAC delivers network access control and policy enforcement, supporting 802.1X authentication and WPA3 Enterprise for secure device onboarding.",
+        "URL":  "https://www.fortinet.com/products/network-security/nac",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T407",
+        "Name":  "Fortinet Security Fabric",
+        "Description":  "This integrated platform offers centralized management and visibility across network security components, enabling segmentation and least privilege enforcement.",
+        "URL":  "https://www.fortinet.com/solutions/security-fabric",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T592",
+        "Name":  "FOSSA",
+        "Description":  "FOSSA automates license compliance management by identifying open source licenses and ensuring adherence to organizational policies.",
+        "URL":  "https://fossa.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T424",
+        "Name":  "FreeRADIUS",
+        "Description":  "FreeRADIUS is an open-source AAA server that can be deployed to centralize authentication and authorization for network services.",
+        "URL":  "https://freeradius.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T703",
+        "Name":  "GitHub Issues",
+        "Description":  "A simple, free tool within GitHub that can be used for tracking and managing penetration test findings as tasks with assigned timelines.",
+        "URL":  "https://github.com/features/issues",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T324",
+        "Name":  "Google Chrome Enterprise Policy",
+        "Description":  "Provides administrators with granular control over Chrome browser extensions, enabling them to allowlist or denylist specific extensions.",
+        "URL":  "https://chromeenterprise.google/policies/#ExtensionInstallForcelistPolicy",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T308",
+        "Name":  "Google Chronicle",
+        "Description":  "A cloud-native security analytics platform that ingests and analyzes massive volumes of log data, including service provider logs, to help organizations investigate threats.",
+        "URL":  "https://cloud.google.com/chronicle",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T384",
+        "Name":  "Google Cloud Backup and DR",
+        "Description":  "Google Cloud\u0027s solution provides data protection and disaster recovery capabilities, including automated backups for various workloads.",
+        "URL":  "https://cloud.google.com/products/disaster-recovery",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T111",
+        "Name":  "Google Cloud Data Loss Prevention (DLP)",
+        "Description":  "This service helps discover, classify, and redact sensitive data, allowing you to segment storage and processing based on identified sensitivity levels.",
+        "URL":  "https://cloud.google.com/dlp",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T201",
+        "Name":  "Google Cloud Identity",
+        "Description":  "Google Cloud Identity allows you to enforce MFA on externally exposed apps through context-aware access and SSO integration.",
+        "URL":  "https://cloud.google.com/identity",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T228",
+        "Name":  "Google Cloud Identity \u0026 Access Management (IAM)",
+        "Description":  "Google Cloud IAM allows you to define roles with specific permissions and assign them to users, groups, or service accounts within the Google Cloud environment.",
+        "URL":  "https://cloud.google.com/iam",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T106",
+        "Name":  "Google Cloud Key Management Service (KMS)",
+        "Description":  "Google Cloud KMS lets you manage cryptographic keys and encrypt your data at rest across various Google Cloud services.",
+        "URL":  "https://cloud.google.com/kms",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T454",
+        "Name":  "Google Cloud Network Intrusion Detection System (NIDS)",
+        "Description":  "A managed service that analyzes network traffic for malicious activity and provides alerts based on predefined rules and machine learning models.",
+        "URL":  "https://cloud.google.com/network-intelligence-center/network-ids",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T612",
+        "Name":  "Google Cloud Platform (GCP) - Projects",
+        "Description":  "Leverage distinct GCP projects to create isolated environments for production and non-production workloads, enforcing resource boundaries and access controls.",
+        "URL":  "https://cloud.google.com/resource-manager/docs/projects",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T609",
+        "Name":  "Google Cloud Security Command Center",
+        "Description":  "Provides a centralized view of security posture, including configuration assessments based on industry standards and best practices.",
+        "URL":  "https://cloud.google.com/security-command-center",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T72",
+        "Name":  "Google Cloud Storage Object Lifecycle Management",
+        "Description":  "Define rules to automatically transition, delete, or archive Google Cloud Storage objects based on their age and storage class.",
+        "URL":  "https://cloud.google.com/storage/docs/object-lifecycle",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T439",
+        "Name":  "Google Cloud Virtual Private Cloud (VPC)",
+        "Description":  "Allows you to create isolated networks within Google Cloud Platform for dedicated administrative resources and network segmentation.",
+        "URL":  "https://cloud.google.com/vpc/docs",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T158",
+        "Name":  "Google Endpoint Management (formerly G Suite Device Management)",
+        "Description":  "Provides device administration capabilities including the ability to set lockout policies for Android devices managed within a Google Workspace environment.",
+        "URL":  "https://cloud.google.com/endpoint-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T163",
+        "Name":  "Google Endpoint Management (formerly Google Device Manager)",
+        "Description":  "Google\u0027s solution allows administrators to remotely wipe data from Android devices enrolled in the organizationâ€™s Google Workspace account.",
+        "URL":  "https://cloud.google.com/workspace/security/device-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T657",
+        "Name":  "Google Forms (with Google Workspace)",
+        "Description":  "Google Forms allows for the easy creation of simple, publicly accessible incident reporting forms that can be integrated with other Google Workspace tools for tracking and notification.",
+        "URL":  "https://workspace.google.com/products/forms/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T178",
+        "Name":  "Google Password Manager",
+        "Description":  "Integrated into Chrome and Android devices, it generates and stores passwords securely, offering a convenient option for users within the Google ecosystem.",
+        "URL":  "https://support.google.com/chrome/answer/9562738?hl=en",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T542",
+        "Name":  "Google Sheets / Microsoft Excel (with custom templates)",
+        "Description":  "A simple spreadsheet can be used to manually track service providers, classifications, and contacts, allowing for customization but requiring more manual effort.",
+        "URL":  "https://workspace.google.com/sheets/ \u0026 https://www.microsoft.com/en-us/microsoft-365/excel",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T652",
+        "Name":  "Google Workspace (Contact Groups)",
+        "Description":  "Google\u0027s contact groups allow you to create distribution lists for security incident reporting, which can be easily updated and verified annually.",
+        "URL":  "https://support.google.com/a/userguide/answer/45973?hl=en",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T181",
+        "Name":  "Google Workspace (formerly G Suite)",
+        "Description":  "Provides account deactivation policies to disable accounts after a set period of inactivity.",
+        "URL":  "https://workspace.google.com/help/account-deactivation-policy/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T122",
+        "Name":  "Google Workspace (formerly G Suite) Device Management",
+        "Description":  "Allows administrators to configure screen lock timeouts and inactivity settings for ChromeOS devices and managed Android devices.",
+        "URL":  "https://workspace.google.com/intl/en_us/device-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T188",
+        "Name":  "Google Workspace (with Least Privilege Policies)",
+        "Description":  "Google Workspace allows administrators to define least privilege policies, restricting administrative access and encouraging the use of separate accounts for general computing tasks.",
+        "URL":  "https://workspace.google.com/intl/en_us/security/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T196",
+        "Name":  "Google Workspace Directory Sync",
+        "Description":  "Synchronizes on-premises Active Directory or LDAP directories with Google Workspace accounts for centralized user management.",
+        "URL":  "https://cloud.google.com/workspace/docs/admin-settings/directory-sync",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T331",
+        "Name":  "Google Workspace Email Forensics",
+        "Description":  "If using Google Workspace, this tool helps diagnose and troubleshoot DMARC failures within your domain.",
+        "URL":  "https://support.google.com/a/answer/9283175?hl=en",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T221",
+        "Name":  "Google Workspace Identity",
+        "Description":  "Integrates identity management with Google\u0027s productivity suite, enabling centralized control over user accounts and application access.",
+        "URL":  "https://workspace.google.com/identity/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T210",
+        "Name":  "Google Workspace Identity Aware Proxy (IAP)",
+        "Description":  "Enables MFA enforcement for access to on-premises applications through Google\u0027s identity infrastructure.",
+        "URL":  "https://cloud.google.com/iap/docs/using-identity-aware-proxy",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T298",
+        "Name":  "Graylog",
+        "Description":  "An open-source log management platform with enterprise features for centralized logging, analysis, and archiving of audit trails.",
+        "URL":  "https://www.graylog.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T311",
+        "Name":  "Group Policy (Windows)",
+        "Description":  "Administrators can use Group Policy Objects (GPOs) to enforce specific browser and email client installations and configurations within a Windows domain environment.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/administration/group-policy/group-policy",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T353",
+        "Name":  "Group Policy Editor (Windows)",
+        "Description":  "This built-in Windows tool allows administrators to centrally manage and disable Autorun policies across a network or on individual machines.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/administration/windows-command-line/group-policy-home",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T134",
+        "Name":  "HashiCorp Terraform",
+        "Description":  "Automates infrastructure provisioning and management using declarative configuration files stored in version control for consistent and secure deployments.",
+        "URL":  "https://www.hashicorp.com/terraform",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T613",
+        "Name":  "HashiCorp Terraform - Infrastructure as Code",
+        "Description":  "Define and manage separate infrastructure configurations for production and non-production environments using Terraform, ensuring consistent and isolated deployments.",
+        "URL":  "https://www.hashicorp.com/terraform",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T627",
+        "Name":  "HashiCorp Vault",
+        "Description":  "Securely stores and manages secrets, such as passwords, API keys, and certificates, using encryption and access controls.",
+        "URL":  "https://www.vaultproject.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T658",
+        "Name":  "Help Scout",
+        "Description":  "Help Scout offers a knowledge base feature to publish the incident reporting process publicly, alongside a help desk system for employees to submit incidents directly.",
+        "URL":  "https://helpscout.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T443",
+        "Name":  "IBM QRadar SIEM",
+        "Description":  "IBM QRadar is a security intelligence platform that unifies event data from diverse sources to identify, investigate, and respond to threats.",
+        "URL":  "https://www.ibm.com/products/qradar",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T113",
+        "Name":  "Immuta",
+        "Description":  "This platform provides automated data governance and masking capabilities, allowing organizations to segment data based on sensitivity and enforce access controls.",
+        "URL":  "https://immutadata.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T623",
+        "Name":  "Imperva Web Application Firewall (WAF)",
+        "Description":  "This WAF acts as a mediation layer, validating user input and blocking malicious requests, effectively enforcing the \"never trust user input\" principle.",
+        "URL":  "https://www.imperva.com/waf/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T536",
+        "Name":  "Infosec Institute",
+        "Description":  "Offers role-based security awareness training programs, including modules on OWASP Top 10 and social engineering.",
+        "URL":  "https://www.infosecinstitute.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T498",
+        "Name":  "Infosec IQ",
+        "Description":  "Delivers engaging, interactive training content with assessments and tracking capabilities to improve employee understanding of cybersecurity risks.",
+        "URL":  "https://www.infosecinstitute.com/iq/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T128",
+        "Name":  "iptables (Linux)",
+        "Description":  "A powerful command-line utility for configuring the Linux kernel firewall, offering granular control over network traffic.",
+        "URL":  "https://www.kernel.org/doc/html/latest/networking/iptables.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T642",
+        "Name":  "IriusRisk",
+        "Description":  "A commercial platform that provides a structured threat modeling methodology, automated documentation, and integration with development workflows to manage security risks proactively.",
+        "URL":  "https://iriusrisk.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T51",
+        "Name":  "Ivanti Application Control",
+        "Description":  "Ivanti\u0027s tool provides granular control over application execution, allowing you to create allowlists and block unauthorized software based on various criteria.",
+        "URL":  "https://www.ivanti.com/products/application-control",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T121",
+        "Name":  "Ivanti Endpoint Manager",
+        "Description":  "Offers endpoint management features, allowing administrators to enforce inactivity-based session locking policies across various operating systems.",
+        "URL":  "https://www.ivanti.com/products/endpoint-manager/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T146",
+        "Name":  "Ivanti Endpoint Manager (formerly LANDESK)",
+        "Description":  "Offers software distribution, patching, and remote control features that enable the removal or disabling of unwanted services across endpoints.",
+        "URL":  "https://www.ivanti.com/products/endpoint-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T141",
+        "Name":  "Ivanti Neurons for Configuration Management",
+        "Description":  "Ivanti\u0027s solution helps manage configurations, including disabling or modifying default accounts across your IT environment.",
+        "URL":  "https://www.ivanti.com/products/configuration-management/neurons-for-configuration-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T40",
+        "Name":  "Ivanti Neurons for Discovery",
+        "Description":  "This tool automatically discovers all applications running on endpoints, providing a comprehensive inventory and enabling policy enforcement to prevent unauthorized software.",
+        "URL":  "https://www.ivanti.com/products/neurons-for-discovery",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T32",
+        "Name":  "Ivanti Neurons for ITAM",
+        "Description":  "This platform automates software discovery, inventory, and provides support lifecycle tracking to identify unsupported software.",
+        "URL":  "https://www.ivanti.com/products/itassetmanagement/neurons-for-itam/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T237",
+        "Name":  "Ivanti Neurons for Patch Management",
+        "Description":  "Offers proactive patch management with automation and analytics to reduce risk and improve efficiency.",
+        "URL":  "https://www.ivanti.com/products/neurons-for-patch-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T155",
+        "Name":  "Jamf Pro",
+        "Description":  "Offers comprehensive Apple device management with features to enforce lockout policies based on failed login attempts for iPhones and iPads.",
+        "URL":  "https://www.jamf.com/pro/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T46",
+        "Name":  "Jamf Pro (for Apple devices)",
+        "Description":  "Jamf Pro automatically inventories all installed applications on managed macOS, iOS, iPadOS, and tvOS devices.",
+        "URL":  "https://www.jamf.com/pro/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T312",
+        "Name":  "Jamf Pro (macOS)",
+        "Description":  "This MDM solution allows for the deployment and management of browsers and email clients on macOS devices, enforcing version control and configuration settings.",
+        "URL":  "https://www.jamf.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T162",
+        "Name":  "Jamf Protect",
+        "Description":  "Jamf Protect offers rapid device response capabilities, including remote wipe and lock, specifically designed for Apple devices.",
+        "URL":  "https://www.jamfprotect.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T464",
+        "Name":  "Jamf Protect (formerly Jamf Threat Defense)",
+        "Description":  "Continuously assesses endpoint security posture, including malware status and configuration compliance, to dynamically control access.",
+        "URL":  "https://www.jamfprotect.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T677",
+        "Name":  "Jeopardy! Cyber Challenge",
+        "Description":  "Offers a free, online cybersecurity challenge platform to test skills and practice incident response scenarios.",
+        "URL":  "https://cyberchallenge.jeopardy.tech/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T590",
+        "Name":  "JFrog Xray",
+        "Description":  "JFrog Xray scans binary repositories to identify vulnerabilities, license compliance issues, and policy violations within your software components.",
+        "URL":  "https://jfrog.com/xray/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T699",
+        "Name":  "Jira",
+        "Description":  "A widely used issue tracking system allowing for workflow management, task assignment, and progress monitoring during remediation efforts.",
+        "URL":  "https://www.atlassian.com/software/jira",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T655",
+        "Name":  "Jira Service Management",
+        "Description":  "Jira Service Management provides a flexible platform for creating incident reporting portals, defining escalation paths, and managing the entire incident lifecycle with customizable forms.",
+        "URL":  "https://www.atlassian.com/software/jira/service-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T197",
+        "Name":  "JumpCloud",
+        "Description":  "Delivers a cloud directory platform that replaces traditional Active Directory, providing centralized user management and device access control.",
+        "URL":  "https://www.jumpcloud.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T222",
+        "Name":  "JumpCloud Directory Platform",
+        "Description":  "A cloud-based directory service that centralizes user identities, device management, and access control for both on-premises and cloud resources.",
+        "URL":  "https://www.jumpcloud.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T429",
+        "Name":  "Juniper Networks Mist AI",
+        "Description":  "Juniper\u0027s Mist AI platform incorporates secure wireless protocols like WPA3 Enterprise and 802.1X for automated network access control and security.",
+        "URL":  "https://www.juniper.net/us/en/solutions/wireless/mist-ai.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T712",
+        "Name":  "Kali Linux",
+        "Description":  "A Debian-based Linux distribution designed for digital forensics and penetration testing, containing a vast array of pre-installed tools.",
+        "URL":  "https://www.kali.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T177",
+        "Name":  "Keeper",
+        "Description":  "A comprehensive password management solution with features like secure sharing, breach monitoring, and compliance reporting.",
+        "URL":  "https://keeper.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T581",
+        "Name":  "Kenna Security (now Cisco XDR)",
+        "Description":  "Kenna aggregates vulnerability data from various sources, prioritizes risks based on exploitability and business impact, and streamlines remediation workflows for improved tracking.",
+        "URL":  "https://www.cisco.com/c/en/us/products/security/xdr/kenna-security.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T223",
+        "Name":  "Keycloak",
+        "Description":  "An open-source identity and access management solution enabling SSO and centralized authentication across applications.",
+        "URL":  "https://www.keycloak.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T77",
+        "Name":  "KillDisk",
+        "Description":  "A bootable disk wiping software that overwrites entire storage devices multiple times, rendering data unrecoverable.",
+        "URL":  "https://killdisk.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T501",
+        "Name":  "KnowBe4",
+        "Description":  "Offers a comprehensive platform with simulated phishing campaigns, training modules, and reporting features to educate users on recognizing various attack types.",
+        "URL":  "https://www.knowbe4.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T45",
+        "Name":  "Lansweeper",
+        "Description":  "Lansweeper offers automated network discovery and software inventory reporting for comprehensive asset visibility.",
+        "URL":  "https://www.lansweeper.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T174",
+        "Name":  "LastPass",
+        "Description":  "A popular password manager that generates strong, unique passwords and securely stores them across devices.",
+        "URL":  "https://www.lastpass.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T99",
+        "Name":  "Let\u0027s Encrypt",
+        "Description":  "Provides free TLS certificates to enable HTTPS encryption for websites.",
+        "URL":  "https://letsencrypt.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T132",
+        "Name":  "Little Snitch (macOS)",
+        "Description":  "This macOS application monitors all network connections made by applications and prompts the user to allow or deny them, effectively creating a default-deny firewall.",
+        "URL":  "https://www.obdev.at/products/littlesnitch/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T505",
+        "Name":  "Living Security",
+        "Description":  "Uses interactive storytelling and gamified training to engage employees and teach them how to identify and avoid social engineering attacks.",
+        "URL":  "https://livingssecurity.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T560",
+        "Name":  "LogicGate",
+        "Description":  "A risk management software platform that allows for the creation of custom vendor assessment questionnaires and tracking of remediation efforts.",
+        "URL":  "https://logicgate.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T545",
+        "Name":  "LogicGate Ncentral",
+        "Description":  "This platform helps organizations centralize risk management processes, including service provider assessments and policy adherence tracking.",
+        "URL":  "https://logicgate.com/ncentral/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T667",
+        "Name":  "LogicGate Risk Cloud",
+        "Description":  "LogicGate provides a platform for mapping roles, responsibilities, and controls related to incident response within a broader risk management framework.",
+        "URL":  "https://www.logicgate.com/risk-cloud/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T89",
+        "Name":  "Lucidchart",
+        "Description":  "A visual workspace for creating flowcharts, diagrams, and other visualizations to map out data flows across systems and services.",
+        "URL":  "https://www.lucidchart.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T82",
+        "Name":  "LUKS (Linux)",
+        "Description":  "LUKS is a standard for disk encryption on Linux, offering robust data protection through block-level encryption.",
+        "URL":  "https://security.debian.org/dists/bookworm/non-free/cryptsetup/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T330",
+        "Name":  "Mail-Tester.com",
+        "Description":  "A free service that allows you to test your email authentication records (SPF, DKIM, DMARC) by sending a test email.",
+        "URL":  "https://www.mail-tester.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T173",
+        "Name":  "ManageEngine ADManager Plus",
+        "Description":  "Simplifies Active Directory administration with features like automated account provisioning, reporting, and access reviews.",
+        "URL":  "https://www.manageengine.com/admanager-plus/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T29",
+        "Name":  "ManageEngine AssetExplorer",
+        "Description":  "Provides automated software discovery and inventory management with features for tracking license compliance, version history, and deployment details.",
+        "URL":  "https://www.manageengine.com/asset-management/software-inventory.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T41",
+        "Name":  "ManageEngine Endpoint Central",
+        "Description":  "This unified endpoint management solution includes application control features to block unwanted applications and enforce approved software usage.",
+        "URL":  "https://www.manageengine.com/endpoint-central/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T16",
+        "Name":  "ManageEngine OpManager",
+        "Description":  "ManageEngine OpManager offers network monitoring and management features, including automatic device discovery and inventory tracking.",
+        "URL":  "https://www.manageengine.com/network-monitoring/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T231",
+        "Name":  "ManageEngine Patch Manager Plus",
+        "Description":  "Provides centralized patch management for Windows, macOS, Linux, and third-party applications.",
+        "URL":  "https://www.manageengine.com/patch-manager-plus/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T709",
+        "Name":  "Metasploit",
+        "Description":  "A widely used framework for developing and executing exploit code against a target network, allowing for comprehensive penetration testing.",
+        "URL":  "https://www.metasploit.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T65",
+        "Name":  "Microsoft Active Directory",
+        "Description":  "Manages user accounts and permissions across a network, enabling granular control over file system, database, and application access.",
+        "URL":  "https://www.microsoft.com/en-us/exchange/active-directory",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T150",
+        "Name":  "Microsoft Active Directory DNS",
+        "Description":  "Integrated with Windows environments, this provides centralized DNS management and authoritative name resolution within the enterprise.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/networking/dns/dns-overview",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T433",
+        "Name":  "Microsoft Always On VPN",
+        "Description":  "Integrated within Windows, this feature provides persistent VPN connections and supports integration with enterprise Active Directory or other AAA solutions.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/remote/always-on-vpn",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T611",
+        "Name":  "Microsoft Azure - Resource Groups \u0026 Subscriptions",
+        "Description":  "Employ separate Azure subscriptions and resource groups to logically segment production and development/testing resources within the Azure platform.",
+        "URL":  "https://azure.microsoft.com/en-us/resource-groups/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T422",
+        "Name":  "Microsoft Azure Active Directory (Azure AD)",
+        "Description":  "Azure AD offers cloud-based AAA services with features like multi-factor authentication and conditional access policies.",
+        "URL":  "https://azure.microsoft.com/en-us/services/active-directory/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T191",
+        "Name":  "Microsoft Azure Active Directory (Azure AD) Entitlement Management",
+        "Description":  "Allows for the creation of entitlement groups to manage service account access and automate review processes within a Microsoft environment.",
+        "URL":  "https://azure.microsoft.com/en-us/services/active-directory/entitlement-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T206",
+        "Name":  "Microsoft Azure Multi-Factor Authentication",
+        "Description":  "Integrates with Azure Active Directory to add an extra layer of security when users sign in.",
+        "URL":  "https://azure.microsoft.com/en-us/product/identity/mfa/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T666",
+        "Name":  "Microsoft Azure Purview (formerly Microsoft Information Protection)",
+        "Description":  "This service helps define data governance roles and responsibilities, which can be extended to incident response activities involving sensitive information.",
+        "URL":  "https://azure.microsoft.com/en-us/products/purview/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T147",
+        "Name":  "Microsoft Configuration Manager (SCCM)",
+        "Description":  "Allows administrators to deploy software packages and scripts that can uninstall applications or disable services on managed devices.",
+        "URL":  "https://docs.microsoft.com/en-us/sccm/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T348",
+        "Name":  "Microsoft Defender Antivirus",
+        "Description":  "Automatically delivers updated threat intelligence to protect against emerging malware, integrated within Windows operating systems.",
+        "URL":  "https://learn.microsoft.com/en-us/windows/security/defender-antivirus/protect-your-devices-with-microsoft-defender-antivirus",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T587",
+        "Name":  "Microsoft Defender Expert for Cloud",
+        "Description":  "Provides guided investigations and root cause analysis for cloud security incidents, leveraging Microsoft\u0027s threat intelligence.",
+        "URL":  "https://learn.microsoft.com/en-us/defender-for-cloud/expert-guided-investigations",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T479",
+        "Name":  "Microsoft Defender for Cloud (Azure Firewall)",
+        "Description":  "Integrates with Azure to provide a cloud-delivered network firewall with threat intelligence and intrusion prevention capabilities.",
+        "URL":  "https://azure.microsoft.com/en-us/products/defender-for-cloud/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T453",
+        "Name":  "Microsoft Defender for Cloud (Network Security Group)",
+        "Description":  "Provides network security group capabilities within Azure, allowing you to define rules to filter network traffic based on source and destination IP addresses, ports, and protocols.",
+        "URL":  "https://learn.microsoft.com/en-us/azure/security-center/network-security-groups",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T471",
+        "Name":  "Microsoft Defender for Endpoint",
+        "Description":  "Offers comprehensive endpoint security features, including real-time threat prevention and intrusion detection capabilities.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-defender-for-endpoint",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T47",
+        "Name":  "Microsoft Defender for Endpoint (Application Control)",
+        "Description":  "This feature allows you to define rules specifying which applications can run on devices, preventing unauthorized software execution.",
+        "URL":  "https://learn.microsoft.com/en-us/defender-for-endpoint/application-control",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T56",
+        "Name":  "Microsoft Defender for Endpoint (formerly ATP) - Attack Surface Reduction Rules",
+        "Description":  "This feature allows you to create rules that block or allow specific scripts based on their path and hash, effectively creating an allowlist.",
+        "URL":  "https://learn.microsoft.com/en-us/defender-for-endpoint/attack-surface-reduction-rules",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T373",
+        "Name":  "Microsoft Defender for Endpoint (formerly Microsoft Threat Protection)",
+        "Description":  "This solution leverages behavioral sensors and machine learning to detect and respond to threats in real-time across Windows, macOS, Linux, and Android devices.",
+        "URL":  "https://learn.microsoft.com/en-us/microsoft-365/security/defender-for-endpoint",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T243",
+        "Name":  "Microsoft Defender for Endpoint (Vulnerability Assessment)",
+        "Description":  "Integrates vulnerability scanning into Microsoft\u0027s endpoint protection platform, offering automated assessments with authentication capabilities.",
+        "URL":  "https://learn.microsoft.com/en-us/defender-for-endpoint/assessment-overview",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T337",
+        "Name":  "Microsoft Defender for Office 365",
+        "Description":  "This service allows administrators to create attachment policies that block or quarantine emails with specific file types.",
+        "URL":  "https://learn.microsoft.com/en-us/microsoft-defender-for-office-365/attachment-policies",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T248",
+        "Name":  "Microsoft Defender Vulnerability Management",
+        "Description":  "Microsoft Defender Vulnerability Management provides continuous vulnerability assessment across your on-premises, hybrid, and multi-cloud environments.",
+        "URL":  "https://learn.microsoft.com/en-us/defender-for-cloud/vulnerability-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T309",
+        "Name":  "Microsoft Endpoint Manager (formerly Intune)",
+        "Description":  "This platform allows administrators to manage device configurations, including browser and email client versions, ensuring compliance across enrolled devices.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-endpoint-manager",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T366",
+        "Name":  "Microsoft Endpoint Manager (formerly SCCM)",
+        "Description":  "This comprehensive platform allows administrators to deploy, configure, and monitor antivirus solutions across a large fleet of devices.",
+        "URL":  "https://www.microsoft.com/en-us/products/microsoft-endpoint-manager",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T42",
+        "Name":  "Microsoft Endpoint Manager (Intune)",
+        "Description":  "This comprehensive platform automatically discovers and manages software across devices within an organization.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-endpoint-manager",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T215",
+        "Name":  "Microsoft Entra (formerly Azure Active Directory) Identity Governance",
+        "Description":  "Provides discovery, access certification, and entitlement management capabilities to help maintain an inventory of user access rights across connected applications.",
+        "URL":  "https://www.microsoft.com/en-us/entra/identity-governance",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T209",
+        "Name":  "Microsoft Entra ID (Azure AD) Multi-Factor Authentication",
+        "Description":  "Provides robust MFA capabilities across Microsoft cloud services and on-premises applications.",
+        "URL":  "https://www.microsoft.com/en-us/entra/identity/multifactor-authentication",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T194",
+        "Name":  "Microsoft Entra ID (formerly Azure Active Directory)",
+        "Description":  "Provides cloud-based identity and access management, enabling centralized user accounts and authentication across various applications.",
+        "URL":  "https://entra.microsoft.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T436",
+        "Name":  "Microsoft Hyper-V",
+        "Description":  "Similar to VMware, Hyper-V allows creation of isolated virtual machines for administrative functions with network segmentation options.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T323",
+        "Name":  "Microsoft Intune",
+        "Description":  "Manages browser extensions across devices through policies, allowing administrators to control which extensions are permitted.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-intune/browser-extension-control",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T110",
+        "Name":  "Microsoft Purview (formerly Azure Data Catalog)",
+        "Description":  "This unified data governance service helps classify, understand, and manage sensitive data across your organization, facilitating segmentation based on sensitivity.",
+        "URL":  "https://azure.microsoft.com/en-us/products/purview/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T60",
+        "Name":  "Microsoft Purview (formerly Azure Purview)",
+        "Description":  "This unified data governance service helps you map, understand, and manage your on-premises, multi-cloud, and SaaS data assets.",
+        "URL":  "https://azure.microsoft.com/en-us/products/purview/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T571",
+        "Name":  "Microsoft Purview (formerly Microsoft Information Protection)",
+        "Description":  "Enables data loss prevention policies and secure disposal of sensitive information residing within a departing vendor\u0027s systems.",
+        "URL":  "https://learn.microsoft.com/en-us/purview/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T649",
+        "Name":  "Microsoft Purview Communication Compliance",
+        "Description":  "This service helps organizations manage and track communication channels, including contact details for incident reporting, with features for annual verification.",
+        "URL":  "https://www.microsoft.com/en-us/compliance/communication-compliance",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T114",
+        "Name":  "Microsoft Purview DLP",
+        "Description":  "Microsoft\u0027s comprehensive DLP solution helps discover, classify, and protect sensitive information across various locations and applications.",
+        "URL":  "https://www.microsoft.com/en-us/purview",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T85",
+        "Name":  "Microsoft Purview Information Protection (formerly Azure Information Protection)",
+        "Description":  "This service allows organizations to label and protect sensitive information across various Microsoft applications and services.",
+        "URL":  "https://learn.microsoft.com/en-us/purview/information-protection",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T70",
+        "Name":  "Microsoft Purview Records Management",
+        "Description":  "This service helps organizations manage records and automate retention policies across Microsoft 365 services.",
+        "URL":  "https://www.microsoft.com/en-us/compliance/records-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T659",
+        "Name":  "Microsoft Sentinel",
+        "Description":  "This cloud-native SIEM (Security Information and Event Management) platform helps automate threat detection, investigation, and response, facilitating a structured incident response workflow.",
+        "URL":  "https://azure.microsoft.com/en-us/products/sentinel/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T656",
+        "Name":  "Microsoft SharePoint",
+        "Description":  "SharePoint can be configured to create a centralized reporting portal with documented procedures, contact information, and standardized incident report forms accessible to all employees.",
+        "URL":  "https://microsoft.sharepoint.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T669",
+        "Name":  "Microsoft Teams",
+        "Description":  "Provides persistent chat channels, voice/video calls, and file sharing capabilities for real-time collaboration during incidents.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-teams",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T647",
+        "Name":  "Microsoft Teams (with Power Automate)",
+        "Description":  "Microsoft Teams combined with Power Automate enables automated assignment of incidents based on defined criteria and facilitates team collaboration for response coordination.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-teams/powerautomate-integration",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T640",
+        "Name":  "Microsoft Threat Modeling Tool",
+        "Description":  "This free tool guides users through a structured process for identifying threats and vulnerabilities in software designs using diagrams and STRIDE analysis.",
+        "URL":  "https://learn.microsoft.com/en-us/windows/security/threat-modeling/threat-modeling-tool",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T418",
+        "Name":  "Microsoft Visio",
+        "Description":  "A desktop application for creating professional-looking diagrams, flowcharts, and architectural visualizations.",
+        "URL":  "https://www.microsoft.com/en-us/microsoft-365/visio/flowchart-software",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T265",
+        "Name":  "Microsoft Windows Time Service",
+        "Description":  "Built into Windows operating systems, it provides time synchronization capabilities using NTP or PTP protocols.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/security/time-configuration",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T334",
+        "Name":  "Mimecast Email Security",
+        "Description":  "Mimecast allows administrators to define and enforce policies regarding permitted file extensions in incoming emails.",
+        "URL":  "https://www.mimecast.com/solutions/email-security/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T339",
+        "Name":  "Mimecast Email Security Gateway",
+        "Description":  "Offers multilayered email security with features like attachment sandboxing, impersonation protection, and advanced malware detection.",
+        "URL":  "https://mimecast.com/solutions/email-security-gateway/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T419",
+        "Name":  "Miro",
+        "Description":  "An online whiteboard platform that supports visual collaboration and can be used to create and maintain architecture diagrams with embedded notes and links.",
+        "URL":  "https://miro.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T156",
+        "Name":  "MobileIron (Ivanti Neurons for MDM)",
+        "Description":  "Enables administrators to configure maximum failed login attempts before device lockouts across various mobile platforms.",
+        "URL":  "https://www.ivanti.com/products/neurons-mdm/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T697",
+        "Name":  "NCC Group",
+        "Description":  "NCC Group offers a range of cybersecurity services, including penetration testing, leveraging specialized skills for comprehensive external assessments.",
+        "URL":  "https://www.nccgroup.com/us/services/cybersecurity-consulting/penetration-testing/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T710",
+        "Name":  "Nessus Professional",
+        "Description":  "A vulnerability scanner that identifies security weaknesses within an internal network, providing a foundation for targeted penetration tests.",
+        "URL":  "https://www.tenable.com/products/nessus",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T414",
+        "Name":  "Netmiko",
+        "Description":  "A Python library that simplifies connecting to and managing network devices using secure protocols like SSH.",
+        "URL":  "https://github.com/ktbyers/netmiko",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T315",
+        "Name":  "NextDNS",
+        "Description":  "Offers customizable DNS filtering with ad blocking, parental controls, and security features for individuals and organizations.",
+        "URL":  "https://nextdns.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T488",
+        "Name":  "NGX-Proxy Manager",
+        "Description":  "A simple, easy to use proxy manager that can be used for reverse proxies and load balancing with application layer filtering capabilities.",
+        "URL":  "https://nginxproxymanager.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T142",
+        "Name":  "NinjaOne",
+        "Description":  "NinjaOne provides remote monitoring and management capabilities, including the ability to enforce policies that disable or rename default accounts on managed devices.",
+        "URL":  "https://www.ninjaone.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T22",
+        "Name":  "Nmap",
+        "Description":  "A versatile open-source scanner used for network discovery and security auditing, allowing you to identify connected assets.",
+        "URL":  "https://nmap.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T466",
+        "Name":  "ntopng",
+        "Description":  "ntopng is a high-speed web-based traffic monitoring tool that analyzes network flows in real time and provides insights into application usage.",
+        "URL":  "https://www.ntop.org/products/ntopng/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T264",
+        "Name":  "NTP Server (ntp.org)",
+        "Description":  "A widely used protocol and open-source software for synchronizing computer clocks over a network.",
+        "URL":  "https://www.ntp.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T224",
+        "Name":  "Okta",
+        "Description":  "Okta provides a centralized identity platform for managing users, groups, and access to applications with granular role-based permissions.",
+        "URL":  "https://www.okta.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T462",
+        "Name":  "Okta Access Gateway",
+        "Description":  "Enforces security policies, including device posture checks, before allowing remote access to on-premises applications and data.",
+        "URL":  "https://www.okta.com/product/access-gateway/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T211",
+        "Name":  "Okta Adaptive Authentication",
+        "Description":  "Offers flexible MFA policies and risk-based authentication for various applications and devices.",
+        "URL":  "https://www.okta.com/adaptive-authentication/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T172",
+        "Name":  "Okta Identity Cloud",
+        "Description":  "Delivers a comprehensive identity platform for managing user identities and access across applications and devices, including account lifecycle management.",
+        "URL":  "https://www.okta.com/identity-cloud/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T192",
+        "Name":  "Okta Lifecycle Management",
+        "Description":  "Automates service account access reviews, provides visibility into entitlements, and streamlines the process of managing service account lifecycles.",
+        "URL":  "https://www.okta.com/lifecycle-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T568",
+        "Name":  "OneTrust Third-Party Risk Management",
+        "Description":  "Provides a centralized platform to manage vendor relationships, including decommissioning workflows and data disposal verification.",
+        "URL":  "https://www.onetrust.com/third-party-risk-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T548",
+        "Name":  "OneTrust Vendor Risk Management",
+        "Description":  "Automates vendor classification based on various risk factors and regulatory requirements to ensure ongoing compliance.",
+        "URL":  "https://www.onetrust.com/vendor-risk-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T539",
+        "Name":  "OneTrust Vendorpedia",
+        "Description":  "Offers a continuously updated directory of vendors with detailed information and risk ratings, simplifying the process of identifying and classifying service providers.",
+        "URL":  "https://www.onetrust.com/solutions/vendor-risk-management/vendropedia/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T316",
+        "Name":  "OpenDNS (Zscaler)",
+        "Description":  "Provides a cloud-based internet security platform including DNS filtering to protect against malware and phishing.",
+        "URL":  "https://www.zscaler.com/products/opensdns",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T101",
+        "Name":  "OpenSSH",
+        "Description":  "A suite of secure shell tools for encrypted remote login and other secured network services.",
+        "URL":  "https://www.openssh.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T628",
+        "Name":  "OpenSSL",
+        "Description":  "A widely used open-source toolkit providing robust cryptographic functions for secure communication and data protection.",
+        "URL":  "https://www.openssl.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T242",
+        "Name":  "OpenVAS",
+        "Description":  "A free and open-source vulnerability scanner that supports both authenticated and unauthenticated scans to identify security weaknesses.",
+        "URL":  "https://www.openvas.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T432",
+        "Name":  "OpenVPN",
+        "Description":  "This open-source VPN solution can be configured to integrate with various AAA servers for authentication and secure remote access.",
+        "URL":  "https://openvpn.net/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T683",
+        "Name":  "OpsLevel",
+        "Description":  "Integrates incident data with service level objectives (SLOs) and provides insights for identifying areas of improvement during postmortems.",
+        "URL":  "https://opslevel.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T54",
+        "Name":  "Osquery",
+        "Description":  "Osquery allows you to query your operating system as if it were a database, enabling the creation of policies that restrict library loading based on allowlists.",
+        "URL":  "https://osquery.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T597",
+        "Name":  "OWASP Dependency-Check",
+        "Description":  "A software composition analysis tool that identifies project dependencies and checks if they contain known vulnerabilities.",
+        "URL":  "https://owasp.org/www-project-dependency-check/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T641",
+        "Name":  "OWASP Threat Dragon",
+        "Description":  "A free, open-source threat modeling tool that uses a diagramming approach to identify and prioritize threats based on impact and likelihood.",
+        "URL":  "https://owasp.org/www-project-threat-dragon/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T616",
+        "Name":  "OWASP Training",
+        "Description":  "Provides free and paid resources, including online courses and workshops, focused on web application security best practices.",
+        "URL":  "https://owasp.org/training/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T620",
+        "Name":  "OWASP ZAP",
+        "Description":  "This free and open-source web application security scanner helps identify vulnerabilities by simulating attacks and enforcing secure design principles like input validation.",
+        "URL":  "https://www.zaproxy.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T576",
+        "Name":  "OWASP ZAP (Zed Attack Proxy)",
+        "Description":  "This open-source DAST tool helps find vulnerabilities in web applications through automated scanning and manual testing.",
+        "URL":  "https://www.zaproxy.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T646",
+        "Name":  "PagerDuty",
+        "Description":  "PagerDuty facilitates on-call scheduling, escalation policies, and incident communication to ensure the right personnel are notified and can respond effectively.",
+        "URL":  "https://pagerduty.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T708",
+        "Name":  "Palo Alto Networks Cortex XDR",
+        "Description":  "This extended detection and response (XDR) platform integrates data from endpoints, network, and cloud to create custom detections based on observed attack techniques.",
+        "URL":  "https://www.paloaltonetworks.com/products/cortex-xdr",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T475",
+        "Name":  "Palo Alto Networks Next-Generation Firewall",
+        "Description":  "Offers integrated intrusion prevention capabilities with signature-based and behavior-based detection to block malicious traffic.",
+        "URL":  "https://www.paloaltonetworks.com/products/firewall",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T144",
+        "Name":  "PDQ Inventory",
+        "Description":  "This tool scans your network to identify installed software and services, allowing you to easily uninstall or disable unwanted items.",
+        "URL":  "https://www.pdq.com/inventory/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T691",
+        "Name":  "Pentester.ai",
+        "Description":  "This platform automates penetration testing tasks, allowing teams to define scope, run tests, and track remediation progress efficiently.",
+        "URL":  "https://pentester.ai/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T636",
+        "Name":  "Pentest-Tools.com",
+        "Description":  "Pentest-Tools offers a range of penetration testing services, including authenticated testing and vulnerability assessments for web applications.",
+        "URL":  "https://pentest-tools.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T321",
+        "Name":  "pfSense",
+        "Description":  "A free and open-source firewall distribution that supports various web filtering packages like SquidGuard for category-based blocking.",
+        "URL":  "https://www.pfsense.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T489",
+        "Name":  "pfSense Firewall",
+        "Description":  "An open-source firewall distribution offering advanced packet filtering and application layer inspection features.",
+        "URL":  "https://www.pfsense.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T525",
+        "Name":  "PhishLabs",
+        "Description":  "Offers security awareness training modules specifically addressing identifying and reporting phishing attempts and potentially compromised systems, which can extend to missing updates.",
+        "URL":  "https://www.phishlabs.com/training/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T503",
+        "Name":  "PhishMe (Cofense)",
+        "Description":  "Provides realistic phishing simulations and training programs that mimic real-world attacks to build user resilience.",
+        "URL":  "https://cofense.com/phishing-simulation/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T552",
+        "Name":  "Prevalent",
+        "Description":  "Delivers a comprehensive vendor risk management platform with robust classification capabilities and continuous monitoring features.",
+        "URL":  "https://www.prevalent.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T541",
+        "Name":  "Prevalent Third-Party Security Platform",
+        "Description":  "Delivers a comprehensive solution for vendor risk management, including a centralized inventory with detailed profiles and ongoing monitoring capabilities.",
+        "URL":  "https://www.prevalent.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T333",
+        "Name":  "Proofpoint Email Security",
+        "Description":  "Proofpoint\u0027s advanced threat protection includes granular control over allowed attachment types.",
+        "URL":  "https://www.proofpoint.com/products/email-security",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T338",
+        "Name":  "Proofpoint Essentials",
+        "Description":  "Provides comprehensive email security including advanced threat detection, attachment sandboxing, and URL rewriting.",
+        "URL":  "https://www.proofpoint.com/products/email-security/essentials",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T497",
+        "Name":  "Proofpoint Security Awareness Training",
+        "Description":  "Offers customizable training modules, simulated attacks, and reporting features to build a strong security culture within an organization.",
+        "URL":  "https://www.proofpoint.com/security-awareness-training",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T19",
+        "Name":  "PRTG Network Monitor",
+        "Description":  "Collects and analyzes DHCP server logs, allowing for automated asset inventory updates within its dashboard.",
+        "URL":  "https://www.prtg.com/network-monitor/dhcp-monitoring/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T668",
+        "Name":  "Pulitzer Cybersecurityâ€™s Incident Response Platform",
+        "Description":  "This platform allows you to define roles, assign tasks, and manage communication during incident response events with clear accountability.",
+        "URL":  "https://pulitzercybersecurity.com/incident-response-platform/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T606",
+        "Name":  "Puppet Enterprise",
+        "Description":  "Automates the deployment and maintenance of secure configurations across diverse IT environments, adhering to industry best practices.",
+        "URL":  "https://puppet.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T314",
+        "Name":  "Quad9",
+        "Description":  "A free, secure DNS service that blocks access to malicious domains using threat intelligence from multiple sources.",
+        "URL":  "https://quad9.net/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T15",
+        "Name":  "Qualys Asset Inventory",
+        "Description":  "Qualys Asset Inventory provides a centralized view of all IT assets, including hardware, software, and cloud resources, with automated discovery capabilities.",
+        "URL":  "https://www.qualys.com/asset-inventory/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T9",
+        "Name":  "Qualys Asset Management",
+        "Description":  "Discovers and tracks IT assets across the enterprise, highlighting those that are unauthorized or non-compliant for remediation.",
+        "URL":  "https://www.qualys.com/asset-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T140",
+        "Name":  "Qualys Policy Compliance",
+        "Description":  "Qualys Policy Compliance assesses and enforces security policies, allowing you to identify and remediate systems with default accounts enabled.",
+        "URL":  "https://www.qualys.com/compliance/policy-compliance/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T600",
+        "Name":  "Qualys Vulnerability Management",
+        "Description":  "Qualys offers automated vulnerability scans, severity ratings (including CVSS), and workflow capabilities to prioritize remediation efforts.",
+        "URL":  "https://www.qualys.com/vulnerability-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T662",
+        "Name":  "Rapid7 InsightDR",
+        "Description":  "This Detection and Response (DR) solution helps teams investigate alerts, prioritize threats, and respond effectively with automated actions and playbooks.",
+        "URL":  "https://www.rapid7.com/products/insightdr/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T707",
+        "Name":  "Rapid7 InsightIDR",
+        "Description":  "This cloud SIEM offers automated threat detection and investigation features allowing for the creation of custom detections based on penetration test findings.",
+        "URL":  "https://www.rapid7.com/products/insightidr/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T143",
+        "Name":  "Rapid7 InsightVM",
+        "Description":  "Rapid7\u0027s vulnerability management platform identifies systems with default accounts and provides remediation guidance for secure configuration.",
+        "URL":  "https://www.rapid7.com/products/insightvm/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T639",
+        "Name":  "Rapid7 Nexpose (with Pentest Services)",
+        "Description":  "While primarily a vulnerability scanner, Rapid7 offers pentesting services to augment Nexpose findings with manual validation and exploitation.",
+        "URL":  "https://www.rapid7.com/products/nexpose/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T233",
+        "Name":  "Red Hat Satellite",
+        "Description":  "A system management solution for hybrid cloud environments, including automated OS updates for Red Hat Enterprise Linux systems.",
+        "URL":  "https://www.redhat.com/en/services/satellite",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T676",
+        "Name":  "Red Team Toolkit (RTT)",
+        "Description":  "A collection of tools for conducting red team exercises, including scenario planning and execution capabilities.",
+        "URL":  "https://redteamtoolkit.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T354",
+        "Name":  "Registry Editor (Windows)",
+        "Description":  "Directly modifying specific registry keys can disable autoplay functionality on Windows systems for granular control.",
+        "URL":  "https://www.howtogeek.com/235107/how-to-disable-autoplay-on-windows-8/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T651",
+        "Name":  "RingCentral Contact Center",
+        "Description":  "While primarily a contact center solution, RingCentral can be configured to manage and distribute incident reporting contacts with features for verification and updates.",
+        "URL":  "https://www.ringcentral.com/contact-center/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T551",
+        "Name":  "RiskRecon (now part of Mastercard)",
+        "Description":  "Automatically discovers and classifies vendors based on publicly available data and internal assessments to streamline the classification process.",
+        "URL":  "https://www.mastercard.com/news/pressreleases/2023/june/mastercard-acquires-riskrecon.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T97",
+        "Name":  "Rohos Mini Drive",
+        "Description":  "This tool creates encrypted virtual drives from any file, allowing you to store sensitive data on removable media securely.",
+        "URL":  "https://www.rohos.com/minidrive/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T680",
+        "Name":  "Rootly",
+        "Description":  "Offers an incident management system with built-in postmortem templates, automated workflows, and knowledge base integration to streamline reviews.",
+        "URL":  "https://rootly.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T565",
+        "Name":  "RSA Archer Suite",
+        "Description":  "Enables organizations to manage risks associated with third-party vendors, including compliance monitoring and assessment.",
+        "URL":  "https://www.rsa.com/products/archer",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T390",
+        "Name":  "Rubrik Cloud Data Management",
+        "Description":  "Rubrik\u0027s platform offers policy-driven data protection with encryption and immutability features to protect recovery data from unauthorized access or modification.",
+        "URL":  "https://www.rubrik.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T395",
+        "Name":  "Rubrik Cloud Data Management (with Cold Storage Tier)",
+        "Description":  "Rubrik offers data management with the ability to tier data to cold storage, providing isolation and long-term retention.",
+        "URL":  "https://www.rubrik.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T567",
+        "Name":  "SailPoint Identity Secure Decommissioning",
+        "Description":  "Automates the process of deactivating accounts, revoking access, and ensuring data removal during service provider transitions.",
+        "URL":  "https://www.sailpoint.com/products/identity-secure-decommissioning/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T214",
+        "Name":  "SailPoint IdentityIQ",
+        "Description":  "This comprehensive identity governance platform automatically discovers, inventories, and manages authentication and authorization systems across diverse environments.",
+        "URL":  "https://www.sailpoint.com/products/identityiq/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T512",
+        "Name":  "SANS Institute",
+        "Description":  "SANS offers comprehensive cybersecurity training courses, including those focused on data security, incident response, and secure data management techniques.",
+        "URL":  "https://www.sans.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T531",
+        "Name":  "SANS Institute Secure Awareness",
+        "Description":  "Provides a range of awareness programs, including modules focused on secure remote access and data transmission risks.",
+        "URL":  "https://www.sans.org/cyber-security-courses/secure-awareness/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T523",
+        "Name":  "SANS Institute Securing the Human (STH)",
+        "Description":  "Offers a range of training courses and resources focused on building a security-conscious culture and improving incident reporting.",
+        "URL":  "https://www.sans.org/cyber-security-courses/securing-the-human/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T518",
+        "Name":  "SANS Institute Security Awareness Courses",
+        "Description":  "Provides in-depth, expert-led courses focused on various security topics including data protection and incident prevention.",
+        "URL":  "https://www.sans.org/cyber-security-courses/security-awareness/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T500",
+        "Name":  "SANS Institute Security Awareness Posters \u0026 Resources",
+        "Description":  "Provides free downloadable posters, infographics, and other resources to reinforce key security concepts.",
+        "URL":  "https://www.sans.org/security-awareness/resources/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T510",
+        "Name":  "SANS Institute Security Awareness Posters \u0026 Training",
+        "Description":  "Provides free posters and paid courses that cover essential security topics like authentication and credential protection.",
+        "URL":  "https://www.sans.org/security-awareness/posters/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T504",
+        "Name":  "SANS Institute Security Awareness Training",
+        "Description":  "Offers a variety of courses and resources covering social engineering, phishing, and other security awareness topics for different roles.",
+        "URL":  "https://www.sans.org/security-awareness/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T577",
+        "Name":  "Secure Code Warrior",
+        "Description":  "Secure Code Warrior provides a gamified platform for developer security training, focusing on secure coding practices.",
+        "URL":  "https://www.securecodewarrior.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T558",
+        "Name":  "Secureframe",
+        "Description":  "Offers a platform for managing security and compliance programs, including vendor risk assessments and SOC 2 readiness.",
+        "URL":  "https://secureframe.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T345",
+        "Name":  "SentinelOne Singularity",
+        "Description":  "Utilizes AI and machine learning to proactively prevent attacks on endpoints, servers, and cloud workloads with automated response features.",
+        "URL":  "https://www.sentinelone.com/singularity/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T472",
+        "Name":  "SentinelOne Singularity XDR",
+        "Description":  "Delivers autonomous endpoint protection with behavioral AI and machine learning to prevent intrusions and remediate threats.",
+        "URL":  "https://www.sentinelone.com/products/singularity-xdr/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T644",
+        "Name":  "ServiceNow",
+        "Description":  "ServiceNow\u0027s Incident Management module provides a centralized platform for assigning roles, tracking responsibilities, and documenting incident response workflows.",
+        "URL":  "https://www.servicenow.com/incident-management.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T562",
+        "Name":  "ServiceNow Governance Management",
+        "Description":  "Automates governance processes, including service provider assessments and contract management, to ensure ongoing compliance.",
+        "URL":  "https://www.servicenow.com/products/governance-management.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T664",
+        "Name":  "ServiceNow IT Service Management (ITSM)",
+        "Description":  "ServiceNow allows you to define and assign incident response roles, workflows, and escalation paths within a centralized platform.",
+        "URL":  "https://www.servicenow.com/products/it-service-management.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T660",
+        "Name":  "ServiceNow Security Incident Response",
+        "Description":  "ServiceNow\u0027s platform provides workflows for managing incidents from detection to resolution, including automated tasks and communication features.",
+        "URL":  "https://www.servicenow.com/products/security-incident-response.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T549",
+        "Name":  "ServiceNow Vendor Risk Management",
+        "Description":  "Provides a centralized platform for classifying vendors, assessing risks, and managing remediation efforts based on defined criteria.",
+        "URL":  "https://www.servicenow.com/products/vendor-risk-management.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T575",
+        "Name":  "ShiftLeft Scan",
+        "Description":  "ShiftLeft offers a free SAST tool that uses abstract syntax trees to identify vulnerabilities without false positives.",
+        "URL":  "https://shiftleft.io/scan/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T75",
+        "Name":  "Shred-It",
+        "Description":  "Offers secure document destruction services including on-site shredding and media destruction to ensure confidential information is permanently eliminated.",
+        "URL":  "https://www.shredit.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T673",
+        "Name":  "Signal",
+        "Description":  "Offers end-to-end encrypted messaging for secure communication among incident response team members.",
+        "URL":  "https://signal.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T678",
+        "Name":  "SimSpace (Keysight)",
+        "Description":  "A cloud-based cyber exercise platform that allows organizations to create and run realistic attack simulations for training and validation.",
+        "URL":  "https://www.keysight.com/us/en/products/software/simspace.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T670",
+        "Name":  "Slack",
+        "Description":  "Offers instant messaging, channel-based communication, and integrations with security tools for streamlined incident coordination.",
+        "URL":  "https://slack.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T31",
+        "Name":  "Snipe-IT",
+        "Description":  "This open-source IT asset management system allows you to track software licenses, versions, and deployment details with customizable fields for business purpose and decommission dates.",
+        "URL":  "https://snipe-it.readme.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T34",
+        "Name":  "Snow Software",
+        "Description":  "Snow provides software discovery, usage tracking, and license optimization features with support lifecycle information to ensure compliance and identify unsupported applications.",
+        "URL":  "https://www.snowsoftware.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T594",
+        "Name":  "Snyk",
+        "Description":  "Identifies, prioritizes, and helps you fix open-source vulnerabilities in your projects and dependencies.",
+        "URL":  "https://snyk.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T633",
+        "Name":  "Snyk Code",
+        "Description":  "Snyk Code is a SAST tool that integrates into the developer workflow to find and fix vulnerabilities in open source dependencies and custom code.",
+        "URL":  "https://snyk.io/product/code",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T6",
+        "Name":  "SolarWinds Asset Management",
+        "Description":  "SolarWinds provides a centralized asset management solution that helps track hardware, software, and virtual assets with detailed information and reporting capabilities.",
+        "URL":  "https://www.solarwinds.com/it-asset-management",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T17",
+        "Name":  "SolarWinds DHCP \u0026 IP Address Manager",
+        "Description":  "Automates DHCP management and provides detailed logging for inventory updates.",
+        "URL":  "https://www.solarwinds.com/dhcp-ip-address-manager/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T39",
+        "Name":  "SolarWinds Endpoint Manager",
+        "Description":  "This solution provides application discovery, control, and inventory management features to identify and address unauthorized software installations.",
+        "URL":  "https://www.solarwinds.com/endpoint-management-software",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T465",
+        "Name":  "SolarWinds NetFlow Traffic Analyzer",
+        "Description":  "This tool collects, analyzes, and reports on network traffic flow data to identify bandwidth hogs and security threats.",
+        "URL":  "https://www.solarwinds.com/netflow-traffic-analyzer",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T14",
+        "Name":  "SolarWinds Network Configuration Manager",
+        "Description":  "SolarWinds NCM automates network device discovery, configuration management, and compliance monitoring to ensure optimal performance.",
+        "URL":  "https://www.solarwinds.com/network-configuration-manager",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T402",
+        "Name":  "SolarWinds Network Configuration Manager (NCM)",
+        "Description":  "SolarWinds NCM automates configuration backups, change tracking, and compliance monitoring to ensure network devices are running supported versions.",
+        "URL":  "https://www.solarwinds.com/network-configuration-manager",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T277",
+        "Name":  "SolarWinds Network Performance Monitor",
+        "Description":  "This tool provides network monitoring features, including DNS query logging and analysis to identify potential issues or security threats.",
+        "URL":  "https://www.solarwinds.com/network-performance-monitor/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T230",
+        "Name":  "SolarWinds Patch Manager",
+        "Description":  "Automates patch deployment for Windows servers and workstations, ensuring timely updates and vulnerability remediation.",
+        "URL":  "https://www.solarwinds.com/patch-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T145",
+        "Name":  "SolarWinds Service \u0026 Application Manager",
+        "Description":  "Provides comprehensive monitoring and management capabilities including the ability to control and disable services on servers and applications.",
+        "URL":  "https://www.solarwinds.com/service-application-manager/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T43",
+        "Name":  "SolarWinds Service Desk",
+        "Description":  "SolarWinds Service Desk provides automated software inventory and asset management capabilities to track installed applications.",
+        "URL":  "https://www.solarwinds.com/it-service-management/service-desk/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T266",
+        "Name":  "SolarWinds TimeKeeper",
+        "Description":  "A commercial time synchronization solution offering centralized management and monitoring for diverse environments.",
+        "URL":  "https://www.solarwinds.com/network-time-protocol-ntp-software/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T630",
+        "Name":  "SonarQube",
+        "Description":  "A widely used platform for continuous inspection of code quality and security, identifying vulnerabilities and enforcing coding standards.",
+        "URL":  "https://www.sonarsource.com/products/sonarql/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T369",
+        "Name":  "Sophos Central Endpoint",
+        "Description":  " A cloud-managed endpoint protection solution that simplifies deployment, policy enforcement, and reporting for anti-malware software.",
+        "URL":  "https://www.sophos.com/en-us/products/endpoint-protection/central-endpoint",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T375",
+        "Name":  "Sophos Intercept X",
+        "Description":  "This endpoint protection solution combines signature-based detection with behavioral analysis, exploit prevention, and ransomware protection.",
+        "URL":  "https://www.sophos.com/en-us/intercept",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T459",
+        "Name":  "Sophos XG Firewall",
+        "Description":  "Offers comprehensive security features, including granular traffic filtering policies for network segmentation.",
+        "URL":  "https://www.sophos.com/en-us/products/xg-firewall.aspx",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T332",
+        "Name":  "SPF Record Generator",
+        "Description":  "A simple tool to generate SPF records based on your email sending infrastructure.",
+        "URL":  "https://www.spfwizard.net/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T87",
+        "Name":  "Spirion Data Discovery \u0026 Classification",
+        "Description":  "Spirion helps organizations discover, classify, and protect sensitive data across their entire environment using customizable classification rules.",
+        "URL":  "https://spirion.com/solutions/data-discovery-and-classification/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T294",
+        "Name":  "Splunk",
+        "Description":  "A comprehensive platform for collecting, analyzing, and visualizing machine-generated data, including audit logs, with robust retention capabilities.",
+        "URL":  "https://www.splunk.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T674",
+        "Name":  "Splunk Attack Range",
+        "Description":  "Simulates cyberattacks within your environment to test incident response plans and identify areas for improvement.",
+        "URL":  "https://www.splunk.com/en_us/software/attack-range.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T289",
+        "Name":  "Splunk Enterprise",
+        "Description":  "A widely used SIEM platform for collecting, analyzing, and visualizing machine-generated data from various sources.",
+        "URL":  "https://www.splunk.com/en_us/products/enterprise.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T704",
+        "Name":  "Splunk Enterprise Security",
+        "Description":  "This SIEM platform allows for correlation of events and creation of custom rules to detect attacker techniques identified in penetration tests.",
+        "URL":  "https://www.splunk.com/en_us/products/enterprise-security.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T648",
+        "Name":  "Splunk OnCall",
+        "Description":  "Splunk OnCall provides automated on-call scheduling, incident routing, and escalation to ensure the appropriate personnel are notified and can respond quickly.",
+        "URL":  "https://www.splunk.com/en_us/software/on-call.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T486",
+        "Name":  "Squid Proxy Server",
+        "Description":  "A widely used caching and forwarding HTTP web proxy with robust content filtering capabilities.",
+        "URL":  "https://www.squid-cache.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T584",
+        "Name":  "Stack Overflow Enterprise",
+        "Description":  "Facilitates collaborative RCA by providing a searchable knowledge base and expert support to uncover underlying issues.",
+        "URL":  "https://stackoverflow.enterprise/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T281",
+        "Name":  "Sumo Logic",
+        "Description":  "A cloud-native SIEM platform that aggregates logs from various sources, including web servers, enabling detailed URL request auditing.",
+        "URL":  "https://www.sumologic.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T444",
+        "Name":  "Sumo Logic Cloud SIEM",
+        "Description":  "Sumo Logic provides a cloud-native security information and event management (SIEM) platform for real-time threat detection and incident response.",
+        "URL":  "https://www.sumologic.com/products/cloud-siem/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T24",
+        "Name":  "Suricata",
+        "Description":  "A high-performance, open-source Intrusion Detection System (IDS), capable of passive network analysis for asset discovery.",
+        "URL":  "https://suricata.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T661",
+        "Name":  "Swimlane",
+        "Description":  "Swimlane offers a visual incident response platform to orchestrate workflows, automate tasks, and centralize communication during security incidents.",
+        "URL":  "https://swimlane.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T115",
+        "Name":  "Symantec Data Loss Prevention",
+        "Description":  "Broadcomâ€™s Symantec DLP offers endpoint, network, and cloud data protection capabilities to prevent sensitive information from leaving the organization.",
+        "URL":  "https://broadcom.com/products/data-loss-prevention",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T359",
+        "Name":  "Symantec Endpoint Protection",
+        "Description":  "Symantecâ€™s offering includes features to scan USB drives and other external media for malware upon connection.",
+        "URL":  "https://www.broadcom.com/products/security/endpoint-protection",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T98",
+        "Name":  "Symantec SafeDrive",
+        "Description":  "A software solution that encrypts USB flash drives and external hard drives with password protection.",
+        "URL":  "https://www.broadcom.com/products/security/data-loss-prevention/safedrive",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T55",
+        "Name":  "Sysdig Secure",
+        "Description":  "Sysdig Secure provides application control and runtime defense capabilities, including the ability to define allowlists for executables and libraries.",
+        "URL":  "https://sysdig.com/products/secure/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T702",
+        "Name":  "Tenable.io",
+        "Description":  "Provides a centralized platform for managing vulnerabilities and integrating with remediation tools to streamline the patching process.",
+        "URL":  "https://www.tenable.com/products/tenable-io",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T411",
+        "Name":  "Terraform",
+        "Description":  "Automates infrastructure provisioning and management using code, enabling version control and repeatable deployments for secure network configurations.",
+        "URL":  "https://www.terraform.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T643",
+        "Name":  "ThreatModeler",
+        "Description":  "This tool facilitates collaborative threat modeling by allowing teams to create diagrams, identify threats, and track mitigation strategies within a centralized platform.",
+        "URL":  "https://threatmodeler.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T187",
+        "Name":  "ThycoticCentrify Privileged Access Management",
+        "Description":  "Centrify offers a unified platform for managing identities, access, and privileges, facilitating the creation and control of dedicated administrator accounts.",
+        "URL":  "https://www.centrify.com/products/privilege-management/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T88",
+        "Name":  "Titus Data Classification",
+        "Description":  "Titus offers a comprehensive solution for classifying, labeling, and protecting sensitive data with customizable labels and policies.",
+        "URL":  "https://www.titus.com/products/data-classification/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T449",
+        "Name":  "Tripwire Enterprise",
+        "Description":  "Tripwire provides file integrity monitoring and configuration management to detect unauthorized changes on systems.",
+        "URL":  "https://www.tripwire.com/solutions/tripwire-enterprise/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T672",
+        "Name":  "Twilio",
+        "Description":  "Enables programmable communication through APIs for sending SMS messages, making phone calls, and delivering WhatsApp updates during incidents.",
+        "URL":  "https://www.twilio.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T153",
+        "Name":  "Unbound (DNS Server)",
+        "Description":  "A validating, recursive, and caching DNS server designed for improved security and performance.",
+        "URL":  "https://unbound.info/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T278",
+        "Name":  "Untangle NG Firewall",
+        "Description":  "Untangle\u0027s firewall solution includes a DNS Watch feature that logs DNS queries for auditing and troubleshooting purposes.",
+        "URL":  "https://untangle.com/features/dns-watch/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T559",
+        "Name":  "UpGuard",
+        "Description":  "Provides continuous monitoring of third-party vendors\u0027 security posture using automated scans and questionnaires.",
+        "URL":  "https://www.upguard.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T86",
+        "Name":  "Varonis Data Classification",
+        "Description":  "Varonis provides automated data discovery and classification capabilities to identify sensitive information and apply appropriate labels based on predefined policies.",
+        "URL":  "https://www.varonis.com/use-cases/data-classification",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T138",
+        "Name":  "Vault by HashiCorp",
+        "Description":  "Securely stores, manages, and accesses secrets, API keys, passwords, and certificates using HTTPS for encrypted communication.",
+        "URL":  "https://www.hashicorp.com/vault",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T381",
+        "Name":  "Veeam Backup \u0026 Replication",
+        "Description":  "Veeam provides comprehensive backup and recovery solutions for virtual, physical, and cloud environments, automating backups based on defined schedules.",
+        "URL":  "https://www.veeam.com/backup-replication.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T394",
+        "Name":  "Veeam Backup \u0026 Replication (with Offsite Repository)",
+        "Description":  "Veeam allows you to replicate backups to a geographically separate location, creating an isolated recovery instance.",
+        "URL":  "https://www.veeam.com/backup-replication.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T574",
+        "Name":  "Veracode",
+        "Description":  "Veracode provides a suite of application security testing services including SAST, DAST (Dynamic Application Security Testing), and SCA (Software Composition Analysis).",
+        "URL":  "https://veracode.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T634",
+        "Name":  "Veracode Static Analysis",
+        "Description":  "A cloud-based platform offering static analysis, dynamic analysis, and software composition analysis for comprehensive security testing.",
+        "URL":  "https://veracode.com/products/static-analysis",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T94",
+        "Name":  "VeraCrypt",
+        "Description":  "A free, open-source disk encryption software allowing you to encrypt entire partitions or storage devices.",
+        "URL":  "https://veracrypt.fr/en/Home.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T83",
+        "Name":  "VeraCrypt (Cross-Platform)",
+        "Description":  "VeraCrypt is a free, open-source disk encryption software for Windows, macOS, and Linux, offering strong encryption algorithms.",
+        "URL":  "https://veracrypt.fr/en/Home.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T73",
+        "Name":  "Veritas Enterprise Data Protection (EDP)",
+        "Description":  "This comprehensive solution provides data retention, archiving, and eDiscovery capabilities across various platforms and applications.",
+        "URL":  "https://www.veritas.com/products/enterprise-data-protection",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T435",
+        "Name":  "VMware vSphere",
+        "Description":  "Provides virtualization capabilities to create logically separated virtual machines for administrative tasks, isolating them from the main network.",
+        "URL":  "https://www.vmware.com/products/vsphere.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T161",
+        "Name":  "VMware Workspace ONE",
+        "Description":  "VMware\u0027s unified endpoint management platform enables administrators to remotely wipe applications, data, and configurations from devices across various operating systems.",
+        "URL":  "https://www.vmware.com/us/products/workspace-one.html",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T446",
+        "Name":  "Wazuh",
+        "Description":  "Wazuh is an open-source security platform that provides HIDS capabilities alongside other security features like log analysis and SIEM functionality.",
+        "URL":  "https://www.wazuh.com/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T591",
+        "Name":  "WhiteSource (Mend)",
+        "Description":  "Mend automatically identifies open-source components in your applications and provides insights into their security risks, licensing obligations, and development status.",
+        "URL":  "https://www.mend.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T596",
+        "Name":  "WhiteSource Bolt",
+        "Description":  "Analyzes codebases, identifies open-source components, and provides remediation advice for vulnerabilities and license risks.",
+        "URL":  "https://whitesource.zendesk.com/hc/en-us/articles/213540768-WhiteSource-Bolt",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T364",
+        "Name":  "Windows Defender Exploit Guard",
+        "Description":  "A built-in Windows security feature, Exploit Guard provides multiple layers of defense against exploitation techniques like DEP and Address Space Layout Randomization (ASLR).",
+        "URL":  "https://learn.microsoft.com/en-us/windows/security/exploit-protection",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T127",
+        "Name":  "Windows Defender Firewall with Advanced Security",
+        "Description":  "Built into Windows Server, this provides a host-based firewall for managing inbound and outbound network traffic.",
+        "URL":  "https://learn.microsoft.com/en-us/windows-server/security/windows-defender-firewall/windows-defender-firewall-with-advanced-security",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T451",
+        "Name":  "Zeek (formerly Bro)",
+        "Description":  "An open-source network analysis framework that provides detailed logs and alerts about network traffic, enabling threat detection and incident response.",
+        "URL":  "https://www.zeek.org/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T410",
+        "Name":  "ZeroStack",
+        "Description":  "This platform automates the creation and management of software-defined networks, simplifying segmentation and least privilege implementation in multi-cloud environments.",
+        "URL":  "https://www.zerostack.io/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T653",
+        "Name":  "Zoho Contacts",
+        "Description":  "Zoho Contacts provides a centralized platform for managing contact information, including those involved in security incident reporting, with features to track updates and verification dates.",
+        "URL":  "https://www.zoho.com/contacts/",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T133",
+        "Name":  "ZoneAlarm Free Firewall",
+        "Description":  "This free personal firewall offers real-time protection by monitoring network activity and allowing users to control application access to the internet.",
+        "URL":  "https://www.zonealarm.com/free-firewall",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T320",
+        "Name":  "Zscaler Internet Access",
+        "Description":  "Delivers cloud-based web filtering with real-time threat intelligence, blocking access to malicious and inappropriate websites across the network.",
+        "URL":  "https://www.zscaler.com/internet-access",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T463",
+        "Name":  "Zscaler Private Access",
+        "Description":  "Provides secure, application-layer access based on device posture assessment and user identity verification.",
+        "URL":  "https://www.zscaler.com/products/private-access",
+        "EducationUse":  false,
+        "Cost":  "$"
+    },
+    {
+        "ID":  "T434",
+        "Name":  "Zscaler Private Access (ZPA)",
+        "Description":  "ZPA provides a zero trust network access solution that uses device posture assessment and integrates with existing AAA infrastructure for secure remote application access.",
+        "URL":  "https://www.zscaler.com/products/private-access",
+        "EducationUse":  false,
+        "Cost":  "$"
+    }
 ]
-
