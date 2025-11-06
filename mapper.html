@@ -359,9 +359,13 @@
                                     
                                     // Add new Cost and Education tags
                                     li.appendChild(createToolTag(tool.Cost, 'bg-green-100 text-green-800'));
-                                    if (tool.EducationUse) {
+                                    
+                                    // --- *** FIX START *** ---
+                                    // Check for both "EducationUse" and "educationUse" to handle case variations
+                                    if (tool.EducationUse || tool.educationUse) {
                                         li.appendChild(createToolTag('Education Use', 'bg-yellow-100 text-yellow-800'));
                                     }
+                                    // --- *** FIX END *** ---
                                     
                                     const desc = document.createElement('p');
                                     desc.className = "text-sm text-gray-600";
@@ -397,9 +401,13 @@
 
                 // This text will be used for searching
                 let toolSearchText = [tool.Name, tool.Description, tool.Cost].join(' ').toLowerCase();
-                if (tool.EducationUse) {
+                
+                // --- *** FIX START *** ---
+                // Check for both "EducationUse" and "educationUse" to handle case variations
+                if (tool.EducationUse || tool.educationUse) {
                     toolSearchText += ' education use';
                 }
+                // --- *** FIX END *** ---
 
                 // Find related safeguards
                 const relatedSafeguardIDs = mapping
@@ -411,9 +419,13 @@
                 // Add Cost and Education tags to the header
                 const titleDiv = toolHeader.querySelector('div'); // Get the title container
                 titleDiv.appendChild(createToolTag(tool.Cost, 'bg-green-100 text-green-800'));
-                if (tool.EducationUse) {
+                
+                // --- *** FIX START *** ---
+                // Check for both "EducationUse" and "educationUse" to handle case variations
+                if (tool.EducationUse || tool.educationUse) {
                     titleDiv.appendChild(createToolTag('Education Use', 'bg-yellow-100 text-yellow-800'));
                 }
+                // --- *** FIX END *** ---
 
                 toolCard.appendChild(toolHeader);
 
