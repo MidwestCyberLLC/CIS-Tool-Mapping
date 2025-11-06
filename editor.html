@@ -8,21 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .form-input {
+        .form-input, .form-select, .form-textarea {
             border: 1px solid #D1D5DB; /* gray-300 */
             border-radius: 0.375rem; /* rounded-md */
             padding: 0.5rem 0.75rem;
             width: 100%;
             transition: all 0.2s;
+            background-color: white;
         }
-        .form-input:focus {
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: 2px solid transparent;
             outline-offset: 2px;
             border-color: #3B82F6; /* blue-500 */
             box-shadow: 0 0 0 2px #BFDBFE; /* blue-200 */
         }
-        /* --- MODIFICATION: Ensure multi-select has a decent scrollbar --- */
-        .form-input[multiple] {
+        .form-input[disabled] {
+            background-color: #F3F4F6; /* gray-100 */
+            color: #6B7280; /* gray-500 */
+            cursor: not-allowed;
+        }
+        .form-select[multiple] {
             padding: 0.5rem;
         }
         .btn {
@@ -31,6 +36,7 @@
             font-weight: 500;
             transition: all 0.2s;
             cursor: pointer;
+            white-space: nowrap;
         }
         .btn-primary { background-color: #2563EB; /* blue-600 */ color: white; }
         .btn-primary:hover { background-color: #1D4ED8; /* blue-700 */ }
@@ -38,7 +44,33 @@
         .btn-secondary:hover { background-color: #374151; /* gray-700 */ }
         .btn-green { background-color: #059669; /* green-600 */ color: white; }
         .btn-green:hover { background-color: #047857; /* green-700 */ }
+        .btn-red { background-color: #DC2626; /* red-600 */ color: white; }
+        .btn-red:hover { background-color: #B91C1C; /* red-700 */ }
         .disabled-btn { background-color: #D1D5DB; /* gray-300 */ cursor: not-allowed; }
+        
+        /* Custom class for the safeguard list in modify mode */
+        .safeguard-checkbox-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+            background-color: #F9FAFB; /* gray-50 */
+        }
+        .safeguard-checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0;
+        }
+        .safeguard-checkbox-item input {
+            margin-right: 0.75rem;
+            height: 1rem;
+            width: 1rem;
+        }
+        .safeguard-checkbox-item label {
+            font-size: 0.875rem; /* text-sm */
+            color: #374151; /* gray-700 */
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 p-4 md:p-8">
@@ -46,6 +78,7 @@
     <div class="container mx-auto max-w-4xl bg-white p-6 shadow-xl rounded-lg">
         <h1 class="text-3xl font-bold text-blue-800 mb-6">CIS Mapper Data Editor</h1>
 
+        <!-- Section 1: Load Data -->
         <div class="mb-6 p-4 border rounded-lg bg-gray-50">
             <h2 class="text-xl font-semibold mb-3">1. Load Data from GitHub</h2>
             <p class="text-sm text-gray-600 mb-4">Paste the "raw" GitHub URLs for your JSON files.</p>
@@ -67,53 +100,165 @@
             <p id="loadStatus" class="mt-2 text-sm font-medium"></p>
         </div>
 
-        <fieldset id="toolSection" disabled class="mb-6 p-4 border rounded-lg opacity-50">
-            <legend class="text-xl font-semibold mb-3 px-2">2. Add a New Tool</legend>
-            <form id="toolForm" class="space-y-3">
-                <div>
-                    <label for="toolId" class="block text-sm font-medium text-gray-700">Tool ID (e.g., T6)</label>
-                    <input type="text" id="toolId" class="form-input" required>
-                </div>
-                <div>
-                    <label for="toolName" class="block text-sm font-medium text-gray-700">Tool Name</label>
-                    <input type="text" id="toolName" class="form-input" required>
-                </div>
-                <div>
-                    <label for="toolDesc" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="toolDesc" rows="2" class="form-input" required></textarea>
-                </div>
-                <div>
-                    <label for="toolUrl" class="block text-sm font-medium text-gray-700">URL</label>
-                    <input type="url" id="toolUrl" class="form-input" placeholder="https://..." required>
-                </div>
-                <button type="submit" class="btn btn-secondary">Add Tool</button>
-                <p id="toolStatus" class="mt-2 text-sm font-medium text-green-600"></p>
-            </form>
-        </fieldset>
+        <!-- Section 1.5: Mode Selection (NEW) -->
+        <div id="modeSelectionSection" class="hidden mb-6 p-4 border rounded-lg">
+            <h2 class="text-xl font-semibold mb-3">2. Choose Your Mode</h2>
+            <p class="text-sm text-gray-600 mb-4">Data loaded. Do you want to add new data or modify existing data?</p>
+            <div class="flex space-x-4">
+                <button id="showAddModeBtn" class="btn btn-secondary">Add New Data</button>
+                <button id="showModifyModeBtn" class="btn btn-secondary">Modify Existing Data</button>
+            </div>
+        </div>
 
-        <fieldset id="mappingSection" disabled class="mb-6 p-4 border rounded-lg opacity-50">
-            <legend class="text-xl font-semibold mb-3 px-2">3. Add a New Mapping</legend>
-            <form id="mappingForm" class="space-y-3">
-                <div>
-                    <label for="toolSelect" class="block text-sm font-medium text-gray-700">Select Tool</label>
-                    <select id="toolSelect" class="form-input" required>
-                        <option value="" disabled selected>-- Load data first --</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="safeguardSelect" class="block text-sm font-medium text-gray-700">Select Safeguard(s)</label>
-                    <select id="safeguardSelect" class="form-input" required multiple size="10">
+        <!-- Add Mode Container (NEW) -->
+        <div id="addModeContainer" class="hidden">
+            <!-- Section 2: Add New Tool -->
+            <fieldset class="mb-6 p-4 border rounded-lg">
+                <legend class="text-xl font-semibold mb-3 px-2">Add a New Tool</legend>
+                <form id="toolForm" class="space-y-3">
+                    <div>
+                        <label for="toolId" class="block text-sm font-medium text-gray-700">Tool ID (e.g., T6)</label>
+                        <input type="text" id="toolId" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="toolName" class="block text-sm font-medium text-gray-700">Tool Name</label>
+                        <input type="text" id="toolName" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="toolDesc" class="block text-sm font-medium text-gray-700">Description</label>
+                        <textarea id="toolDesc" rows="2" class="form-textarea" required></textarea>
+                    </div>
+                    <div>
+                        <label for="toolUrl" class="block text-sm font-medium text-gray-700">URL</label>
+                        <input type="url" id="toolUrl" class="form-input" placeholder="https://..." required>
+                    </div>
+                    <!-- --- NEW FIELDS --- -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="toolEducation" class="block text-sm font-medium text-gray-700">Education</label>
+                            <select id="toolEducation" class="form-select">
+                                <option value="false">False</option>
+                                <option value="true">True</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="toolCost" class="block text-sm font-medium text-gray-700">Cost</label>
+                            <select id="toolCost" class="form-select">
+                                <option>$</option>
+                                <option>$$</option>
+                                <option>$$$</option>
+                                <option>$$$$</option>
+                                <option>$$$$$</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- --- END NEW FIELDS --- -->
+                    <button type="submit" class="btn btn-secondary">Add Tool</button>
+                    <p id="toolStatus" class="mt-2 text-sm font-medium text-green-600"></p>
+                </form>
+            </fieldset>
+
+            <!-- Section 3: Add New Mapping -->
+            <fieldset class="mb-6 p-4 border rounded-lg">
+                <legend class="text-xl font-semibold mb-3 px-2">Add a New Mapping</legend>
+                <form id="mappingForm" class="space-y-3">
+                    <div>
+                        <label for="toolSelect" class="block text-sm font-medium text-gray-700">Select Tool</label>
+                        <select id="toolSelect" class="form-select" required>
+                            <option value="" disabled selected>-- Select a Tool --</option>
                         </select>
-                    <p class="text-xs text-gray-500 mt-1">Hold Ctrl (or Cmd on Mac) to select multiple safeguards.</p>
-                </div>
-                <button type="submit" class="btn btn-secondary">Add Mapping(s)</button>
-                <p id="mappingStatus" class="mt-2 text-sm font-medium text-green-600"></p>
-            </form>
-        </fieldset>
+                    </div>
+                    <div>
+                        <label for="safeguardSelect" class="block text-sm font-medium text-gray-700">Select Safeguard(s)</label>
+                        <select id="safeguardSelect" class="form-select" required multiple size="10">
+                            <!-- Options will be populated by JS -->
+                        </select>
+                        <p class="text-xs text-gray-500 mt-1">Hold Ctrl (or Cmd on Mac) to select multiple safeguards.</p>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Add Mapping(s)</button>
+                    <p id="mappingStatus" class="mt-2 text-sm font-medium text-green-600"></p>
+                </form>
+            </fieldset>
+        </div>
 
-        <fieldset id="generateSection" disabled class="p-4 border rounded-lg bg-gray-50 opacity-50">
-            <h2 class="text-xl font-semibold mb-3">4. Generate & Download Files</h2>
-            <p class="text-sm text-gray-600 mb-4">When you're finished adding data, download the new JSON files. You must then upload these to GitHub, replacing the old ones.</p>
+        <!-- Modify Mode Container (NEW) -->
+        <div id="modifyModeContainer" class="hidden">
+            <fieldset class="mb-6 p-4 border rounded-lg">
+                <legend class="text-xl font-semibold mb-3 px-2">Modify Existing Tool & Mappings</legend>
+                <div class="space-y-3">
+                    <div>
+                        <label for="modifyToolSelect" class="block text-sm font-medium text-gray-700">Select Tool to Modify</label>
+                        <select id="modifyToolSelect" class="form-select">
+                            <option value="" disabled selected>-- Select a Tool --</option>
+                        </select>
+                    </div>
+
+                    <!-- This form appears when a tool is selected -->
+                    <div id="modifyFormContainer" class="hidden space-y-4 pt-4 border-t">
+                        <!-- Tool Attributes -->
+                        <h3 class="text-lg font-medium text-gray-900">Tool Attributes</h3>
+                        <div>
+                            <label for="modifyToolId" class="block text-sm font-medium text-gray-700">Tool ID</label>
+                            <input type="text" id="modifyToolId" class="form-input" disabled>
+                        </div>
+                        <div>
+                            <label for="modifyToolName" class="block text-sm font-medium text-gray-700">Tool Name</label>
+                            <input type="text" id="modifyToolName" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="modifyToolDesc" class="block text-sm font-medium text-gray-700">Description</label>
+                            <textarea id="modifyToolDesc" rows="3" class="form-textarea" required></textarea>
+                        </div>
+                        <div>
+                            <label for="modifyToolUrl" class="block text-sm font-medium text-gray-700">URL</label>
+                            <input type="url" id="modifyToolUrl" class="form-input" placeholder="https://..." required>
+                        </div>
+                        <!-- --- NEW FIELDS --- -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="modifyToolEducation" class="block text-sm font-medium text-gray-700">Education</label>
+                                <select id="modifyToolEducation" class="form-select">
+                                    <option value="false">False</option>
+                                    <option value="true">True</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="modifyToolCost" class="block text-sm font-medium text-gray-700">Cost</label>
+                                <select id="modifyToolCost" class="form-select">
+                                    <option>$</option>
+                                    <option>$$</option>
+                                    <option>$$$</option>
+                                    <option>$$$$</option>
+                                    <option>$$$$$</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- --- END NEW FIELDS --- -->
+
+                        <!-- Mappings -->
+                        <h3 class="text-lg font-medium text-gray-900 pt-2">Safeguard Mappings</h3>
+                        <p class="text-sm text-gray-600">Select all safeguards that map to this tool.</p>
+                        <div id="modifySafeguardsList" class="safeguard-checkbox-list">
+                            <!-- Checkboxes will be populated by JS -->
+                        </div>
+                        
+                        <!-- Actions -->
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <button id="saveChangesBtn" class="btn btn-primary">Save Changes</button>
+                            <div class="flex-grow"></div> <!-- Spacer -->
+                            <button id="removeToolBtn" class="btn btn-red">Remove This Tool (Single Click)</button>
+                        </div>
+                        <p id="modifyStatus" class="mt-2 text-sm font-medium"></p>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+
+        <!-- Section 4: Generate Files (Renumbered) -->
+        <fieldset id="generateSection" class="hidden p-4 border rounded-lg bg-gray-50">
+            <h2 class="text-xl font-semibold mb-3">Final Step: Generate & Download Files</h2>
+            <p class="text-sm text-gray-600 mb-4">When you're finished adding or modifying data, download the new JSON files. You must then upload these to GitHub, replacing the old ones.</p>
             <div class="flex space-x-4">
                 <button id="downloadToolsBtn" class="btn btn-green">Download tools.json</button>
                 <button id="downloadMappingBtn" class="btn btn-green">Download mapping.json</button>
@@ -127,26 +272,49 @@
         let tools = [];
         let safeguards = [];
         let mapping = [];
+        let currentModifyToolId = null; // NEW: Track which tool is being modified
+        let sortedSafeguards = []; // NEW: Keep a sorted list for populating checkboxes
 
         // DOM Elements
         const loadDataBtn = document.getElementById('loadDataBtn');
         const loadStatus = document.getElementById('loadStatus');
         
-        const toolSection = document.getElementById('toolSection');
+        // NEW: Mode selection
+        const modeSelectionSection = document.getElementById('modeSelectionSection');
+        const showAddModeBtn = document.getElementById('showAddModeBtn');
+        const showModifyModeBtn = document.getElementById('showModifyModeBtn');
+
+        // NEW: Mode containers
+        const addModeContainer = document.getElementById('addModeContainer');
+        const modifyModeContainer = document.getElementById('modifyModeContainer');
+        
+        // Add Mode Elements
         const toolForm = document.getElementById('toolForm');
         const toolStatus = document.getElementById('toolStatus');
         const toolIdInput = document.getElementById('toolId'); 
-
-        const mappingSection = document.getElementById('mappingSection');
         const mappingForm = document.getElementById('mappingForm');
         const mappingStatus = document.getElementById('mappingStatus');
+        const toolSelect = document.getElementById('toolSelect');
+        const safeguardSelect = document.getElementById('safeguardSelect');
 
+        // NEW: Modify Mode Elements
+        const modifyToolSelect = document.getElementById('modifyToolSelect');
+        const modifyFormContainer = document.getElementById('modifyFormContainer');
+        const modifyToolId = document.getElementById('modifyToolId');
+        const modifyToolName = document.getElementById('modifyToolName');
+        const modifyToolDesc = document.getElementById('modifyToolDesc');
+        const modifyToolUrl = document.getElementById('modifyToolUrl');
+        const modifyToolEducation = document.getElementById('modifyToolEducation'); // --- NEW ---
+        const modifyToolCost = document.getElementById('modifyToolCost'); // --- NEW ---
+        const modifySafeguardsList = document.getElementById('modifySafeguardsList');
+        const saveChangesBtn = document.getElementById('saveChangesBtn');
+        const removeToolBtn = document.getElementById('removeToolBtn');
+        const modifyStatus = document.getElementById('modifyStatus');
+
+        // Generate Section
         const generateSection = document.getElementById('generateSection');
         const downloadToolsBtn = document.getElementById('downloadToolsBtn');
         const downloadMappingBtn = document.getElementById('downloadMappingBtn');
-
-        const toolSelect = document.getElementById('toolSelect');
-        const safeguardSelect = document.getElementById('safeguardSelect');
 
         // --- 1. Load Data ---
         loadDataBtn.addEventListener('click', async () => {
@@ -155,13 +323,11 @@
             const mappingUrl = document.getElementById('mappingUrl').value;
 
             if (!toolsUrl || !safeguardsUrl || !mappingUrl) {
-                loadStatus.textContent = 'Please provide all 3 URLs.';
-                loadStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                setLoadStatus('Please provide all 3 URLs.', 'red');
                 return;
             }
 
-            loadStatus.textContent = 'Loading...';
-            loadStatus.className = 'mt-2 text-sm font-medium text-blue-600';
+            setLoadStatus('Loading...', 'blue');
 
             try {
                 const [toolsRes, safeguardsRes, mappingRes] = await Promise.all([
@@ -178,64 +344,97 @@
                 safeguards = await safeguardsRes.json();
                 mapping = await mappingRes.json();
 
-                loadStatus.textContent = `Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`;
-                loadStatus.className = 'mt-2 text-sm font-medium text-green-600';
+                // NEW: Pre-sort safeguards once
+                sortedSafeguards = [...safeguards].sort((a, b) => a.ControlNumber - b.ControlNumber || a.SafeguardNumber - b.SafeguardNumber);
 
-                // Enable all other sections
-                toolSection.disabled = false;
-                toolSection.classList.remove('opacity-50');
-                mappingSection.disabled = false;
-                mappingSection.classList.remove('opacity-50');
-                generateSection.disabled = false;
-                generateSection.classList.remove('opacity-50');
+                setLoadStatus(`Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`, 'green');
 
-                // Populate dropdowns
-                populateDropdowns();
+                // Populate dropdowns for both modes
+                populateAddModeDropdowns();
+                populateModifyToolDropdown();
                 
-                // Suggest the next available tool ID
+                // Suggest the next available tool ID in Add mode
                 suggestNextToolId();
+
+                // NEW: Show mode selection
+                modeSelectionSection.classList.remove('hidden');
+                // Hide all other sections
+                addModeContainer.classList.add('hidden');
+                modifyModeContainer.classList.add('hidden');
+                generateSection.classList.add('hidden');
+                modifyFormContainer.classList.add('hidden');
+
 
             } catch (error) {
                 console.error('Failed to load data:', error);
-                loadStatus.textContent = `Error: ${error.message}`;
-                loadStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                setLoadStatus(`Error: ${error.message}`, 'red');
             }
         });
 
-        function populateDropdowns() {
-            // Clear existing options (except placeholder)
+        // --- 1.5. Mode Selection Listeners (NEW) ---
+        showAddModeBtn.addEventListener('click', () => {
+            modeSelectionSection.classList.add('hidden');
+            addModeContainer.classList.remove('hidden');
+            generateSection.classList.remove('hidden');
+            modifyModeContainer.classList.add('hidden');
+        });
+
+        showModifyModeBtn.addEventListener('click', () => {
+            modeSelectionSection.classList.add('hidden');
+            addModeContainer.classList.add('hidden');
+            generateSection.classList.remove('hidden');
+            modifyModeContainer.classList.remove('hidden');
+        });
+
+        // --- Helper: Set Status ---
+        function setLoadStatus(message, color) {
+            loadStatus.textContent = message;
+            loadStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
+        }
+        function setModifyStatus(message, color) {
+            modifyStatus.textContent = message;
+            modifyStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
+            // Clear message after 3 seconds
+            setTimeout(() => { modifyStatus.textContent = ''; }, 3000);
+        }
+
+
+        // --- Populate Dropdowns ---
+        function populateAddModeDropdowns() {
+            // Clear existing options
             toolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool --</option>';
-            // --- MODIFICATION: Clear multi-select list ---
             safeguardSelect.innerHTML = ''; 
 
-            // Populate tools
             tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
                 const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
                 toolSelect.add(option);
             });
 
-            // Populate safeguards
-            safeguards.sort((a, b) => a.ControlNumber - b.ControlNumber || a.SafeguardNumber - b.SafeguardNumber).forEach(sg => {
+            sortedSafeguards.forEach(sg => {
                 const option = new Option(`SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`, sg.ID);
                 safeguardSelect.add(option);
             });
         }
 
+        // NEW: Populate Modify Tool Dropdown
+        function populateModifyToolDropdown() {
+            modifyToolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool to Modify --</option>';
+            tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
+                const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
+                modifyToolSelect.add(option);
+            });
+        }
+
         // --- Function to suggest next tool ID ---
         function suggestNextToolId() {
-            // Get all numerical IDs that are valid numbers
             const existingIds = new Set(
                 tools.map(tool => parseInt(tool.ID.replace('T', '')))
                      .filter(id => !isNaN(id))
             );
-
             let nextIdNum = 1;
-            // Find the first integer not in the set
             while (existingIds.has(nextIdNum)) {
                 nextIdNum++;
             }
-
-            // Set the value in the input field
             toolIdInput.value = `T${nextIdNum}`;
         }
 
@@ -246,30 +445,37 @@
             const name = document.getElementById('toolName').value;
             const desc = document.getElementById('toolDesc').value;
             const url = document.getElementById('toolUrl').value;
+            const education = document.getElementById('toolEducation').value === 'true'; // --- NEW --- (convert to boolean)
+            const cost = document.getElementById('toolCost').value; // --- NEW ---
 
-            // Check if ID already exists
             if (tools.some(t => t.ID === id)) {
                 toolStatus.textContent = `Error: Tool ID "${id}" already exists.`;
                 toolStatus.className = 'mt-2 text-sm font-medium text-red-600';
                 return;
             }
 
-            const newTool = {
-                ID: id,
-                Name: name,
-                Description: desc,
-                URL: url
+            // --- MODIFIED ---
+            const newTool = { 
+                ID: id, 
+                Name: name, 
+                Description: desc, 
+                URL: url,
+                Education: education,
+                Cost: cost
             };
+            // --- END MODIFIED ---
 
             tools.push(newTool);
             toolStatus.textContent = `Added "${name}". You now have ${tools.length} tools.`;
             toolStatus.className = 'mt-2 text-sm font-medium text-green-600';
             
-            // Re-populate dropdowns to include the new tool
-            populateDropdowns();
+            // Re-populate ALL dropdowns
+            populateAddModeDropdowns();
+            populateModifyToolDropdown();
             toolForm.reset();
-
-            // Suggest the next available tool ID after reset
+            // Reset new fields to default
+            document.getElementById('toolEducation').value = 'false';
+            document.getElementById('toolCost').value = '$';
             suggestNextToolId();
         });
 
@@ -277,24 +483,19 @@
         mappingForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const toolID = toolSelect.value;
-            // --- MODIFICATION: Get all selected options ---
             const selectedSafeguardOptions = Array.from(safeguardSelect.selectedOptions);
             const safeguardIDs = selectedSafeguardOptions.map(opt => opt.value);
-            // --- END MODIFICATION ---
 
-            // --- MODIFICATION: Check for tool and *at least one* safeguard ---
             if (!toolID || safeguardIDs.length === 0) {
                 mappingStatus.textContent = 'Please select a tool and at least one safeguard.';
                 mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
                 return;
             }
 
-            // --- MODIFICATION: Loop to add multiple mappings ---
             let addedCount = 0;
             let skippedCount = 0;
 
             for (const safeguardID of safeguardIDs) {
-                // Check if mapping already exists
                 if (mapping.some(m => m.ToolID === toolID && m.SafeguardID === safeguardID)) {
                     skippedCount++;
                 } else {
@@ -303,31 +504,135 @@
                     addedCount++;
                 }
             }
-            // --- END MODIFICATION ---
-
-            // --- MODIFICATION: Update status message with summary ---
-            if (addedCount > 0) {
-                mappingStatus.textContent = `Added ${addedCount} new mapping(s). ${skippedCount} skipped (already existed). Total mappings: ${mapping.length}.`;
-                mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
-            } else if (skippedCount > 0) {
-                mappingStatus.textContent = `No new mappings added. ${skippedCount} mapping(s) already existed.`;
-                mappingStatus.className = 'mt-2 text-sm font-medium text-red-600'; // Use red for "nothing happened"
-            } else {
-                // This case should be caught by the initial check, but just in case.
-                mappingStatus.textContent = 'No safeguards were selected.';
-                mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
-            }
-            // --- END MODIFICATION ---
             
-            // Reset form
+            mappingStatus.textContent = `Added ${addedCount} new mapping(s). ${skippedCount} skipped (already existed). Total mappings: ${mapping.length}.`;
+            mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
+            
             mappingForm.reset();
             toolSelect.blur();
             safeguardSelect.blur();
         });
+
+        // --- NEW: Modify Mode Logic ---
+
+        // Listen for changes on the "Select Tool to Modify" dropdown
+        modifyToolSelect.addEventListener('change', (e) => {
+            currentModifyToolId = e.target.value;
+            if (currentModifyToolId) {
+                loadToolForEditing(currentModifyToolId);
+                modifyFormContainer.classList.remove('hidden');
+            } else {
+                modifyFormContainer.classList.add('hidden');
+            }
+        });
+
+        // Function to load the selected tool's data into the form
+        function loadToolForEditing(toolId) {
+            const tool = tools.find(t => t.ID === toolId);
+            if (!tool) return;
+
+            // 1. Populate Tool Attribute fields
+            modifyToolId.value = tool.ID;
+            modifyToolName.value = tool.Name;
+            modifyToolDesc.value = tool.Description;
+            modifyToolUrl.value = tool.URL;
+            // --- NEW ---
+            // Set Education, default to 'false' (string) if undefined or false
+            modifyToolEducation.value = tool.Education ? 'true' : 'false';
+            // Set Cost, default to '$' if undefined or empty
+            modifyToolCost.value = tool.Cost || '$';
+            // --- END NEW ---
+
+            // 2. Get this tool's current mappings
+            const toolMappings = new Set(
+                mapping.filter(m => m.ToolID === toolId).map(m => m.SafeguardID)
+            );
+
+            // 3. Populate Safeguard Checkbox list
+            modifySafeguardsList.innerHTML = ''; // Clear old list
+            sortedSafeguards.forEach(sg => {
+                const isChecked = toolMappings.has(sg.ID);
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'safeguard-checkbox-item';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `mod-sg-${sg.ID}`;
+                checkbox.value = sg.ID;
+                checkbox.checked = isChecked;
+
+                const label = document.createElement('label');
+                label.htmlFor = `mod-sg-${sg.ID}`;
+                label.textContent = `SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
+                
+                itemDiv.appendChild(checkbox);
+                itemDiv.appendChild(label);
+                modifySafeguardsList.appendChild(itemDiv);
+            });
+        }
+
+        // "Save Changes" button in Modify Mode
+        saveChangesBtn.addEventListener('click', () => {
+            if (!currentModifyToolId) return;
+
+            // 1. Save Tool Attribute changes
+            const toolIndex = tools.findIndex(t => t.ID === currentModifyToolId);
+            if (toolIndex > -1) {
+                tools[toolIndex].Name = modifyToolName.value;
+                tools[toolIndex].Description = modifyToolDesc.value;
+                tools[toolIndex].URL = modifyToolUrl.value;
+                tools[toolIndex].Education = modifyToolEducation.value === 'true'; // --- NEW --- (convert to boolean)
+                tools[toolIndex].Cost = modifyToolCost.value; // --- NEW ---
+            }
+
+            // 2. Get all *newly* checked safeguard IDs
+            const newMappingIds = new Set();
+            modifySafeguardsList.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                newMappingIds.add(cb.value);
+            });
+
+            // 3. Remove all old mappings for this tool
+            mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
+
+            // 4. Add all new mappings for this tool
+            newMappingIds.forEach(sgId => {
+                mapping.push({ ToolID: currentModifyToolId, SafeguardID: sgId });
+            });
+
+            setModifyStatus('Changes saved successfully.', 'green');
+
+            // 5. Repopulate dropdowns in case name changed
+            const selectedToolId = currentModifyToolId; // Store before repopulating
+            populateAddModeDropdowns();
+            populateModifyToolDropdown();
+            modifyToolSelect.value = selectedToolId; // Re-select the tool
+        });
+
+        // "Remove Tool" button in Modify Mode
+        removeToolBtn.addEventListener('click', () => {
+            if (!currentModifyToolId) return;
+            
+            const toolToRemove = tools.find(t => t.ID === currentModifyToolId);
+            if (!toolToRemove) return;
+
+            // 1. Remove from tools array
+            tools = tools.filter(t => t.ID !== currentModifyToolId);
+
+            // 2. Remove from mapping array
+            mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
+
+            setModifyStatus(`Tool "${toolToRemove.Name}" and all its mappings have been removed.`, 'green');
+
+            // 3. Reset UI
+            currentModifyToolId = null;
+            modifyFormContainer.classList.add('hidden');
+            populateAddModeDropdowns();
+            populateModifyToolDropdown(); // This repopulates and resets the select
+        });
         
         // --- 4. Generate Files ---
         function downloadJSON(data, filename) {
-            const jsonString = JSON.stringify(data, null, 4); // Pretty-print with 4-space indent
+            const jsonString = JSON.stringify(data, null, 4); // Pretty-print
             const blob = new Blob([jsonString], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             
