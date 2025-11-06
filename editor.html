@@ -132,11 +132,11 @@
                         <label for="toolUrl" class="block text-sm font-medium text-gray-700">URL</label>
                         <input type="url" id="toolUrl" class="form-input" placeholder="https://..." required>
                     </div>
-                    <!-- --- NEW FIELDS --- -->
+                    <!-- --- MODIFIED FIELDS --- -->
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label for="toolEducation" class="block text-sm font-medium text-gray-700">Education</label>
-                            <select id="toolEducation" class="form-select">
+                            <label for="toolEducationUse" class="block text-sm font-medium text-gray-700">Education Use</label>
+                            <select id="toolEducationUse" class="form-select">
                                 <option value="false">False</option>
                                 <option value="true">True</option>
                             </select>
@@ -152,7 +152,7 @@
                             </select>
                         </div>
                     </div>
-                    <!-- --- END NEW FIELDS --- -->
+                    <!-- --- END MODIFIED FIELDS --- -->
                     <button type="submit" class="btn btn-secondary">Add Tool</button>
                     <p id="toolStatus" class="mt-2 text-sm font-medium text-green-600"></p>
                 </form>
@@ -213,11 +213,11 @@
                             <label for="modifyToolUrl" class="block text-sm font-medium text-gray-700">URL</label>
                             <input type="url" id="modifyToolUrl" class="form-input" placeholder="https://..." required>
                         </div>
-                        <!-- --- NEW FIELDS --- -->
+                        <!-- --- MODIFIED FIELDS --- -->
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label for="modifyToolEducation" class="block text-sm font-medium text-gray-700">Education</label>
-                                <select id="modifyToolEducation" class="form-select">
+                                <label for="modifyToolEducationUse" class="block text-sm font-medium text-gray-700">Education Use</label>
+                                <select id="modifyToolEducationUse" class="form-select">
                                     <option value="false">False</option>
                                     <option value="true">True</option>
                                 </select>
@@ -233,7 +233,7 @@
                                 </select>
                             </div>
                         </div>
-                        <!-- --- END NEW FIELDS --- -->
+                        <!-- --- END MODIFIED FIELDS --- -->
 
                         <!-- Mappings -->
                         <h3 class="text-lg font-medium text-gray-900 pt-2">Safeguard Mappings</h3>
@@ -304,8 +304,8 @@
         const modifyToolName = document.getElementById('modifyToolName');
         const modifyToolDesc = document.getElementById('modifyToolDesc');
         const modifyToolUrl = document.getElementById('modifyToolUrl');
-        const modifyToolEducation = document.getElementById('modifyToolEducation'); // --- NEW ---
-        const modifyToolCost = document.getElementById('modifyToolCost'); // --- NEW ---
+        const modifyToolEducationUse = document.getElementById('modifyToolEducationUse'); // --- MODIFIED ---
+        const modifyToolCost = document.getElementById('modifyToolCost'); 
         const modifySafeguardsList = document.getElementById('modifySafeguardsList');
         const saveChangesBtn = document.getElementById('saveChangesBtn');
         const removeToolBtn = document.getElementById('removeToolBtn');
@@ -445,8 +445,8 @@
             const name = document.getElementById('toolName').value;
             const desc = document.getElementById('toolDesc').value;
             const url = document.getElementById('toolUrl').value;
-            const education = document.getElementById('toolEducation').value === 'true'; // --- NEW --- (convert to boolean)
-            const cost = document.getElementById('toolCost').value; // --- NEW ---
+            const educationUse = document.getElementById('toolEducationUse').value === 'true'; // --- MODIFIED --- (convert to boolean)
+            const cost = document.getElementById('toolCost').value; 
 
             if (tools.some(t => t.ID === id)) {
                 toolStatus.textContent = `Error: Tool ID "${id}" already exists.`;
@@ -460,7 +460,7 @@
                 Name: name, 
                 Description: desc, 
                 URL: url,
-                Education: education,
+                EducationUse: educationUse, // --- MODIFIED ---
                 Cost: cost
             };
             // --- END MODIFIED ---
@@ -474,7 +474,7 @@
             populateModifyToolDropdown();
             toolForm.reset();
             // Reset new fields to default
-            document.getElementById('toolEducation').value = 'false';
+            document.getElementById('toolEducationUse').value = 'false'; // --- MODIFIED ---
             document.getElementById('toolCost').value = '$';
             suggestNextToolId();
         });
@@ -536,12 +536,12 @@
             modifyToolName.value = tool.Name;
             modifyToolDesc.value = tool.Description;
             modifyToolUrl.value = tool.URL;
-            // --- NEW ---
-            // Set Education, default to 'false' (string) if undefined or false
-            modifyToolEducation.value = tool.Education ? 'true' : 'false';
+            // --- MODIFIED ---
+            // Set EducationUse, default to 'false' (string) if undefined or false
+            modifyToolEducationUse.value = tool.EducationUse ? 'true' : 'false';
             // Set Cost, default to '$' if undefined or empty
             modifyToolCost.value = tool.Cost || '$';
-            // --- END NEW ---
+            // --- END MODIFIED ---
 
             // 2. Get this tool's current mappings
             const toolMappings = new Set(
@@ -581,8 +581,8 @@
                 tools[toolIndex].Name = modifyToolName.value;
                 tools[toolIndex].Description = modifyToolDesc.value;
                 tools[toolIndex].URL = modifyToolUrl.value;
-                tools[toolIndex].Education = modifyToolEducation.value === 'true'; // --- NEW --- (convert to boolean)
-                tools[toolIndex].Cost = modifyToolCost.value; // --- NEW ---
+                tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; // --- MODIFIED --- (convert to boolean)
+                tools[toolIndex].Cost = modifyToolCost.value; 
             }
 
             // 2. Get all *newly* checked safeguard IDs
