@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Mapper Data Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .form-input {
+            border: 1px solid #D1D5DB; /* gray-300 */
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0.5rem 0.75rem;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #3B82F6; /* blue-500 */
+            box-shadow: 0 0 0 2px #BFDBFE; /* blue-200 */
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .btn-primary { background-color: #2563EB; /* blue-600 */ color: white; }
+        .btn-primary:hover { background-color: #1D4ED8; /* blue-700 */ }
+        .btn-secondary { background-color: #4B5563; /* gray-600 */ color: white; }
+        .btn-secondary:hover { background-color: #374151; /* gray-700 */ }
+        .btn-green { background-color: #059669; /* green-600 */ color: white; }
+        .btn-green:hover { background-color: #047857; /* green-700 */ }
+        .disabled-btn { background-color: #D1D5DB; /* gray-300 */ cursor: not-allowed; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 p-4 md:p-8">
+
+    <div class="container mx-auto max-w-4xl bg-white p-6 shadow-xl rounded-lg">
+        <h1 class="text-3xl font-bold text-blue-800 mb-6">CIS Mapper Data Editor</h1>
+
+        <!-- Section 1: Load Data -->
+        <div class="mb-6 p-4 border rounded-lg bg-gray-50">
+            <h2 class="text-xl font-semibold mb-3">1. Load Data from GitHub</h2>
+            <p class="text-sm text-gray-600 mb-4">Paste the "raw" GitHub URLs for your JSON files.</p>
+            <div class="space-y-3">
+                <div>
+                    <label for="toolsUrl" class="block text-sm font-medium text-gray-700">Tools URL (tools.json)</label>
+                    <input type="text" id="toolsUrl" class="form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json">
+                </div>
+                <div>
+                    <label for="safeguardsUrl" class="block text-sm font-medium text-gray-700">Safeguards URL (safeguards.json)</label>
+                    <input type="text" id="safeguardsUrl" class="form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json">
+                </div>
+                <div>
+                    <label for="mappingUrl" class="block text-sm font-medium text-gray-700">Mapping URL (mapping.json)</label>
+                    <input type="text" id="mappingUrl" class="form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json">
+                </div>
+            </div>
+            <button id="loadDataBtn" class="btn btn-primary mt-4">Load Data</button>
+            <p id="loadStatus" class="mt-2 text-sm font-medium"></p>
+        </div>
+
+        <!-- Section 2: Add New Tool -->
+        <fieldset id="toolSection" disabled class="mb-6 p-4 border rounded-lg opacity-50">
+            <legend class="text-xl font-semibold mb-3 px-2">2. Add a New Tool</legend>
+            <form id="toolForm" class="space-y-3">
+                <div>
+                    <label for="toolId" class="block text-sm font-medium text-gray-700">Tool ID (e.g., T6)</label>
+                    <input type="text" id="toolId" class="form-input" required>
+                </div>
+                <div>
+                    <label for="toolName" class="block text-sm font-medium text-gray-700">Tool Name</label>
+                    <input type="text" id="toolName" class="form-input" required>
+                </div>
+                <div>
+                    <label for="toolDesc" class="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea id="toolDesc" rows="2" class="form-input" required></textarea>
+                </div>
+                <div>
+                    <label for="toolUrl" class="block text-sm font-medium text-gray-700">URL</label>
+                    <input type="url" id="toolUrl" class="form-input" placeholder="https://..." required>
+                </div>
+                <button type="submit" class="btn btn-secondary">Add Tool</button>
+                <p id="toolStatus" class="mt-2 text-sm font-medium text-green-600"></p>
+            </form>
+        </fieldset>
+
+        <!-- Section 3: Add New Mapping -->
+        <fieldset id="mappingSection" disabled class="mb-6 p-4 border rounded-lg opacity-50">
+            <legend class="text-xl font-semibold mb-3 px-2">3. Add a New Mapping</legend>
+            <form id="mappingForm" class="space-y-3">
+                <div>
+                    <label for="toolSelect" class="block text-sm font-medium text-gray-700">Select Tool</label>
+                    <select id="toolSelect" class="form-input" required>
+                        <option value="" disabled selected>-- Load data first --</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="safeguardSelect" class="block text-sm font-medium text-gray-700">Select Safeguard</label>
+                    <select id="safeguardSelect" class="form-input" required>
+                        <option value="" disabled selected>-- Load data first --</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary">Add Mapping</button>
+                <p id="mappingStatus" class="mt-2 text-sm font-medium text-green-600"></p>
+            </form>
+        </fieldset>
+
+        <!-- Section 4: Generate Files -->
+        <fieldset id="generateSection" disabled class="p-4 border rounded-lg bg-gray-50 opacity-50">
+            <h2 class="text-xl font-semibold mb-3">4. Generate & Download Files</h2>
+            <p class="text-sm text-gray-600 mb-4">When you're finished adding data, download the new JSON files. You must then upload these to GitHub, replacing the old ones.</p>
+            <div class="flex space-x-4">
+                <button id="downloadToolsBtn" class="btn btn-green">Download tools.json</button>
+                <button id="downloadMappingBtn" class="btn btn-green">Download mapping.json</button>
+            </div>
+            <p class="text-xs text-gray-500 mt-4">Note: If you only added mappings, you still may want to download `tools.json` if you added tools in this session.</p>
+        </fieldset>
+    </div>
+
+    <script>
+        // In-memory data stores
+        let tools = [];
+        let safeguards = [];
+        let mapping = [];
+
+        // DOM Elements
+        const loadDataBtn = document.getElementById('loadDataBtn');
+        const loadStatus = document.getElementById('loadStatus');
+        
+        const toolSection = document.getElementById('toolSection');
+        const toolForm = document.getElementById('toolForm');
+        const toolStatus = document.getElementById('toolStatus');
+
+        const mappingSection = document.getElementById('mappingSection');
+        const mappingForm = document.getElementById('mappingForm');
+        const mappingStatus = document.getElementById('mappingStatus');
+
+        const generateSection = document.getElementById('generateSection');
+        const downloadToolsBtn = document.getElementById('downloadToolsBtn');
+        const downloadMappingBtn = document.getElementById('downloadMappingBtn');
+
+        const toolSelect = document.getElementById('toolSelect');
+        const safeguardSelect = document.getElementById('safeguardSelect');
+
+        // --- 1. Load Data ---
+        loadDataBtn.addEventListener('click', async () => {
+            const toolsUrl = document.getElementById('toolsUrl').value;
+            const safeguardsUrl = document.getElementById('safeguardsUrl').value;
+            const mappingUrl = document.getElementById('mappingUrl').value;
+
+            if (!toolsUrl || !safeguardsUrl || !mappingUrl) {
+                loadStatus.textContent = 'Please provide all 3 URLs.';
+                loadStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                return;
+            }
+
+            loadStatus.textContent = 'Loading...';
+            loadStatus.className = 'mt-2 text-sm font-medium text-blue-600';
+
+            try {
+                const [toolsRes, safeguardsRes, mappingRes] = await Promise.all([
+                    fetch(toolsUrl),
+                    fetch(safeguardsUrl),
+                    fetch(mappingUrl)
+                ]);
+
+                if (!toolsRes.ok || !safeguardsRes.ok || !mappingRes.ok) {
+                    throw new Error('One or more files not found. Check URLs and CORS permissions.');
+                }
+
+                tools = await toolsRes.json();
+                safeguards = await safeguardsRes.json();
+                mapping = await mappingRes.json();
+
+                loadStatus.textContent = `Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`;
+                loadStatus.className = 'mt-2 text-sm font-medium text-green-600';
+
+                // Enable all other sections
+                toolSection.disabled = false;
+                toolSection.classList.remove('opacity-50');
+                mappingSection.disabled = false;
+                mappingSection.classList.remove('opacity-50');
+                generateSection.disabled = false;
+                generateSection.classList.remove('opacity-50');
+
+                // Populate dropdowns
+                populateDropdowns();
+
+            } catch (error) {
+                console.error('Failed to load data:', error);
+                loadStatus.textContent = `Error: ${error.message}`;
+                loadStatus.className = 'mt-2 text-sm font-medium text-red-600';
+            }
+        });
+
+        function populateDropdowns() {
+            // Clear existing options (except placeholder)
+            toolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool --</option>';
+            safeguardSelect.innerHTML = '<option value="" disabled selected>-- Select a Safeguard --</option>';
+
+            // Populate tools
+            tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
+                const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
+                toolSelect.add(option);
+            });
+
+            // Populate safeguards
+            safeguards.sort((a, b) => a.ControlNumber - b.ControlNumber || a.SafeguardNumber - b.SafeguardNumber).forEach(sg => {
+                const option = new Option(`SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`, sg.ID);
+                safeguardSelect.add(option);
+            });
+        }
+
+        // --- 2. Add Tool ---
+        toolForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('toolId').value;
+            const name = document.getElementById('toolName').value;
+            const desc = document.getElementById('toolDesc').value;
+            const url = document.getElementById('toolUrl').value;
+
+            // Check if ID already exists
+            if (tools.some(t => t.ID === id)) {
+                toolStatus.textContent = `Error: Tool ID "${id}" already exists.`;
+                toolStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                return;
+            }
+
+            const newTool = {
+                ID: id,
+                Name: name,
+                Description: desc,
+                URL: url
+            };
+
+            tools.push(newTool);
+            toolStatus.textContent = `Added "${name}". You now have ${tools.length} tools.`;
+            toolStatus.className = 'mt-2 text-sm font-medium text-green-600';
+            
+            // Re-populate dropdowns to include the new tool
+            populateDropdowns();
+            toolForm.reset();
+        });
+
+        // --- 3. Add Mapping ---
+        mappingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const toolID = toolSelect.value;
+            const safeguardID = safeguardSelect.value;
+
+            if (!toolID || !safeguardID) {
+                mappingStatus.textContent = 'Please select both a tool and a safeguard.';
+                mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                return;
+            }
+
+            // Check if mapping already exists
+            if (mapping.some(m => m.ToolID === toolID && m.SafeguardID === safeguardID)) {
+                mappingStatus.textContent = 'Error: This exact mapping already exists.';
+                mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                return;
+            }
+
+            const newMapping = { ToolID: toolID, SafeguardID: safeguardID };
+            mapping.push(newMapping);
+
+            mappingStatus.textContent = `Added mapping (${toolID} -> ${safeguardID}). You now have ${mapping.length} mappings.`;
+            mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
+            
+            // Reset form
+            mappingForm.reset();
+            toolSelect.blur();
+            safeguardSelect.blur();
+        });
+        
+        // --- 4. Generate Files ---
+        function downloadJSON(data, filename) {
+            const jsonString = JSON.stringify(data, null, 4); // Pretty-print with 4-space indent
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        downloadToolsBtn.addEventListener('click', () => {
+            downloadJSON(tools, 'tools.json');
+        });
+
+        downloadMappingBtn.addEventListener('click', () => {
+            downloadJSON(mapping, 'mapping.json');
+        });
+
+    </script>
+</body>
+</html>
+
