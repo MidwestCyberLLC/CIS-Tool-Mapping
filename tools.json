@@ -4,9 +4,8 @@
         "Name": "1Password",
         "Description": "Another leading password manager offering secure password generation, storage, and sharing capabilities with robust security features.",
         "URL": "https://1password.com/",
-        "EducationUse": false,
-        "Cost": "$",
-        "Education": true
+        "EducationUse": true,
+        "Cost": "$"
     },
     {
         "ID": "T385",
