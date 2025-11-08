@@ -3239,7 +3239,7 @@
     {
         "ToolID": "T175",
         "SafeguardID": "SG5.2",
-        "Rationale": "This is the core function of 1Password. It includes a strong password generator to create unique, complex passwords for every account and its "Watchtower" feature audits for weak or reused passwords, directly enabling this control."
+        "Rationale": "This is the core function of 1Password. It includes a strong password generator to create unique, complex passwords for every account and its 'Watchtower' feature audits for weak or reused passwords, directly enabling this control."
     },
     {
         "ToolID": "T175",
@@ -3274,11 +3274,11 @@
     {
         "ToolID": "T175",
         "SafeguardID": "SG14.3",
-        "Rationale": "The tool itself is a form of training. Features like the password generator and the "Watchtower" dashboard (which flags weak or compromised passwords) provide real-time feedback and education to users on password composition and credential management."
+        "Rationale": "The tool itself is a form of training. Features like the password generator and the 'Watchtower' dashboard (which flags weak or compromised passwords) provide real-time feedback and education to users on password composition and credential management."
     },
     {
         "ToolID": "T175",
         "SafeguardID": "SG16.11",
-        "Rationale": "1Password provides features for developers to securely manage "secrets" like API tokens, database credentials, and SSH keys. This allows development teams to use a vetted, secure service for credential management instead of hard-coding secrets into applications or configuration files."
+        "Rationale": "1Password provides features for developers to securely manage 'secrets' like API tokens, database credentials, and SSH keys. This allows development teams to use a vetted, secure service for credential management instead of hard-coding secrets into applications or configuration files."
     }
 ]
