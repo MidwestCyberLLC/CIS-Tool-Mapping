@@ -1,2858 +1,3238 @@
 [
     {
-        "SafeguardID":  "SG5.2",
-        "ToolID":  "T175"
+        "SafeguardID": "SG5.2",
+        "ToolID": "T175"
     },
     {
-        "SafeguardID":  "SG11.2",
-        "ToolID":  "T385"
+        "SafeguardID": "SG11.2",
+        "ToolID": "T385"
     },
     {
-        "SafeguardID":  "SG11.1",
-        "ToolID":  "T380"
+        "SafeguardID": "SG11.1",
+        "ToolID": "T380"
     },
     {
-        "SafeguardID":  "SG17.8",
-        "ToolID":  "T682"
+        "SafeguardID": "SG17.8",
+        "ToolID": "T682"
     },
     {
-        "SafeguardID":  "SG3.2",
-        "ToolID":  "T61"
+        "SafeguardID": "SG3.2",
+        "ToolID": "T61"
     },
     {
-        "SafeguardID":  "SG3.10",
-        "ToolID":  "T103"
+        "SafeguardID": "SG3.10",
+        "ToolID": "T103"
     },
     {
-        "SafeguardID":  "SG3.5",
-        "ToolID":  "T78"
+        "SafeguardID": "SG3.5",
+        "ToolID": "T78"
     },
     {
-        "SafeguardID":  "SG3.4",
-        "ToolID":  "T71"
+        "SafeguardID": "SG3.4",
+        "ToolID": "T71"
     },
     {
-        "SafeguardID":  "SG8.4",
-        "ToolID":  "T268"
+        "SafeguardID": "SG8.4",
+        "ToolID": "T268"
     },
     {
-        "SafeguardID":  "SG12.8",
-        "ToolID":  "T437"
+        "SafeguardID": "SG12.8",
+        "ToolID": "T437"
     },
     {
-        "SafeguardID":  "SG16.8",
-        "ToolID":  "T610"
+        "SafeguardID": "SG16.8",
+        "ToolID": "T610"
     },
     {
-        "SafeguardID":  "SG4.12",
-        "ToolID":  "T168"
+        "SafeguardID": "SG4.12",
+        "ToolID": "T168"
     },
     {
-        "SafeguardID":  "SG12.3",
-        "ToolID":  "T412"
+        "SafeguardID": "SG12.3",
+        "ToolID": "T412"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T135"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T135"
     },
     {
-        "SafeguardID":  "SG4.6",
-        "ToolID":  "T135"
+        "SafeguardID": "SG4.6",
+        "ToolID": "T135"
     },
     {
-        "SafeguardID":  "SG10.5",
-        "ToolID":  "T363"
+        "SafeguardID": "SG10.5",
+        "ToolID": "T363"
     },
     {
-        "SafeguardID":  "SG2.6",
-        "ToolID":  "T52"
+        "SafeguardID": "SG2.6",
+        "ToolID": "T52"
     },
     {
-        "SafeguardID":  "SG16.10",
-        "ToolID":  "T624"
+        "SafeguardID": "SG16.10",
+        "ToolID": "T624"
     },
     {
-        "SafeguardID":  "SG12.6",
-        "ToolID":  "T427"
+        "SafeguardID": "SG12.6",
+        "ToolID": "T427"
     },
     {
-        "SafeguardID":  "SG13.9",
-        "ToolID":  "T427"
+        "SafeguardID": "SG13.9",
+        "ToolID": "T427"
     },
     {
-        "SafeguardID":  "SG1.1",
-        "ToolID":  "T3"
+        "SafeguardID": "SG1.1",
+        "ToolID": "T3"
     },
     {
-        "SafeguardID":  "SG3.2",
-        "ToolID":  "T64"
+        "SafeguardID": "SG3.2",
+        "ToolID": "T64"
     },
     {
-        "SafeguardID":  "SG17.4",
-        "ToolID":  "T663"
+        "SafeguardID": "SG17.4",
+        "ToolID": "T663"
     },
     {
-        "SafeguardID":  "SG15.6",
-        "ToolID":  "T566"
+        "SafeguardID": "SG15.6",
+        "ToolID": "T566"
     },
     {
-        "SafeguardID":  "SG15.2",
-        "ToolID":  "T547"
+        "SafeguardID": "SG15.2",
+        "ToolID": "T547"
     },
     {
-        "SafeguardID":  "SG8.8",
-        "ToolID":  "T288"
+        "SafeguardID": "SG8.8",
+        "ToolID": "T288"
     },
     {
-        "SafeguardID":  "SG5.6",
-        "ToolID":  "T198"
+        "SafeguardID": "SG5.6",
+        "ToolID": "T198"
     },
     {
-        "SafeguardID":  "SG6.3",
-        "ToolID":  "T198"
+        "SafeguardID": "SG6.3",
+        "ToolID": "T198"
     },
     {
-        "SafeguardID":  "SG4.7",
-        "ToolID":  "T238"
+        "SafeguardID": "SG4.7",
+        "ToolID": "T238"
     },
     {
-        "SafeguardID":  "SG7.4",
-        "ToolID":  "T238"
+        "SafeguardID": "SG7.4",
+        "ToolID": "T238"
     },
     {
-        "SafeguardID":  "SG7.7",
-        "ToolID":  "T238"
+        "SafeguardID": "SG7.7",
+        "ToolID": "T238"
     },
     {
-        "SafeguardID":  "SG10.3",
-        "ToolID":  "T356"
+        "SafeguardID": "SG10.3",
+        "ToolID": "T356"
     },
     {
-        "SafeguardID":  "SG11.1",
-        "ToolID":  "T388"
+        "SafeguardID": "SG11.1",
+        "ToolID": "T388"
     },
     {
-        "SafeguardID":  "SG11.2",
-        "ToolID":  "T388"
+        "SafeguardID": "SG11.2",
+        "ToolID": "T388"
     },
     {
-        "SafeguardID":  "SG11.3",
-        "ToolID":  "T388"
+        "SafeguardID": "SG11.3",
+        "ToolID": "T388"
     },
     {
-        "SafeguardID":  "SG11.5",
-        "ToolID":  "T388"
+        "SafeguardID": "SG11.5",
+        "ToolID": "T388"
     },
     {
-        "SafeguardID":  "SG8.3",
-        "ToolID":  "T283"
+        "SafeguardID": "SG8.3",
+        "ToolID": "T283"
     },
     {
-        "SafeguardID":  "SG8.7",
-        "ToolID":  "T283"
+        "SafeguardID": "SG8.7",
+        "ToolID": "T283"
     },
     {
-        "SafeguardID":  "SG16.11",
-        "ToolID":  "T66"
+        "SafeguardID": "SG16.11",
+        "ToolID": "T66"
     },
     {
-        "SafeguardID":  "SG3.3",
-        "ToolID":  "T66"
+        "SafeguardID": "SG3.3",
+        "ToolID": "T66"
     },
     {
-        "SafeguardID":  "SG3.11",
-        "ToolID":  "T104"
+        "SafeguardID": "SG3.11",
+        "ToolID": "T104"
     },
     {
-        "SafeguardID":  "SG3.12",
-        "ToolID":  "T109"
+        "SafeguardID": "SG3.12",
+        "ToolID": "T109"
     },
     {
-        "SafeguardID":  "SG6.5",
-        "ToolID":  "T213"
+        "SafeguardID": "SG6.5",
+        "ToolID": "T213"
     },
     {
-        "SafeguardID":  "SG12.2",
-        "ToolID":  "T125"
+        "SafeguardID": "SG12.2",
+        "ToolID": "T125"
     },
     {
-        "SafeguardID":  "SG13.3",
-        "ToolID":  "T125"
+        "SafeguardID": "SG13.3",
+        "ToolID": "T125"
     },
     {
-        "SafeguardID":  "SG13.4",
-        "ToolID":  "T125"
+        "SafeguardID": "SG13.4",
+        "ToolID": "T125"
     },
     {
-        "SafeguardID":  "SG13.8",
-        "ToolID":  "T125"
+        "SafeguardID": "SG13.8",
+        "ToolID": "T125"
     },
     {
-        "SafeguardID":  "SG4.4",
-        "ToolID":  "T125"
+        "SafeguardID": "SG4.4",
+        "ToolID": "T125"
     },
     {
-        "SafeguardID":  "SG12.1",
-        "ToolID":  "T403"
+        "SafeguardID": "SG12.1",
+        "ToolID": "T403"
     },
     {
-        "SafeguardID":  "SG11.4",
-        "ToolID":  "T391"
+        "SafeguardID": "SG11.4",
+        "ToolID": "T391"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T607"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T607"
     },
     {
-        "SafeguardID":  "SG13.10",
-        "ToolID":  "T490"
+        "SafeguardID": "SG13.10",
+        "ToolID": "T490"
     },
     {
-        "SafeguardID":  "SG16.11",
-        "ToolID":  "T67"
+        "SafeguardID": "SG16.11",
+        "ToolID": "T67"
     },
     {
-        "SafeguardID":  "SG3.3",
-        "ToolID":  "T67"
+        "SafeguardID": "SG3.3",
+        "ToolID": "T67"
     },
     {
-        "SafeguardID":  "SG5.3",
-        "ToolID":  "T67"
+        "SafeguardID": "SG5.3",
+        "ToolID": "T67"
     },
     {
-        "SafeguardID":  "SG11.4",
-        "ToolID":  "T392"
+        "SafeguardID": "SG11.4",
+        "ToolID": "T392"
     },
     {
-        "SafeguardID":  "SG11.2",
-        "ToolID":  "T383"
+        "SafeguardID": "SG11.2",
+        "ToolID": "T383"
     },
     {
-        "SafeguardID":  "SG3.11",
-        "ToolID":  "T105"
+        "SafeguardID": "SG3.11",
+        "ToolID": "T105"
     },
     {
-        "SafeguardID":  "SG13.4",
-        "ToolID":  "T457"
+        "SafeguardID": "SG13.4",
+        "ToolID": "T457"
     },
     {
-        "SafeguardID":  "SG4.4",
-        "ToolID":  "T457"
+        "SafeguardID": "SG4.4",
+        "ToolID": "T457"
     },
     {
-        "SafeguardID":  "SG8.3",
-        "ToolID":  "T263"
+        "SafeguardID": "SG8.3",
+        "ToolID": "T263"
     },
     {
-        "SafeguardID":  "SG12.2",
-        "ToolID":  "T408"
+        "SafeguardID": "SG12.2",
+        "ToolID": "T408"
     },
     {
-        "SafeguardID":  "SG11.3",
-        "ToolID":  "T387"
+        "SafeguardID": "SG11.3",
+        "ToolID": "T387"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T608"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T608"
     },
     {
-        "SafeguardID":  "SG11.1",
-        "ToolID":  "T377"
+        "SafeguardID": "SG11.1",
+        "ToolID": "T377"
     },
     {
-        "SafeguardID":  "SG11.5",
-        "ToolID":  "T377"
+        "SafeguardID": "SG11.5",
+        "ToolID": "T377"
     },
     {
-        "SafeguardID":  "SG12.8",
-        "ToolID":  "T438"
+        "SafeguardID": "SG12.8",
+        "ToolID": "T438"
     },
     {
-        "SafeguardID":  "SG11.4",
-        "ToolID":  "T393"
+        "SafeguardID": "SG11.4",
+        "ToolID": "T393"
     },
     {
-        "SafeguardID":  "SG9.6",
-        "ToolID":  "T335"
+        "SafeguardID": "SG9.6",
+        "ToolID": "T335"
     },
     {
-        "SafeguardID":  "SG9.7",
-        "ToolID":  "T340"
+        "SafeguardID": "SG9.7",
+        "ToolID": "T340"
     },
     {
-        "SafeguardID":  "SG9.3",
-        "ToolID":  "T322"
+        "SafeguardID": "SG9.3",
+        "ToolID": "T322"
     },
     {
-        "SafeguardID":  "SG5.4",
-        "ToolID":  "T193"
+        "SafeguardID": "SG5.4",
+        "ToolID": "T193"
     },
     {
-        "SafeguardID":  "SG5.5",
-        "ToolID":  "T193"
+        "SafeguardID": "SG5.5",
+        "ToolID": "T193"
     },
     {
-        "SafeguardID":  "SG4.9",
-        "ToolID":  "T149"
+        "SafeguardID": "SG4.9",
+        "ToolID": "T149"
     },
     {
-        "SafeguardID":  "SG16.13",
-        "ToolID":  "T695"
+        "SafeguardID": "SG16.13",
+        "ToolID": "T695"
     },
     {
-        "SafeguardID":  "SG18.2",
-        "ToolID":  "T695"
+        "SafeguardID": "SG18.2",
+        "ToolID": "T695"
     },
     {
-        "SafeguardID":  "SG18.1",
-        "ToolID":  "T692"
+        "SafeguardID": "SG18.1",
+        "ToolID": "T692"
     },
     {
-        "SafeguardID":  "SG2.6",
-        "ToolID":  "T53"
+        "SafeguardID": "SG2.6",
+        "ToolID": "T53"
     },
     {
-        "SafeguardID":  "SG10.1",
-        "ToolID":  "T358"
+        "SafeguardID": "SG10.1",
+        "ToolID": "T358"
     },
     {
-        "SafeguardID":  "SG10.4",
-        "ToolID":  "T358"
+        "SafeguardID": "SG10.4",
+        "ToolID": "T358"
     },
     {
-        "SafeguardID":  "SG10.5",
-        "ToolID":  "T358"
+        "SafeguardID": "SG10.5",
+        "ToolID": "T358"
     },
     {
-        "SafeguardID":  "SG9.4",
-        "ToolID":  "T358"
+        "SafeguardID": "SG9.4",
+        "ToolID": "T358"
     },
     {
-        "SafeguardID":  "SG3.6",
-        "ToolID":  "T80"
+        "SafeguardID": "SG3.6",
+        "ToolID": "T80"
     },
     {
-        "SafeguardID":  "SG3.9",
-        "ToolID":  "T95"
+        "SafeguardID": "SG3.9",
+        "ToolID": "T95"
     },
     {
-        "SafeguardID":  "SG5.2",
-        "ToolID":  "T176"
+        "SafeguardID": "SG5.2",
+        "ToolID": "T176"
     },
     {
-        "SafeguardID":  "SG16.4",
-        "ToolID":  "T589"
+        "SafeguardID": "SG16.4",
+        "ToolID": "T589"
     },
     {
-        "SafeguardID":  "SG16.3",
-        "ToolID":  "T679"
+        "SafeguardID": "SG16.3",
+        "ToolID": "T679"
     },
     {
-        "SafeguardID":  "SG17.8",
-        "ToolID":  "T679"
+        "SafeguardID": "SG17.8",
+        "ToolID": "T679"
     },
     {
-        "SafeguardID":  "SG3.5",
-        "ToolID":  "T76"
+        "SafeguardID": "SG3.5",
+        "ToolID": "T76"
     },
     {
-        "SafeguardID":  "SG3.6",
-        "ToolID":  "T84"
+        "SafeguardID": "SG3.6",
+        "ToolID": "T84"
     },
     {
-        "SafeguardID":  "SG18.5",
-        "ToolID":  "T711"
+        "SafeguardID": "SG18.5",
+        "ToolID": "T711"
     },
     {
-        "SafeguardID":  "SG2.5",
-        "ToolID":  "T49"
+        "SafeguardID": "SG2.5",
+        "ToolID": "T49"
     },
     {
-        "SafeguardID":  "SG2.7",
-        "ToolID":  "T49"
+        "SafeguardID": "SG2.7",
+        "ToolID": "T49"
     },
     {
-        "SafeguardID":  "SG13.2",
-        "ToolID":  "T448"
+        "SafeguardID": "SG13.2",
+        "ToolID": "T448"
     },
     {
-        "SafeguardID":  "SG10.7",
-        "ToolID":  "T374"
+        "SafeguardID": "SG10.7",
+        "ToolID": "T374"
     },
     {
-        "SafeguardID":  "SG13.7",
-        "ToolID":  "T473"
+        "SafeguardID": "SG13.7",
+        "ToolID": "T473"
     },
     {
-        "SafeguardID":  "SG10.6",
-        "ToolID":  "T370"
+        "SafeguardID": "SG10.6",
+        "ToolID": "T370"
     },
     {
-        "SafeguardID":  "SG10.4",
-        "ToolID":  "T361"
+        "SafeguardID": "SG10.4",
+        "ToolID": "T361"
     },
     {
-        "SafeguardID":  "SG13.8",
-        "ToolID":  "T480"
+        "SafeguardID": "SG13.8",
+        "ToolID": "T480"
     },
     {
-        "SafeguardID":  "SG16.1",
-        "ToolID":  "T621"
+        "SafeguardID": "SG16.1",
+        "ToolID": "T621"
     },
     {
-        "SafeguardID":  "SG16.10",
-        "ToolID":  "T621"
+        "SafeguardID": "SG16.10",
+        "ToolID": "T621"
     },
     {
-        "SafeguardID":  "SG16.12",
-        "ToolID":  "T621"
+        "SafeguardID": "SG16.12",
+        "ToolID": "T621"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T605"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T605"
     },
     {
-        "SafeguardID":  "SG4.6",
-        "ToolID":  "T605"
+        "SafeguardID": "SG4.6",
+        "ToolID": "T605"
     },
     {
-        "SafeguardID":  "SG4.8",
-        "ToolID":  "T148"
+        "SafeguardID": "SG4.8",
+        "ToolID": "T148"
     },
     {
-        "SafeguardID":  "SG9.1",
-        "ToolID":  "T310"
+        "SafeguardID": "SG9.1",
+        "ToolID": "T310"
     },
     {
-        "SafeguardID":  "SG8.4",
-        "ToolID":  "T267"
+        "SafeguardID": "SG8.4",
+        "ToolID": "T267"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T603"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T603"
     },
     {
-        "SafeguardID":  "SG12.7",
-        "ToolID":  "T430"
+        "SafeguardID": "SG12.7",
+        "ToolID": "T430"
     },
     {
-        "SafeguardID":  "SG12.1",
-        "ToolID":  "T404"
+        "SafeguardID": "SG12.1",
+        "ToolID": "T404"
     },
     {
-        "SafeguardID":  "SG12.2",
-        "ToolID":  "T404"
+        "SafeguardID": "SG12.2",
+        "ToolID": "T404"
     },
     {
-        "SafeguardID":  "SG12.3",
-        "ToolID":  "T404"
+        "SafeguardID": "SG12.3",
+        "ToolID": "T404"
     },
     {
-        "SafeguardID":  "SG13.4",
-        "ToolID":  "T456"
+        "SafeguardID": "SG13.4",
+        "ToolID": "T456"
     },
     {
-        "SafeguardID":  "SG12.5",
-        "ToolID":  "T423"
+        "SafeguardID": "SG12.5",
+        "ToolID": "T423"
     },
     {
-        "SafeguardID":  "SG12.6",
-        "ToolID":  "T426"
+        "SafeguardID": "SG12.6",
+        "ToolID": "T426"
     },
     {
-        "SafeguardID":  "SG13.9",
-        "ToolID":  "T481"
+        "SafeguardID": "SG13.9",
+        "ToolID": "T481"
     },
     {
-        "SafeguardID":  "SG9.7",
-        "ToolID":  "T342"
+        "SafeguardID": "SG9.7",
+        "ToolID": "T342"
     },
     {
-        "SafeguardID":  "SG9.6",
-        "ToolID":  "T336"
+        "SafeguardID": "SG9.6",
+        "ToolID": "T336"
     },
     {
-        "SafeguardID":  "SG13.8",
-        "ToolID":  "T476"
+        "SafeguardID": "SG13.8",
+        "ToolID": "T476"
     },
     {
-        "SafeguardID":  "SG13.6",
-        "ToolID":  "T467"
+        "SafeguardID": "SG13.6",
+        "ToolID": "T467"
     },
     {
-        "SafeguardID":  "SG9.2",
-        "ToolID":  "T318"
+        "SafeguardID": "SG9.2",
+        "ToolID": "T318"
     },
     {
-        "SafeguardID":  "SG9.3",
-        "ToolID":  "T318"
+        "SafeguardID": "SG9.3",
+        "ToolID": "T318"
     },
     {
-        "SafeguardID":  "SG4.12",
-        "ToolID":  "T167"
+        "SafeguardID": "SG4.12",
+        "ToolID": "T167"
     },
     {
-        "SafeguardID":  "SG9.2",
-        "ToolID":  "T317"
+        "SafeguardID": "SG9.2",
+        "ToolID": "T317"
     },
     {
-        "SafeguardID":  "SG12.4",
-        "ToolID":  "T420"
+        "SafeguardID": "SG12.4",
+        "ToolID": "T420"
     },
     {
-        "SafeguardID":  "SG6.4",
-        "ToolID":  "T208"
+        "SafeguardID": "SG6.4",
+        "ToolID": "T208"
     },
     {
-        "SafeguardID":  "SG4.9",
-        "ToolID":  "T151"
+        "SafeguardID": "SG4.9",
+        "ToolID": "T151"
     },
     {
-        "SafeguardID":  "SG3.10",
-        "ToolID":  "T100"
+        "SafeguardID": "SG3.10",
+        "ToolID": "T100"
     },
     {
-        "SafeguardID":  "SG13.10",
-        "ToolID":  "T487"
+        "SafeguardID": "SG13.10",
+        "ToolID": "T487"
     },
     {
-        "SafeguardID":  "SG18.2",
-        "ToolID":  "T696"
+        "SafeguardID": "SG18.2",
+        "ToolID": "T696"
     },
     {
-        "SafeguardID":  "SG18.1",
-        "ToolID":  "T690"
+        "SafeguardID": "SG18.1",
+        "ToolID": "T690"
     },
     {
-        "SafeguardID":  "SG18.5",
-        "ToolID":  "T713"
+        "SafeguardID": "SG18.5",
+        "ToolID": "T713"
     },
     {
-        "SafeguardID":  "SG16.13",
-        "ToolID":  "T635"
+        "SafeguardID": "SG16.13",
+        "ToolID": "T635"
     },
     {
-        "SafeguardID":  "SG16.9",
-        "ToolID":  "T619"
+        "SafeguardID": "SG16.9",
+        "ToolID": "T619"
     },
     {
-        "SafeguardID":  "SG11.3",
-        "ToolID":  "T389"
+        "SafeguardID": "SG11.3",
+        "ToolID": "T389"
     },
     {
-        "SafeguardID":  "SG3.2",
-        "ToolID":  "T93"
+        "SafeguardID": "SG3.2",
+        "ToolID": "T93"
     },
     {
-        "SafeguardID":  "SG3.8",
-        "ToolID":  "T93"
+        "SafeguardID": "SG3.8",
+        "ToolID": "T93"
     },
     {
-        "SafeguardID":  "SG11.5",
-        "ToolID":  "T74"
+        "SafeguardID": "SG11.5",
+        "ToolID": "T74"
     },
     {
-        "SafeguardID":  "SG3.4",
-        "ToolID":  "T74"
+        "SafeguardID": "SG3.4",
+        "ToolID": "T74"
     },
     {
-        "SafeguardID":  "SG1.2",
-        "ToolID":  "T371"
+        "SafeguardID": "SG1.2",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG10.1",
-        "ToolID":  "T371"
+        "SafeguardID": "SG10.1",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG10.2",
-        "ToolID":  "T371"
+        "SafeguardID": "SG10.2",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG10.6",
-        "ToolID":  "T371"
+        "SafeguardID": "SG10.6",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG10.7",
-        "ToolID":  "T371"
+        "SafeguardID": "SG10.7",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG13.5",
-        "ToolID":  "T371"
+        "SafeguardID": "SG13.5",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG13.7",
-        "ToolID":  "T371"
+        "SafeguardID": "SG13.7",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG9.4",
-        "ToolID":  "T371"
+        "SafeguardID": "SG9.4",
+        "ToolID": "T371"
     },
     {
-        "SafeguardID":  "SG2.3",
-        "ToolID":  "T38"
+        "SafeguardID": "SG2.3",
+        "ToolID": "T38"
     },
     {
-        "SafeguardID":  "SG2.5",
-        "ToolID":  "T38"
+        "SafeguardID": "SG2.5",
+        "ToolID": "T38"
     },
     {
-        "SafeguardID":  "SG4.4",
-        "ToolID":  "T129"
+        "SafeguardID": "SG4.4",
+        "ToolID": "T129"
     },
     {
-        "SafeguardID":  "SG2.7",
-        "ToolID":  "T57"
+        "SafeguardID": "SG2.7",
+        "ToolID": "T57"
     },
     {
-        "SafeguardID":  "SG14.1",
-        "ToolID":  "T514"
+        "SafeguardID": "SG14.1",
+        "ToolID": "T514"
     },
     {
-        "SafeguardID":  "SG14.3",
-        "ToolID":  "T514"
+        "SafeguardID": "SG14.3",
+        "ToolID": "T514"
     },
     {
-        "SafeguardID":  "SG14.4",
-        "ToolID":  "T514"
+        "SafeguardID": "SG14.4",
+        "ToolID": "T514"
     },
     {
-        "SafeguardID":  "SG14.5",
-        "ToolID":  "T514"
+        "SafeguardID": "SG14.5",
+        "ToolID": "T514"
     },
     {
-        "SafeguardID":  "SG14.7",
-        "ToolID":  "T514"
+        "SafeguardID": "SG14.7",
+        "ToolID": "T514"
     },
     {
-        "SafeguardID":  "SG14.8",
-        "ToolID":  "T514"
+        "SafeguardID": "SG14.8",
+        "ToolID": "T514"
     },
     {
-        "SafeguardID":  "SG16.6",
-        "ToolID":  "T598"
+        "SafeguardID": "SG16.6",
+        "ToolID": "T598"
     },
     {
-        "SafeguardID":  "SG5.5",
-        "ToolID":  "T216"
+        "SafeguardID": "SG5.5",
+        "ToolID": "T216"
     },
     {
-        "SafeguardID":  "SG6.6",
-        "ToolID":  "T216"
+        "SafeguardID": "SG6.6",
+        "ToolID": "T216"
     },
     {
-        "SafeguardID":  "SG5.1",
-        "ToolID":  "T171"
+        "SafeguardID": "SG5.1",
+        "ToolID": "T171"
     },
     {
-        "SafeguardID":  "SG6.8",
-        "ToolID":  "T171"
+        "SafeguardID": "SG6.8",
+        "ToolID": "T171"
     },
     {
-        "SafeguardID":  "SG5.4",
-        "ToolID":  "T185"
+        "SafeguardID": "SG5.4",
+        "ToolID": "T185"
     },
     {
-        "SafeguardID":  "SG17.7",
-        "ToolID":  "T675"
+        "SafeguardID": "SG17.7",
+        "ToolID": "T675"
     },
     {
-        "SafeguardID":  "SG14.9",
-        "ToolID":  "T617"
+        "SafeguardID": "SG14.9",
+        "ToolID": "T617"
     },
     {
-        "SafeguardID":  "SG16.9",
-        "ToolID":  "T617"
+        "SafeguardID": "SG16.9",
+        "ToolID": "T617"
     },
     {
-        "SafeguardID":  "SG13.6",
-        "ToolID":  "T468"
+        "SafeguardID": "SG13.6",
+        "ToolID": "T468"
     },
     {
-        "SafeguardID":  "SG3.2",
-        "ToolID":  "T63"
+        "SafeguardID": "SG3.2",
+        "ToolID": "T63"
     },
     {
-        "SafeguardID":  "SG8.7",
-        "ToolID":  "T280"
+        "SafeguardID": "SG8.7",
+        "ToolID": "T280"
     },
     {
-        "SafeguardID":  "SG8.6",
-        "ToolID":  "T276"
+        "SafeguardID": "SG8.6",
+        "ToolID": "T276"
     },
     {
-        "SafeguardID":  "SG16.5",
-        "ToolID":  "T595"
+        "SafeguardID": "SG16.5",
+        "ToolID": "T595"
     },
     {
-        "SafeguardID":  "SG3.13",
-        "ToolID":  "T116"
+        "SafeguardID": "SG3.13",
+        "ToolID": "T116"
     },
     {
-        "SafeguardID":  "SG3.13",
-        "ToolID":  "T116"
+        "SafeguardID": "SG3.13",
+        "ToolID": "T116"
     },
     {
-        "SafeguardID":  "SG9.5",
-        "ToolID":  "T329"
+        "SafeguardID": "SG9.5",
+        "ToolID": "T329"
     },
     {
-        "SafeguardID":  "SG16.8",
-        "ToolID":  "T614"
+        "SafeguardID": "SG16.8",
+        "ToolID": "T614"
     },
     {
-        "SafeguardID":  "SG15.5",
-        "ToolID":  "T557"
+        "SafeguardID": "SG15.5",
+        "ToolID": "T557"
     },
     {
-        "SafeguardID":  "SG12.4",
-        "ToolID":  "T91"
+        "SafeguardID": "SG12.4",
+        "ToolID": "T91"
     },
     {
-        "SafeguardID":  "SG3.8",
-        "ToolID":  "T91"
+        "SafeguardID": "SG3.8",
+        "ToolID": "T91"
     },
     {
-        "SafeguardID":  "SG11.1",
-        "ToolID":  "T379"
+        "SafeguardID": "SG11.1",
+        "ToolID": "T379"
     },
     {
-        "SafeguardID":  "SG6.3",
-        "ToolID":  "T203"
+        "SafeguardID": "SG6.3",
+        "ToolID": "T203"
     },
     {
-        "SafeguardID":  "SG6.4",
-        "ToolID":  "T203"
+        "SafeguardID": "SG6.4",
+        "ToolID": "T203"
     },
     {
-        "SafeguardID":  "SG6.5",
-        "ToolID":  "T203"
+        "SafeguardID": "SG6.5",
+        "ToolID": "T203"
     },
     {
-        "SafeguardID":  "SG9.5",
-        "ToolID":  "T328"
+        "SafeguardID": "SG9.5",
+        "ToolID": "T328"
     },
     {
-        "SafeguardID":  "SG13.1",
-        "ToolID":  "T686"
+        "SafeguardID": "SG13.1",
+        "ToolID": "T686"
     },
     {
-        "SafeguardID":  "SG17.9",
-        "ToolID":  "T686"
+        "SafeguardID": "SG17.9",
+        "ToolID": "T686"
     },
     {
-        "SafeguardID":  "SG18.4",
-        "ToolID":  "T686"
+        "SafeguardID": "SG18.4",
+        "ToolID": "T686"
     },
     {
-        "SafeguardID":  "SG13.11",
-        "ToolID":  "T494"
+        "SafeguardID": "SG13.11",
+        "ToolID": "T494"
     },
     {
-        "SafeguardID":  "SG8.8",
-        "ToolID":  "T286"
+        "SafeguardID": "SG8.8",
+        "ToolID": "T286"
     },
     {
-        "SafeguardID":  "SG16.11",
-        "ToolID":  "T629"
+        "SafeguardID": "SG16.11",
+        "ToolID": "T629"
     },
     {
-        "SafeguardID":  "SG8.9",
-        "ToolID":  "T290"
+        "SafeguardID": "SG8.9",
+        "ToolID": "T290"
     },
     {
-        "SafeguardID":  "SG8.2",
-        "ToolID":  "T271"
+        "SafeguardID": "SG8.2",
+        "ToolID": "T271"
     },
     {
-        "SafeguardID":  "SG8.5",
-        "ToolID":  "T271"
+        "SafeguardID": "SG8.5",
+        "ToolID": "T271"
     },
     {
-        "SafeguardID":  "SG8.10",
-        "ToolID":  "T295"
+        "SafeguardID": "SG8.10",
+        "ToolID": "T295"
     },
     {
-        "SafeguardID":  "SG8.3",
-        "ToolID":  "T260"
+        "SafeguardID": "SG8.3",
+        "ToolID": "T260"
     },
     {
-        "SafeguardID":  "SG8.11",
-        "ToolID":  "T300"
+        "SafeguardID": "SG8.11",
+        "ToolID": "T300"
     },
     {
-        "SafeguardID":  "SG8.12",
-        "ToolID":  "T306"
+        "SafeguardID": "SG8.12",
+        "ToolID": "T306"
     },
     {
-        "SafeguardID":  "SG8.7",
-        "ToolID":  "T282"
+        "SafeguardID": "SG8.7",
+        "ToolID": "T282"
     },
     {
-        "SafeguardID":  "SG10.3",
-        "ToolID":  "T355"
+        "SafeguardID": "SG10.3",
+        "ToolID": "T355"
     },
     {
-        "SafeguardID":  "SG2.5",
-        "ToolID":  "T118"
+        "SafeguardID": "SG2.5",
+        "ToolID": "T118"
     },
     {
-        "SafeguardID":  "SG3.13",
-        "ToolID":  "T118"
+        "SafeguardID": "SG3.13",
+        "ToolID": "T118"
     },
     {
-        "SafeguardID":  "SG3.8",
-        "ToolID":  "T92"
+        "SafeguardID": "SG3.8",
+        "ToolID": "T92"
     },
     {
-        "SafeguardID":  "SG10.2",
-        "ToolID":  "T352"
+        "SafeguardID": "SG10.2",
+        "ToolID": "T352"
     },
     {
-        "SafeguardID":  "SG15.7",
-        "ToolID":  "T570"
+        "SafeguardID": "SG15.7",
+        "ToolID": "T570"
     },
     {
-        "SafeguardID":  "SG13.9",
-        "ToolID":  "T485"
+        "SafeguardID": "SG13.9",
+        "ToolID": "T485"
     },
     {
-        "SafeguardID":  "SG3.6",
-        "ToolID":  "T96"
+        "SafeguardID": "SG3.6",
+        "ToolID": "T96"
     },
     {
-        "SafeguardID":  "SG3.9",
-        "ToolID":  "T96"
+        "SafeguardID": "SG3.9",
+        "ToolID": "T96"
     },
     {
-        "SafeguardID":  "SG9.4",
-        "ToolID":  "T325"
+        "SafeguardID": "SG9.4",
+        "ToolID": "T325"
     },
     {
-        "SafeguardID":  "SG17.8",
-        "ToolID":  "T681"
+        "SafeguardID": "SG17.8",
+        "ToolID": "T681"
     },
     {
-        "SafeguardID":  "SG2.2",
-        "ToolID":  "T33"
+        "SafeguardID": "SG2.2",
+        "ToolID": "T33"
     },
     {
-        "SafeguardID":  "SG3.13",
-        "ToolID":  "T117"
+        "SafeguardID": "SG3.13",
+        "ToolID": "T117"
     },
     {
-        "SafeguardID":  "SG16.12",
-        "ToolID":  "T632"
+        "SafeguardID": "SG16.12",
+        "ToolID": "T632"
     },
     {
-        "SafeguardID":  "SG12.7",
-        "ToolID":  "T431"
+        "SafeguardID": "SG12.7",
+        "ToolID": "T431"
     },
     {
-        "SafeguardID":  "SG9.3",
-        "ToolID":  "T319"
+        "SafeguardID": "SG9.3",
+        "ToolID": "T319"
     },
     {
-        "SafeguardID":  "SG13.8",
-        "ToolID":  "T477"
+        "SafeguardID": "SG13.8",
+        "ToolID": "T477"
     },
     {
-        "SafeguardID":  "SG12.6",
-        "ToolID":  "T428"
+        "SafeguardID": "SG12.6",
+        "ToolID": "T428"
     },
     {
-        "SafeguardID":  "SG13.9",
-        "ToolID":  "T428"
+        "SafeguardID": "SG13.9",
+        "ToolID": "T428"
     },
     {
-        "SafeguardID":  "SG6.4",
-        "ToolID":  "T428"
+        "SafeguardID": "SG6.4",
+        "ToolID": "T428"
     },
     {
-        "SafeguardID":  "SG12.2",
-        "ToolID":  "T407"
+        "SafeguardID": "SG12.2",
+        "ToolID": "T407"
     },
     {
-        "SafeguardID":  "SG16.4",
-        "ToolID":  "T592"
+        "SafeguardID": "SG16.4",
+        "ToolID": "T592"
     },
     {
-        "SafeguardID":  "SG12.5",
-        "ToolID":  "T424"
+        "SafeguardID": "SG12.5",
+        "ToolID": "T424"
     },
     {
-        "SafeguardID":  "SG18.3",
-        "ToolID":  "T703"
+        "SafeguardID": "SG18.3",
+        "ToolID": "T703"
     },
     {
-        "SafeguardID":  "SG9.4",
-        "ToolID":  "T324"
+        "SafeguardID": "SG9.4",
+        "ToolID": "T324"
     },
     {
-        "SafeguardID":  "SG8.12",
-        "ToolID":  "T308"
+        "SafeguardID": "SG8.12",
+        "ToolID": "T308"
     },
     {
-        "SafeguardID":  "SG11.2",
-        "ToolID":  "T384"
+        "SafeguardID": "SG11.2",
+        "ToolID": "T384"
     },
     {
-        "SafeguardID":  "SG3.12",
-        "ToolID":  "T111"
+        "SafeguardID": "SG3.12",
+        "ToolID": "T111"
     },
     {
-        "SafeguardID":  "SG6.3",
-        "ToolID":  "T201"
+        "SafeguardID": "SG6.3",
+        "ToolID": "T201"
     },
     {
-        "SafeguardID":  "SG6.8",
-        "ToolID":  "T228"
+        "SafeguardID": "SG6.8",
+        "ToolID": "T228"
     },
     {
-        "SafeguardID":  "SG3.11",
-        "ToolID":  "T106"
+        "SafeguardID": "SG3.11",
+        "ToolID": "T106"
     },
     {
-        "SafeguardID":  "SG13.3",
-        "ToolID":  "T454"
+        "SafeguardID": "SG13.3",
+        "ToolID": "T454"
     },
     {
-        "SafeguardID":  "SG16.8",
-        "ToolID":  "T612"
+        "SafeguardID": "SG16.8",
+        "ToolID": "T612"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T609"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T609"
     },
     {
-        "SafeguardID":  "SG3.4",
-        "ToolID":  "T72"
+        "SafeguardID": "SG3.4",
+        "ToolID": "T72"
     },
     {
-        "SafeguardID":  "SG12.8",
-        "ToolID":  "T439"
+        "SafeguardID": "SG12.8",
+        "ToolID": "T439"
     },
     {
-        "SafeguardID":  "SG4.10",
-        "ToolID":  "T158"
+        "SafeguardID": "SG4.10",
+        "ToolID": "T158"
     },
     {
-        "SafeguardID":  "SG4.11",
-        "ToolID":  "T163"
+        "SafeguardID": "SG4.11",
+        "ToolID": "T163"
     },
     {
-        "SafeguardID":  "SG17.3",
-        "ToolID":  "T657"
+        "SafeguardID": "SG17.3",
+        "ToolID": "T657"
     },
     {
-        "SafeguardID":  "SG5.2",
-        "ToolID":  "T178"
+        "SafeguardID": "SG5.2",
+        "ToolID": "T178"
     },
     {
-        "SafeguardID":  "SG15.1",
-        "ToolID":  "T542"
+        "SafeguardID": "SG15.1",
+        "ToolID": "T542"
     },
     {
-        "SafeguardID":  "SG17.2",
-        "ToolID":  "T652"
+        "SafeguardID": "SG17.2",
+        "ToolID": "T652"
     },
     {
-        "SafeguardID":  "SG5.3",
-        "ToolID":  "T181"
+        "SafeguardID": "SG5.3",
+        "ToolID": "T181"
     },
     {
-        "SafeguardID":  "SG4.3",
-        "ToolID":  "T122"
+        "SafeguardID": "SG4.3",
+        "ToolID": "T122"
     },
     {
-        "SafeguardID":  "SG5.4",
-        "ToolID":  "T188"
+        "SafeguardID": "SG5.4",
+        "ToolID": "T188"
     },
     {
-        "SafeguardID":  "SG5.6",
-        "ToolID":  "T196"
+        "SafeguardID": "SG5.6",
+        "ToolID": "T196"
     },
     {
-        "SafeguardID":  "SG9.5",
-        "ToolID":  "T331"
+        "SafeguardID": "SG9.5",
+        "ToolID": "T331"
     },
     {
-        "SafeguardID":  "SG6.7",
-        "ToolID":  "T221"
+        "SafeguardID": "SG6.7",
+        "ToolID": "T221"
     },
     {
-        "SafeguardID":  "SG6.5",
-        "ToolID":  "T210"
+        "SafeguardID": "SG6.5",
+        "ToolID": "T210"
     },
     {
-        "SafeguardID":  "SG1.4",
-        "ToolID":  "T298"
+        "SafeguardID": "SG1.4",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG8.10",
-        "ToolID":  "T298"
+        "SafeguardID": "SG8.10",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG8.11",
-        "ToolID":  "T298"
+        "SafeguardID": "SG8.11",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG8.2",
-        "ToolID":  "T298"
+        "SafeguardID": "SG8.2",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG8.5",
-        "ToolID":  "T298"
+        "SafeguardID": "SG8.5",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG8.8",
-        "ToolID":  "T298"
+        "SafeguardID": "SG8.8",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG8.9",
-        "ToolID":  "T298"
+        "SafeguardID": "SG8.9",
+        "ToolID": "T298"
     },
     {
-        "SafeguardID":  "SG9.1",
-        "ToolID":  "T311"
+        "SafeguardID": "SG9.1",
+        "ToolID": "T311"
     },
     {
-        "SafeguardID":  "SG10.3",
-        "ToolID":  "T353"
+        "SafeguardID": "SG10.3",
+        "ToolID": "T353"
     },
     {
-        "SafeguardID":  "SG4.6",
-        "ToolID":  "T134"
+        "SafeguardID": "SG4.6",
+        "ToolID": "T134"
     },
     {
-        "SafeguardID":  "SG16.8",
-        "ToolID":  "T613"
+        "SafeguardID": "SG16.8",
+        "ToolID": "T613"
     },
     {
-        "SafeguardID":  "SG12.3",
-        "ToolID":  "T627"
+        "SafeguardID": "SG12.3",
+        "ToolID": "T627"
     },
     {
-        "SafeguardID":  "SG16.10",
-        "ToolID":  "T627"
+        "SafeguardID": "SG16.10",
+        "ToolID": "T627"
     },
     {
-        "SafeguardID":  "SG16.11",
-        "ToolID":  "T627"
+        "SafeguardID": "SG16.11",
+        "ToolID": "T627"
     },
     {
-        "SafeguardID":  "SG3.10",
-        "ToolID":  "T627"
+        "SafeguardID": "SG3.10",
+        "ToolID": "T627"
     },
     {
-        "SafeguardID":  "SG3.11",
-        "ToolID":  "T627"
+        "SafeguardID": "SG3.11",
+        "ToolID": "T627"
     },
     {
-        "SafeguardID":  "SG3.12",
-        "ToolID":  "T627"
+        "SafeguardID": "SG3.12",
+        "ToolID": "T627"
     },
     {
-        "SafeguardID":  "SG17.3",
-        "ToolID":  "T658"
+        "SafeguardID": "SG17.3",
+        "ToolID": "T658"
     },
     {
-        "SafeguardID":  "SG13.1",
-        "ToolID":  "T443"
+        "SafeguardID": "SG13.1",
+        "ToolID": "T443"
     },
     {
-        "SafeguardID":  "SG3.12",
-        "ToolID":  "T113"
+        "SafeguardID": "SG3.12",
+        "ToolID": "T113"
     },
     {
-        "SafeguardID":  "SG16.10",
-        "ToolID":  "T623"
+        "SafeguardID": "SG16.10",
+        "ToolID": "T623"
     },
     {
-        "SafeguardID":  "SG14.9",
-        "ToolID":  "T536"
+        "SafeguardID": "SG14.9",
+        "ToolID": "T536"
     },
     {
-        "SafeguardID":  "SG14.1",
-        "ToolID":  "T498"
+        "SafeguardID": "SG14.1",
+        "ToolID": "T498"
     },
     {
-        "SafeguardID":  "SG14.3",
-        "ToolID":  "T498"
+        "SafeguardID": "SG14.3",
+        "ToolID": "T498"
     },
     {
-        "SafeguardID":  "SG14.4",
-        "ToolID":  "T498"
+        "SafeguardID": "SG14.4",
+        "ToolID": "T498"
     },
     {
-        "SafeguardID":  "SG14.5",
-        "ToolID":  "T498"
+        "SafeguardID": "SG14.5",
+        "ToolID": "T498"
     },
     {
-        "SafeguardID":  "SG4.4",
-        "ToolID":  "T128"
+        "SafeguardID": "SG4.4",
+        "ToolID": "T128"
     },
     {
-        "SafeguardID":  "SG16.14",
-        "ToolID":  "T642"
+        "SafeguardID": "SG16.14",
+        "ToolID": "T642"
     },
     {
-        "SafeguardID":  "SG2.5",
-        "ToolID":  "T51"
+        "SafeguardID": "SG2.5",
+        "ToolID": "T51"
     },
     {
-        "SafeguardID":  "SG4.3",
-        "ToolID":  "T121"
+        "SafeguardID": "SG4.3",
+        "ToolID": "T121"
     },
     {
-        "SafeguardID":  "SG4.8",
-        "ToolID":  "T146"
+        "SafeguardID": "SG4.8",
+        "ToolID": "T146"
     },
     {
-        "SafeguardID":  "SG4.7",
-        "ToolID":  "T141"
+        "SafeguardID": "SG4.7",
+        "ToolID": "T141"
     },
     {
-        "SafeguardID":  "SG2.1",
-        "ToolID":  "T40"
+        "SafeguardID": "SG2.1",
+        "ToolID": "T40"
     },
     {
-        "SafeguardID":  "SG2.3",
-        "ToolID":  "T40"
+        "SafeguardID": "SG2.3",
+        "ToolID": "T40"
     },
     {
-        "SafeguardID":  "SG2.2",
-        "ToolID":  "T32"
+        "SafeguardID": "SG2.2",
+        "ToolID": "T32"
     },
     {
-        "SafeguardID":  "SG7.4",
-        "ToolID":  "T237"
+        "SafeguardID": "SG7.4",
+        "ToolID": "T237"
     },
     {
-        "SafeguardID":  "SG4.10",
-        "ToolID":  "T155"
+        "SafeguardID": "SG4.10",
+        "ToolID": "T155"
     },
     {
-        "SafeguardID":  "SG4.12",
-        "ToolID":  "T155"
+        "SafeguardID": "SG4.12",
+        "ToolID": "T155"
     },
     {
-        "SafeguardID":  "SG4.3",
-        "ToolID":  "T155"
+        "SafeguardID": "SG4.3",
+        "ToolID": "T155"
     },
     {
-        "SafeguardID":  "SG2.4",
-        "ToolID":  "T46"
+        "SafeguardID": "SG2.4",
+        "ToolID": "T46"
     },
     {
-        "SafeguardID":  "SG9.1",
-        "ToolID":  "T312"
+        "SafeguardID": "SG9.1",
+        "ToolID": "T312"
     },
     {
-        "SafeguardID":  "SG4.11",
-        "ToolID":  "T162"
+        "SafeguardID": "SG4.11",
+        "ToolID": "T162"
     },
     {
-        "SafeguardID":  "SG13.5",
-        "ToolID":  "T464"
+        "SafeguardID": "SG13.5",
+        "ToolID": "T464"
     },
     {
-        "SafeguardID":  "SG17.7",
-        "ToolID":  "T677"
+        "SafeguardID": "SG17.7",
+        "ToolID": "T677"
     },
     {
-        "SafeguardID":  "SG16.4",
-        "ToolID":  "T590"
+        "SafeguardID": "SG16.4",
+        "ToolID": "T590"
     },
     {
-        "SafeguardID":  "SG16.5",
-        "ToolID":  "T590"
+        "SafeguardID": "SG16.5",
+        "ToolID": "T590"
     },
     {
-        "SafeguardID":  "SG18.3",
-        "ToolID":  "T699"
+        "SafeguardID": "SG18.3",
+        "ToolID": "T699"
     },
     {
-        "SafeguardID":  "SG16.2",
-        "ToolID":  "T655"
+        "SafeguardID": "SG16.2",
+        "ToolID": "T655"
     },
     {
-        "SafeguardID":  "SG17.1",
-        "ToolID":  "T655"
+        "SafeguardID": "SG17.1",
+        "ToolID": "T655"
     },
     {
-        "SafeguardID":  "SG17.3",
-        "ToolID":  "T655"
+        "SafeguardID": "SG17.3",
+        "ToolID": "T655"
     },
     {
-        "SafeguardID":  "SG17.5",
-        "ToolID":  "T655"
+        "SafeguardID": "SG17.5",
+        "ToolID": "T655"
     },
     {
-        "SafeguardID":  "SG12.5",
-        "ToolID":  "T197"
+        "SafeguardID": "SG12.5",
+        "ToolID": "T197"
     },
     {
-        "SafeguardID":  "SG5.6",
-        "ToolID":  "T197"
+        "SafeguardID": "SG5.6",
+        "ToolID": "T197"
     },
     {
-        "SafeguardID":  "SG6.7",
-        "ToolID":  "T222"
+        "SafeguardID": "SG6.7",
+        "ToolID": "T222"
     },
     {
-        "SafeguardID":  "SG12.6",
-        "ToolID":  "T429"
+        "SafeguardID": "SG12.6",
+        "ToolID": "T429"
     },
     {
-        "SafeguardID":  "SG13.9",
-        "ToolID":  "T429"
+        "SafeguardID": "SG13.9",
+        "ToolID": "T429"
     },
     {
-        "SafeguardID":  "SG18.5",
-        "ToolID":  "T712"
+        "SafeguardID": "SG18.5",
+        "ToolID": "T712"
     },
     {
-        "SafeguardID":  "SG5.2",
-        "ToolID":  "T177"
+        "SafeguardID": "SG5.2",
+        "ToolID": "T177"
     },
     {
-        "SafeguardID":  "SG16.2",
-        "ToolID":  "T581"
+        "SafeguardID": "SG16.2",
+        "ToolID": "T581"
     },
     {
-        "SafeguardID":  "SG16.6",
-        "ToolID":  "T581"
+        "SafeguardID": "SG16.6",
+        "ToolID": "T581"
     },
     {
-        "SafeguardID":  "SG6.7",
-        "ToolID":  "T223"
+        "SafeguardID": "SG6.7",
+        "ToolID": "T223"
     },
     {
-        "SafeguardID":  "SG3.5",
-        "ToolID":  "T77"
+        "SafeguardID": "SG3.5",
+        "ToolID": "T77"
     },
     {
-        "SafeguardID":  "SG14.1",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.1",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.2",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.2",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.3",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.3",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.4",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.4",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.5",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.5",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.6",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.6",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.7",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.7",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.8",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.8",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG14.9",
-        "ToolID":  "T501"
+        "SafeguardID": "SG14.9",
+        "ToolID": "T501"
     },
     {
-        "SafeguardID":  "SG1.1",
-        "ToolID":  "T45"
+        "SafeguardID": "SG1.1",
+        "ToolID": "T45"
     },
     {
-        "SafeguardID":  "SG2.1",
-        "ToolID":  "T45"
+        "SafeguardID": "SG2.1",
+        "ToolID": "T45"
     },
     {
-        "SafeguardID":  "SG2.4",
-        "ToolID":  "T45"
+        "SafeguardID": "SG2.4",
+        "ToolID": "T45"
     },
     {
-        "SafeguardID":  "SG5.2",
-        "ToolID":  "T174"
+        "SafeguardID": "SG5.2",
+        "ToolID": "T174"
     },
     {
-        "SafeguardID":  "SG3.10",
-        "ToolID":  "T99"
+        "SafeguardID": "SG3.10",
+        "ToolID": "T99"
     },
     {
-        "SafeguardID":  "SG4.5",
-        "ToolID":  "T132"
+        "SafeguardID": "SG4.5",
+        "ToolID": "T132"
     },
     {
-        "SafeguardID":  "SG14.2",
-        "ToolID":  "T505"
+        "SafeguardID": "SG14.2",
+        "ToolID": "T505"
     },
     {
-        "SafeguardID":  "SG15.5",
-        "ToolID":  "T560"
+        "SafeguardID": "SG15.5",
+        "ToolID": "T560"
     },
     {
-        "SafeguardID":  "SG15.2",
-        "ToolID":  "T545"
+        "SafeguardID": "SG15.2",
+        "ToolID": "T545"
     },
     {
-        "SafeguardID":  "SG15.1",
-        "ToolID":  "T667"
+        "SafeguardID": "SG15.1",
+        "ToolID": "T667"
     },
     {
-        "SafeguardID":  "SG15.3",
-        "ToolID":  "T667"
+        "SafeguardID": "SG15.3",
+        "ToolID": "T667"
     },
     {
-        "SafeguardID":  "SG15.4",
-        "ToolID":  "T667"
+        "SafeguardID": "SG15.4",
+        "ToolID": "T667"
     },
     {
-        "SafeguardID":  "SG15.6",
-        "ToolID":  "T667"
+        "SafeguardID": "SG15.6",
+        "ToolID": "T667"
     },
     {
-        "SafeguardID":  "SG17.5",
-        "ToolID":  "T667"
+        "SafeguardID": "SG17.5",
+        "ToolID": "T667"
     },
     {
-        "SafeguardID":  "SG12.4",
-        "ToolID":  "T89"
+        "SafeguardID": "SG12.4",
+        "ToolID": "T89"
     },
     {
-        "SafeguardID":  "SG3.8",
-        "ToolID":  "T89"
+        "SafeguardID": "SG3.8",
+        "ToolID": "T89"
     },
     {
-        "SafeguardID":  "SG3.6",
-        "ToolID":  "T82"
+        "SafeguardID": "SG3.6",
+        "ToolID": "T82"
     },
     {
-        "SafeguardID":  "SG9.5",
-        "ToolID":  "T330"
+        "SafeguardID": "SG9.5",
+        "ToolID": "T330"
     },
     {
-        "SafeguardID":  "SG5.1",
-        "ToolID":  "T173"
+        "SafeguardID": "SG5.1",
+        "ToolID": "T173"
     },
     {
-        "SafeguardID":  "SG5.3",
-        "ToolID":  "T173"
+        "SafeguardID": "SG5.3",
+        "ToolID": "T173"
     },
     {
-        "SafeguardID":  "SG1.1",
-        "ToolID":  "T29"
+        "SafeguardID": "SG1.1",
+        "ToolID": "T29"
     },
     {
-        "SafeguardID":  "SG2.1",
-        "ToolID":  "T29"
+        "SafeguardID": "SG2.1",
+        "ToolID": "T29"
     },
     {
-        "SafeguardID":  "SG2.2",
-        "ToolID":  "T29"
+        "SafeguardID": "SG2.2",
+        "ToolID": "T29"
     },
     {
-        "SafeguardID":  "SG2.4",
-        "ToolID":  "T29"
+        "SafeguardID": "SG2.4",
+        "ToolID": "T29"
     },
     {
-        "SafeguardID":  "SG2.3",
-        "ToolID":  "T41"
+        "SafeguardID": "SG2.3",
+        "ToolID": "T41"
     },
     {
-        "SafeguardID":  "SG4.3",
-        "ToolID":  "T41"
+        "SafeguardID": "SG4.3",
+        "ToolID": "T41"
     },
     {
-        "SafeguardID":  "SG1.3",
-        "ToolID":  "T16"
+        "SafeguardID": "SG1.3",
+        "ToolID": "T16"
     },
     {
-        "SafeguardID":  "SG1.4",
-        "ToolID":  "T16"
+        "SafeguardID": "SG1.4",
+        "ToolID": "T16"
     },
     {
-        "SafeguardID":  "SG7.3",
-        "ToolID":  "T231"
+        "SafeguardID": "SG7.3",
+        "ToolID": "T231"
     },
     {
-        "SafeguardID":  "SG7.4",
-        "ToolID":  "T231"
+        "SafeguardID": "SG7.4",
+        "ToolID": "T231"
     },
     {
-        "SafeguardID":  "SG18.5",
-        "ToolID":  "T709"
+        "SafeguardID": "SG18.5",
+        "ToolID": "T709"
     },
     {
-        "SafeguardID":  "SG3.3",
-        "ToolID":  "T65"
+        "SafeguardID": "SG3.3",
+        "ToolID": "T65"
     },
     {
-        "SafeguardID":  "SG4.9",
-        "ToolID":  "T150"
+        "SafeguardID": "SG4.9",
+        "ToolID": "T150"
     },
     {
-        "SafeguardID":  "SG12.7",
-        "ToolID":  "T433"
+        "SafeguardID": "SG12.7",
+        "ToolID": "T433"
     },
     {
-        "SafeguardID":  "SG16.8",
-        "ToolID":  "T611"
+        "SafeguardID": "SG16.8",
+        "ToolID": "T611"
     },
     {
-        "SafeguardID":  "SG12.5",
-        "ToolID":  "T422"
+        "SafeguardID": "SG12.5",
+        "ToolID": "T422"
     },
     {
-        "SafeguardID":  "SG5.1",
-        "ToolID":  "T422"
+        "SafeguardID": "SG5.1",
+        "ToolID": "T422"
     },
     {
-        "SafeguardID":  "SG6.3",
-        "ToolID":  "T422"
+        "SafeguardID": "SG6.3",
+        "ToolID": "T422"
     },
     {
-        "SafeguardID":  "SG6.7",
-        "ToolID":  "T422"
+        "SafeguardID": "SG6.7",
+        "ToolID": "T422"
     },
     {
-        "SafeguardID":  "SG6.8",
-        "ToolID":  "T422"
+        "SafeguardID": "SG6.8",
+        "ToolID": "T422"
     },
     {
-        "SafeguardID":  "SG5.5",
-        "ToolID":  "T191"
+        "SafeguardID": "SG5.5",
+        "ToolID": "T191"
     },
     {
-        "SafeguardID":  "SG6.4",
-        "ToolID":  "T206"
+        "SafeguardID": "SG6.4",
+        "ToolID": "T206"
     },
     {
-        "SafeguardID":  "SG17.5",
-        "ToolID":  "T666"
+        "SafeguardID": "SG17.5",
+        "ToolID": "T666"
     },
     {
-        "SafeguardID":  "SG4.8",
-        "ToolID":  "T147"
+        "SafeguardID": "SG4.8",
+        "ToolID": "T147"
     },
     {
-        "SafeguardID":  "SG10.2",
-        "ToolID":  "T348"
+        "SafeguardID": "SG10.2",
+        "ToolID": "T348"
     },
     {
-        "SafeguardID":  "SG16.3",
-        "ToolID":  "T587"
+        "SafeguardID": "SG16.3",
+        "ToolID": "T587"
     },
     {
-        "SafeguardID":  "SG13.8",
-        "ToolID":  "T479"
+        "SafeguardID": "SG13.8",
+        "ToolID": "T479"
     },
     {
-        "SafeguardID":  "SG13.3",
-        "ToolID":  "T453"
+        "SafeguardID": "SG13.3",
+        "ToolID": "T453"
     },
     {
-        "SafeguardID":  "SG1.2",
-        "ToolID":  "T471"
+        "SafeguardID": "SG1.2",
+        "ToolID": "T471"
     },
     {
-        "SafeguardID":  "SG10.1",
-        "ToolID":  "T471"
+        "SafeguardID": "SG10.1",
+        "ToolID": "T471"
     },
     {
-        "SafeguardID":  "SG10.4",
-        "ToolID":  "T471"
+        "SafeguardID": "SG10.4",
+        "ToolID": "T471"
     },
     {
-        "SafeguardID":  "SG10.5",
-        "ToolID":  "T471"
+        "SafeguardID": "SG10.5",
+        "ToolID": "T471"
     },
     {
-        "SafeguardID":  "SG13.7",
-        "ToolID":  "T471"
+        "SafeguardID": "SG13.7",
+        "ToolID": "T471"
     },
     {
-        "SafeguardID":  "SG8.8",
-        "ToolID":  "T471"
+        "SafeguardID": "SG8.8",
+        "ToolID": "T471"
     },
     {
-        "SafeguardID":  "SG2.5",
-        "ToolID":  "T47"
+        "SafeguardID": "SG2.5",
+        "ToolID": "T47"
     },
     {
-        "SafeguardID":  "SG2.7",
-        "ToolID":  "T56"
+        "SafeguardID": "SG2.7",
+        "ToolID": "T56"
     },
     {
-        "SafeguardID":  "SG10.7",
-        "ToolID":  "T373"
+        "SafeguardID": "SG10.7",
+        "ToolID": "T373"
     },
     {
-        "SafeguardID":  "SG13.2",
-        "ToolID":  "T373"
+        "SafeguardID": "SG13.2",
+        "ToolID": "T373"
     },
     {
-        "SafeguardID":  "SG7.5",
-        "ToolID":  "T243"
+        "SafeguardID": "SG7.5",
+        "ToolID": "T243"
     },
     {
-        "SafeguardID":  "SG9.6",
-        "ToolID":  "T337"
+        "SafeguardID": "SG9.6",
+        "ToolID": "T337"
     },
     {
-        "SafeguardID":  "SG9.7",
-        "ToolID":  "T337"
+        "SafeguardID": "SG9.7",
+        "ToolID": "T337"
     },
     {
-        "SafeguardID":  "SG16.2",
-        "ToolID":  "T248"
+        "SafeguardID": "SG16.2",
+        "ToolID": "T248"
     },
     {
-        "SafeguardID":  "SG16.6",
-        "ToolID":  "T248"
+        "SafeguardID": "SG16.6",
+        "ToolID": "T248"
     },
     {
-        "SafeguardID":  "SG7.6",
-        "ToolID":  "T248"
+        "SafeguardID": "SG7.6",
+        "ToolID": "T248"
     },
     {
-        "SafeguardID":  "SG7.7",
-        "ToolID":  "T248"
+        "SafeguardID": "SG7.7",
+        "ToolID": "T248"
     },
     {
-        "SafeguardID":  "SG9.1",
-        "ToolID":  "T309"
+        "SafeguardID": "SG9.1",
+        "ToolID": "T309"
     },
     {
-        "SafeguardID":  "SG10.6",
-        "ToolID":  "T366"
+        "SafeguardID": "SG10.6",
+        "ToolID": "T366"
     },
     {
-        "SafeguardID":  "SG7.3",
-        "ToolID":  "T366"
+        "SafeguardID": "SG7.3",
+        "ToolID": "T366"
     },
     {
-        "SafeguardID":  "SG7.4",
-        "ToolID":  "T366"
+        "SafeguardID": "SG7.4",
+        "ToolID": "T366"
     },
     {
-        "SafeguardID":  "SG1.1",
-        "ToolID":  "T42"
+        "SafeguardID": "SG1.1",
+        "ToolID": "T42"
     },
     {
-        "SafeguardID":  "SG2.3",
-        "ToolID":  "T42"
+        "SafeguardID": "SG2.3",
+        "ToolID": "T42"
     },
     {
-        "SafeguardID":  "SG2.4",
-        "ToolID":  "T42"
+        "SafeguardID": "SG2.4",
+        "ToolID": "T42"
     },
     {
-        "SafeguardID":  "SG5.4",
-        "ToolID":  "T42"
+        "SafeguardID": "SG5.4",
+        "ToolID": "T42"
     },
     {
-        "SafeguardID":  "SG6.6",
-        "ToolID":  "T215"
+        "SafeguardID": "SG6.6",
+        "ToolID": "T215"
     },
     {
-        "SafeguardID":  "SG6.5",
-        "ToolID":  "T209"
+        "SafeguardID": "SG6.5",
+        "ToolID": "T209"
     },
     {
-        "SafeguardID":  "SG5.6",
-        "ToolID":  "T194"
+        "SafeguardID": "SG5.6",
+        "ToolID": "T194"
     },
     {
-        "SafeguardID":  "SG12.8",
-        "ToolID":  "T436"
+        "SafeguardID": "SG12.8",
+        "ToolID": "T436"
     },
     {
-        "SafeguardID":  "SG13.5",
-        "ToolID":  "T323"
+        "SafeguardID": "SG13.5",
+        "ToolID": "T323"
     },
     {
-        "SafeguardID":  "SG4.10",
-        "ToolID":  "T323"
+        "SafeguardID": "SG4.10",
+        "ToolID": "T323"
     },
     {
-        "SafeguardID":  "SG4.11",
-        "ToolID":  "T323"
+        "SafeguardID": "SG4.11",
+        "ToolID": "T323"
     },
     {
-        "SafeguardID":  "SG4.12",
-        "ToolID":  "T323"
+        "SafeguardID": "SG4.12",
+        "ToolID": "T323"
     },
     {
-        "SafeguardID":  "SG4.3",
-        "ToolID":  "T323"
+        "SafeguardID": "SG4.3",
+        "ToolID": "T323"
     },
     {
-        "SafeguardID":  "SG9.4",
-        "ToolID":  "T323"
+        "SafeguardID": "SG9.4",
+        "ToolID": "T323"
     },
     {
-        "SafeguardID":  "SG3.12",
-        "ToolID":  "T110"
+        "SafeguardID": "SG3.12",
+        "ToolID": "T110"
     },
     {
-        "SafeguardID":  "SG3.2",
-        "ToolID":  "T60"
+        "SafeguardID": "SG3.2",
+        "ToolID": "T60"
     },
     {
-        "SafeguardID":  "SG15.7",
-        "ToolID":  "T571"
+        "SafeguardID": "SG15.7",
+        "ToolID": "T571"
     },
     {
-        "SafeguardID":  "SG17.2",
-        "ToolID":  "T649"
+        "SafeguardID": "SG17.2",
+        "ToolID": "T649"
     },
     {
-        "SafeguardID":  "SG3.13",
-        "ToolID":  "T114"
+        "SafeguardID": "SG3.13",
+        "ToolID": "T114"
     },
     {
-        "SafeguardID":  "SG3.5",
-        "ToolID":  "T85"
+        "SafeguardID": "SG3.5",
+        "ToolID": "T85"
     },
     {
-        "SafeguardID":  "SG3.7",
-        "ToolID":  "T85"
+        "SafeguardID": "SG3.7",
+        "ToolID": "T85"
     },
     {
-        "SafeguardID":  "SG3.4",
-        "ToolID":  "T70"
+        "SafeguardID": "SG3.4",
+        "ToolID": "T70"
     },
     {
-        "SafeguardID":  "SG13.1",
-        "ToolID":  "T659"
+        "SafeguardID": "SG13.1",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG13.11",
-        "ToolID":  "T659"
+        "SafeguardID": "SG13.11",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG17.4",
-        "ToolID":  "T659"
+        "SafeguardID": "SG17.4",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG17.9",
-        "ToolID":  "T659"
+        "SafeguardID": "SG17.9",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG18.4",
-        "ToolID":  "T659"
+        "SafeguardID": "SG18.4",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.10",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.10",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.11",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.11",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.12",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.12",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.2",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.2",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.5",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.5",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.6",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.6",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG8.9",
-        "ToolID":  "T659"
+        "SafeguardID": "SG8.9",
+        "ToolID": "T659"
     },
     {
-        "SafeguardID":  "SG17.3",
-        "ToolID":  "T656"
+        "SafeguardID": "SG17.3",
+        "ToolID": "T656"
     },
     {
-        "SafeguardID":  "SG17.6",
-        "ToolID":  "T669"
+        "SafeguardID": "SG17.6",
+        "ToolID": "T669"
     },
     {
-        "SafeguardID":  "SG17.1",
-        "ToolID":  "T647"
+        "SafeguardID": "SG17.1",
+        "ToolID": "T647"
     },
     {
-        "SafeguardID":  "SG16.14",
-        "ToolID":  "T640"
+        "SafeguardID": "SG16.14",
+        "ToolID": "T640"
     },
     {
-        "SafeguardID":  "SG12.4",
-        "ToolID":  "T418"
+        "SafeguardID": "SG12.4",
+        "ToolID": "T418"
     },
     {
-        "SafeguardID":  "SG3.8",
-        "ToolID":  "T418"
+        "SafeguardID": "SG3.8",
+        "ToolID": "T418"
     },
     {
-        "SafeguardID":  "SG8.4",
-        "ToolID":  "T265"
+        "SafeguardID": "SG8.4",
+        "ToolID": "T265"
     },
     {
-        "SafeguardID":  "SG9.6",
-        "ToolID":  "T334"
+        "SafeguardID": "SG9.6",
+        "ToolID": "T334"
     },
     {
-        "SafeguardID":  "SG9.7",
-        "ToolID":  "T339"
+        "SafeguardID": "SG9.7",
+        "ToolID": "T339"
     },
     {
-        "SafeguardID":  "SG12.4",
-        "ToolID":  "T419"
+        "SafeguardID": "SG12.4",
+        "ToolID": "T419"
     },
     {
-        "SafeguardID":  "SG4.10",
-        "ToolID":  "T156"
+        "SafeguardID": "SG4.10",
+        "ToolID": "T156"
     },
     {
-        "SafeguardID":  "SG4.11",
-        "ToolID":  "T156"
+        "SafeguardID": "SG4.11",
+        "ToolID": "T156"
     },
     {
-        "SafeguardID":  "SG18.2",
-        "ToolID":  "T697"
+        "SafeguardID": "SG18.2",
+        "ToolID": "T697"
     },
     {
-        "SafeguardID":  "SG1.3",
-        "ToolID":  "T710"
+        "SafeguardID": "SG1.3",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG12.1",
-        "ToolID":  "T710"
+        "SafeguardID": "SG12.1",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG18.1",
-        "ToolID":  "T710"
+        "SafeguardID": "SG18.1",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG18.5",
-        "ToolID":  "T710"
+        "SafeguardID": "SG18.5",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG7.5",
-        "ToolID":  "T710"
+        "SafeguardID": "SG7.5",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG7.6",
-        "ToolID":  "T710"
+        "SafeguardID": "SG7.6",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG7.7",
-        "ToolID":  "T710"
+        "SafeguardID": "SG7.7",
+        "ToolID": "T710"
     },
     {
-        "SafeguardID":  "SG12.3",
-        "ToolID":  "T414"
+        "SafeguardID": "SG12.3",
+        "ToolID": "T414"
     },
     {
-        "SafeguardID":  "SG9.2",
-        "ToolID":  "T315"
+        "SafeguardID": "SG9.2",
+        "ToolID": "T315"
     },
     {
-        "SafeguardID":  "SG13.10",
-        "ToolID":  "T488"
+        "SafeguardID": "SG13.10",
+        "ToolID": "T488"
     },
     {
-        "SafeguardID":  "SG4.7",
-        "ToolID":  "T142"
+        "SafeguardID": "SG4.7",
+        "ToolID": "T142"
     },
     {
-        "SafeguardID":  "SG1.5",
-        "ToolID":  "T22"
+        "SafeguardID": "SG1.5",
+        "ToolID": "T22"
     },
     {
-        "SafeguardID":  "SG13.6",
-        "ToolID":  "T466"
+        "SafeguardID": "SG13.6",
+        "ToolID": "T466"
     },
     {
-        "SafeguardID":  "SG8.4",
-        "ToolID":  "T264"
+        "SafeguardID": "SG8.4",
+        "ToolID": "T264"
     },
     {
-        "SafeguardID":  "SG12.5",
-        "ToolID":  "T224"
+        "SafeguardID": "SG12.5",
+        "ToolID": "T224"
     },
     {
-        "SafeguardID":  "SG6.3",
-        "ToolID":  "T224"
+        "SafeguardID": "SG6.3",
+        "ToolID": "T224"
     },
     {
-        "SafeguardID":  "SG6.8",
-        "ToolID":  "T224"
+        "SafeguardID": "SG6.8",
+        "ToolID": "T224"
     },
     {
-        "SafeguardID":  "SG13.5",
-        "ToolID":  "T462"
+        "SafeguardID": "SG13.5",
+        "ToolID": "T462"
     },
     {
-        "SafeguardID":  "SG6.4",
-        "ToolID":  "T462"
+        "SafeguardID": "SG6.4",
+        "ToolID": "T462"
     },
     {
-        "SafeguardID":  "SG6.5",
-        "ToolID":  "T211"
+        "SafeguardID": "SG6.5",
+        "ToolID": "T211"
     },
     {
-        "SafeguardID":  "SG5.1",
-        "ToolID":  "T172"
+        "SafeguardID": "SG5.1",
+        "ToolID": "T172"
     },
     {
-        "SafeguardID":  "SG5.6",
-        "ToolID":  "T172"
+        "SafeguardID": "SG5.6",
+        "ToolID": "T172"
     },
     {
-        "SafeguardID":  "SG6.7",
-        "ToolID":  "T172"
+        "SafeguardID": "SG6.7",
+        "ToolID": "T172"
     },
     {
-        "SafeguardID":  "SG3.3",
-        "ToolID":  "T192"
+        "SafeguardID": "SG3.3",
+        "ToolID": "T192"
     },
     {
-        "SafeguardID":  "SG5.3",
-        "ToolID":  "T192"
+        "SafeguardID": "SG5.3",
+        "ToolID": "T192"
     },
     {
-        "SafeguardID":  "SG5.5",
-        "ToolID":  "T192"
+        "SafeguardID": "SG5.5",
+        "ToolID": "T192"
     },
     {
-        "SafeguardID":  "SG15.7",
-        "ToolID":  "T568"
+        "SafeguardID": "SG15.7",
+        "ToolID": "T568"
     },
     {
-        "SafeguardID":  "SG15.2",
-        "ToolID":  "T548"
+        "SafeguardID": "SG15.2",
+        "ToolID": "T548"
     },
     {
-        "SafeguardID":  "SG15.3",
-        "ToolID":  "T548"
+        "SafeguardID": "SG15.3",
+        "ToolID": "T548"
     },
     {
-        "SafeguardID":  "SG15.4",
-        "ToolID":  "T548"
+        "SafeguardID": "SG15.4",
+        "ToolID": "T548"
     },
     {
-        "SafeguardID":  "SG15.5",
-        "ToolID":  "T548"
+        "SafeguardID": "SG15.5",
+        "ToolID": "T548"
     },
     {
-        "SafeguardID":  "SG15.6",
-        "ToolID":  "T548"
+        "SafeguardID": "SG15.6",
+        "ToolID": "T548"
     },
     {
-        "SafeguardID":  "SG15.1",
-        "ToolID":  "T539"
+        "SafeguardID": "SG15.1",
+        "ToolID": "T539"
     },
     {
-        "SafeguardID":  "SG9.2",
-        "ToolID":  "T316"
+        "SafeguardID": "SG9.2",
+        "ToolID": "T316"
     },
     {
-        "SafeguardID":  "SG3.10",
-        "ToolID":  "T101"
+        "SafeguardID": "SG3.10",
+        "ToolID": "T101"
     },
     {
-        "SafeguardID":  "SG16.11",
-        "ToolID":  "T628"
+        "SafeguardID": "SG16.11",
+        "ToolID": "T628"
     },
     {
-        "SafeguardID":  "SG7.5",
-        "ToolID":  "T242"
+        "SafeguardID": "SG7.5",
+        "ToolID": "T242"
     },
     {
-        "SafeguardID":  "SG7.6",
-        "ToolID":  "T242"
+        "SafeguardID": "SG7.6",
+        "ToolID": "T242"
     },
     {
-        "SafeguardID":  "SG12.7",
-        "ToolID":  "T432"
+        "SafeguardID": "SG12.7",
+        "ToolID": "T432"
     },
     {
-        "SafeguardID":  "SG17.8",
-        "ToolID":  "T683"
+        "SafeguardID": "SG17.8",
+        "ToolID": "T683"
     },
     {
-        "SafeguardID":  "SG13.2",
-        "ToolID":  "T54"
+        "SafeguardID": "SG13.2",
+        "ToolID": "T54"
     },
     {
-        "SafeguardID":  "SG2.6",
-        "ToolID":  "T54"
+        "SafeguardID": "SG2.6",
+        "ToolID": "T54"
     },
     {
-        "SafeguardID":  "SG2.7",
-        "ToolID":  "T54"
+        "SafeguardID": "SG2.7",
+        "ToolID": "T54"
     },
     {
-        "SafeguardID":  "SG16.5",
-        "ToolID":  "T597"
+        "SafeguardID": "SG16.5",
+        "ToolID": "T597"
     },
     {
-        "SafeguardID":  "SG16.14",
-        "ToolID":  "T641"
+        "SafeguardID": "SG16.14",
+        "ToolID": "T641"
     },
     {
-        "SafeguardID":  "SG16.9",
-        "ToolID":  "T616"
+        "SafeguardID": "SG16.9",
+        "ToolID": "T616"
     },
     {
-        "SafeguardID":  "SG16.10",
-        "ToolID":  "T620"
+        "SafeguardID": "SG16.10",
+        "ToolID": "T620"
     },
     {
-        "SafeguardID":  "SG16.1",
-        "ToolID":  "T576"
+        "SafeguardID": "SG16.1",
+        "ToolID": "T576"
     },
     {
-        "SafeguardID":  "SG17.1",
-        "ToolID":  "T646"
+        "SafeguardID": "SG17.1",
+        "ToolID": "T646"
     },
     {
-        "SafeguardID":  "SG17.6",
-        "ToolID":  "T646"
+        "SafeguardID": "SG17.6",
+        "ToolID": "T646"
     },
     {
-        "SafeguardID":  "SG18.4",
-        "ToolID":  "T708"
+        "SafeguardID": "SG18.4",
+        "ToolID": "T708"
     },
     {
-        "SafeguardID":  "SG13.8",
-        "ToolID":  "T475"
+        "SafeguardID": "SG13.8",
+        "ToolID": "T475"
     },
     {
-        "SafeguardID":  "SG4.8",
-        "ToolID":  "T144"
+        "SafeguardID": "SG4.8",
+        "ToolID": "T144"
     },
     {
-        "SafeguardID":  "SG16.13",
-        "ToolID":  "T636"
+        "SafeguardID": "SG16.13",
+        "ToolID": "T636"
     },
     {
-        "SafeguardID":  "SG18.1",
-        "ToolID":  "T691"
+        "SafeguardID": "SG18.1",
+        "ToolID": "T691"
     },
     {
-        "SafeguardID":  "SG13.4",
-        "ToolID":  "T321"
+        "SafeguardID": "SG13.4",
+        "ToolID": "T321"
     },
     {
-        "SafeguardID":  "SG4.4",
-        "ToolID":  "T321"
+        "SafeguardID": "SG4.4",
+        "ToolID": "T321"
     },
     {
-        "SafeguardID":  "SG4.5",
-        "ToolID":  "T321"
+        "SafeguardID": "SG4.5",
+        "ToolID": "T321"
     },
     {
-        "SafeguardID":  "SG9.3",
-        "ToolID":  "T321"
+        "SafeguardID": "SG9.3",
+        "ToolID": "T321"
     },
     {
-        "SafeguardID":  "SG13.10",
-        "ToolID":  "T489"
+        "SafeguardID": "SG13.10",
+        "ToolID": "T489"
     },
     {
-        "SafeguardID":  "SG14.7",
-        "ToolID":  "T525"
+        "SafeguardID": "SG14.7",
+        "ToolID": "T525"
     },
     {
-        "SafeguardID":  "SG14.2",
-        "ToolID":  "T503"
+        "SafeguardID": "SG14.2",
+        "ToolID": "T503"
     },
     {
-        "SafeguardID":  "SG14.6",
-        "ToolID":  "T503"
+        "SafeguardID": "SG14.6",
+        "ToolID": "T503"
     },
     {
-        "SafeguardID":  "SG15.3",
-        "ToolID":  "T552"
+        "SafeguardID": "SG15.3",
+        "ToolID": "T552"
     },
     {
-        "SafeguardID":  "SG15.4",
-        "ToolID":  "T552"
+        "SafeguardID": "SG15.4",
+        "ToolID": "T552"
     },
     {
-        "SafeguardID":  "SG15.1",
-        "ToolID":  "T541"
+        "SafeguardID": "SG15.1",
+        "ToolID": "T541"
     },
     {
-        "SafeguardID":  "SG9.6",
-        "ToolID":  "T333"
+        "SafeguardID": "SG9.6",
+        "ToolID": "T333"
     },
     {
-        "SafeguardID":  "SG9.7",
-        "ToolID":  "T338"
+        "SafeguardID": "SG9.7",
+        "ToolID": "T338"
     },
     {
-        "SafeguardID":  "SG14.1",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.1",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.2",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.2",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.3",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.3",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.4",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.4",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.5",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.5",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.6",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.6",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.7",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.7",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.8",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.8",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG14.9",
-        "ToolID":  "T497"
+        "SafeguardID": "SG14.9",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG3.10",
-        "ToolID":  "T497"
+        "SafeguardID": "SG3.10",
+        "ToolID": "T497"
     },
     {
-        "SafeguardID":  "SG1.4",
-        "ToolID":  "T19"
+        "SafeguardID": "SG1.4",
+        "ToolID": "T19"
     },
     {
-        "SafeguardID":  "SG17.5",
-        "ToolID":  "T19"
+        "SafeguardID": "SG17.5",
+        "ToolID": "T19"
     },
     {
-        "SafeguardID":  "SG16.7",
-        "ToolID":  "T606"
+        "SafeguardID": "SG16.7",
+        "ToolID": "T606"
     },
     {
-        "SafeguardID":  "SG4.6",
-        "ToolID":  "T606"
+        "SafeguardID": "SG4.6",
+        "ToolID": "T606"
     },
     {
-        "SafeguardID":  "SG4.9",
-        "ToolID":  "T314"
+        "SafeguardID": "SG4.9",
+        "ToolID": "T314"
     },
     {
-        "SafeguardID":  "SG9.2",
-        "ToolID":  "T314"
+        "SafeguardID": "SG9.2",
+        "ToolID": "T314"
     },
     {
-        "SafeguardID":  "SG1.3",
-        "ToolID":  "T15"
+        "SafeguardID": "SG1.3",
+        "ToolID": "T15"
     },
     {
-        "SafeguardID":  "SG1.2",
-        "ToolID":  "T9"
+        "SafeguardID": "SG1.2",
+        "ToolID": "T9"
     },
     {
-        "SafeguardID":  "SG6.6",
-        "ToolID":  "T9"
+        "SafeguardID": "SG6.6",
+        "ToolID": "T9"
     },
     {
-        "SafeguardID":  "SG4.7",
-        "ToolID":  "T140"
+        "SafeguardID": "SG4.7",
+        "ToolID": "T140"
     },
     {
-        "SafeguardID":  "SG12.1",
-        "ToolID":  "T600"
+        "SafeguardID": "SG12.1",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG16.2",
-        "ToolID":  "T600"
+        "SafeguardID": "SG16.2",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG16.6",
-        "ToolID":  "T600"
+        "SafeguardID": "SG16.6",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG7.3",
-        "ToolID":  "T600"
+        "SafeguardID": "SG7.3",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG7.5",
-        "ToolID":  "T600"
+        "SafeguardID": "SG7.5",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG7.6",
-        "ToolID":  "T600"
+        "SafeguardID": "SG7.6",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG7.7",
-        "ToolID":  "T600"
+        "SafeguardID": "SG7.7",
+        "ToolID": "T600"
     },
     {
-        "SafeguardID":  "SG17.4",
-        "ToolID":  "T662"
+        "SafeguardID": "SG17.4",
+        "ToolID": "T662"
     },
     {
-        "SafeguardID":  "SG13.11",
-        "ToolID":  "T707"
+        "SafeguardID": "SG13.11",
+        "ToolID": "T707"
     },
     {
-        "SafeguardID":  "SG17.9",
-        "ToolID":  "T707"
+        "SafeguardID": "SG17.9",
+        "ToolID": "T707"
     },
     {
-        "SafeguardID":  "SG18.4",
-        "ToolID":  "T707"
+        "SafeguardID": "SG18.4",
+        "ToolID": "T707"
     },
     {
-        "SafeguardID":  "SG1.2",
-        "ToolID":  "T143"
+        "SafeguardID": "SG1.2",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG1.3",
-        "ToolID":  "T143"
+        "SafeguardID": "SG1.3",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG1.5",
-        "ToolID":  "T143"
+        "SafeguardID": "SG1.5",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG16.2",
-        "ToolID":  "T143"
+        "SafeguardID": "SG16.2",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG16.6",
-        "ToolID":  "T143"
+        "SafeguardID": "SG16.6",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG18.1",
-        "ToolID":  "T143"
+        "SafeguardID": "SG18.1",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG18.2",
-        "ToolID":  "T143"
+        "SafeguardID": "SG18.2",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG18.3",
-        "ToolID":  "T143"
+        "SafeguardID": "SG18.3",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG4.7",
-        "ToolID":  "T143"
+        "SafeguardID": "SG4.7",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG7.5",
-        "ToolID":  "T143"
+        "SafeguardID": "SG7.5",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG7.6",
-        "ToolID":  "T143"
+        "SafeguardID": "SG7.6",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG7.7",
-        "ToolID":  "T143"
+        "SafeguardID": "SG7.7",
+        "ToolID": "T143"
     },
     {
-        "SafeguardID":  "SG16.13",
-        "ToolID":  "T639"
+        "SafeguardID": "SG16.13",
+        "ToolID": "T639"
     },
     {
-        "SafeguardID":  "SG7.3",
-        "ToolID":  "T233"
+        "SafeguardID": "SG7.3",
+        "ToolID": "T233"
     },
     {
-        "SafeguardID":  "SG17.7",
-        "ToolID":  "T676"
+        "SafeguardID": "SG17.7",
+        "ToolID": "T676"
     },
     {
-        "SafeguardID":  "SG10.3",
-        "ToolID":  "T354"
+        "SafeguardID": "SG10.3",
+        "ToolID": "T354"
     },
     {
-        "SafeguardID":  "SG17.2",
-        "ToolID":  "T651"
+        "SafeguardID": "SG17.2",
+        "ToolID": "T651"
     },
     {
-        "SafeguardID":  "SG15.3",
-        "ToolID":  "T551"
+        "SafeguardID": "SG15.3",
+        "ToolID": "T551"
     },
     {
-        "SafeguardID":  "SG3.9",
-        "ToolID":  "T97"
+        "SafeguardID": "SG3.9",
+        "ToolID": "T97"
     },
     {
-        "SafeguardID":  "SG17.8",
-        "ToolID":  "T680"
+        "SafeguardID": "SG17.8",
+        "ToolID": "T680"
     },
     {
-        "SafeguardID":  "SG15.2",
-        "ToolID":  "T565"
+        "SafeguardID": "SG15.2",
+        "ToolID": "T565"
     },
     {
-        "SafeguardID":  "SG15.6",
-        "ToolID":  "T565"
+        "SafeguardID": "SG15.6",
+        "ToolID": "T565"
     },
     {
-        "SafeguardID":  "SG11.3",
-        "ToolID":  "T390"
+        "SafeguardID": "SG11.3",
+        "ToolID": "T390"
     },
     {
-        "SafeguardID":  "SG11.5",
-        "ToolID":  "T390"
+        "SafeguardID": "SG11.5",
+        "ToolID": "T390"
     },
     {
-        "SafeguardID":  "SG11.4",
-        "ToolID":  "T395"
+        "SafeguardID": "SG11.4",
+        "ToolID": "T395"
     },
     {
-        "SafeguardID":  "SG15.7",
-        "ToolID":  "T567"
+        "SafeguardID": "SG15.7",
+        "ToolID": "T567"
     },
     {
-        "SafeguardID":  "SG3.3",
-        "ToolID":  "T214"
+        "SafeguardID": "SG3.3",
+        "ToolID": "T214"
     },
     {
-        "SafeguardID":  "SG5.1",
-        "ToolID":  "T214"
+        "SafeguardID": "SG5.1",
+        "ToolID": "T214"
     },
     {
-        "SafeguardID":  "SG5.3",
-        "ToolID":  "T214"
+        "SafeguardID": "SG5.3",
+        "ToolID": "T214"
     },
     {
-        "SafeguardID":  "SG5.5",
-        "ToolID":  "T214"
+        "SafeguardID": "SG5.5",
+        "ToolID": "T214"
     },
     {
-        "SafeguardID":  "SG6.6",
-        "ToolID":  "T214"
+        "SafeguardID": "SG6.6",
+        "ToolID": "T214"
     },
     {
-        "SafeguardID":  "SG6.8",
-        "ToolID":  "T214"
+        "SafeguardID": "SG6.8",
+        "ToolID": "T214"
     },
     {
-        "SafeguardID":  "SG14.4",
-        "ToolID":  "T512"
+        "SafeguardID": "SG14.4",
+        "ToolID": "T512"
     },
     {
-        "SafeguardID":  "SG14.9",
-        "ToolID":  "T512"
+        "SafeguardID": "SG14.9",
+        "ToolID": "T512"
     },
     {
-        "SafeguardID":  "SG16.9",
-        "ToolID":  "T512"
+        "SafeguardID": "SG16.9",
+        "ToolID": "T512"
     },
     {
-        "SafeguardID":  "SG14.8",
-        "ToolID":  "T531"
+        "SafeguardID": "SG14.8",
+        "ToolID": "T531"
     },
     {
-        "SafeguardID":  "SG14.6",
-        "ToolID":  "T523"
+        "SafeguardID": "SG14.6",
+        "ToolID": "T523"
     },
     {
-        "SafeguardID":  "SG14.5",
-        "ToolID":  "T518"
+        "SafeguardID": "SG14.5",
+        "ToolID": "T518"
     },
     {
-        "SafeguardID":  "SG14.1",
-        "ToolID":  "T500"
+        "SafeguardID": "SG14.1",
+        "ToolID": "T500"
     },
     {
-        "SafeguardID":  "SG14.3",
-        "ToolID":  "T510"
+        "SafeguardID": "SG14.3",
+        "ToolID": "T510"
     },
     {
-        "SafeguardID":  "SG14.2",
-        "ToolID":  "T504"
+        "SafeguardID": "SG14.2",
+        "ToolID": "T504"
     },
     {
-        "SafeguardID":  "SG16.1",
-        "ToolID":  "T577"
+        "SafeguardID": "SG16.1",
+        "ToolID": "T577"
     },
     {
-        "SafeguardID":  "SG16.9",
-        "ToolID":  "T577"
+        "SafeguardID": "SG16.9",
+        "ToolID": "T577"
     },
     {
-        "SafeguardID":  "SG15.5",
-        "ToolID":  "T558"
+        "SafeguardID": "SG15.5",
+        "ToolID": "T558"
     },
     {
-        "SafeguardID":  "SG10.1",
-        "ToolID":  "T345"
+        "SafeguardID": "SG10.1",
+        "ToolID": "T345"
     },
     {
-        "SafeguardID":  "SG10.2",
-        "ToolID":  "T472"
+        "SafeguardID": "SG10.2",
+        "ToolID": "T472"
     },
     {
-        "SafeguardID":  "SG10.6",
-        "ToolID":  "T472"
+        "SafeguardID": "SG10.6",
+        "ToolID": "T472"
     },
     {
-        "SafeguardID":  "SG10.7",
-        "ToolID":  "T472"
+        "SafeguardID": "SG10.7",
+        "ToolID": "T472"
     },
     {
-        "SafeguardID":  "SG13.7",
-        "ToolID":  "T472"
+        "SafeguardID": "SG13.7",
+        "ToolID": "T472"
     },
     {
-        "SafeguardID":  "SG17.1",
-        "ToolID":  "T644"
+        "SafeguardID": "SG17.1",
+        "ToolID": "T644"
     },
     {
-        "SafeguardID":  "SG17.3",
-        "ToolID":  "T644"
+        "SafeguardID": "SG17.3",
+        "ToolID": "T644"
     },
     {
-        "SafeguardID":  "SG18.3",
-        "ToolID":  "T644"
+        "SafeguardID": "SG18.3",
+        "ToolID": "T644"
     },
     {
-        "SafeguardID":  "SG15.6",
-        "ToolID":  "T562"
+        "SafeguardID": "SG15.6",
+        "ToolID": "T562"
     },
     {
-        "SafeguardID":  "SG15.2",
-        "ToolID":  "T543"
+        "SafeguardID": "SG15.2",
+        "ToolID": "T543"
     },
     {
-        "SafeguardID":  "SG17.5",
-        "ToolID":  "T664"
+        "SafeguardID": "SG17.5",
+        "ToolID": "T664"
     },
     {
-        "SafeguardID":  "SG17.2",
-        "ToolID":  "T660"
+        "SafeguardID": "SG17.2",
+        "ToolID": "T660"
     },
     {
-        "SafeguardID":  "SG17.4",
-        "ToolID":  "T660"
+        "SafeguardID": "SG17.4",
+        "ToolID": "T660"
     },
     {
-        "SafeguardID":  "SG17.9",
-        "ToolID":  "T660"
+        "SafeguardID": "SG17.9",
+        "ToolID": "T660"
     },
     {
-        "SafeguardID":  "SG6.6",
-        "ToolID":  "T660"
+        "SafeguardID": "SG6.6",
+        "ToolID": "T660"
     },
     {
-        "SafeguardID":  "SG15.1",
-        "ToolID":  "T549"
+        "SafeguardID": "SG15.1",
+        "ToolID": "T549"
     },
     {
-        "SafeguardID":  "SG15.3",
-        "ToolID":  "T549"
+        "SafeguardID": "SG15.3",
+        "ToolID": "T549"
     },
     {
-        "SafeguardID":  "SG15.4",
-        "ToolID":  "T549"
+        "SafeguardID": "SG15.4",
+        "ToolID": "T549"
     },
     {
-        "SafeguardID":  "SG15.7",
-        "ToolID":  "T549"
+        "SafeguardID": "SG15.7",
+        "ToolID": "T549"
     },
     {
-        "SafeguardID":  "SG16.1",
-        "ToolID":  "T575"
+        "SafeguardID": "SG16.1",
+        "ToolID": "T575"
     },
     {
-        "SafeguardID":  "SG3.5",
-        "ToolID":  "T75"
+        "SafeguardID": "SG3.5",
+        "ToolID": "T75"
     },
     {
-        "SafeguardID":  "SG17.6",
-        "ToolID":  "T673"
+        "SafeguardID": "SG17.6",
+        "ToolID": "T673"
     },
     {
-        "SafeguardID":  "SG17.7",
-        "ToolID":  "T678"
+        "SafeguardID": "SG17.7",
+        "ToolID": "T678"
     },
     {
-        "SafeguardID":  "SG17.6",
-        "ToolID":  "T670"
+        "SafeguardID": "SG17.6",
+        "ToolID": "T670"
     },
     {
-        "SafeguardID":  "SG1.1",
-        "ToolID":  "T31"
+        "SafeguardID": "SG1.1",
+        "ToolID": "T31"
     },
     {
-        "SafeguardID":  "SG2.1",
-        "ToolID":  "T31"
+        "SafeguardID": "SG2.1",
+        "ToolID": "T31"
     },
     {
-        "SafeguardID":  "SG2.2",
-        "ToolID":  "T34"
+        "SafeguardID": "SG2.2",
+        "ToolID": "T34"
     },
     {
-        "SafeguardID":  "SG16.1",
-        "ToolID":  "T594"
+        "SafeguardID": "SG16.1",
+        "ToolID": "T594"
     },
     {
-        "SafeguardID":  "SG16.4",
-        "ToolID":  "T594"
+        "SafeguardID": "SG16.4",
+        "ToolID": "T594"
     },
     {
-        "SafeguardID":  "SG16.5",
-        "ToolID":  "T594"
+        "SafeguardID": "SG16.5",
+        "ToolID": "T594"
     },
     {
-        "SafeguardID":  "SG16.12",
-        "ToolID":  "T633"
+        "SafeguardID": "SG16.12",
+        "ToolID": "T633"
     },
     {
-        "SafeguardID":  "SG16.3",
-        "ToolID":  "T633"
+        "SafeguardID": "SG16.3",
+        "ToolID": "T633"
     },
     {
-        "SafeguardID":  "SG1.1",
-        "ToolID":  "T6"
+        "SafeguardID": "SG1.1",
+        "ToolID": "T6"
     },
     {
-        "SafeguardID":  "SG1.4",
-        "ToolID":  "T17"
+        "SafeguardID": "SG1.4",
+        "ToolID": "T17"
     },
     {
-        "SafeguardID":  "SG2.3",
-        "ToolID":  "T39"
+        "SafeguardID": "SG2.3",
+        "ToolID": "T39"
     },
     {
-        "SafeguardID":  "SG13.6",
-        "ToolID":  "T465"
+        "SafeguardID": "SG13.6",
+        "ToolID": "T465"
     },
     {
-        "SafeguardID":  "SG1.2",
-        "ToolID":  "T14"
+        "SafeguardID": "SG1.2",
+        "ToolID": "T14"
     },
     {
-        "SafeguardID":  "SG1.3",
-        "ToolID":  "T14"
+        "SafeguardID": "SG1.3",
+        "ToolID": "T14"
     },
     {
-        "SafeguardID":  "SG12.1",
-        "ToolID":  "T402"
+        "SafeguardID": "SG12.1",
+        "ToolID": "T402"
     },
     {
-        "SafeguardID":  "SG1.5",
-        "ToolID":  "T277"
+        "SafeguardID": "SG1.5",
+        "ToolID": "T277"
     },
     {
-        "SafeguardID":  "SG8.6",
-        "ToolID":  "T277"
+        "SafeguardID": "SG8.6",
+        "ToolID": "T277"
     },
     {
-        "SafeguardID":  "SG7.3",
-        "ToolID":  "T230"
+        "SafeguardID": "SG7.3",
+        "ToolID": "T230"
     },
     {
-        "SafeguardID":  "SG7.4",
-        "ToolID":  "T230"
+        "SafeguardID": "SG7.4",
+        "ToolID": "T230"
     },
     {
-        "SafeguardID":  "SG4.8",
-        "ToolID":  "T145"
+        "SafeguardID": "SG4.8",
+        "ToolID": "T145"
     },
     {
-        "SafeguardID":  "SG2.2",
-        "ToolID":  "T43"
+        "SafeguardID": "SG2.2",
+        "ToolID": "T43"
     },
     {
-        "SafeguardID":  "SG2.4",
-        "ToolID":  "T43"
+        "SafeguardID": "SG2.4",
+        "ToolID": "T43"
     },
     {
-        "SafeguardID":  "SG8.4",
-        "ToolID":  "T266"
+        "SafeguardID": "SG8.4",
+        "ToolID": "T266"
     },
     {
-        "SafeguardID":  "SG16.12",
-        "ToolID":  "T630"
+        "SafeguardID": "SG16.12",
+        "ToolID": "T630"
     },
     {
-        "SafeguardID":  "SG10.6",
-        "ToolID":  "T369"
+        "SafeguardID": "SG10.6",
+        "ToolID": "T369"
     },
     {
-        "SafeguardID":  "SG10.1",
-        "ToolID":  "T375"
+        "SafeguardID": "SG10.1",
+        "ToolID": "T375"
     },
     {
-        "SafeguardID":  "SG10.2",
-        "ToolID":  "T375"
+        "SafeguardID": "SG10.2",
+        "ToolID": "T375"
     },
     {
-        "SafeguardID":  "SG10.4",
-        "ToolID":  "T375"
+        "SafeguardID": "SG10.4",
+        "ToolID": "T375"
     },
     {
-        "SafeguardID":  "SG10.7",
-        "ToolID":  "T375"
+        "SafeguardID": "SG10.7",
+        "ToolID": "T375"
     },
     {
-        "SafeguardID":  "SG13.7",
-        "ToolID":  "T375"
+        "SafeguardID": "SG13.7",
+        "ToolID": "T375"
     },
     {
-        "SafeguardID":  "SG13.4",
-        "ToolID":  "T459"
+        "SafeguardID": "SG13.4",
+        "ToolID": "T459"
     },
     {
-        "SafeguardID":  "SG9.5",
-        "ToolID":  "T332"
+        "SafeguardID": "SG9.5",
+        "ToolID": "T332"
     },
     {
-        "SafeguardID":  "SG3.7",
-        "ToolID":  "T87"
+        "SafeguardID": "SG3.7",
+        "ToolID": "T87"
     },
     {
-        "SafeguardID":  "SG1.4",
-        "ToolID":  "T294"
+        "SafeguardID": "SG1.4",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG13.11",
-        "ToolID":  "T294"
+        "SafeguardID": "SG13.11",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG17.9",
-        "ToolID":  "T294"
+        "SafeguardID": "SG17.9",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.10",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.10",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.11",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.11",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.12",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.12",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.2",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.2",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.3",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.3",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.5",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.5",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG8.7",
-        "ToolID":  "T294"
+        "SafeguardID": "SG8.7",
+        "ToolID": "T294"
     },
     {
-        "SafeguardID":  "SG17.7",
-        "ToolID":  "T674"
+        "SafeguardID": "SG17.7",
+        "ToolID": "T674"
     },
     {
-        "SafeguardID":  "SG8.9",
-        "ToolID":  "T289"
+        "SafeguardID": "SG8.9",
+        "ToolID": "T289"
     },
     {
-        "SafeguardID":  "SG13.1",
-        "ToolID":  "T704"
+        "SafeguardID": "SG13.1",
+        "ToolID": "T704"
     },
     {
-        "SafeguardID":  "SG18.4",
-        "ToolID":  "T704"
+        "SafeguardID": "SG18.4",
+        "ToolID": "T704"
     },
     {
-        "SafeguardID":  "SG8.6",
-        "ToolID":  "T704"
+        "SafeguardID": "SG8.6",
+        "ToolID": "T704"
     },
     {
-        "SafeguardID":  "SG8.8",
-        "ToolID":  "T704"
+        "SafeguardID": "SG8.8",
+        "ToolID": "T704"
     },
     {
-        "SafeguardID":  "SG17.1",
-        "ToolID":  "T648"
+        "SafeguardID": "SG17.1",
+        "ToolID": "T648"
     },
     {
-        "SafeguardID":  "SG16.3",
-        "ToolID":  "T586"
+        "SafeguardID": "SG16.3",
+        "ToolID": "T586"
     },
     {
-        "SafeguardID":  "SG13.10",
-        "ToolID":  "T486"
+        "SafeguardID": "SG13.10",
+        "ToolID": "T486"
     },
     {
-        "SafeguardID":  "SG16.3",
-        "ToolID":  "T584"
+        "SafeguardID": "SG16.3",
+        "ToolID": "T584"
     },
     {
-        "SafeguardID":  "SG13.11",
-        "ToolID":  "T281"
+        "SafeguardID": "SG13.11",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.10",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.10",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.11",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.11",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.12",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.12",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.2",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.2",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.3",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.3",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.5",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.5",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.7",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.7",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG8.9",
-        "ToolID":  "T281"
+        "SafeguardID": "SG8.9",
+        "ToolID": "T281"
     },
     {
-        "SafeguardID":  "SG13.1",
-        "ToolID":  "T444"
+        "SafeguardID": "SG13.1",
+        "ToolID": "T444"
     },
     {
-        "SafeguardID":  "SG1.5",
-        "ToolID":  "T24"
+        "SafeguardID": "SG1.5",
+        "ToolID": "T24"
     },
     {
-        "SafeguardID":  "SG13.3",
-        "ToolID":  "T24"
+        "SafeguardID": "SG13.3",
+        "ToolID": "T24"
     },
     {
-        "SafeguardID":  "SG13.6",
-        "ToolID":  "T24"
+        "SafeguardID": "SG13.6",
+        "ToolID": "T24"
     },
     {
-        "SafeguardID":  "SG17.4",
-        "ToolID":  "T661"
+        "SafeguardID": "SG17.4",
+        "ToolID": "T661"
     },
     {
-        "SafeguardID":  "SG3.13",
-        "ToolID":  "T115"
+        "SafeguardID": "SG3.13",
+        "ToolID": "T115"
     },
     {
-        "SafeguardID":  "SG10.4",
-        "ToolID":  "T359"
+        "SafeguardID": "SG10.4",
+        "ToolID": "T359"
     },
     {
-        "SafeguardID":  "SG3.9",
-        "ToolID":  "T98"
+        "SafeguardID": "SG3.9",
+        "ToolID": "T98"
     },
     {
-        "SafeguardID":  "SG2.6",
-        "ToolID":  "T55"
+        "SafeguardID": "SG2.6",
+        "ToolID": "T55"
     },
     {
-        "SafeguardID":  "SG18.3",
-        "ToolID":  "T702"
+        "SafeguardID": "SG18.3",
+        "ToolID": "T702"
     },
     {
-        "SafeguardID":  "SG12.3",
-        "ToolID":  "T411"
+        "SafeguardID": "SG12.3",
+        "ToolID": "T411"
     },
     {
-        "SafeguardID":  "SG16.14",
-        "ToolID":  "T643"
+        "SafeguardID": "SG16.14",
+        "ToolID": "T643"
     },
     {
-        "SafeguardID":  "SG5.4",
-        "ToolID":  "T187"
+        "SafeguardID": "SG5.4",
+        "ToolID": "T187"
     },
     {
-        "SafeguardID":  "SG3.7",
-        "ToolID":  "T88"
+        "SafeguardID": "SG3.7",
+        "ToolID": "T88"
     },
     {
-        "SafeguardID":  "SG13.2",
-        "ToolID":  "T449"
+        "SafeguardID": "SG13.2",
+        "ToolID": "T449"
     },
     {
-        "SafeguardID":  "SG17.6",
-        "ToolID":  "T672"
+        "SafeguardID": "SG17.6",
+        "ToolID": "T672"
     },
     {
-        "SafeguardID":  "SG4.9",
-        "ToolID":  "T153"
+        "SafeguardID": "SG4.9",
+        "ToolID": "T153"
     },
     {
-        "SafeguardID":  "SG8.6",
-        "ToolID":  "T278"
+        "SafeguardID": "SG8.6",
+        "ToolID": "T278"
     },
     {
-        "SafeguardID":  "SG15.5",
-        "ToolID":  "T559"
+        "SafeguardID": "SG15.5",
+        "ToolID": "T559"
     },
     {
-        "SafeguardID":  "SG16.13",
-        "ToolID":  "T559"
+        "SafeguardID": "SG16.13",
+        "ToolID": "T559"
     },
     {
-        "SafeguardID":  "SG18.2",
-        "ToolID":  "T559"
+        "SafeguardID": "SG18.2",
+        "ToolID": "T559"
     },
     {
-        "SafeguardID":  "SG3.7",
-        "ToolID":  "T86"
+        "SafeguardID": "SG3.7",
+        "ToolID": "T86"
     },
     {
-        "SafeguardID":  "SG4.6",
-        "ToolID":  "T138"
+        "SafeguardID": "SG4.6",
+        "ToolID": "T138"
     },
     {
-        "SafeguardID":  "SG11.1",
-        "ToolID":  "T381"
+        "SafeguardID": "SG11.1",
+        "ToolID": "T381"
     },
     {
-        "SafeguardID":  "SG11.2",
-        "ToolID":  "T381"
+        "SafeguardID": "SG11.2",
+        "ToolID": "T381"
     },
     {
-        "SafeguardID":  "SG11.3",
-        "ToolID":  "T381"
+        "SafeguardID": "SG11.3",
+        "ToolID": "T381"
     },
     {
-        "SafeguardID":  "SG11.5",
-        "ToolID":  "T381"
+        "SafeguardID": "SG11.5",
+        "ToolID": "T381"
     },
     {
-        "SafeguardID":  "SG11.4",
-        "ToolID":  "T394"
+        "SafeguardID": "SG11.4",
+        "ToolID": "T394"
     },
     {
-        "SafeguardID":  "SG16.1",
-        "ToolID":  "T574"
+        "SafeguardID": "SG16.1",
+        "ToolID": "T574"
     },
     {
-        "SafeguardID":  "SG16.12",
-        "ToolID":  "T634"
+        "SafeguardID": "SG16.12",
+        "ToolID": "T634"
     },
     {
-        "SafeguardID":  "SG3.11",
-        "ToolID":  "T94"
+        "SafeguardID": "SG3.11",
+        "ToolID": "T94"
     },
     {
-        "SafeguardID":  "SG3.9",
-        "ToolID":  "T94"
+        "SafeguardID": "SG3.9",
+        "ToolID": "T94"
     },
     {
-        "SafeguardID":  "SG3.6",
-        "ToolID":  "T83"
+        "SafeguardID": "SG3.6",
+        "ToolID": "T83"
     },
     {
-        "SafeguardID":  "SG3.4",
-        "ToolID":  "T73"
+        "SafeguardID": "SG3.4",
+        "ToolID": "T73"
     },
     {
-        "SafeguardID":  "SG12.8",
-        "ToolID":  "T435"
+        "SafeguardID": "SG12.8",
+        "ToolID": "T435"
     },
     {
-        "SafeguardID":  "SG4.10",
-        "ToolID":  "T161"
+        "SafeguardID": "SG4.10",
+        "ToolID": "T161"
     },
     {
-        "SafeguardID":  "SG4.11",
-        "ToolID":  "T161"
+        "SafeguardID": "SG4.11",
+        "ToolID": "T161"
     },
     {
-        "SafeguardID":  "SG4.12",
-        "ToolID":  "T161"
+        "SafeguardID": "SG4.12",
+        "ToolID": "T161"
     },
     {
-        "SafeguardID":  "SG13.2",
-        "ToolID":  "T446"
+        "SafeguardID": "SG13.2",
+        "ToolID": "T446"
     },
     {
-        "SafeguardID":  "SG16.4",
-        "ToolID":  "T591"
+        "SafeguardID": "SG16.4",
+        "ToolID": "T591"
     },
     {
-        "SafeguardID":  "SG16.5",
-        "ToolID":  "T596"
+        "SafeguardID": "SG16.5",
+        "ToolID": "T596"
     },
     {
-        "SafeguardID":  "SG10.5",
-        "ToolID":  "T364"
+        "SafeguardID": "SG10.5",
+        "ToolID": "T364"
     },
     {
-        "SafeguardID":  "SG4.4",
-        "ToolID":  "T127"
+        "SafeguardID": "SG4.4",
+        "ToolID": "T127"
     },
     {
-        "SafeguardID":  "SG4.5",
-        "ToolID":  "T127"
+        "SafeguardID": "SG4.5",
+        "ToolID": "T127"
     },
     {
-        "SafeguardID":  "SG1.5",
-        "ToolID":  "T451"
+        "SafeguardID": "SG1.5",
+        "ToolID": "T451"
     },
     {
-        "SafeguardID":  "SG13.3",
-        "ToolID":  "T451"
+        "SafeguardID": "SG13.3",
+        "ToolID": "T451"
     },
     {
-        "SafeguardID":  "SG12.2",
-        "ToolID":  "T410"
+        "SafeguardID": "SG12.2",
+        "ToolID": "T410"
     },
     {
-        "SafeguardID":  "SG17.2",
-        "ToolID":  "T653"
+        "SafeguardID": "SG17.2",
+        "ToolID": "T653"
     },
     {
-        "SafeguardID":  "SG4.5",
-        "ToolID":  "T133"
+        "SafeguardID": "SG4.5",
+        "ToolID": "T133"
     },
     {
-        "SafeguardID":  "SG9.3",
-        "ToolID":  "T320"
+        "SafeguardID": "SG9.3",
+        "ToolID": "T320"
     },
     {
-        "SafeguardID":  "SG13.5",
-        "ToolID":  "T463"
+        "SafeguardID": "SG13.5",
+        "ToolID": "T463"
     },
     {
-        "SafeguardID":  "SG12.7",
-        "ToolID":  "T434"
+        "SafeguardID": "SG12.7",
+        "ToolID": "T434"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG2.1"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG2.3"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG3.3"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG4.1"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG5.1"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG5.4"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG6.6"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG6.8"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG7.1"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG7.2"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG8.2"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG8.9"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG8.12"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG13.1"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG15.1"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG15.3"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG15.5"
+    },
+    {
+        "ToolID": "T1",
+        "SafeguardID": "SG15.6"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG7.1"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG7.2"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG7.7"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG8.1"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG8.2"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG8.3"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG8.5"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG8.9"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG8.11"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG9.2"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG9.3"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG10.7"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.1"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.2"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.3"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.6"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.7"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.8"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG13.11"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG17.4"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG17.8"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG17.9"
+    },
+    {
+        "ToolID": "T2",
+        "SafeguardID": "SG18.1"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG1.1"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG1.2"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG2.1"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG2.2"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG8.2"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG8.3"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG8.4"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG8.5"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG8.7"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG13.2"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG13.3"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG13.6"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG13.8"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG17.1"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG17.3"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG17.4"
+    },
+    {
+        "ToolID": "T4",
+        "SafeguardID": "SG17.7"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG1.1"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG1.3"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG1.5"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG3.8"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG3.12"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG4.1"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG4.2"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG4.4"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG4.6"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG4.8"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG7.1"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG7.2"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG7.7"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG12.1"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG12.2"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG12.3"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG12.4"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG13.4"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG13.10"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG16.8"
+    },
+    {
+        "ToolID": "T5",
+        "SafeguardID": "SG18.3"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG3.8"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG3.12"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG4.2"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG4.4"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG4.6"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG7.1"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG7.7"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG8.8"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG12.2"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG12.3"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG12.4"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG12.5"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG13.4"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG13.6"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG13.8"
+    },
+    {
+        "ToolID": "T7",
+        "SafeguardID": "SG13.10"
     }
 ]
