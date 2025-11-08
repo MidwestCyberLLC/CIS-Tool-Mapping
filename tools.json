@@ -40,6 +40,30 @@
         "Cost": "$"
     },
     {
+        "ID": "T7",
+        "Name": "AlgoSec Cloud Enterprise",
+        "Description": "AlgoSec Cloud Enterprise is a comprehensive SaaS platform that provides unified visibility, risk assessment, and automated security policy management across hybrid and multi-cloud network environments.",
+        "URL": "https://www.algosec.com/products/algosec-cloud",
+        "EducationUse": false,
+        "Cost": "$$$$$"
+    },
+    {
+        "ID": "T5",
+        "Name": "AlgoSec Security Management Suite",
+        "Description": "The AlgoSec Security Management Suite is an enterprise-grade Network Security Policy Management (NSPM) solution that automates and visualizes firewall, cloud, and hybrid network security policies to ensure continuous compliance and accelerate secure application delivery.",
+        "URL": "https://www.algosec.com/",
+        "EducationUse": false,
+        "Cost": "$$$$"
+    },
+    {
+        "ID": "T4",
+        "Name": "Allegro Packets",
+        "Description": "Allegro Packets is a network analysis and troubleshooting appliance (physical or virtual) that provides real-time and historical packet-level visibility (L2-L7) to diagnose network problems, detect anomalies, and monitor performance.",
+        "URL": "https://allegro-packets.com",
+        "EducationUse": false,
+        "Cost": "$$$$$"
+    },
+    {
         "ID": "T103",
         "Name": "Amazon Certificate Manager (ACM)",
         "Description": "Easily provisions, manages, and deploys public and private SSL/TLS certificates for use with AWS services.",
@@ -96,6 +120,14 @@
         "Cost": "$"
     },
     {
+        "ID": "T2",
+        "Name": "Anomali",
+        "Description": "Anomali is an AI-powered security operations platform that integrates a modern SIEM, Security Data Lake, and the ThreatStream threat intelligence platform to automate threat detection, investigation, and response.",
+        "URL": "https://www.anomali.com/",
+        "EducationUse": false,
+        "Cost": "$$$$$"
+    },
+    {
         "ID": "T412",
         "Name": "Ansible",
         "Description": "Simplifies network automation through playbooks that define desired states, ensuring consistent and secure network configurations across devices.",
@@ -126,6 +158,14 @@
         "URL": "https://learn.microsoft.com/en-us/windows/security/threat-protection/application-control/applocker",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T1",
+        "Name": "AppOmni",
+        "Description": "AppOmni is a SaaS Security Posture Management (SSPM) platform that provides centralized visibility, continuous monitoring, configuration management, and threat detection for SaaS applications.",
+        "URL": "https://appomni.com/",
+        "EducationUse": false,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T624",
