@@ -3200,7 +3200,7 @@
     {
         "ToolID": "T7",
         "SafeguardID": "SG7.7",
-        "Rationale": "By \"prioritizing remediation efforts\" and providing \"actionable, context-based recommendations,\" the tool directly supports the remediation of identified network security risks and misconfigurations. and providing \"actionable, context-based recommendations,\" the tool directly supports the remediation of identified network security risks and misconfigurations."
+        "Rationale": "By \"prioritizing remediation efforts\" and providing \"actionable, context-based recommendations,\" the tool directly supports the remediation of identified network security risks and misconfigurations."
     },
     {
         "ToolID": "T7",
