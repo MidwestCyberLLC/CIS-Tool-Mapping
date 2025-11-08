@@ -3169,67 +3169,83 @@
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG3.8"
+        "SafeguardID": "SG3.8",
+        "Rationale": "The tool's ability to discover and visualize applications, their dependencies, and their network traffic flows provides a clear, automated method for documenting how data moves across the hybrid network."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG3.12"
+        "SafeguardID": "SG3.12",
+        "Rationale": "The platform's core 'Zero Trust Segmentation' and 'Micro-segmentation' capabilities are the direct technical implementation of this safeguard, allowing administrators to create and enforce granular firewall rules that segment networks and isolate sensitive workloads."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG4.2"
+        "SafeguardID": "SG4.2",
+        "Rationale": "The tool is designed to enforce consistent security policies and manage firewall rules across the entire infrastructure, automating and standardizing the secure configuration process for network devices."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG4.4"
+        "SafeguardID": "SG4.4",
+        "Rationale": "AlgoSec manages the policies of 'cloud firewalls' and 'security groups' (which act as server-level firewalls), providing the necessary visibility and control to manage them securely and effectively."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG4.6"
+        "SafeguardID": "SG4.6",
+        "Rationale": "The platform's automation of security policy changes and integration with change management systems helps ensure that network infrastructure is managed securely and consistently."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG7.1"
+        "SafeguardID": "SG7.1",
+        "Rationale": "The tool's risk assessment engine identifies, categorizes, and prioritizes network misconfigurations, risky rules, and exposed assets, which is a key component of a configuration-based vulnerability management process."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG7.7"
+        "SafeguardID": "SG7.7",
+        "Rationale": "By \"prioritizing remediation efforts\" and providing \"actionable, context-based recommendations,\" the tool directly supports the remediation of identified network security risks and misconfigurations. and providing "actionable, context-based recommendations," the tool directly supports the remediation of identified network security risks and misconfigurations."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG8.8"
+        "SafeguardID": "SG8.8",
+        "Rationale": "The platform's User Activity API logs all activities and changes made through the system, providing a clear audit trail of administrative actions taken on the network security policies."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG12.2"
+        "SafeguardID": "SG12.2",
+        "Rationale": "The tool is purpose-built to help design, implement, and maintain a secure network architecture through its visualization, policy enforcement, and micro-segmentation features."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG12.3"
+        "SafeguardID": "SG12.3",
+        "Rationale": "AlgoSec provides a centralized and automated platform for managing network security policies, which is a critical part of securely managing the underlying network infrastructure."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG12.4"
+        "SafeguardID": "SG12.4",
+        "Rationale": "A primary feature of the tool is \"Network Visualization,\" which automatically generates and maintains detailed, interactive topology maps of the hybrid network and application interconnections."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG12.5"
+        "SafeguardID": "SG12.5",
+        "Rationale": "While not an AAA server itself, the platform centralizes the auditing of all firewall policy changes and provides a \"complete audit trail\", which is a key part of the AAA framework."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG13.4"
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is a core function of the tool. It manages, audits, and automates the firewall rules and security group policies that perform the actual traffic filtering between network segments."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG13.6"
+        "SafeguardID": "SG13.6",
+        "Rationale": "The tool's \"Traffic Visualization\" and ability to map \"network flows\" is dependent on its collection and analysis of network traffic flow logs to build its visualizations and policy recommendations."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG13.8"
+        "SafeguardID": "SG13.8",
+        "Rationale": "Its \"Breach Containment\" feature, which uses \"Dynamic workload policy programming to... isolate compromised systems\", functions as a network-level intrusion prevention system by reacting to threats and enforcing policy."
     },
     {
         "ToolID": "T7",
-        "SafeguardID": "SG13.10"
+        "SafeguardID": "SG13.10",
+        "Rationale": "The platform's \"application-first\" approach allows it to manage and enforce granular, application-aware security policies, which is the definition of application-layer filtering."
     },
     {
         "ToolID": "T175",
