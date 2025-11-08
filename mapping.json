@@ -3233,42 +3233,52 @@
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG5.1"
+        "SafeguardID": "SG5.1",
+        "Rationale": "1Password Business provides administrative dashboards, reports, and activity logs that show which users have access to which credentials and vaults. This helps audit and validate that all active credential access is authorized."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG5.2"
+        "SafeguardID": "SG5.2",
+        "Rationale": "This is the core function of 1Password. It includes a strong password generator to create unique, complex passwords for every account and its "Watchtower" feature audits for weak or reused passwords, directly enabling this control."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG5.4"
+        "SafeguardID": "SG5.4",
+        "Rationale": "1Password securely stores the highly complex, unique passwords required for dedicated administrator accounts. This makes it practical for staff to use separate privileged accounts without needing to remember the credentials, which encourages adherence to this policy."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG6.1"
+        "SafeguardID": "SG6.1",
+        "Rationale": "1Password Business allows administrators to grant access to shared vaults (collections of credentials) based on user roles and groups. This can be integrated into an automated onboarding process to ensure new users get access to the credentials they need."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG6.2"
+        "SafeguardID": "SG6.2",
+        "Rationale": "When a user is terminated or changes roles, an administrator can immediately revoke their access to shared vaults in 1Password. When integrated with an identity provider, this deprovisioning can be automated, securing credential access."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG6.3"
+        "SafeguardID": "SG6.3",
+        "Rationale": "1Password has a built-in authenticator (TOTP) feature. It can store and autofill the one-time passwords used for MFA, making it easy for users to adopt MFA on all external applications."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG6.4"
+        "SafeguardID": "SG6.4",
+        "Rationale": "Similar to the safeguard above, 1Password can securely store and provide the TOTP codes required by VPNs or other remote access solutions, facilitating the enforcement of MFA for remote access."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG6.5"
+        "SafeguardID": "SG6.5",
+        "Rationale": "1Password can store and provide the MFA codes for critical administrative accounts, ensuring that privileged access is protected by MFA."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG14.3"
+        "SafeguardID": "SG14.3",
+        "Rationale": "The tool itself is a form of training. Features like the password generator and the "Watchtower" dashboard (which flags weak or compromised passwords) provide real-time feedback and education to users on password composition and credential management."
     },
     {
         "ToolID": "T175",
-        "SafeguardID": "SG16.11"
+        "SafeguardID": "SG16.11",
+        "Rationale": "1Password provides features for developers to securely manage "secrets" like API tokens, database credentials, and SSH keys. This allows development teams to use a vetted, secure service for credential management instead of hard-coding secrets into applications or configuration files."
     }
 ]
