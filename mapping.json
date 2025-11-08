@@ -1,9 +1,5 @@
 [
     {
-        "SafeguardID": "SG5.2",
-        "ToolID": "T175"
-    },
-    {
         "SafeguardID": "SG11.2",
         "ToolID": "T385"
     },
@@ -3234,5 +3230,45 @@
     {
         "ToolID": "T7",
         "SafeguardID": "SG13.10"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG5.1"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG5.2"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG5.4"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG6.1"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG6.2"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG6.3"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG6.4"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG6.5"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG14.3"
+    },
+    {
+        "ToolID": "T175",
+        "SafeguardID": "SG16.11"
     }
 ]

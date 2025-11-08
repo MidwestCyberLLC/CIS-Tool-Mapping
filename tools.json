@@ -2,10 +2,10 @@
     {
         "ID": "T175",
         "Name": "1Password",
-        "Description": "Another leading password manager offering secure password generation, storage, and sharing capabilities with robust security features.",
+        "Description": "1Password is an enterprise password manager that allows users to securely store, generate, and autofill passwords, passkeys, and other sensitive information in an encrypted vault.",
         "URL": "https://1password.com/",
-        "EducationUse": true,
-        "Cost": "$"
+        "EducationUse": false,
+        "Cost": "$$"
     },
     {
         "ID": "T385",
