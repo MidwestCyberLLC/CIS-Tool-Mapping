@@ -176,6 +176,14 @@
         "Cost": "$"
     },
     {
+        "ID": "T8",
+        "Name": "ArcticWolf",
+        "Description": "ArcticWolf is a cybersecurity company that provides a 24x7 managed security operations platform to protect against advanced cyber threats.",
+        "URL": "https://arcticwolf.com/",
+        "EducationUse": true,
+        "Cost": "$$$$$"
+    },
+    {
         "ID": "T427",
         "Name": "Aruba ClearPass Policy Manager",
         "Description": "Aruba's ClearPass offers policy management and access control with support for 802.1X, WPA3 Enterprise, and other secure protocols across wired and wireless networks.",

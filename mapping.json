@@ -3340,5 +3340,25 @@
         "ToolID": "T175",
         "SafeguardID": "SG16.11",
         "Rationale": "1Password provides features for developers to securely manage 'secrets' like API tokens, database credentials, and SSH keys. This allows development teams to use a vetted, secure service for credential management instead of hard-coding secrets into applications or configuration files."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The platform's continuous monitoring and agent-based scanning discover and inventory assets across networks, endpoints, and cloud environments."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The comprehensive inventory allows organizations to identify and initiate a response for any discovered unauthorized assets."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The \"Managed Risk\" service uses virtual and physical scanners to perform active vulnerability and asset discovery."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG1.4",
+        "Rationale": "The 24x7 \"Managed Detection and Response\" (MDR) service passively monitors network traffic to identify assets and threats."
     }
 ]
