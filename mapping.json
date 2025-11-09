@@ -3040,71 +3040,53 @@
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG1.1"
+        "SafeguardID": "SG1.3",
+        "Rationale": "When installed in-line, the Allegro Network Multimeter actively sits in the path of traffic, processing every packet. This function allows it to actively identify and catalog all assets that are communicating on the network, fulfilling the role of an active discovery tool."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG1.2"
+        "SafeguardID": "SG1.5",
+        "Rationale": "A more common deployment for this tool is on a mirror port or network TAP, where it passively ingests a copy of all network traffic. In this role, it identifies assets by observing their communications (e.g., MAC addresses, IP addresses, protocols used) without actively polling them, serving as a powerful passive discovery tool."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG2.1"
+        "SafeguardID": "SG8.6",
+        "Rationale": "The tool is specified to perform protocol analysis, including for DNS. This means it captures, parses, and stores detailed metadata about all DNS queries and responses passing through its observation point, effectively creating a detailed audit log of DNS activity."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG2.2"
+        "SafeguardID": "SG8.7",
+        "Rationale": "The tool analyzes Layer 7 traffic, including the HTTP protocol. This allows it to log and analyze all HTTP/S URL requests, providing a comprehensive audit trail of web traffic for analysis and forensics."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG8.2"
+        "SafeguardID": "SG12.2",
+        "Rationale": "The tool provides complete visibility into network traffic flows, protocol usage, and device communications across all network segments it monitors. This visibility is essential for designing, implementing, and—most importantly—verifying that a network's architecture (e.g., segmentation, DMZs) is secure and operating as intended."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG8.3"
+        "SafeguardID": "SG12.4",
+        "Rationale": "The tool provides graphical visualization of network data and can map communication partners. This data allows an administrator to validate that existing network diagrams are accurate or to generate new diagrams based on the actual, real-time traffic flows it observes."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG8.4"
+        "SafeguardID": "SG13.3",
+        "Rationale": "By analyzing all network traffic (Layers 2-7) in real-time and correlating metadata, the tool can detect anomalies, performance bottlenecks, packet losses, and unexpected connection activity. This is the core function of a Network Intrusion Detection System (NIDS)."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG8.5"
+        "SafeguardID": "SG13.4",
+        "Rationale": "The tool provides the necessary intelligence to build and maintain effective traffic filtering rules. By showing administrators exactly what traffic is attempting to move between segments, it allows them to validate existing firewall rules and confidently create new ones based on observed, legitimate business needs."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG8.7"
+        "SafeguardID": "SG13.6",
+        "Rationale": "This is a primary function of the tool. It is a packet-based solution that captures and analyzes all network traffic, storing detailed metadata and statistics about every connection. This goes beyond traditional flow logs (like NetFlow) to provide full packet-level detail."
     },
     {
         "ToolID": "T4",
-        "SafeguardID": "SG13.2"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG13.3"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG13.6"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG13.8"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG17.1"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG17.3"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG17.4"
-    },
-    {
-        "ToolID": "T4",
-        "SafeguardID": "SG17.7"
+        "SafeguardID": "SG13.8",
+        "Rationale": "The Allegro Network Multimeter can be deployed \"in-line,\" meaning it sits directly in the path of network traffic. An in-line appliance has the physical capability to block or drop packets, and an L2-7 analysis engine can be configured to drop malicious traffic, thus fulfilling the role of a Network Intrusion Prevention System (NIPS)."
     },
     {
         "ToolID": "T5",
