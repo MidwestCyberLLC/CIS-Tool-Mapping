@@ -2874,7 +2874,7 @@
     {
         "ToolID": "T1",
         "SafeguardID": "SG5.1",
-        "Rationale" "The platform's Identity Fabric inventories all types of accounts—including user, administrator, and non-human (service) accounts—across the SaaS ecosystem."
+        "Rationale": "The platform's Identity Fabric inventories all types of accounts—including user, administrator, and non-human (service) accounts—across the SaaS ecosystem."
     },
     {
         "ToolID": "T1",
