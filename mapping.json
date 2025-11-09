@@ -2853,75 +2853,93 @@
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG2.1"
+        "SafeguardID": "SG2.1",
+        "Rationale": "AppOmni's SaaS Discovery feature creates a real-time inventory of all SaaS applications, including sanctioned, unsanctioned, and shadow IT apps."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG2.3"
+        "SafeguardID": "SG2.3",
+        "Rationale": "The platform identifies unauthorized software (shadow IT and risky third-party SaaS-to-SaaS connections), providing the visibility needed to block or remediate them."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG3.3"
+        "SafeguardID": "SG3.3",
+        "Rationale": "The tool's Identity and Access Governance capabilities model \"who can access what\" and identify over-permissioned accounts, directly supporting the enforcement of data access controls."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG4.1"
+        "SafeguardID": "SG4.1",
+        "Rationale": "As a core SSPM function, the tool continuously monitors all connected SaaS applications for misconfigurations and policy drift, comparing them against security best practices."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG5.1"
+        "SafeguardID": "SG5.1",
+        "Rationale" "The platform's Identity Fabric inventories all types of accounts—including user, administrator, and non-human (service) accounts—across the SaaS ecosystem."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG5.4"
+        "SafeguardID": "SG5.4",
+        "Rationale": "By analyzing for excessive privileges and over-permissioning, the tool provides the necessary insights to enforce least-privilege principles for administrator accounts."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG6.6"
+        "SafeguardID": "SG6.6",
+        "Rationale": "By discovering all SaaS applications (both sanctioned and shadow IT), AppOmni effectively creates a comprehensive inventory of the enterprise's disparate authentication and authorization systems."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG6.8"
+        "SafeguardID": "SG6.8",
+        "Rationale": "The platform directly supports RBAC by modeling user access rights and identifying roles with excessive permissions that violate least-privilege policies."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG7.1"
+        "SafeguardID": "SG7.1",
+        "Rationale": "For SaaS environments, \"vulnerabilities\" are primarily misconfigurations; AppOmni's continuous posture scanning functions as a vulnerability management solution for these applications."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG7.2"
+        "SafeguardID": "SG7.2",
+        "Rationale": "The tool provides prioritized risk-scoring and step-by-step remediation guidance, enabling a risk-based remediation strategy for SaaS misconfigurations."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG8.2"
+        "SafeguardID": "SG8.2",
+        "Rationale": "A primary feature is its ability to ingest and normalize disparate SaaS event logs from multiple applications into a single, unified format for analysis."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG8.9"
+        "SafeguardID": "SG8.9",
+        "Rationale": "By unifying SaaS logs and integrating with SIEM/SOAR platforms, AppOmni centralizes SaaS-specific audit logs that are often otherwise siloed."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG8.12"
+        "SafeguardID": "SG8.12",
+        "Rationale": "This is a core function. The tool directly connects to SaaS applications (service providers) via API to collect and analyze their security and activity logs."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG13.1"
+        "SafeguardID": "SG13.1",
+        "Rationale": "The platform's threat detection engine identifies suspicious activities (e.g., mass downloads, password spraying) within SaaS apps and centralizes these alerts, which can be fed into a SIEM."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG15.1"
+        "SafeguardID": "SG15.1",
+        "Rationale": "The SaaS Discovery feature directly creates an inventory of all SaaS applications, which are classified as service providers."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG15.3"
+        "SafeguardID": "SG15.3",
+        "Rationale": "The platform's risk-scoring and discovery capabilities provide the data needed to classify service providers (SaaS apps) based on their security posture and data access."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG15.5"
+        "SafeguardID": "SG15.5",
+        "Rationale": "AppOmni's continuous monitoring is a form of automated, ongoing security assessment of a service provider's posture and configuration."
     },
     {
         "ToolID": "T1",
-        "SafeguardID": "SG15.6"
+        "SafeguardID": "SG15.6",
+        "Rationale": "This is a primary use case. The platform continuously monitors the service provider's (SaaS app's) configurations, data access, and third-party connections."
     },
     {
         "ToolID": "T2",
