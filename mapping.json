@@ -3360,5 +3360,400 @@
         "ToolID": "T8",
         "SafeguardID": "SG1.4",
         "Rationale": "The 24x7 \"Managed Detection and Response\" (MDR) service passively monitors network traffic to identify assets and threats."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The endpoint agent and vulnerability scanning components provide visibility into software installed on managed assets."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG2.2",
+        "Rationale": "The software inventory allows security teams to identify and take action on unauthorized or unsupported software."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The service's analysis of network and log data can help organizations map critical data flows as part of the \"Concierge Delivery Model\" context."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG3.12",
+        "Rationale": "Arctic Wolf's monitoring of network and cloud logs helps validate and enforce segmentation controls."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The \"Managed Risk\" service identifies misconfigurations and provides guidance for hardening the environment."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG4.4",
+        "Rationale": "The MDR service monitors server-level activity and firewall logs to detect policy violations or threats."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG4.5",
+        "Rationale": "The endpoint agent and EDR integrations provide monitoring and validation of host-based firewall policies."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The service monitors authentication logs from sources like Active Directory and cloud providers, helping to identify and inventory active accounts."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG5.4",
+        "Rationale": "Monitoring logs can help identify dormant or inactive accounts that may pose a risk."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG5.5",
+        "Rationale": "The service's monitoring for lateral movement and privilege escalation includes tracking service account activity."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG6.3",
+        "Rationale": "The MDR service monitors authentication logs to detect MFA failures, anomalies, or bypass attempts."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG6.4",
+        "Rationale": "This is a critical monitoring point for the MDR service to detect threats against remote access infrastructure."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG6.5",
+        "Rationale": "The service's 24x7 monitoring is focused on detecting privilege escalation and abuse of administrative accounts."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The platform integrates with and monitors logs from these systems (e.g., AD, cloud IAM) to function."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG7.1",
+        "Rationale": "This is the core function of the \"Arctic Wolf Managed Risk\" service."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG7.2",
+        "Rationale": "The \"Managed Risk\" service uses internal and external scanners to perform automated, continuous vulnerability assessments."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The service provides risk-prioritized vulnerability data and remediation guidance to the organization."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG7.4",
+        "Rationale": "The service uses endpoint agents and internal scanners to perform authenticated (credentialed) scans for deeper visibility."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG7.5",
+        "Rationale": "The External Vulnerability Assessment (EVA) component of the \"Managed Risk\" service directly addresses this."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The continuous nature of the \"Managed Risk\" service ensures new vulnerabilities are identified, prioritized, and reported for remediation."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.1",
+        "Rationale": "This is a foundational component of the Arctic Wolf platform, which functions as a managed SIEM."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The service collects logs from a wide array of sources, including endpoints, firewalls, servers, Active Directory, and cloud services."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The \"Concierge Delivery Model\" includes guiding the organization on what logs to collect and how to configure them for ingestion."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.4",
+        "Rationale": "This is a mandatory prerequisite for the log correlation and timeline analysis that the Arctic Wolf platform performs."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The platform retains logs for analysis and incident investigation, meeting this baseline requirement."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The \"Cloud Detection and Response\" (CDR) feature specializes in collecting and monitoring logs from IaaS and SaaS providers."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The service collects logs from network sensors and firewalls, which include DNS query data for threat analysis."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.8",
+        "Rationale": "The endpoint agent and Sysmon integrations capture command-line activity for host-based threat detection."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The Aurora XDR Platform serves as the central repository for all ingested customer logs."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The platform's standard retention meets this requirement, with longer options available."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.11",
+        "Rationale": "This is the primary value of the 24x7 MDR service; human security experts (\"Concierge Security Team\") review and triage alerts from the logs."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG8.12",
+        "Rationale": "The platform offers extended retention as an option to meet this requirement for compliance or forensic purposes."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG9.5",
+        "Rationale": "The \"Managed Security Awareness\" phishing simulations help validate the effectiveness of email security controls like DMARC."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG9.6",
+        "Rationale": "The MDR service's threat detection identifies and alerts on malicious file executions, acting as a critical backstop to email-based threats."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG9.7",
+        "Rationale": "The MDR service monitors mail server logs and endpoint activity to detect malware that may bypass initial email protections."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The \"Aurora Endpoint Security\" solution is an EDR, and the MDR service integrates with third-party EDRs."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG10.2",
+        "Rationale": "This is a basic function of the EDR/anti-malware solutions that Arctic Wolf deploys or integrates with."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The MDR and EDR components use behavioral analysis and machine learning to detect and block exploitation techniques."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The \"Aurora Endpoint Security\" agent provides this capability."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The platform's use of machine learning and behavioral analysis is a core feature for detecting advanced threats."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The \"Incident Response\" (IR) service includes helping organizations recover from attacks like ransomware, which relies on this process."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG11.2",
+        "Rationale": "The IR and MDR services provide guidance on backup strategies as a key control for responding to incidents."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The concierge and IR teams provide expert guidance on securing backup data from threats."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The IR retainer can include testing and validation of recovery plans."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG12.1",
+        "Rationale": "The MDR and \"Managed Risk\" services monitor the network to validate the effectiveness of the architecture."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The service monitors network device logs for threats, misconfigurations, and unauthorized changes."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG12.4",
+        "Rationale": "This is essential for the MDR team to understand the customer's environment and provide contextual alerts."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG12.5",
+        "Rationale": "The service monitors authentication logs from AAA systems like RADIUS or Active Directory."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.1",
+        "Rationale": "This is the \"Managed Detection and Response\" (MDR) service."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The endpoint agent deployed by Arctic Wolf provides HIDS capabilities."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The network sensors deployed by Arctic Wolf provide NIDS capabilities."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The service monitors firewall and network logs to validate that segmentation filtering is working and to detect violations."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The network sensors collect flow data and other telemetry for analysis by the platform."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The endpoint agent provides this."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.9",
+        "Rationale": "The MDR service monitors the authentication logs generated by 802.1x-capable systems to detect threats."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG13.11",
+        "Rationale": "This is the core function of the 24x7 SOC, which provides human-validated, real-time alerts."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.1",
+        "Rationale": "This is the core function of the \"Arctic Wolf Managed Security Awareness\" service."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The service includes phishing simulations and other training modules focused on social engineering."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.3",
+        "Rationale": "This is a component of the managed awareness content."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.4",
+        "Rationale": "The awareness service includes modules on secure data handling."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.5",
+        "Rationale": "The phishing simulations include \"just-in-time\" training that teaches users how to report suspicious emails."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.6",
+        "Rationale": "This is a primary feature of the \"Managed Security Awareness\" service, which includes phishing simulations."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.7",
+        "Rationale": "The awareness content covers best practices for endpoint and mobile device security."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG14.8",
+        "Rationale": "The training modules cover the risks and best practices associated with remote work."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG15.1",
+        "Rationale": "The \"Cloud Detection and Response\" service identifies and monitors cloud service providers."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG15.3",
+        "Rationale": "The risk assessment process helps classify providers based on the data they handle."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG15.5",
+        "Rationale": "The \"Managed Risk\" and CDR services assess the security posture of the customer's configurations within the service provider"
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG15.6",
+        "Rationale": "The \"Cloud Detection and Response\" (CDR) service is specifically designed to monitor cloud environments for threats and misconfigurations."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.1",
+        "Rationale": "The \"Arctic Wolf Incident Response\" and MDR services provide the foundation for this process."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.2",
+        "Rationale": "The 24x7 SOC is the reporting and escalation point for critical, validated security incidents."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.3",
+        "Rationale": "Arctic Wolf's 24x7 SOC and IR teams act as the incident response team (or an extension of it) for the customer."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.4",
+        "Rationale": "The \"Concierge Delivery Model\" defines the specific roles and responsibilities of the Arctic Wolf team and the customer team."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.5",
+        "Rationale": "This is a standard part of the IR retainer and MDR onboarding process."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.6",
+        "Rationale": "The Arctic Wolf SOC's triage and \"human validation\" of alerts is this process."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.7",
+        "Rationale": "The \"Incident360 Retainer\" and \"Managed Security Awareness\" services can be used to conduct these exercises."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The MDR and IR services include \"root cause analysis\" to identify and remediate the source of an incident."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG17.9",
+        "Rationale": "This is the core function of the MDR and IR services, which includes automated containment actions and guided remediation."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG18.2",
+        "Rationale": "The \"Managed Risk\" service's External Vulnerability Assessment (EVA) identifies the same attack surface vulnerabilities that a pen test would target."
+    },
+    {
+        "ToolID": "T8",
+        "SafeguardID": "SG18.5",
+        "Rationale": "The \"Managed Risk\" service provides the continuous vulnerability management and prioritization needed to remediate findings from both its own scans and external penetration tests."
     }
 ]
