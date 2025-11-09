@@ -283,13 +283,12 @@
                         sgCard.dataset.tiernumber = sg.TierNumber;
                         // --- END NEW ---
 
-                        const sgTitle = `Safeguard ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
-                        // Find related tools
-                        const relatedToolIDs = mapping
-                            .filter(m => m.SafeguardID === sg.ID)
-                            .map(m => m.ToolID);
+                        // --- MODIFIED: RATIONALE INTEGRATION ---
+                        // We need the full mapping object to get Rationale, not just the ToolID
+                        const relatedMappings = mapping.filter(m => m.SafeguardID === sg.ID);
                         
-                        const sgHeader = createCollapsibleHeader(sgTitle, `${relatedToolIDs.length} Tool(s)`);
+                        const sgTitle = `Safeguard ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
+                        const sgHeader = createCollapsibleHeader(sgTitle, `${relatedMappings.length} Tool(s)`);
                         
                         // --- NEW: Add IG and Tier tags to the safeguard header ---
                         const titleDiv = sgHeader.querySelector('h3').parentElement;
@@ -304,44 +303,34 @@
                         const sgContent = document.createElement('div');
                         sgContent.className = finalContentClasses;
 
-                        // --- MODIFICATION START ---
                         // Add the safeguard description at the top
                         const sgDescription = document.createElement('p');
-                        sgDescription.className = 'text-sm text-gray-700 mb-4'; // Added margin-bottom
+                        sgDescription.className = 'text-sm text-gray-700 mb-4';
                         sgDescription.textContent = sg.Description;
                         sgContent.appendChild(sgDescription);
-                        // --- MODIFICATION END ---
 
-                        // --- MODIFICATION START: Updated Search Text ---
                         // This text will be used for searching
                         let safeguardSearchText = [
                             sg.Title, 
                             sg.Description,
-                            `control ${sg.ControlNumber}`, // e.g., "control 5"
-                            `${sg.ControlNumber}.${sg.SafeguardNumber}`, // e.g., "5.1"
-                            `ig${sg.IGNumber}`, // Add IG to search
-                            `tier ${sg.TierNumber}` // Add Tier to search
+                            `control ${sg.ControlNumber}`, 
+                            `${sg.ControlNumber}.${sg.SafeguardNumber}`,
+                            `ig${sg.IGNumber}`, 
+                            `tier ${sg.TierNumber}`
                         ].join(' ').toLowerCase();
-                        // --- MODIFICATION END ---
 
-                        if (relatedToolIDs.length === 0) {
-                            // --- MODIFICATION ---
-                            // Use appendChild so it doesn't overwrite the description
+                        if (relatedMappings.length === 0) {
                             const noToolsMessage = document.createElement('p');
                             noToolsMessage.className = 'text-gray-500 italic';
                             noToolsMessage.textContent = 'No tools mapped to this safeguard.';
                             sgContent.appendChild(noToolsMessage);
-                            // --- MODIFICATION END ---
                         } else {
                             // Render tools for this safeguard
                             const toolList = document.createElement('ul');
-                            // --- MODIFICATION ---
-                            // Add a border-top and padding-top to separate from description
                             toolList.className = 'space-y-3 pt-4 border-t border-gray-200 mt-4';
-                            // --- MODIFICATION END ---
                             
-                            relatedToolIDs.forEach(toolID => {
-                                const tool = toolMap.get(toolID);
+                            relatedMappings.forEach(mapItem => {
+                                const tool = toolMap.get(mapItem.ToolID);
                                 if (tool) {
                                     // Add tool info to search text
                                     safeguardSearchText += ` ${tool.Name} ${tool.Description}`.toLowerCase();
@@ -357,20 +346,29 @@
                                     
                                     li.appendChild(toolLink);
                                     
-                                    // Add new Cost and Education tags
+                                    // Add tags
                                     li.appendChild(createToolTag(tool.Cost, 'bg-green-100 text-green-800'));
-                                    
-                                    // --- *** FIX START *** ---
-                                    // Check for both "EducationUse" and "educationUse" to handle case variations
                                     if (tool.EducationUse || tool.educationUse) {
                                         li.appendChild(createToolTag('Education Use', 'bg-yellow-100 text-yellow-800'));
                                     }
-                                    // --- *** FIX END *** ---
                                     
                                     const desc = document.createElement('p');
                                     desc.className = "text-sm text-gray-600";
                                     desc.textContent = tool.Description;
                                     li.appendChild(desc);
+                                    
+                                    // --- NEW: RATIONALE DISPLAY ---
+                                    if (mapItem.Rationale) {
+                                        const rationale = document.createElement('p');
+                                        // Styled to look like a secondary note
+                                        rationale.className = "text-sm text-gray-500 mt-1 italic border-l-2 border-blue-200 pl-2";
+                                        rationale.textContent = "Rationale: " + mapItem.Rationale;
+                                        li.appendChild(rationale);
+                                        
+                                        // Add rationale to search text
+                                        safeguardSearchText += ` ${mapItem.Rationale}`.toLowerCase();
+                                    }
+                                    // --- END NEW RATIONALE ---
                                     
                                     toolList.appendChild(li);
                                 }
@@ -402,65 +400,50 @@
                 // This text will be used for searching
                 let toolSearchText = [tool.Name, tool.Description, tool.Cost].join(' ').toLowerCase();
                 
-                // --- *** FIX START *** ---
-                // Check for both "EducationUse" and "educationUse" to handle case variations
                 if (tool.EducationUse || tool.educationUse) {
                     toolSearchText += ' education use';
                 }
-                // --- *** FIX END *** ---
 
-                // Find related safeguards
-                const relatedSafeguardIDs = mapping
-                    .filter(m => m.ToolID === tool.ID)
-                    .map(m => m.SafeguardID);
+                // --- MODIFIED: RATIONALE INTEGRATION ---
+                // Get full mapping objects instead of just Safeguard IDs
+                const relatedMappings = mapping.filter(m => m.ToolID === tool.ID);
                 
-                const toolHeader = createCollapsibleHeader(tool.Name, `${relatedSafeguardIDs.length} Safeguard(s)`);
+                const toolHeader = createCollapsibleHeader(tool.Name, `${relatedMappings.length} Safeguard(s)`);
                 
                 // Add Cost and Education tags to the header
-                const titleDiv = toolHeader.querySelector('div'); // Get the title container
+                const titleDiv = toolHeader.querySelector('div');
                 titleDiv.appendChild(createToolTag(tool.Cost, 'bg-green-100 text-green-800'));
                 
-                // --- *** FIX START *** ---
-                // Check for both "EducationUse" and "educationUse" to handle case variations
                 if (tool.EducationUse || tool.educationUse) {
                     titleDiv.appendChild(createToolTag('Education Use', 'bg-yellow-100 text-yellow-800'));
                 }
-                // --- *** FIX END *** ---
 
                 toolCard.appendChild(toolHeader);
 
                 const toolContent = document.createElement('div');
                 toolContent.className = nestedContentClasses;
 
-                // --- *** NEW LOGIC START *** ---
                 // Add the tool's description
                 const toolDescription = document.createElement('p');
                 toolDescription.className = 'text-sm text-gray-700 mb-4';
                 toolDescription.textContent = tool.Description;
                 toolContent.appendChild(toolDescription);
 
-                // --- *** MODIFIED URL LOGIC START *** ---
                 // Add the tool's URL(s)
                 if (tool.URL) {
                     const urlContainer = document.createElement('div');
-                    // `flex flex-wrap` will allow URLs to be on the same line and wrap.
-                    // `gap-x-4` adds horizontal space between links.
-                    // `gap-y-1` adds a small vertical gap if they wrap.
                     urlContainer.className = "mb-4 flex flex-wrap gap-x-4 gap-y-1"; 
 
-                    // Split URLs by one or more whitespace characters (space, newline, tab)
                     const urls = tool.URL.split(/\s+/).filter(url => url.trim() !== '');
 
                     if (urls.length > 0) {
                         urls.forEach(url => {
                             const trimmedUrl = url.trim();
-                            if (trimmedUrl) { // Final check to ensure it's not just whitespace
+                            if (trimmedUrl) {
                                 const toolLink = document.createElement('a');
                                 toolLink.href = trimmedUrl; 
                                 toolLink.target = "_blank";
                                 toolLink.rel = "noopener noreferrer";
-                                // `truncate` will cut off long URLs with '...'
-                                // `max-w-full` ensures it doesn't overflow its container
                                 toolLink.className = "font-medium text-blue-600 hover:underline truncate max-w-full";
                                 toolLink.textContent = trimmedUrl;
                                 urlContainer.appendChild(toolLink);
@@ -469,52 +452,56 @@
                         toolContent.appendChild(urlContainer);
                     }
                 }
-                // --- *** MODIFIED URL LOGIC END *** ---
 
-                // --- NEW: Sets to store unique IG/Tier numbers for this tool ---
                 const igNumbers = new Set();
                 const tierNumbers = new Set();
-                // --- END NEW ---
 
-                if (relatedSafeguardIDs.length === 0) {
-                    // --- MODIFICATION: Use appendChild to add message after description/URL ---
+                if (relatedMappings.length === 0) {
                     const noSgMessage = document.createElement('p');
-                    noSgMessage.className = 'text-gray-500 italic pt-4 border-t border-gray-200 mt-4'; // Added padding/border
+                    noSgMessage.className = 'text-gray-500 italic pt-4 border-t border-gray-200 mt-4';
                     noSgMessage.textContent = 'No safeguards mapped to this tool.';
                     toolContent.appendChild(noSgMessage);
-                    // --- END MODIFICATION ---
                 } else {
                     // Render safeguards for this tool
                     const sgList = document.createElement('ul');
-                    // --- MODIFICATION: Add padding/border to separate from description/URL ---
                     sgList.className = 'space-y-3 pt-4 border-t border-gray-200 mt-4';
-                    // --- END MODIFICATION ---
-                    relatedSafeguardIDs.forEach(sgID => {
-                        const sg = safeguardMap.get(sgID);
+
+                    relatedMappings.forEach(mapItem => {
+                        const sg = safeguardMap.get(mapItem.SafeguardID);
                         if (sg) {
-                            // --- NEW: Add to sets ---
                             igNumbers.add(sg.IGNumber);
                             tierNumbers.add(sg.TierNumber);
-                            // --- END NEW ---
 
-                            // --- MODIFICATION START: Updated Search Text ---
                             // Add safeguard info to search text
-                            const safeguardSearchInfo = [
+                            let safeguardSearchInfo = [
                                 sg.Title,
                                 sg.Description,
                                 `control ${sg.ControlNumber}`,
                                 `${sg.ControlNumber}.${sg.SafeguardNumber}`,
-                                `ig${sg.IGNumber}`, // Add IG to search
-                                `tier ${sg.TierNumber}` // Add Tier to search
+                                `ig${sg.IGNumber}`,
+                                `tier ${sg.TierNumber}`
                             ].join(' ');
                             
+                            // --- NEW: RATIONALE SEARCH ---
+                            if (mapItem.Rationale) {
+                                safeguardSearchInfo += ` ${mapItem.Rationale}`;
+                            }
+                            // --- END NEW ---
+
                             toolSearchText += ` ${safeguardSearchInfo.toLowerCase()}`;
-                            // --- MODIFICATION END ---
 
                             const li = document.createElement('li');
+                            
+                            // Prepare Rationale HTML if it exists
+                            let rationaleHTML = '';
+                            if (mapItem.Rationale) {
+                                rationaleHTML = `<p class="text-sm text-gray-500 mt-2 italic border-l-2 border-blue-200 pl-2">Rationale: ${mapItem.Rationale}</p>`;
+                            }
+
                             li.innerHTML = `
                                 <h4 class="font-medium text-gray-800">Safeguard ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}</h4>
                                 <p class="text-sm text-gray-600">${sg.Description}</p>
+                                ${rationaleHTML}
                                 <div class="text-xs text-gray-500 mt-1">
                                     <span class="inline-block bg-gray-200 rounded-full px-2 py-0.5">IG${sg.IGNumber}</span>
                                     <span class="inline-block bg-blue-100 text-blue-800 rounded-full px-2 py-0.5 ml-1">Tier ${sg.TierNumber}</span>
@@ -528,10 +515,8 @@
                 // Set the searchable data on the tool card
                 toolCard.dataset.search = toolSearchText;
                 
-                // --- NEW: Set data attributes for filters ---
                 toolCard.dataset.ignumber = Array.from(igNumbers).join(' ');
                 toolCard.dataset.tiernumber = Array.from(tierNumbers).join(' ');
-                // --- END NEW ---
                 
                 toolCard.appendChild(toolContent);
                 toolsView.appendChild(toolCard);
@@ -605,12 +590,10 @@
                         }
                     });
                     
-                    // --- *** NEW LOGIC START *** ---
-                    // Get the subtitle element for the *control* header (not safeguard headers)
-                    // The header is the first child of the controlCard
+                    // Get the subtitle element for the *control* header
                     if (controlCard.children.length > 0) {
                         const controlHeader = controlCard.children[0];
-                        const subtitleElement = controlHeader.querySelector('p.text-sm'); // Get the subtitle <p> tag
+                        const subtitleElement = controlHeader.querySelector('p.text-sm');
                         
                         if (subtitleElement) {
                             if (anyFilterActive) {
@@ -621,7 +604,6 @@
                             }
                         }
                     }
-                    // --- *** NEW LOGIC END *** ---
 
                     // Hide the entire control if no safeguards match AND a filter is active
                     if (visibleSafeguards > 0 || !anyFilterActive) {
@@ -641,7 +623,6 @@
 
                     // Check against all filters
                     const matchesSearch = (searchText === '') || searchData.includes(searchText);
-                    // Check if *at least one* selected filter matches the tool's safeguards
                     const matchesIG = (selectedIGs.length === 0) || selectedIGs.some(ig => toolIGs.includes(ig));
                     const matchesTier = (selectedTiers.length === 0) || selectedTiers.some(tier => toolTiers.includes(tier));
 
@@ -713,6 +694,24 @@
             }));
             // --- END NEW ---
 
+            // Helper to fetch and parse JSON with better error reporting
+            async function fetchAndParse(url, name) {
+                try {
+                    const res = await fetch(url);
+                    if (!res.ok) throw new Error(`HTTP error ${res.status} fetching ${name}`);
+                    const text = await res.text();
+                    try {
+                        return JSON.parse(text);
+                    } catch (jsonErr) {
+                        // This catches the specific SyntaxError you are seeing
+                        throw new Error(`JSON Syntax Error in <strong>${name}</strong> file: ${jsonErr.message}`);
+                    }
+                } catch (e) {
+                    // Propagate the error with the file name context
+                    throw e;
+                }
+            }
+
             // Load data from JSON files
             async function loadData() {
                 try {
@@ -723,39 +722,27 @@
                     const safeguardsURL = 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json';
                     const mappingURL = 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json';
 
-                    // Fetch all three files in parallel
-                    const [toolsRes, safeguardsRes, mappingRes] = await Promise.all([
-                        fetch(toolsURL),
-                        fetch(safeguardsURL),
-                        fetch(mappingURL)
+                    // Fetch all three files in parallel with better error handling
+                    [tools, safeguards, mapping] = await Promise.all([
+                        fetchAndParse(toolsURL, 'Tools'),
+                        fetchAndParse(safeguardsURL, 'Safeguards'),
+                        fetchAndParse(mappingURL, 'Mapping')
                     ]);
 
-                    // Check if all responses are ok
-                    if (!toolsRes.ok || !safeguardsRes.ok || !mappingRes.ok) {
-                        throw new Error('Network response was not ok for one or more data files.');
-                    }
-
-                    // Parse JSON data
-                    tools = await toolsRes.json();
-                    safeguards = await safeguardsRes.json();
-                    mapping = await mappingRes.json();
-
-                    // --- *** NEW: Sort tools by name *** ---
+                    // Sort tools by name
                     tools.sort((a, b) => a.Name.localeCompare(b.Name));
                     
-                    // --- *** NEW: Sort safeguards by ControlNumber, then SafeguardNumber *** ---
+                    // Sort safeguards by ControlNumber, then SafeguardNumber
                     safeguards.sort((a, b) => {
                         const aControl = Number(a.ControlNumber);
                         const bControl = Number(b.ControlNumber);
                         if (aControl !== bControl) {
                             return aControl - bControl;
                         }
-                        // SafeguardNumber is also a string, treat it as a number for sorting
                         const aSafeguard = Number(a.SafeguardNumber);
                         const bSafeguard = Number(b.SafeguardNumber);
                         return aSafeguard - bSafeguard;
                     });
-                    // --- *** END NEW *** ---
 
                     // --- BUILD LOOKUP MAPS (after data is fetched) ---
                     toolMap = new Map(tools.map(t => [t.ID, t]));
@@ -772,7 +759,12 @@
 
                 } catch (error) {
                     console.error('Failed to load data:', error);
-                    loadingMessage.innerHTML = '<p class="text-red-600 font-semibold">Failed to load data. Please check the console and try refreshing the page.</p>';
+                    // Display the specific error message to the user in the UI
+                    loadingMessage.innerHTML = `<div class="text-red-600 bg-red-50 p-4 rounded-lg border border-red-200">
+                        <h3 class="font-bold">Data Load Error</h3>
+                        <p>${error.message}</p>
+                        <p class="text-sm mt-2 text-gray-600">Please check your JSON files on GitHub for syntax errors (like missing commas or unescaped quotes).</p>
+                    </div>`;
                     loadingMessage.classList.remove('animate-pulse');
                 }
             }

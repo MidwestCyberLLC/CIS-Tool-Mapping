@@ -50,7 +50,7 @@
         
         /* Custom class for the safeguard list in modify mode */
         .safeguard-checkbox-list {
-            max-height: 400px;
+            max-height: 500px; /* Increased height to accommodate rationales */
             overflow-y: auto;
             border: 1px solid #D1D5DB;
             border-radius: 0.375rem;
@@ -59,17 +59,29 @@
         }
         .safeguard-checkbox-item {
             display: flex;
-            align-items: center;
-            padding: 0.25rem 0;
+            flex-direction: column; /* Changed to column to stack checkbox row and rationale input */
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #E5E7EB; /* Add separator */
         }
-        .safeguard-checkbox-item input {
+        .safeguard-checkbox-row {
+             display: flex;
+             align-items: center;
+        }
+        .safeguard-checkbox-row input {
             margin-right: 0.75rem;
             height: 1rem;
             width: 1rem;
         }
-        .safeguard-checkbox-item label {
+        .safeguard-checkbox-row label {
             font-size: 0.875rem; /* text-sm */
             color: #374151; /* gray-700 */
+            cursor: pointer;
+        }
+        .safeguard-rationale-input {
+            margin-top: 0.5rem;
+            margin-left: 1.75rem; /* Indent to align with label text */
+            font-size: 0.875rem;
+            width: 90%;
         }
     </style>
 </head>
@@ -100,7 +112,7 @@
             <p id="loadStatus" class="mt-2 text-sm font-medium"></p>
         </div>
 
-        <!-- Section 1.5: Mode Selection (NEW) -->
+        <!-- Section 1.5: Mode Selection -->
         <div id="modeSelectionSection" class="hidden mb-6 p-4 border rounded-lg">
             <h2 class="text-xl font-semibold mb-3">2. Choose Your Mode</h2>
             <p class="text-sm text-gray-600 mb-4">Data loaded. Do you want to add new data or modify existing data?</p>
@@ -110,7 +122,7 @@
             </div>
         </div>
 
-        <!-- Add Mode Container (NEW) -->
+        <!-- Add Mode Container -->
         <div id="addModeContainer" class="hidden">
             <!-- Section 2: Add New Tool -->
             <fieldset class="mb-6 p-4 border rounded-lg">
@@ -132,7 +144,6 @@
                         <label for="toolUrl" class="block text-sm font-medium text-gray-700">URL</label>
                         <input type="url" id="toolUrl" class="form-input" placeholder="https://..." required>
                     </div>
-                    <!-- --- MODIFIED FIELDS --- -->
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label for="toolEducationUse" class="block text-sm font-medium text-gray-700">Education Use</label>
@@ -152,7 +163,6 @@
                             </select>
                         </div>
                     </div>
-                    <!-- --- END MODIFIED FIELDS --- -->
                     <button type="submit" class="btn btn-secondary">Add Tool</button>
                     <p id="toolStatus" class="mt-2 text-sm font-medium text-green-600"></p>
                 </form>
@@ -168,12 +178,13 @@
                             <option value="" disabled selected>-- Select a Tool --</option>
                         </select>
                     </div>
+                    <!-- UPDATED MAPPING SECTION FOR ADD MODE -->
                     <div>
-                        <label for="safeguardSelect" class="block text-sm font-medium text-gray-700">Select Safeguard(s)</label>
-                        <select id="safeguardSelect" class="form-select" required multiple size="10">
-                            <!-- Options will be populated by JS -->
-                        </select>
-                        <p class="text-xs text-gray-500 mt-1">Hold Ctrl (or Cmd on Mac) to select multiple safeguards.</p>
+                         <label class="block text-sm font-medium text-gray-700 mb-2">Select Safeguard(s) & Rationale</label>
+                         <p class="text-sm text-gray-600 mb-2">Select safeguards that map to this tool and provide a rationale for each.</p>
+                         <div id="addSafeguardsList" class="safeguard-checkbox-list" style="max-height: 300px;">
+                             <!-- Checkboxes populated by JS -->
+                         </div>
                     </div>
                     <button type="submit" class="btn btn-secondary">Add Mapping(s)</button>
                     <p id="mappingStatus" class="mt-2 text-sm font-medium text-green-600"></p>
@@ -181,7 +192,7 @@
             </fieldset>
         </div>
 
-        <!-- Modify Mode Container (NEW) -->
+        <!-- Modify Mode Container -->
         <div id="modifyModeContainer" class="hidden">
             <fieldset class="mb-6 p-4 border rounded-lg">
                 <legend class="text-xl font-semibold mb-3 px-2">Modify Existing Tool & Mappings</legend>
@@ -213,7 +224,6 @@
                             <label for="modifyToolUrl" class="block text-sm font-medium text-gray-700">URL</label>
                             <input type="url" id="modifyToolUrl" class="form-input" placeholder="https://..." required>
                         </div>
-                        <!-- --- MODIFIED FIELDS --- -->
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label for="modifyToolEducationUse" class="block text-sm font-medium text-gray-700">Education Use</label>
@@ -233,13 +243,12 @@
                                 </select>
                             </div>
                         </div>
-                        <!-- --- END MODIFIED FIELDS --- -->
 
                         <!-- Mappings -->
                         <h3 class="text-lg font-medium text-gray-900 pt-2">Safeguard Mappings</h3>
-                        <p class="text-sm text-gray-600">Select all safeguards that map to this tool.</p>
+                        <p class="text-sm text-gray-600">Select safeguards that map to this tool and provide a rationale for each.</p>
                         <div id="modifySafeguardsList" class="safeguard-checkbox-list">
-                            <!-- Checkboxes will be populated by JS -->
+                            <!-- Checkboxes and Rationale inputs will be populated by JS -->
                         </div>
                         
                         <!-- Actions -->
@@ -255,7 +264,7 @@
         </div>
 
 
-        <!-- Section 4: Generate Files (Renumbered) -->
+        <!-- Section 4: Generate Files -->
         <fieldset id="generateSection" class="hidden p-4 border rounded-lg bg-gray-50">
             <h2 class="text-xl font-semibold mb-3">Final Step: Generate & Download Files</h2>
             <p class="text-sm text-gray-600 mb-4">When you're finished adding or modifying data, download the new JSON files. You must then upload these to GitHub, replacing the old ones.</p>
@@ -272,19 +281,19 @@
         let tools = [];
         let safeguards = [];
         let mapping = [];
-        let currentModifyToolId = null; // NEW: Track which tool is being modified
-        let sortedSafeguards = []; // NEW: Keep a sorted list for populating checkboxes
+        let currentModifyToolId = null; 
+        let sortedSafeguards = []; 
 
         // DOM Elements
         const loadDataBtn = document.getElementById('loadDataBtn');
         const loadStatus = document.getElementById('loadStatus');
         
-        // NEW: Mode selection
+        // Mode selection
         const modeSelectionSection = document.getElementById('modeSelectionSection');
         const showAddModeBtn = document.getElementById('showAddModeBtn');
         const showModifyModeBtn = document.getElementById('showModifyModeBtn');
 
-        // NEW: Mode containers
+        // Mode containers
         const addModeContainer = document.getElementById('addModeContainer');
         const modifyModeContainer = document.getElementById('modifyModeContainer');
         
@@ -295,16 +304,17 @@
         const mappingForm = document.getElementById('mappingForm');
         const mappingStatus = document.getElementById('mappingStatus');
         const toolSelect = document.getElementById('toolSelect');
-        const safeguardSelect = document.getElementById('safeguardSelect');
+        // New Add Mode List Element
+        const addSafeguardsList = document.getElementById('addSafeguardsList');
 
-        // NEW: Modify Mode Elements
+        // Modify Mode Elements
         const modifyToolSelect = document.getElementById('modifyToolSelect');
         const modifyFormContainer = document.getElementById('modifyFormContainer');
         const modifyToolId = document.getElementById('modifyToolId');
         const modifyToolName = document.getElementById('modifyToolName');
         const modifyToolDesc = document.getElementById('modifyToolDesc');
         const modifyToolUrl = document.getElementById('modifyToolUrl');
-        const modifyToolEducationUse = document.getElementById('modifyToolEducationUse'); // --- MODIFIED ---
+        const modifyToolEducationUse = document.getElementById('modifyToolEducationUse'); 
         const modifyToolCost = document.getElementById('modifyToolCost'); 
         const modifySafeguardsList = document.getElementById('modifySafeguardsList');
         const saveChangesBtn = document.getElementById('saveChangesBtn');
@@ -344,26 +354,19 @@
                 safeguards = await safeguardsRes.json();
                 mapping = await mappingRes.json();
 
-                // NEW: Pre-sort safeguards once
                 sortedSafeguards = [...safeguards].sort((a, b) => a.ControlNumber - b.ControlNumber || a.SafeguardNumber - b.SafeguardNumber);
 
                 setLoadStatus(`Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`, 'green');
 
-                // Populate dropdowns for both modes
                 populateAddModeDropdowns();
                 populateModifyToolDropdown();
-                
-                // Suggest the next available tool ID in Add mode
                 suggestNextToolId();
 
-                // NEW: Show mode selection
                 modeSelectionSection.classList.remove('hidden');
-                // Hide all other sections
                 addModeContainer.classList.add('hidden');
                 modifyModeContainer.classList.add('hidden');
                 generateSection.classList.add('hidden');
                 modifyFormContainer.classList.add('hidden');
-
 
             } catch (error) {
                 console.error('Failed to load data:', error);
@@ -371,7 +374,7 @@
             }
         });
 
-        // --- 1.5. Mode Selection Listeners (NEW) ---
+        // --- 1.5. Mode Selection Listeners ---
         showAddModeBtn.addEventListener('click', () => {
             modeSelectionSection.classList.add('hidden');
             addModeContainer.classList.remove('hidden');
@@ -394,29 +397,86 @@
         function setModifyStatus(message, color) {
             modifyStatus.textContent = message;
             modifyStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
-            // Clear message after 3 seconds
-            setTimeout(() => { modifyStatus.textContent = ''; }, 3000);
+            // Clear message after 5 seconds for errors, 3 for success
+            setTimeout(() => { modifyStatus.textContent = ''; }, color === 'red' ? 5000 : 3000);
+        }
+
+        // --- SHARED: Render Safeguard List with Rationales ---
+        // Used by both Add and Modify modes to ensure consistent UI and behavior
+        function renderSafeguardsList(containerElement, modePrefix, toolIdForEditing = null) {
+            containerElement.innerHTML = '';
+            sortedSafeguards.forEach(sg => {
+                // If editing, check if mapping exists
+                let isChecked = false;
+                let currentRationale = '';
+                if (toolIdForEditing) {
+                     const existingMapping = mapping.find(m => m.ToolID === toolIdForEditing && m.SafeguardID === sg.ID);
+                     if (existingMapping) {
+                         isChecked = true;
+                         currentRationale = existingMapping.Rationale || '';
+                     }
+                }
+
+                // Create elements
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'safeguard-checkbox-item';
+                
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'safeguard-checkbox-row';
+
+                const uniqueId = `${modePrefix}-sg-${sg.ID}`;
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = uniqueId;
+                checkbox.value = sg.ID;
+                checkbox.checked = isChecked;
+
+                const label = document.createElement('label');
+                label.htmlFor = uniqueId;
+                label.textContent = `SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
+
+                rowDiv.appendChild(checkbox);
+                rowDiv.appendChild(label);
+
+                const rationaleInput = document.createElement('input');
+                rationaleInput.type = 'text';
+                rationaleInput.className = 'form-input safeguard-rationale-input';
+                rationaleInput.placeholder = 'Rationale (required if checked)';
+                rationaleInput.value = currentRationale;
+                rationaleInput.style.display = isChecked ? 'block' : 'none';
+
+                // Toggle visibility on check
+                checkbox.addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        rationaleInput.style.display = 'block';
+                        rationaleInput.focus();
+                    } else {
+                        rationaleInput.style.display = 'none';
+                        rationaleInput.classList.remove('border-red-500', 'bg-red-50'); // Clear error state on uncheck
+                    }
+                });
+
+                itemDiv.appendChild(rowDiv);
+                itemDiv.appendChild(rationaleInput);
+                containerElement.appendChild(itemDiv);
+            });
         }
 
 
         // --- Populate Dropdowns ---
         function populateAddModeDropdowns() {
-            // Clear existing options
             toolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool --</option>';
-            safeguardSelect.innerHTML = ''; 
-
+            
             tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
                 const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
                 toolSelect.add(option);
             });
 
-            sortedSafeguards.forEach(sg => {
-                const option = new Option(`SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`, sg.ID);
-                safeguardSelect.add(option);
-            });
+            // Use shared renderer for the add mode list
+            renderSafeguardsList(addSafeguardsList, 'add');
         }
 
-        // NEW: Populate Modify Tool Dropdown
         function populateModifyToolDropdown() {
             modifyToolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool to Modify --</option>';
             tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
@@ -425,7 +485,6 @@
             });
         }
 
-        // --- Function to suggest next tool ID ---
         function suggestNextToolId() {
             const existingIds = new Set(
                 tools.map(tool => parseInt(tool.ID.replace('T', '')))
@@ -445,7 +504,7 @@
             const name = document.getElementById('toolName').value;
             const desc = document.getElementById('toolDesc').value;
             const url = document.getElementById('toolUrl').value;
-            const educationUse = document.getElementById('toolEducationUse').value === 'true'; // --- MODIFIED --- (convert to boolean)
+            const educationUse = document.getElementById('toolEducationUse').value === 'true'; 
             const cost = document.getElementById('toolCost').value; 
 
             if (tools.some(t => t.ID === id)) {
@@ -454,68 +513,103 @@
                 return;
             }
 
-            // --- MODIFIED ---
             const newTool = { 
                 ID: id, 
                 Name: name, 
                 Description: desc, 
                 URL: url,
-                EducationUse: educationUse, // --- MODIFIED ---
+                EducationUse: educationUse,
                 Cost: cost
             };
-            // --- END MODIFIED ---
 
             tools.push(newTool);
             toolStatus.textContent = `Added "${name}". You now have ${tools.length} tools.`;
             toolStatus.className = 'mt-2 text-sm font-medium text-green-600';
             
-            // Re-populate ALL dropdowns
             populateAddModeDropdowns();
             populateModifyToolDropdown();
             toolForm.reset();
-            // Reset new fields to default
-            document.getElementById('toolEducationUse').value = 'false'; // --- MODIFIED ---
+            document.getElementById('toolEducationUse').value = 'false'; 
             document.getElementById('toolCost').value = '$';
             suggestNextToolId();
         });
 
-        // --- 3. Add Mapping ---
+        // --- 3. Add Mapping (UPDATED for individual rationales) ---
         mappingForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const toolID = toolSelect.value;
-            const selectedSafeguardOptions = Array.from(safeguardSelect.selectedOptions);
-            const safeguardIDs = selectedSafeguardOptions.map(opt => opt.value);
 
-            if (!toolID || safeguardIDs.length === 0) {
-                mappingStatus.textContent = 'Please select a tool and at least one safeguard.';
+            if (!toolID) {
+                mappingStatus.textContent = 'Please select a tool.';
                 mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
                 return;
             }
 
+            // Gather new mappings and validate Rationales
+            const newMappingsToAdd = [];
+            let validationError = false;
+            let hasSelection = false;
+
+            const items = addSafeguardsList.querySelectorAll('.safeguard-checkbox-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                const rationaleInput = item.querySelector('.safeguard-rationale-input');
+
+                if (checkbox.checked) {
+                    hasSelection = true;
+                    const rationaleVal = rationaleInput.value.trim();
+                    if (!rationaleVal) {
+                        validationError = true;
+                        rationaleInput.classList.add('border-red-500', 'bg-red-50'); // Visual error cue
+                    } else {
+                        rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                        newMappingsToAdd.push({
+                            ToolID: toolID,
+                            SafeguardID: checkbox.value,
+                            Rationale: rationaleVal
+                        });
+                    }
+                } else {
+                     rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                }
+            });
+
+            if (!hasSelection) {
+                 mappingStatus.textContent = 'Please select at least one safeguard.';
+                 mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                 return;
+            }
+
+            if (validationError) {
+                mappingStatus.textContent = 'Error: Rationale is required for all selected safeguards.';
+                mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                return;
+            }
+
+            // Process valid mappings
             let addedCount = 0;
             let skippedCount = 0;
 
-            for (const safeguardID of safeguardIDs) {
-                if (mapping.some(m => m.ToolID === toolID && m.SafeguardID === safeguardID)) {
+            newMappingsToAdd.forEach(nm => {
+                 if (mapping.some(m => m.ToolID === nm.ToolID && m.SafeguardID === nm.SafeguardID)) {
                     skippedCount++;
+                    // Optional: Update rationale of existing one? Current logic just skips.
                 } else {
-                    const newMapping = { ToolID: toolID, SafeguardID: safeguardID };
-                    mapping.push(newMapping);
+                    mapping.push(nm);
                     addedCount++;
                 }
-            }
+            });
             
             mappingStatus.textContent = `Added ${addedCount} new mapping(s). ${skippedCount} skipped (already existed). Total mappings: ${mapping.length}.`;
             mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
             
             mappingForm.reset();
-            toolSelect.blur();
-            safeguardSelect.blur();
+            // Re-render list to clear selections and hidden inputs
+            renderSafeguardsList(addSafeguardsList, 'add');
         });
 
-        // --- NEW: Modify Mode Logic ---
+        // --- Modify Mode Logic ---
 
-        // Listen for changes on the "Select Tool to Modify" dropdown
         modifyToolSelect.addEventListener('change', (e) => {
             currentModifyToolId = e.target.value;
             if (currentModifyToolId) {
@@ -526,7 +620,6 @@
             }
         });
 
-        // Function to load the selected tool's data into the form
         function loadToolForEditing(toolId) {
             const tool = tools.find(t => t.ID === toolId);
             if (!tool) return;
@@ -536,39 +629,11 @@
             modifyToolName.value = tool.Name;
             modifyToolDesc.value = tool.Description;
             modifyToolUrl.value = tool.URL;
-            // --- MODIFIED ---
-            // Set EducationUse, default to 'false' (string) if undefined or false
             modifyToolEducationUse.value = tool.EducationUse ? 'true' : 'false';
-            // Set Cost, default to '$' if undefined or empty
             modifyToolCost.value = tool.Cost || '$';
-            // --- END MODIFIED ---
 
-            // 2. Get this tool's current mappings
-            const toolMappings = new Set(
-                mapping.filter(m => m.ToolID === toolId).map(m => m.SafeguardID)
-            );
-
-            // 3. Populate Safeguard Checkbox list
-            modifySafeguardsList.innerHTML = ''; // Clear old list
-            sortedSafeguards.forEach(sg => {
-                const isChecked = toolMappings.has(sg.ID);
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'safeguard-checkbox-item';
-                
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.id = `mod-sg-${sg.ID}`;
-                checkbox.value = sg.ID;
-                checkbox.checked = isChecked;
-
-                const label = document.createElement('label');
-                label.htmlFor = `mod-sg-${sg.ID}`;
-                label.textContent = `SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
-                
-                itemDiv.appendChild(checkbox);
-                itemDiv.appendChild(label);
-                modifySafeguardsList.appendChild(itemDiv);
-            });
+            // 2. Populate Safeguard List with Rationale Inputs using SHARED renderer
+            renderSafeguardsList(modifySafeguardsList, 'mod', toolId);
         }
 
         // "Save Changes" button in Modify Mode
@@ -581,58 +646,78 @@
                 tools[toolIndex].Name = modifyToolName.value;
                 tools[toolIndex].Description = modifyToolDesc.value;
                 tools[toolIndex].URL = modifyToolUrl.value;
-                tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; // --- MODIFIED --- (convert to boolean)
+                tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; 
                 tools[toolIndex].Cost = modifyToolCost.value; 
             }
 
-            // 2. Get all *newly* checked safeguard IDs
-            const newMappingIds = new Set();
-            modifySafeguardsList.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-                newMappingIds.add(cb.value);
+            // 2. Gather new mappings and validate Rationales
+            const newMappingsForTool = [];
+            let validationError = false;
+
+            const items = modifySafeguardsList.querySelectorAll('.safeguard-checkbox-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                const rationaleInput = item.querySelector('.safeguard-rationale-input');
+
+                if (checkbox.checked) {
+                    const rationaleVal = rationaleInput.value.trim();
+                    if (!rationaleVal) {
+                        validationError = true;
+                        rationaleInput.classList.add('border-red-500', 'bg-red-50'); // Visual error cue
+                    } else {
+                        rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                        newMappingsForTool.push({
+                            ToolID: currentModifyToolId,
+                            SafeguardID: checkbox.value,
+                            Rationale: rationaleVal
+                        });
+                    }
+                } else {
+                     rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                }
             });
+
+            if (validationError) {
+                setModifyStatus('Error: Rationale is required for all selected safeguards.', 'red');
+                return;
+            }
 
             // 3. Remove all old mappings for this tool
             mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
 
-            // 4. Add all new mappings for this tool
-            newMappingIds.forEach(sgId => {
-                mapping.push({ ToolID: currentModifyToolId, SafeguardID: sgId });
-            });
+            // 4. Add all newly gathered mappings
+            mapping.push(...newMappingsForTool);
 
             setModifyStatus('Changes saved successfully.', 'green');
 
-            // 5. Repopulate dropdowns in case name changed
-            const selectedToolId = currentModifyToolId; // Store before repopulating
+            // 5. Repopulate dropdowns and re-select current tool to refresh view
+            const selectedToolId = currentModifyToolId; 
             populateAddModeDropdowns();
             populateModifyToolDropdown();
-            modifyToolSelect.value = selectedToolId; // Re-select the tool
+            modifyToolSelect.value = selectedToolId;
+            loadToolForEditing(selectedToolId); 
         });
 
-        // "Remove Tool" button in Modify Mode
         removeToolBtn.addEventListener('click', () => {
             if (!currentModifyToolId) return;
             
             const toolToRemove = tools.find(t => t.ID === currentModifyToolId);
             if (!toolToRemove) return;
 
-            // 1. Remove from tools array
             tools = tools.filter(t => t.ID !== currentModifyToolId);
-
-            // 2. Remove from mapping array
             mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
 
             setModifyStatus(`Tool "${toolToRemove.Name}" and all its mappings have been removed.`, 'green');
 
-            // 3. Reset UI
             currentModifyToolId = null;
             modifyFormContainer.classList.add('hidden');
             populateAddModeDropdowns();
-            populateModifyToolDropdown(); // This repopulates and resets the select
+            populateModifyToolDropdown(); 
         });
         
         // --- 4. Generate Files ---
         function downloadJSON(data, filename) {
-            const jsonString = JSON.stringify(data, null, 4); // Pretty-print
+            const jsonString = JSON.stringify(data, null, 4); 
             const blob = new Blob([jsonString], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             
