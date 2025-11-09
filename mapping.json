@@ -3085,87 +3085,108 @@
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG1.1"
+        "SafeguardID": "SG1.1",
+        "Rationale": "The suite's Firewall Analyzer (AFA) discovers and analyzes network security devices (firewalls, routers, cloud groups), building a model of the network infrastructure which contributes to the overall asset inventory."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG1.3"
+        "SafeguardID": "SG1.3",
+        "Rationale": "The platform actively discovers and maps business applications and their underlying network connectivity flows and security policies."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG1.5"
+        "SafeguardID": "SG1.5",
+        "Rationale": "By visualizing connectivity flows, the tool can passively identify assets communicating on the network, complementing active discovery methods."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG3.8"
+        "SafeguardID": "SG3.8",
+        "Rationale": "A primary feature (AppViz) is the automatic discovery and mapping of application connectivity flows, which serves as a living document of how data moves across the network."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG3.12"
+        "SafeguardID": "SG3.12",
+        "Rationale": "The suite is a key tool for defining, implementing, and monitoring network segmentation and micro-segmentation strategies, allowing teams to enforce separation policies (e.g., prod vs. dev)."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG4.1"
+        "SafeguardID": "SG4.1",
+        "Rationale": "The entire platform is built to manage and audit security configurations, using proactive risk analysis and compliance checks to enforce a secure baseline."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG4.2"
+        "SafeguardID": "SG4.2",
+        "Rationale": "This is the tool's core function. It provides centralized management, auditing, and automated change control specifically for network device (firewalls, routers) configurations."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG4.4"
+        "SafeguardID": "SG4.4",
+        "Rationale": "AlgoSec manages the policies for firewalls, including host-based firewalls on servers or the network firewalls that protect them."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG4.6"
+        "SafeguardID": "SG4.6",
+        "Rationale": "The FireFlow component automates the security policy change management process, ensuring that all modifications to network devices are tracked, auditable, and secure."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG4.8"
+        "SafeguardID": "SG4.8",
+        "Rationale": "The platform identifies unused, redundant, or obsolete firewall rules and provides workflows to securely decommission them, reducing the network's attack surface."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG7.1"
+        "SafeguardID": "SG7.1",
+        "Rationale": "The suite integrates with vulnerability scanners to correlate vulnerability data with network policies, helping to prioritize risks based on actual network exposure."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG7.2"
+        "SafeguardID": "SG7.2",
+        "Rationale": "The FireFlow component provides a ticketing and automated workflow engine to manage the entire lifecycle of a security policy change, from request to remediation."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG7.7"
+        "SafeguardID": "SG7.7",
+        "Rationale": "While it doesn't patch the vulnerability, it automates the implementation of compensating controls (e.g., firewall rule changes) needed to remediate the risk or block the attack vector."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG12.1"
+        "SafeguardID": "SG12.1",
+        "Rationale": "The tool's compliance and audit reports can identify network devices running non-compliant or outdated configurations that violate the organization's security policy."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG12.2"
+        "SafeguardID": "SG12.2",
+        "Rationale": "By modeling the network, analyzing all policies, and enforcing segmentation, the suite is a fundamental tool for designing, validating, and maintaining a secure network architecture."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG12.3"
+        "SafeguardID": "SG12.3",
+        "Rationale": "This is a primary function. FireFlow automates and audits all policy changes, ensuring they are implemented securely and with zero-touch, reducing human error."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG12.4"
+        "SafeguardID": "SG12.4",
+        "Rationale": "The suite provides an interactive, auto-updating network map and visualization of the entire hybrid network topology and its connectivity flows."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG13.4"
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is the explicit purpose of the tool: to manage, audit, and automate the firewall rules that perform traffic filtering between all network segments."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG13.10"
+        "SafeguardID": "SG13.10",
+        "Rationale": "The AppViz component provides application-centric policy management, allowing for the creation and management of rules on next-generation firewalls (NGFWs) that filter traffic at the application layer."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG16.8"
+        "SafeguardID": "SG16.8",
+        "Rationale": "AlgoSec can enforce segmentation policies that create a verifiable barrier between production and non-production environments, and it will audit against these policies to prevent violations."
     },
     {
         "ToolID": "T5",
-        "SafeguardID": "SG18.3"
+        "SafeguardID": "SG18.3",
+        "Rationale": "Penetration test findings that require network-level remediation (e.g., blocking a port, segmenting a VLAN) can be fed into FireFlow to automate and track the implementation of the corrective rule changes."
     },
     {
         "ToolID": "T7",
