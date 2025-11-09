@@ -2925,95 +2925,118 @@
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG7.1"
+        "SafeguardID": "SG7.1",
+        "Rationale": "Anomali's TIP provides critical context on which vulnerabilities are actively being exploited by threat actors. This intelligence is a necessary input for establishing a risk-based process that prioritizes real-world threats over theoretical vulnerabilities."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG7.2"
+        "SafeguardID": "SG7.2",
+        "Rationale": "The platform's ability to correlate external threat intelligence (e.g., \"Ransomware group X is using this exploit\") with internal vulnerability scanner data (e.g., \"We have 50 servers vulnerable to that exploit\") allows teams to create a prioritized, risk-based remediation strategy."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG7.7"
+        "SafeguardID": "SG7.7",
+        "Rationale": "Anomali helps focus remediation efforts by identifying which vulnerabilities are associated with active Indicators of Compromise (IoCs). This allows teams to prioritize patching the systems that are currently being targeted or are at the highest risk of attack."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG8.1"
+        "SafeguardID": "SG8.1",
+        "Rationale": "The platform's SIEM and Data Lake are the technical foundation for an audit log management process. They define what logs can be collected, how they will be stored and indexed, and how they will be reviewed."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG8.2"
+        "SafeguardID": "SG8.2",
+        "Rationale": "The SIEM component is explicitly designed to collect (ingest) audit logs from a vast array of sources, including endpoints, servers, network devices, and cloud applications."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG8.3"
+        "SafeguardID": "SG8.3",
+        "Rationale": "The integrated Security Data Lake is a scalable architecture built to store the massive volumes of log data required for long-term retention and historical analysis."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG8.5"
+        "SafeguardID": "SG8.5",
+        "Rationale": "The SIEM's log collectors and parsers are configured to extract and index detailed event information (like usernames, source/destination IPs, timestamps, etc.) needed for effective forensic investigation."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG8.9"
+        "SafeguardID": "SG8.9",
+        "Rationale": "This is the core purpose of a SIEM. Anomali centralizes disparate logs from across the entire enterprise into one location (the Data Lake) for unified search and correlation."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG8.11"
+        "SafeguardID": "SG8.11",
+        "Rationale": "Anomali automates the \"review\" of logs at machine speed. Its AI-driven detection rules, correlation logic, and analyst dashboards are the mechanisms used to analyze logs 24/7 to find anomalies and potential threats."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG9.2"
+        "SafeguardID": "SG9.2",
+        "Rationale": "Anomali's TIP provides high-fidelity, machine-readable lists of known malicious domains. These threat feeds are integrated with DNS filtering tools to arm them with the most current intelligence on what to block."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG9.3"
+        "SafeguardID": "SG9.3",
+        "Rationale": "Anomali's TIP feeds malicious URLs and IP addresses directly to network-based tools like secure web gateways and firewalls, enabling them to enforce blocking policies based on real-time threat data."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG10.7"
+        "SafeguardID": "SG10.7",
+        "Rationale": "Anomali's SIEM ingests and correlates alerts from behavior-based tools (like an EDR). It adds value by combining endpoint behavioral data with network logs and threat intelligence to identify complex attacks that a single endpoint tool might miss."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.1"
+        "SafeguardID": "SG13.1",
+        "Rationale": "This is a fundamental function of Anomali's SIEM. It ingests alerts from all other security tools (HIDS, NIDS, firewalls, etc.) to provide a single, correlated view of all security events."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.2"
+        "SafeguardID": "SG13.2",
+        "Rationale": "Anomali's SIEM ingests alerts from HIDS for centralization. More importantly, its TIP feeds IoCs to these tools, enhancing their detection rules with up-to-the-minute threat intelligence."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.3"
+        "SafeguardID": "SG13.3",
+        "Rationale": "Anomali's SIEM ingests alerts from NIDS for centralization. More importantly, its TIP feeds IoCs to these tools, enhancing their detection rules with up-to-the-minute threat intelligence."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.6"
+        "SafeguardID": "SG13.6",
+        "Rationale": "The SIEM and Security Data Lake are built to collect, store, and analyze high-volume data like NetFlow, sFlow, and other network traffic logs, which are then analyzed for anomalies and threat activity."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.7"
+        "SafeguardID": "SG13.7",
+        "Rationale": "Anomali supports prevention systems by feeding them real-time threat intelligence (e.g., malicious IPs). This allows the HIPS to proactively block known threats, turning detection into prevention."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.8"
+        "SafeguardID": "SG13.8",
+        "Rationale": "Anomali supports prevention systems by feeding them real-time threat intelligence (e.g., malicious IPs). This allows the NIPS to proactively block known threats, turning detection into prevention."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG13.11"
+        "SafeguardID": "SG13.11",
+        "Rationale": "Anomali's AI-driven analysis and threat context help analysts \"tune\" alerts. It automatically prioritizes alerts that are associated with active, high-risk threat campaigns, allowing teams to suppress low-priority noise and focus on what matters."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG17.4"
+        "SafeguardID": "SG17.4",
+        "Rationale": "Anomali's platform is the operational workbench for an incident response process. Its detection, investigation, and automated SOAR playbooks are the technical implementation of the process."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG17.8"
+        "SafeguardID": "SG17.8",
+        "Rationale": "The platform's investigation and case management features create a detailed, time-stamped audit trail of an incident (what was detected, what was investigated, what actions were taken). This log is the primary source material for conducting a post-incident review."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG17.9"
+        "SafeguardID": "SG17.9",
+        "Rationale": "The correlation rules and AI models within the SIEM are the definition of incident thresholds. For example, a rule that states \"5 failed logins (event) + 1 successful login from a new country (event) = 1 high-priority incident\" is a technically enforced threshold."
     },
     {
         "ToolID": "T2",
-        "SafeguardID": "SG18.1"
+        "SafeguardID": "SG18.1",
+        "Rationale": "Anomali's TIP provides intelligence on the specific Tactics, Techniques, and Procedures (TTPs) used by threat actors relevant to an organization's industry. This information helps scope a penetration test to mimic real-world adversaries, making the test far more valuable."
     },
     {
         "ToolID": "T4",
