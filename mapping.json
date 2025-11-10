@@ -3755,5 +3755,250 @@
         "ToolID": "T8",
         "SafeguardID": "SG18.5",
         "Rationale": "The \"Managed Risk\" service provides the continuous vulnerability management and prioritization needed to remediate findings from both its own scans and external penetration tests."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The platform's endpoint agents, network monitoring (DPI, flow analysis), and cloud/SaaS integrations provide foundational visibility into assets connecting to the network, which is essential for the 24/7 monitoring service."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The \"Managed Risk\" service includes active internal and external vulnerability scanning, which actively probes the network to discover and inventory assets."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG1.5",
+        "Rationale": "The platform's continuous network monitoring, Deep Packet Inspection (DPI), and log correlation capabilities passively identify and catalog assets based on their network traffic."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The integrated Endpoint Detection and Response (EDR) agent provides visibility into installed software, which is a necessary data source for both vulnerability management and threat hunting."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The \"Managed Risk\" and vulnerability management services identify misconfigurations and policy drift, comparing asset configurations against security best practices and hardening standards."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG4.4",
+        "Rationale": "The platform's OS-level visibility, File Integrity Monitoring (FIM), and log collection capabilities are used to monitor server firewall configurations and logs for anomalies or threats."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG4.5",
+        "Rationale": "The EDR agent integration provides the SOC with visibility into the status and logs of host-based firewalls on endpoints, ensuring they are active and properly configured."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG6.6",
+        "Rationale": "The platform includes \"Identity Monitoring\" and \"IAM Visibility\" features designed to inventory, centralize, and monitor logs from identity providers (e.g., Active Directory, Azure AD) for suspicious activity."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG7.1",
+        "Rationale": "This is a core, explicitly sold service (\"Managed Risk\") that provides a documented, continuous process for scanning, identifying, and prioritizing vulnerabilities."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG7.2",
+        "Rationale": "The service provides \"risk-centric analysis\" and \"remediation guidance,\" which are the key components of a risk-based remediation process."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG7.5",
+        "Rationale": "This is an explicit feature of the \"Managed Risk\" service, often offered as monthly or quarterly internal scans."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG7.6",
+        "Rationale": "The service explicitly includes external vulnerability scanning of the organization's perimeter."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG7.7",
+        "Rationale": "By prioritizing vulnerabilities based on severity and providing \"remediation guidance,\" the service directly supports and enables an organization's remediation efforts."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The tool's function as a SIEM-as-a-Service is the technical foundation for an organization's log management process, defining collection, retention, and review."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.2",
+        "Rationale": "This is a core function. The platform is designed to collect and ingest logs from a wide array of sources, including endpoints, OS, network devices, and cloud services."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The platform provides a cloud-based log retention solution, explicitly stating 365 days of storage, which meets the requirement."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.4",
+        "Rationale": "Accurate time synchronization across all log sources is a mandatory prerequisite for the SIEM's \"real-time event correlation\" engine to function correctly."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The platform's features, such as \"Process Tree Mapping,\" \"File Integrity Monitoring,\" and \"API Activity Monitoring,\" demonstrate the collection of detailed, granular logs for forensic analysis."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The platform's network monitoring capabilities explicitly capture \"DNS and Proxy Threat Indicators.\""
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.7",
+        "Rationale": "This is covered by the \"DNS and Proxy Threat Indicators\" and \"Deep Packet Inspection\" features."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.8",
+        "Rationale": "This data is collected via \"OS-level visibility\" and \"Process Tree Mapping,\" which are essential for EDR and threat hunting."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.9",
+        "Rationale": "This is the primary purpose of the cloud-based SIEM platform: to centralize all security logs into a single, searchable, and analyzable repository."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The platform provides 365 days of log retention, far exceeding the 90-day minimum requirement."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.11",
+        "Rationale": "This is the core value proposition of the 24/7 Managed SOC, which uses both automation and human analysts to review logs and alerts for threats."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG8.12",
+        "Rationale": "The platform has explicit features for \"Cloud Log Ingestion\" (AWS, Azure, GCP) and \"SaaS Threat Detection\" to monitor service provider environments."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The platform's threat intelligence and monitoring for \"DNS... threat indicators\" are used to detect and block connections to known malicious domains."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The service includes \"fully managed EDR\" and \"Anti-virus Device Protection\" as part of its endpoint security stack."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The EDR component includes \"Exploit Prevention\" features to detect and block memory-based and fileless attacks."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The \"fully managed EDR\" is centrally controlled and monitored by the ArmorPoint SOC through the unified dashboard."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG10.7",
+        "Rationale": "This is an explicit feature, described as \"Behavior-based detection\" and \"Anomaly & Behavior Monitoring\" to catch zero-day and novel threats."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.1",
+        "Rationale": "This is the primary function of the SIEM platform, which ingests, correlates, and centralizes alerts from all connected tools for the SOC to analyze."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Features such as \"System File Integrity,\" \"Unauthorized Access Detection,\" and \"OS-level visibility\" are modern HIDS capabilities integrated into the platform."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The platform's \"Deep Packet Inspection,\" \"Lateral Movement Detection,\" and \"Intrusion Detection\" features fulfill the role of a NIDS."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The \"East-West Traffic Analysis\" feature provides the necessary visibility to create, validate, and monitor internal segmentation and firewall rules."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The platform explicitly uses \"Flow-Based Correlation\" and \"Deep Packet Inspection\" to collect and analyze network traffic."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The MDR service provides HIPS capabilities through its \"Automated Remediation\" features, such as the ability to \"halt malicious processes,\" \"prevent execution,\" and \"isolate compromised machines.\""
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG13.11",
+        "Rationale": "A key value of the 24/7 SOC is \"expertly validated escalations\" and avoiding \"false positives,\" which is the human-led process of tuning alerts."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG16.3",
+        "Rationale": "The EDR component provides \"Full attack chain visualization\" and \"Root-cause analysis\" to understand how an attack was executed, which is a key part of post-incident review."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.1",
+        "Rationale": "By subscribing to the service, an organization designates the ArmorPoint 24/7 SOC as its (or a part of its) personnel for incident handling."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.2",
+        "Rationale": "The ArmorPoint SOC serves as the 24/7 technical contact point for receiving, validating, and escalating security incidents."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.3",
+        "Rationale": "The platform's \"unified dashboard\" and \"Mobile App\" provide the defined mechanisms for reporting and viewing incident status."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.4",
+        "Rationale": "This is a core \"Incident Management\" and \"Managed Detection and Response\" service, providing a documented and battle-tested IR process."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.5",
+        "Rationale": "As a managed service, ArmorPoint's team is assigned the key roles of incident analysts and responders as an extension of the client's team."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.6",
+        "Rationale": "The platform provides a \"unified dashboard\" and \"Mobile App\" for real-time alerts and communication during an incident."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The \"root-cause analysis\" provided for incidents is the primary technical input for conducting a post-incident review to identify lessons learned."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG17.9",
+        "Rationale": "The SIEM's \"real-time event correlation\" rules and the SOC's \"alert validation\" process are the technical and human implementation of incident thresholds (i.e., distinguishing a non-threatening \"event\" from a true \"incident\")."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG18.1",
+        "Rationale": "ArmorPoint explicitly offers \"Penetration Testing\" as part of its \"Managed Risk\" solution, providing the expertise to establish and run such a program."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG18.2",
+        "Rationale": "This is an explicit service offered by the ArmorPoint \"Managed Risk\" team."
+    },
+    {
+        "ToolID": "T10",
+        "SafeguardID": "SG18.3",
+        "Rationale": "Findings from a penetration test are fed into the \"Vulnerability Management\" service for prioritization, tracking, and remediation guidance."
     }
 ]

@@ -184,6 +184,14 @@
         "Cost": "$$$$$"
     },
     {
+        "ID": "T10",
+        "Name": "ArmorPoint",
+        "Description": "ArmorPoint is a managed cybersecurity solution provider that combines a cloud-based SIEM platform, 24/7 SOC services, and expert-led processes to deliver managed detection and response (MDR), vulnerability management, and risk management.",
+        "URL": "https://armorpoint.com/",
+        "EducationUse": false,
+        "Cost": "$$$"
+    },
+    {
         "ID": "T427",
         "Name": "Aruba ClearPass Policy Manager",
         "Description": "Aruba's ClearPass offers policy management and access control with support for 802.1X, WPA3 Enterprise, and other secure protocols across wired and wireless networks.",
