@@ -68,14 +68,6 @@
         "ToolID": "T624"
     },
     {
-        "SafeguardID": "SG12.6",
-        "ToolID": "T427"
-    },
-    {
-        "SafeguardID": "SG13.9",
-        "ToolID": "T427"
-    },
-    {
         "SafeguardID": "SG1.1",
         "ToolID": "T3"
     },
@@ -4330,5 +4322,60 @@
         "ToolID": "T13",
         "SafeguardID": "SG18.3",
         "Rationale": "When a penetration test identifies a web vulnerability (like an XSS or SQLi), the Akamai App & API Protector (WAAP) can be used to apply an immediate \"virtual patch.\" This is a custom rule that blocks the specific exploit at the edge, remediating the risk long before the application code can be fixed and redeployed."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The optional ClearPass Device Insight module uses a combination of active (NMAP, SNMP, etc.) and passive (DHCP, SPAN, etc.) discovery methods to discover, profile, and classify all devices connected to the network, including IT, IoT, and BYOD assets, feeding this data into the asset inventory."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG1.2",
+        "Rationale": "This is a core function of the tool. ClearPass policies can be configured to automatically deny, quarantine, or place unauthorized devices (those that are unknown or fail policy checks) onto a restricted network segment, thus addressing them in real-time."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG1.3",
+        "Rationale": "When configured with the Device Insight module, ClearPass can perform active scans using protocols like NMAP and WMI to actively probe the network and identify/profile connected assets."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG1.5",
+        "Rationale": "ClearPass can be configured to passively monitor network traffic and data sources (like SPAN ports, DHCP, and NetFlow) to discover and identify devices as they connect, without generating active scanning traffic."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG4.2",
+        "Rationale": "ClearPass enforces secure access policies for network infrastructure. It uses TACACS+ to provide centralized, role-based authentication and authorization for administrators logging into switches, routers, and firewalls, ensuring only authorized personnel can make configuration changes."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG6.4",
+        "Rationale": "ClearPass serves as the policy engine for VPNs. It can enforce context-aware policies for remote users, such as requiring them to pass a Multi-Factor Authentication (MFA) check before being granted network access."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG6.8",
+        "Rationale": "This is the primary function of ClearPass. It builds and enforces granular, role-based access control (RBAC) policies based on a user's identity, device type, location, time of day, and posture assessment (device health)."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG12.5",
+        "Rationale": "ClearPass is a full-featured AAA server, providing centralized RADIUS (for network access) and TACACS+ (for device administration) services. This allows an enterprise to manage all network and device authentication from a single, unified platform."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG12.6",
+        "Rationale": "ClearPass is the enabling technology for 802.1X, which is the primary secure network management protocol for authenticating devices and users at the port level (wired or wireless)."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG13.5",
+        "Rationale": "The ClearPass OnGuard agent performs endpoint posture assessments (e.g., checking for up-to-date antivirus, OS patches, or disabled firewalls) on remote and internal devices before granting them network access, ensuring they meet security compliance."
+    },
+    {
+        "ToolID": "T427",
+        "SafeguardID": "SG13.9",
+        "Rationale": "This safeguard is the definition of what ClearPass does. It uses the 802.1X protocol to provide dynamic, port-level access control, ensuring that any device connecting to a network port (wired or wireless) must first authenticate and be authorized by the ClearPass policy engine."
     }
 ]

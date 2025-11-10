@@ -218,17 +218,9 @@
     {
         "ID": "T427",
         "Name": "Aruba ClearPass Policy Manager",
-        "Description": "Aruba's ClearPass offers policy management and access control with support for 802.1X, WPA3 Enterprise, and other secure protocols across wired and wireless networks.",
-        "URL": "https://www.arubanetworks.com/en-us/solutions/network-access-control/clearpass",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T18",
-        "Name": "Aruba ClearPass Policy Manager",
         "Description": "Aruba ClearPass Policy Manager is a foundational Network Access Control (NAC) solution that provides role- and device-based access security for multi-vendor wired, wireless, and VPN infrastructures.",
         "URL": "https://www.hpe.com/us/en/aruba-clearpass-policy-manager.html",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$$$$$"
     },
     {
