@@ -8,6 +8,22 @@
         "Cost": "$$"
     },
     {
+        "ID": "T11",
+        "Name": "A10 Networks",
+        "Description": "A10 Networks provides cybersecurity and infrastructure solutions specializing in application delivery controllers (ADC), advanced load balancing, DDoS protection, and SSL/TLS inspection for on-premises, hybrid, and cloud environments.",
+        "URL": "https://www.a10networks.com",
+        "EducationUse": true,
+        "Cost": "$$$$$"
+    },
+    {
+        "ID": "T12",
+        "Name": "Abnormal Security",
+        "Description": "Abnormal Security is an AI-powered, cloud-native email security platform that integrates via API to protect against advanced threats like phishing, business email compromise, and account takeovers.",
+        "URL": "https://abnormal.ai/",
+        "EducationUse": true,
+        "Cost": "$$$$"
+    },
+    {
         "ID": "T385",
         "Name": "Acronis Cyber Protect",
         "Description": "Acronis combines backup, antivirus, and endpoint management into a single solution with customizable scheduling for automated backups.",
@@ -30,6 +46,14 @@
         "URL": "https://github.com/jeremyong/after-incident-report",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T13",
+        "Name": "Akamai",
+        "Description": "Akamai is a global cloud services and cybersecurity company that provides a massively distributed edge platform to secure and deliver digital experiences, protecting websites, APIs, and internal infrastructure from DDoS attacks, web application exploits, and malicious lateral movement.",
+        "URL": "https://www.akamai.com/",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T61",
@@ -198,6 +222,14 @@
         "URL": "https://www.arubanetworks.com/en-us/solutions/network-access-control/clearpass",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T18",
+        "Name": "Aruba ClearPass Policy Manager",
+        "Description": "Aruba ClearPass Policy Manager is a foundational Network Access Control (NAC) solution that provides role- and device-based access security for multi-vendor wired, wireless, and VPN infrastructures.",
+        "URL": "https://www.hpe.com/us/en/aruba-clearpass-policy-manager.html",
+        "EducationUse": false,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T3",

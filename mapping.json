@@ -4000,5 +4000,335 @@
         "ToolID": "T10",
         "SafeguardID": "SG18.3",
         "Rationale": "Findings from a penetration test are fed into the \"Vulnerability Management\" service for prioritization, tracking, and remediation guidance."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG3.10",
+        "Rationale": "A10's Thunder ADC and SSLi products are used to manage, offload, and process SSL/TLS encrypted traffic, which is a key part of maintaining and enforcing secure data in transit."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG4.2",
+        "Rationale": "The A10 Harmony Controller provides a centralized management platform to enforce and maintain secure, standardized configurations across all A10 network appliances."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG4.4",
+        "Rationale": "The A10 Thunder Convergent Firewall (CFW) is a high-performance network firewall that provides a stateful firewall and security gateway to protect downstream servers and applications."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG8.2",
+        "Rationale": "A10 devices generate extensive audit logs for all network traffic, security events (like DDoS attacks or WAF blocks), and administrative actions, which are necessary for compliance and investigations."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The platform's DNS Application Firewall and DNS protection features log DNS queries to detect and block malicious requests, such as those used for C2 communication or phishing."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The Secure Web Gateway (SWG) and URL filtering capabilities within the Thunder CFW log all URL requests, enabling policy enforcement and analysis of web-based threats."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The A10 Harmony Controller aggregates logs and analytics from all distributed A10 devices, providing a centralized location for review and alerting."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG9.2",
+        "Rationale": "A10's DNS protection and SWG solutions include DNS filtering to prevent users from accessing known malicious domains."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The Thunder CFW's secure web gateway functionality provides comprehensive, network-based URL filtering based on categories, reputation, and custom blocklists."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG12.2",
+        "Rationale": "A10's core products (ADC, CFW, TPS) are fundamental components for building a secure network architecture, enabling traffic segmentation, inspection of encrypted traffic, and load balancing."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG12.3",
+        "Rationale": "A10 devices and the Harmony Controller are managed using secure protocols (e.g., SSH, HTTPS) and role-based access control, ensuring the secure management of this critical network infrastructure."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The A10 Harmony Controller provides a centralized dashboard for real-time security event monitoring and alerting, especially for DDoS attacks and application-layer threats."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The Thunder Threat Protection System (TPS) is specifically designed to detect network-based attacks, such as DDoS floods and other anomalous traffic patterns, acting as a NIDS."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The A10 Thunder CFW is a firewall that can be deployed at network boundaries to filter traffic and enforce security policies between different network segments (e.g., between the internet and a DMZ)."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG13.6",
+        "Rationale": "As in-line network devices, the entire A10 Thunder suite is positioned to collect detailed network traffic flow logs (like NetFlow or IPFIX) for analysis and security monitoring."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG13.8",
+        "Rationale": "The Thunder TPS provides automated, real-time mitigation to block DDoS attacks, and the A10 WAF blocks web-based exploits, both functioning as active Network Intrusion Prevention Systems (NIPS)."
+    },
+    {
+        "ToolID": "T11",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The A10 Next-Generation Web Application Firewall (WAF) and the application-aware intelligence of the Thunder ADC are explicitly designed to perform deep packet inspection and filtering at the application layer (Layer 7)."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The platform's Security Posture Management feature continuously scans the cloud email environment (like M365) for misconfigurations and security gaps."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The Account Takeover Protection feature baselines normal user behavior, which inherently helps to inventory and validate the activity of all known accounts."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG6.5",
+        "Rationale": "The tool's behavioral AI detects anomalous sign-ins and lateral movement, acting as a critical compensating control to detect MFA bypass or administrative account compromise."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The platform integrates via API to ingest thousands of behavioral signals and logs from cloud email providers (like Microsoft 365 and Google Workspace)."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Abnormal centralizes email-related event and signal data into its own platform for analysis and provides integrations to send its findings to a central SIEM."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG8.11",
+        "Rationale": "This is a core function; the platform's AI continuously and automatically \"reviews\" behavioral logs to detect anomalies and threats that a human analyst would miss."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG8.12",
+        "Rationale": "The tool's API-based architecture is designed to collect and analyze logs directly from cloud service providers (Microsoft and Google) to detect threats."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The tool's anti-phishing capabilities include analyzing URLs within emails to block user access to malicious domains."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG9.3",
+        "Rationale": "By scanning and neutralizing malicious links before they reach a user, the tool provides an essential layer of URL filtering at the email gateway."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG9.5",
+        "Rationale": "The platform specializes in detecting and blocking sophisticated impersonation and spoofing attacks (BEC) that are the primary targets of DMARC, SPF, and DKIM."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG9.6",
+        "Rationale": "As part of its anti-malware function, the platform analyzes email attachments and blocks those identified as malicious, including dangerous file types."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG9.7",
+        "Rationale": "This is a primary purpose of the tool. It serves as an advanced anti-malware, anti-phishing, and anti-spam solution for the email platform."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The platform's entire detection model is built on \"Behavioral AI,\" identifying threats based on anomalous activity rather than just known signatures."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The platform acts as the central hub for detecting, triaging, and remediating all advanced email-based threats, integrating with SIEM/SOAR systems."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The \"Account Takeover Protection\" feature functions as an intrusion detection system for the user's account (the \"host\"), detecting malicious internal activity."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The platform includes an \"AI Phishing Coach\" feature that can use real, blocked attacks as immediate, contextual training moments for users."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG14.6",
+        "Rationale": "The \"Abuse Mailbox Automation\" feature provides the mechanism for receiving and processing user-reported incidents, closing the loop on training."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG17.3",
+        "Rationale": "The \"Abuse Mailbox Automation\" feature provides the technical foundation for an enterprise-wide process to report and triage suspicious emails."
+    },
+    {
+        "ToolID": "T12",
+        "SafeguardID": "SG17.9",
+        "Rationale": "The platform's AI models are a technical implementation of this safeguard, automatically differentiating between normal user behavior (events) and high-risk anomalies (incidents)."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG1.5",
+        "Rationale": "The Akamai Guardicore Segmentation platform provides complete visibility into network traffic (east-west and north-south). By analyzing this traffic, it passively discovers and maps all communicating assets, including servers, VMs, and applications, without requiring active scanning."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Akamai's Zero Trust Network Access (ZTNA) solution (part of its Secure Internet Access suite) enforces least-privilege access by granting users access only to specific, authorized applications rather than the entire network, acting as a granular access control list."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The visibility and mapping features of Akamai Guardicore Segmentation show the dependencies and communication paths between all applications and workloads, creating a real-time, visual map that serves as documentation for data flows."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG3.12",
+        "Rationale": "This is the core function of Akamai Guardicore Segmentation. It allows organizations to create and enforce granular micro-segmentation policies that isolate critical assets and sensitive data, preventing unauthorized lateral movement between production, development, or sensitive data environments."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG4.4",
+        "Rationale": "Akamai Guardicore Segmentation acts as a powerful, centrally managed, software-based firewall for servers and workloads. It enforces segmentation policies directly at the workload level, controlling all inbound and outbound connections."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Akamai EdgeDNS is a cloud-based, authoritative DNS service built for security and resilience. It is not based on BIND and is protected by Akamai's massive edge network, making it a highly trusted and secure DNS service for an enterprise's external domains."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG6.3",
+        "Rationale": "Akamai MFA is a phish-proof multi-factor authentication solution that can be integrated with Identity Providers (IdPs) to secure access to all externally-exposed cloud and web applications."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG6.4",
+        "Rationale": "Akamai MFA is designed to provide strong authentication for remote access solutions, including modern ZTNA frameworks (which replace traditional VPNs) and legacy VPNs."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG6.5",
+        "Rationale": "Akamai MFA can be applied via IdP integration to enforce phish-proof authentication for all privileged user accounts, securing administrative access to critical systems and applications."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The Akamai platform provides a SIEM API that allows customers to collect and export detailed security event logs from its products (WAF, bot management, etc.) for analysis and retention."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Akamai's Secure Internet Access (a secure web gateway) is a recursive DNS security service that logs all DNS queries from an enterprise's users to identify and block requests to malicious domains."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The Akamai App & API Protector (WAAP) logs every incoming web and API request, providing a comprehensive audit log of all URL requests, headers, and threat data that can be exported via the SIEM API."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Akamai's SIEM API provides the mechanism to pull security logs from the Akamai edge platform (a service provider) into an organization's central SIEM or log management solution (e.g., Splunk, Elastic)."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As Akamai is a service provider, its SIEM API is the tool that directly fulfills this safeguard, allowing the enterprise to collect security logs from their service provider (Akamai)."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG9.2",
+        "Rationale": "Akamai's Secure Internet Access product is a cloud-based secure web gateway that includes DNS-layer security, actively filtering and blocking access to known malicious domains."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The Akamai App & API Protector (WAAP) enforces granular URL-based filtering rules at the network edge to block access to malicious or unapproved web paths and APIs."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The Adaptive Security Engine within Akamai's WAAP uses machine learning to analyze traffic patterns, detect anomalies, and identify attack behaviors, rather than relying solely on static signatures."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG12.2",
+        "Rationale": "Akamai Guardicore Segmentation is a key technology for enforcing a secure network architecture. It provides the toolset to build and maintain a Zero Trust model with micro-segmentation, ensuring the architectural design is effectively implemented."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG12.7",
+        "Rationale": "Akamai's ZTNA solution is the modern, more secure replacement for this safeguard. It provides secure, application-level remote access that natively integrates with enterprise AAA (like IdPs) and enforces MFA."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.1",
+        "Rationale": "Akamai's platform and its SIEM API allow for the consolidation of all edge security alerts (WAF, DDoS, bot) and internal segmentation alerts into a central SIEM for correlation."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Akamai Guardicore Segmentation provides real-time visibility and detection of lateral movement, port scanning, and other threat activities at the individual workload level, serving as a HIDS."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The Akamai App & API Protector and DDoS protection services inspect all incoming traffic at the network edge, detecting and logging network-layer and application-layer attacks, functioning as a cloud-based NIDS."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is the primary function of Akamai Guardicore Segmentation. It enforces granular, software-defined filtering policies between individual workloads, creating micro-segments."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.7",
+        "Rationale": "Akamai Guardicore Segmentation actively prevents unauthorized communication and lateral movement by enforcing its segmentation policies at the host, thus acting as a HIPS."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.8",
+        "Rationale": "The Akamai App & API Protector (WAAP) and DDoS protection services are inline NIPS solutions. They don't just detect threats; they actively block malicious requests, bot traffic, and DDoS attacks at the network edge."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.10",
+        "Rationale": "This is the core purpose of the Web Application Firewall (WAF) within the Akamai App & API Protector solution, which inspects and filters all HTTP/S and API traffic."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG13.11",
+        "Rationale": "The Adaptive Security Engine in Akamai's WAAP uses machine learning to automatically tune its own protection rules based on observed traffic, which reduces false positives and alleviates the need for constant manual tuning."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG16.10",
+        "Rationale": "The Akamai App & API Protector (WAAP) is a key component of a secure application design, enforcing the principle of \"never trust user input\" by serving as a mediation layer that validates all incoming web and API requests."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG16.11",
+        "Rationale": "Akamai MFA allows development teams to offload the complex and critical task of phish-proof authentication to a vetted, specialized service instead of building and maintaining it themselves."
+    },
+    {
+        "ToolID": "T13",
+        "SafeguardID": "SG18.3",
+        "Rationale": "When a penetration test identifies a web vulnerability (like an XSS or SQLi), the Akamai App & API Protector (WAAP) can be used to apply an immediate \"virtual patch.\" This is a custom rule that blocks the specific exploit at the edge, remediating the risk long before the application code can be fixed and redeployed."
     }
 ]
