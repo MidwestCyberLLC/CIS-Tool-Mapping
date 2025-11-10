@@ -572,19 +572,32 @@
             eduFilterCheckboxes = document.querySelectorAll('.edu-filter-cb');
             costFilterCheckboxes = document.querySelectorAll('.cost-filter-cb');
 
+            // Toggle button styling
+            function updateTabs(activeButton) {
+                [btnViewByControl, btnViewByTool].forEach(btn => {
+                    btn.className = tabClasses; // Reset
+                    if (btn === activeButton) {
+                        btn.classList.add(...activeTabClasses.split(' '));
+                    } else {
+                        btn.classList.add(...inactiveTabClasses.split(' '));
+                    }
+                });
+            }
+
+            // Set initial active tab state
+            updateTabs(btnViewByControl);
+
             // Event Listeners for Tabs
             btnViewByControl.addEventListener('click', () => {
                 controlsView.classList.remove('hidden');
                 toolsView.classList.add('hidden');
-                btnViewByControl.className = `${tabClasses} ${activeTabClasses}`;
-                btnViewByTool.className = `${tabClasses} ${inactiveTabClasses}`;
+                updateTabs(btnViewByControl);
                 applySearchFilter();
             });
             btnViewByTool.addEventListener('click', () => {
                 controlsView.classList.add('hidden');
                 toolsView.classList.remove('hidden');
-                btnViewByTool.className = `${tabClasses} ${inactiveTabClasses}`;
-                btnViewByControl.className = `${tabClasses} ${activeTabClasses}`;
+                updateTabs(btnViewByTool);
                 applySearchFilter();
             });
 
