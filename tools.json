@@ -40,14 +40,6 @@
         "Cost": "$$$"
     },
     {
-        "ID": "T682",
-        "Name": "After Incident Report (GitHub)",
-        "Description": "A simple, open-source template to standardize post-incident reports within a GitHub repository.",
-        "URL": "https://github.com/jeremyong/after-incident-report",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T13",
         "Name": "Akamai",
         "Description": "Akamai is a global cloud services and cybersecurity company that provides a massively distributed edge platform to secure and deliver digital experiences, protecting websites, APIs, and internal infrastructure from DDoS attacks, web application exploits, and malicious lateral movement.",
