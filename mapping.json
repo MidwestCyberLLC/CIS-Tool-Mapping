@@ -1,9 +1,5 @@
 [
     {
-        "SafeguardID": "SG3.2",
-        "ToolID": "T61"
-    },
-    {
         "SafeguardID": "SG3.10",
         "ToolID": "T103"
     },
@@ -4720,5 +4716,50 @@
         "ToolID": "T380",
         "SafeguardID": "SG17.8",
         "Rationale": "The \"Forensic Backup\" and \"Collect digital evidence\" features create immutable, detailed snapshots of an asset during an incident, providing the data necessary for a post-incident review."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG3.1",
+        "Rationale": "Alation provides the technical foundation for a data management process by enabling data governance, automating policy workflows, and centralizing data stewardship responsibilities."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG3.2",
+        "Rationale": "This is the core function of the tool. Alation connects to disparate data sources (databases, file systems, BI tools) to automatically create a comprehensive, searchable inventory of an enterprise's data assets."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG3.3",
+        "Rationale": "The platform's governance features can enforce data access policies, such as applying row-level access controls and dynamic data masking, based on a user's role and the data's classification."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG3.7",
+        "Rationale": "Alation is designed to implement a classification scheme. It can automatically classify data (e.g., PII, PHI) and allows stewards to apply \"Trust Flags\" and other labels to data, indicating its sensitivity and quality."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The tool's data lineage capability automatically maps and visualizes data flows, showing where data originates, how it's transformed, and where it's used."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG3.12",
+        "Rationale": "y providing a complete inventory (SG3.2) and classifying all data (SG3.7), Alation gives organizations the necessary intelligence to design and enforce network and storage segmentation based on data sensitivity."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG15.1",
+        "Rationale": "By cataloging data assets located in cloud platforms and SaaS applications, Alation helps identify which service providers are being used and what data they store, contributing directly to this inventory."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG15.3",
+        "Rationale": "Alation's ability to classify the sensitivity of data (SG3.7) located within a service provider's environment is a critical input for classifying the risk level of that provider."
+    },
+    {
+        "ToolID": "T61",
+        "SafeguardID": "SG15.4",
+        "Rationale": "The platform's \"Policy Center\" can be used to centralize, store, and manage policies and compliance requirements, which can be mapped to service providers to track contractual obligations."
     }
 ]

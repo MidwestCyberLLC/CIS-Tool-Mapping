@@ -49,11 +49,11 @@
     },
     {
         "ID": "T61",
-        "Name": "Alation Data Catalog",
-        "Description": "Alation's catalog automatically discovers, profiles, and catalogs data across your organization to provide a searchable inventory with business context.",
-        "URL": "https://www.alation.com/data-catalog/",
+        "Name": "Alation Data Intelligence Platform",
+        "Description": "Alation is an enterprise data catalog platform that automatically discovers, profiles, and inventories data across an organization to provide a single, searchable source of truth with business context.",
+        "URL": " https://www.alation.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T7",
