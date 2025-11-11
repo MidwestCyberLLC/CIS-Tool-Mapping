@@ -26,18 +26,18 @@
     {
         "ID": "T385",
         "Name": "Acronis Cyber Protect",
-        "Description": "Acronis combines backup, antivirus, and endpoint management into a single solution with customizable scheduling for automated backups.",
-        "URL": "https://www.acronis.com/en-us/products/cyber-protect",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Acronis Cyber Protect is an all-in-one cyber protection solution that integrates data protection, cybersecurity, and endpoint management into a single platform.",
+        "URL": "https://www.acronis.com/en/products/cyber-protect/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T380",
         "Name": "Acronis Cyber Protect Cloud",
-        "Description": "Acronis combines backup, disaster recovery, and cybersecurity into a single, integrated platform for comprehensive data protection.",
-        "URL": "https://www.acronis.com/en-us/products/cyber-protect-cloud",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Acronis Cyber Protect Cloud is a unified cybersecurity solution that integrates backup, disaster recovery, AI-based malware protection, and endpoint management into a single platform.",
+        "URL": "https://www.acronis.com/en/solutions/cloud/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T682",

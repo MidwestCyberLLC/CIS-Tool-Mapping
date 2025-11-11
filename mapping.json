@@ -1,13 +1,5 @@
 [
     {
-        "SafeguardID": "SG11.2",
-        "ToolID": "T385"
-    },
-    {
-        "SafeguardID": "SG11.1",
-        "ToolID": "T380"
-    },
-    {
         "SafeguardID": "SG17.8",
         "ToolID": "T682"
     },
@@ -4377,5 +4369,360 @@
         "ToolID": "T427",
         "SafeguardID": "SG13.9",
         "Rationale": "This safeguard is the definition of what ClearPass does. It uses the 802.1X protocol to provide dynamic, port-level access control, ensuring that any device connecting to a network port (wired or wireless) must first authenticate and be authorized by the ClearPass policy engine."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The tool includes an \"auto-discovery\" feature to find new devices on the network and a \"hardware and software inventory\" module to help build and maintain this inventory."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The tool's \"comprehensive discovery\" function acts as an active discovery tool to identify assets connected to the network."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The platform's \"hardware and software inventory\" capabilities can be used to document and track installed software and licenses."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The tool's inventory feature is automated, helping to discover and document software across enterprise assets."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG3.2",
+        "Rationale": "Acronis provides a \"Data protection map\" feature that classifies data and tracks its protection status, helping to build and maintain a data inventory."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG3.6",
+        "Rationale": "The solution includes \"advanced encryption for data at rest\" and manages endpoint protection, which can be used to enforce encryption on end-user devices."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Acronis Cyber Protect includes Data Loss Prevention (DLP) as a specific module or feature."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The tool is a key part of this process, providing \"vulnerability assessments\" and \"patch management\" to harden assets."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG4.11",
+        "Rationale": "The platform includes \"Endpoint Management\" and \"Remote management\", which are characteristic of MDM-like tools that provide remote wipe capabilities for mobile and portable devices."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The tool directly supports this process by providing integrated \"vulnerability assessment\" and \"patch management\" functionalities."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The \"Patch management\" feature automates the deployment of OS updates."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG7.4",
+        "Rationale": "The tool's \"vulnerability assessment\" scans for and its \"patch management\" feature updates both OS and application vulnerabilities."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG7.5",
+        "Rationale": "This is a core function of the \"vulnerability assessment\" module."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The \"patch management\" feature directly remediates vulnerabilities found by the assessment scanner."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The \"Forensic backup\" feature is designed to collect detailed evidence, including \"memory dumps and process information\", which aids in forensic investigations."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The tool's \"URL filtering\" and \"Web filtering and content control\" features block access to malicious domains, functioning as a DNS filter."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is explicitly provided by the \"URL filtering\" feature."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG10.1",
+        "Rationale": "This is a primary function of the tool, which provides \"next-generation AI-based protection against malware\" and \"Antimalware and web protection\"."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG10.2",
+        "Rationale": "As a managed, next-generation solution, it automatically updates its definitions. It can also \"Integrate antimalware updates\" into the recovery process."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The platform uses \"AI-powered protection mechanisms... and behavioral heuristics\" and \"AI-powered behavioural detection\" to stop exploits, not just known malware."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The tool is designed around a \"single management interface\" and provides \"centralised management of endpoints\"."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG10.7",
+        "Rationale": "This is an explicitly stated feature, using \"behavioral heuristics\", \"behavioral analysis\", and \"AI-Powered Behavioral Detection\" to identify ransomware and other threats."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The tool provides the core technology to implement a data recovery process, centered on \"Backup and Disaster Recovery\"."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG11.2",
+        "Rationale": "This is a core function, providing \"automatic image backups\" and \"automated backup scanning\"."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The solution protects backups using \"Immutable storage\" and \"advanced encryption for data at rest\"."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG11.4",
+        "Rationale": "The platform is designed to create backups in the \"cloud\", providing an off-site, logically isolated copy."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The \"Disaster Recovery\" and \"instant restore\" features are the mechanisms used to test and validate the recoverability of backups."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The \"Endpoint detection and response (EDR)\" and \"AI-powered behavioral detection\" features monitor system activity for malicious patterns, serving as a HIDS."
+    },
+    {
+        "ToolID": "T385",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The \"Acronis Active Protection\" technology and EDR capabilities are designed to \"detect, block, and automatically recover\" from threats, functioning as a HIPS."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The tool's \"Asset Management and Inventory\" feature can perform \"Comprehensive discovery\" to automatically identify and track devices on the network."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The \"Autodiscovery of Machines\" and \"Comprehensive discovery\" functions serve as an active discovery tool to find and inventory assets."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The platform includes a \"Software Inventory\" feature to \"Track licenses... and system specifications\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The tool automates the process of discovering and documenting software installed on managed assets."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.3",
+        "Rationale": "The integrated Data Loss Prevention (DLP) module provides \"Control over data flows\" and can \"Block unauthorized data access and transfer operations,\" which enforces data access policies."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The tool includes a \"Remote Device Wipe\" feature, allowing for the secure disposal of data on lost or stolen endpoint devices."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.6",
+        "Rationale": "The platform includes \"Data Encryption\" capabilities and \"Advanced, end-to-end encryption\" for data at rest."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.7",
+        "Rationale": "The Acronis DLP component can \"automatically classify and label sensitive data\" such as PII."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The solution provides \"Advanced, end-to-end encryption, both during transit and at rest\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.11",
+        "Rationale": "This is an explicit feature, providing \"Advanced, end-to-end encryption\" for data \"at rest in Acronis's secure data centers\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Acronis offers a \"Data Loss Prevention (DLP)\" solution (Acronis DeviceLock DLP) to \"prevent sensitive data leaks\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The DLP module includes \"Log collection\" and \"monitoring of end-users actions and data flows\" to track data access."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The \"Vulnerability assessment\" and \"CyberFit Score\" features help assess and manage system configurations against security baselines."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG4.5",
+        "Rationale": "The tool's security suite includes a managed \"Firewall Protection\" component."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG4.11",
+        "Rationale": "The platform provides a \"Remote Device Wipe\" feature, which is a core requirement for this safeguard."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The tool is a key part of this process, offering \"vulnerability assessment services\" and \"Patch Management\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The platform provides \"Automated patching\" and \"Patch Management\" to deploy OS updates."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG7.4",
+        "Rationale": "The patch management feature \"identifying unpatched or outdated software\" and applies patches to third-party applications."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG7.5",
+        "Rationale": "The \"Vulnerability Assessment\" feature \"Automatically scans for weaknesses\" on internal assets."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The \"Patch Management\" and \"Fail-safe patching\" capabilities allow for the direct remediation of identified software vulnerabilities."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The platform's DLP and EDR features include \"Log collection\" capabilities."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The \"Forensic Backup\" and \"Collect digital evidence\" features are designed to capture detailed logs and system states for investigation."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The tool provides a \"secure central repository\" for collected logs, forensic data, and evidence."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The \"Monitoring and Reporting\" and \"Built-in log record viewers\" in the single console facilitate the review of collected logs."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG9.2",
+        "Rationale": "This is provided by the \"URL filtering\" and \"Web filtering and content control\" features."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The \"URL filtering\" feature explicitly meets this requirement."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG9.7",
+        "Rationale": "This is available as a specific add-on, \"Acronis Email Security\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG10.1",
+        "Rationale": "This is a core function, providing \"next-generation anti-malware technology\" and \"Antivirus\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The tool provides \"automatic malware scans and AV definitions updates\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The platform includes \"Exploit Prevention\" and \"Behavior-based detection heuristics\" to stop unknown vulnerabilities."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The entire platform is managed from a \"single console\", allowing for centralized policy and management."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG10.7",
+        "Rationale": "Yes, the tool features an \"AI-powered, behavioral detection engine\" and \"AI-based behavioral threat detection\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The tool is the technology for this process, providing \"Market-leading backup and disaster recovery\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG11.2",
+        "Rationale": "\"Automated backup\" and \"Full-image and file-level backup\" are core functions of the product."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG11.3",
+        "Rationale": "Backups are protected with \"Advanced, end-to-end encryption\" and can be stored in \"Immutable storage\"."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG11.4",
+        "Rationale": "The platform's primary function is to send backups to the \"Acronis Cloud\" or other cloud providers, isolating them from the production network."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The \"Acronis Instant Restore\" feature, which allows a backup to be booted as a virtual machine, directly facilitates recovery testing."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The \"Endpoint detection and response (EDR)\" component, managed from the \"single console\", centralizes security alerts."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The \"AI-based behavioral detection\" and \"Acronis Active Protection\" features monitor for suspicious activity, acting as a HIDS."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The \"AI-powered, behavioral detection engine\" is designed to \"stop malware, ransomware, and zero-day attacks,\" functioning as a HIPS."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG13.10",
+        "Rationale": "This is achieved through the \"URL filtering\" and \"Web filtering\" features, which block access to malicious sites."
+    },
+    {
+        "ToolID": "T380",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The \"Forensic Backup\" and \"Collect digital evidence\" features create immutable, detailed snapshots of an asset during an incident, providing the data necessary for a post-incident review."
     }
 ]
