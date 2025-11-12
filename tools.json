@@ -81,10 +81,10 @@
     },
     {
         "ID": "T103",
-        "Name": "Amazon Certificate Manager (ACM)",
-        "Description": "Easily provisions, manages, and deploys public and private SSL/TLS certificates for use with AWS services.",
+        "Name": "Amazon Certificate Manager (AWS Certificate Manager)",
+        "Description": "AWS Certificate Manager (ACM) is a managed service that simplifies the provisioning, management, and deployment of public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates used to secure network communications.",
         "URL": "https://aws.amazon.com/certificate-manager/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$"
     },
     {

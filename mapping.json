@@ -1,9 +1,5 @@
 [
     {
-        "SafeguardID": "SG3.10",
-        "ToolID": "T103"
-    },
-    {
         "SafeguardID": "SG3.5",
         "ToolID": "T78"
     },
@@ -4761,5 +4757,45 @@
         "ToolID": "T61",
         "SafeguardID": "SG15.4",
         "Rationale": "The platform's \"Policy Center\" can be used to centralize, store, and manage policies and compliance requirements, which can be mapped to service providers to track contractual obligations."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG3.10",
+        "Rationale": "This is the primary function of ACM. It provisions and deploys the SSL/TLS certificates that enable encryption protocols (like TLS) for websites and applications, protecting data as it moves between a user's browser and the application server."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG4.6",
+        "Rationale": "This safeguard requires accessing administrative interfaces over secure protocols, such as HTTPS. ACM provides the necessary SSL/TLS certificates to enable HTTPS for the management consoles and administrative endpoints of web-based enterprise assets."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG12.3",
+        "Rationale": "Similar to SG4.6, this safeguard calls for using secure network protocols like HTTPS for managing network infrastructure. ACM provides and manages the certificates that enable HTTPS on network devices like load balancers and API gateways."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG12.6",
+        "Rationale": "This safeguard explicitly mentions secure communication protocols. ACM directly facilitates this by providing the X.509 certificates that are the foundation of TLS (the modern successor to SSL), which secures web communication."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG15.1",
+        "Rationale": "AWS, the provider of ACM, is a cloud service provider. Using ACM necessitates that the organization inventory AWS as a provider of a critical security function (certificate management)."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG15.2",
+        "Rationale": "As a key security service, the use of ACM must be governed by the enterprise's policy for managing third-party and cloud service providers."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG15.4",
+        "Rationale": "To use ACM, an organization must agree to the AWS Customer Agreement and service terms, which outline the security and compliance responsibilities of both AWS (security of the cloud) and the customer (security in the cloud)."
+    },
+    {
+        "ToolID": "T103",
+        "SafeguardID": "SG16.11",
+        "Rationale": "This safeguard recommends using vetted, standardized modules for critical security functions like encryption. ACM is a managed, vetted service from AWS that offloads the complex, error-prone work of certificate lifecycle management (including purchase, provisioning, and renewal) from the development team"
     }
 ]
