@@ -80,18 +80,6 @@
         "ToolID": "T198"
     },
     {
-        "SafeguardID": "SG4.7",
-        "ToolID": "T238"
-    },
-    {
-        "SafeguardID": "SG7.4",
-        "ToolID": "T238"
-    },
-    {
-        "SafeguardID": "SG7.7",
-        "ToolID": "T238"
-    },
-    {
         "SafeguardID": "SG10.3",
         "ToolID": "T356"
     },
@@ -4797,5 +4785,75 @@
         "ToolID": "T103",
         "SafeguardID": "SG16.11",
         "Rationale": "This safeguard recommends using vetted, standardized modules for critical security functions like encryption. ACM is a managed, vetted service from AWS that offloads the complex, error-prone work of certificate lifecycle management (including purchase, provisioning, and renewal) from the development team"
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Automox's agent provides \"complete endpoint visibility\" and detailed reporting on all managed devices, including hardware and software details, which is foundational to an asset inventory."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The tool's agent inventories all installed software to manage patching, including over 580 third-party titles, thereby creating a detailed software inventory."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG2.2",
+        "Rationale": "By automating OS and third-party patching, Automox ensures that software is updated to the latest supported versions, flagging or fixing unsupported software."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Using \"Worklets\" (custom scripts), administrators can automate tasks to \"removing unnecessary apps\" or unauthorized software from endpoints."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Automox is an automated tool specifically designed to scan, inventory, and update software on endpoints."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Automox provides \"Automated Device Configuration\" and \"Configuration management\" to enforce policies and \"Eliminate configuration drift\". Its \"Worklets\" can enforce any scriptable configuration setting."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The platform's use of policy-based automation and version-controllable \"Worklets\" aligns with modern, secure configuration management principles."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG4.8",
+        "Rationale": "This is a key use case for Automox Worklets, which can \"automate security tasks — from disabling risky services to removing unnecessary apps\"."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG7.1",
+        "Rationale": "Automox is a tool built to execute a vulnerability management process, providing \"Automated Vulnerability Remediation\"."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG7.2",
+        "Rationale": "The platform institutionalizes a remediation process by mapping \"vulnerabilities (CVEs) to available patches\" and allowing IT teams to prioritize and \"get it done quickly\"."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG7.3",
+        "Rationale": "This is a core function. Automox provides \"Cross-OS Patching\" to automatically update Windows, macOS, and Linux operating systems."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG7.4",
+        "Rationale": "This is a core function. Automox automates \"Third-Party Software Patching\" for hundreds of common applications."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The entire platform is designed to \"remediate detected vulnerabilities\" and \"remediate thousands of critical vulnerabilities in days, not months\" through its automated patching engine."
+    },
+    {
+        "ToolID": "T238",
+        "SafeguardID": "SG10.5",
+        "Rationale": "While not an anti-malware tool itself, Automox Worklets can be used to \"enforce security policies\", such as verifying and enabling anti-exploitation features like Windows Defender Exploit Guard (WDEG) or Apple's System Integrity Protection (SIP) across all endpoints."
     }
 ]

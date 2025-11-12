@@ -274,10 +274,10 @@
     {
         "ID": "T238",
         "Name": "Automox",
-        "Description": "Automox provides automated patching, configuration management, and vulnerability remediation across all operating systems and devices.",
-        "URL": "https://automox.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Automox is a cloud-native IT operations platform that automates the patching, configuration, and control of Windows, macOS, and Linux endpoints.",
+        "URL": "https://www.automox.com/ ",
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T356",
