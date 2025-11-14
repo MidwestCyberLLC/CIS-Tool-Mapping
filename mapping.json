@@ -4855,5 +4855,135 @@
         "ToolID": "T238",
         "SafeguardID": "SG10.5",
         "Rationale": "While not an anti-malware tool itself, Automox Worklets can be used to \"enforce security policies\", such as verifying and enabling anti-exploitation features like Windows Defender Exploit Guard (WDEG) or Apple's System Integrity Protection (SIP) across all endpoints."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Hudu's Asset Management feature provides a central, database-driven system for documenting, tracking, and managing the entire lifecycle of enterprise assets, from network devices to servers and workstations."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG1.4",
+        "Rationale": "The IP Management feature allows for the documentation and tracking of IP addresses, subnets, and network information, serving as the repository for data gathered from network scans or DHCP logs."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Hudu's Customizable Assets feature allows for the creation of software inventory templates to be linked to hardware assets, documenting software titles, versions, publishers, and business purposes."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG3.1",
+        "Rationale": "The Process Organization and Knowledge Base features are used to create, store, and maintain the official, documented data management processes and Standard Operating Procedures (SOPs)."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG3.2",
+        "Rationale": "Hudu's platform can be configured to serve as the central data inventory, using its asset and documentation features to catalog data types, locations, owners, and sensitivity."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The Knowledge Base and asset relationship-mapping features are used to store and visualize data flow diagrams, SOPs, and other documentation that outlines how data moves through the enterprise."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Hudu's Knowledge Base and Process Organization features are the ideal repository for documenting and version-controlling the approved secure configuration standards for all enterprise assets."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Hudu is used to store and manage the specific, approved hardening guides, configuration files, and SOPs for network devices."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG4.6",
+        "Rationale": "Hudu's Password Management vault securely stores the credentials needed for administrative access (e.g., SSH keys, admin passwords) and ensures they are accessed via a secure, audited platform."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The Password Management vault serves as a de facto inventory for privileged, administrative, and service accounts, as their credentials and purposes are documented and stored within Hudu."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG5.2",
+        "Rationale": "This is a core function of Hudu's Password Management feature, which includes a secure password generator to create strong, unique credentials for every account."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG5.5",
+        "Rationale": "Hudu's vault is the primary tool for securely documenting and maintaining a detailed inventory of all non-human service accounts, their credentials, and their business purposes."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG6.1",
+        "Rationale": "The Process Organization feature is used to create and manage repeatable onboarding checklists and SOPs that detail the step-by-step process for granting access."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Hudu's Process Organization feature is used to document and execute the official offboarding process, ensuring all access revocation steps are completed and tracked."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG6.3",
+        "Rationale": "Hudu's Password Management feature securely stores and generates Time-based One-Time Passwords (TOTP), facilitating the organization's adoption and use of MFA."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG6.5",
+        "Rationale": "Hudu's vault securely stores and provides the TOTP codes for privileged administrative accounts, making it practical to enforce MFA on critical assets."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Hudu itself enforces granular permissions for who can access documentation and passwords; it also serves as the central Knowledge Base to document the enterprise's official RBAC model and roles."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The enterprise's official audit log management process and all related procedures are documented and maintained within Hudu's Knowledge Base or Process Organization sections."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG8.8",
+        "Rationale": "Hudu provides its own audit logging (\"Activity Tracking\") to track which user accessed what password, article, or asset and when, which is critical for monitoring administrative access to sensitive information."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG12.3",
+        "Rationale": "Hudu's Password Management feature is the secure, centralized platform for storing and retrieving the administrative credentials (e.g., SSH keys, passwords) used to manage network devices."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG12.4",
+        "Rationale": "Hudu's Knowledge Base and Rack Management visualization features are designed to be the central repository for storing, versioning, and viewing network topology diagrams and other architecture documentation."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG16.1",
+        "Rationale": "The enterprise's secure development lifecycle (SDLC) processes, secure coding standards, and developer SOPs are documented and maintained in Hudu's Knowledge Base."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG16.7",
+        "Rationale": "Hudu's Knowledge Base is used to store and version-control the \"golden image\" hardening templates and configuration guides for developers and system administrators."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG16.11",
+        "Rationale": "Hudu's Password Management vault acts as a secure secret management service for developers, allowing them to store and retrieve API keys and other secrets rather than hard-coding them into applications."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG17.3",
+        "Rationale": "The official incident reporting process, including contact information and steps, is documented and made available to all staff within Hudu's Knowledge Base."
+    },
+    {
+        "ToolID": "T18",
+        "SafeguardID": "SG17.4",
+        "Rationale": "Hudu's Knowledge Base and Process Organization features are used to store, version-control, and execute the detailed incident response playbooks and SOPs."
     }
 ]

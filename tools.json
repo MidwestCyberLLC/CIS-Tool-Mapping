@@ -1616,6 +1616,14 @@
         "Cost": "$"
     },
     {
+        "ID": "T18",
+        "Name": "Hudu",
+        "Description": "Hudu is a powerful IT documentation platform designed for Managed Service Providers (MSPs) and IT professionals to streamline processes and securely organize documentation, passwords, assets, and knowledge bases in one place.",
+        "URL": "https://hudu.com/",
+        "EducationUse": true,
+        "Cost": "$$"
+    },
+    {
         "ID": "T443",
         "Name": "IBM QRadar SIEM",
         "Description": "IBM QRadar is a security intelligence platform that unifies event data from diverse sources to identify, investigate, and respond to threats.",
