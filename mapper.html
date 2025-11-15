@@ -553,7 +553,11 @@
                             if (toolItems.length > 0) {
                                 toolItems.forEach(toolItem => {
                                     const matchesEdu = (selectedEdu.length === 0) || selectedEdu.includes(toolItem.dataset.edu);
-                                    const matchesCost = (selectedCosts.length === 0) || selectedCosts.includes(toolItem.dataset.cost);
+                                    
+                                    // NEW COST LOGIC: Check if ANY of the tool's costs match the filter
+                                    // Parse tool costs: "$, $$" -> ["$", "$$"]
+                                    const toolCosts = (toolItem.dataset.cost || '').split(',').map(c => c.trim());
+                                    const matchesCost = (selectedCosts.length === 0) || toolCosts.some(c => selectedCosts.includes(c));
                                     
                                     if (matchesEdu && matchesCost) {
                                         toolItem.style.display = '';
@@ -607,7 +611,10 @@
                     const matchesIG = (selectedIGs.length === 0) || (toolCard.dataset.ignumber === '') || selectedIGs.some(ig => toolIGs.includes(ig));
                     const matchesTier = (selectedTiers.length === 0) || (toolCard.dataset.tiernumber === '') || selectedTiers.some(tier => toolTiers.includes(tier));
                     const matchesEdu = (selectedEdu.length === 0) || selectedEdu.includes(toolCard.dataset.edu);
-                    const matchesCost = (selectedCosts.length === 0) || selectedCosts.includes(toolCard.dataset.cost);
+                    
+                    // NEW COST LOGIC for Tool View
+                    const toolCosts = (toolCard.dataset.cost || '').split(',').map(c => c.trim());
+                    const matchesCost = (selectedCosts.length === 0) || toolCosts.some(c => selectedCosts.includes(c));
 
                     toolCard.style.display = (matchesSearch && matchesIG && matchesTier && matchesEdu && matchesCost) ? '' : 'none';
                 });
