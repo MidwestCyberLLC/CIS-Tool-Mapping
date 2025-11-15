@@ -133,7 +133,7 @@
         "Description": "This service allows organizations to manage Android devices, including utilizing work profiles that create a separate workspace for enterprise applications and data.",
         "URL": "https://play.google.com/work/public/about/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$, $$"
     },
     {
         "ID": "T2",
