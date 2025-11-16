@@ -152,14 +152,6 @@
         "Cost": "$, $$, $$$, $$$$"
     },
     {
-        "ID": "T135",
-        "Name": "Ansible Automation Platform",
-        "Description": "Enables automated software deployment, configuration management, and application lifecycle management with secure SSH-based communication.",
-        "URL": "https://www.ansible.com/",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T363",
         "Name": "Apple System Integrity Protection (SIP)",
         "Description": "System Integrity Protection (SIP) is a built-in macOS security technology that prevents malicious software from modifying protected system files, folders, and processes by restricting the permissions of all users, including the root account.\n",
@@ -226,41 +218,41 @@
     {
         "ID": "T64",
         "Name": "Atlan",
-        "Description": "Atlan is a modern data workspace that includes data cataloging capabilities to help you discover, understand, and trust your data assets.",
+        "Description": "Atlan is an active metadata platform that provides data cataloging, discovery, lineage, and governance to help organizations manage and secure their data assets.",
         "URL": "https://atlan.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T663",
         "Name": "Atlassian Jira Service Management",
-        "Description": "While not solely an incident response tool, Jira Service Management can be customized to manage incidents, track progress, and facilitate communication within a defined process.",
+        "Description": "Atlassian Jira Service Management is an IT Service Management (ITSM) solution that helps IT and business teams manage service requests, incidents, problems, changes, and assets on a unified platform.",
         "URL": "https://www.atlassian.com/software/jira-service-management",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T566",
         "Name": "AuditBoard Cloud Platform",
-        "Description": "Streamlines audit workflows, allowing for continuous monitoring of service provider controls and documentation.",
-        "URL": "https://www.auditboard.com/cloud-platform/",
+        "Description": "AuditBoard is a cloud-based Governance, Risk, and Compliance (GRC) platform that helps enterprises automate, manage, and report on internal audits, risk management, compliance (e.g., SOX, NIST, ISO), and third-party risk.",
+        "URL": " https://www.auditboard.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T547",
         "Name": "AuditBoard Vendor Management",
-        "Description": "AuditBoard streamlines the vendor management process with automated assessments, documentation, and reporting for continuous compliance.",
-        "URL": "https://www.auditboard.com/vendor-management/",
+        "Description": " AuditBoard's Third-Party Risk Management (TPRM) is a cloud-based platform that enables organizations to automate and manage the entire lifecycle of vendor risk, including onboarding, risk assessments, continuous monitoring, and remediation.\n",
+        "URL": "https://auditboard.com/product/third-party-risk-management",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$, $$$$$"
     },
     {
         "ID": "T288",
         "Name": "Auditd (Linux)",
-        "Description": "A built-in Linux auditing system that allows for detailed tracking of system calls, including those from the command line.",
-        "URL": "https://man7.org/linux/man-pages/man8/auditd.8.html",
-        "EducationUse": false,
+        "Description": "Auditd is the userspace daemon for the Linux Auditing System, responsible for monitoring, collecting, and writing detailed, rule-based audit logs for security-relevant events to disk.",
+        "URL": "https://github.com/linux-audit/audit-userspace",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
@@ -282,7 +274,7 @@
     {
         "ID": "T356",
         "Name": "Autoruns (Sysinternals)",
-        "Description": "This free utility from Microsoft allows users to view and disable various startup programs, including those triggered by removable media.",
+        "Description": "Autoruns is a free Microsoft Sysinternals utility that provides a comprehensive view of all programs, drivers, and services configured to start automatically when a system boots or a user logs in.",
         "URL": "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns",
         "EducationUse": false,
         "Cost": "$"
@@ -290,178 +282,178 @@
     {
         "ID": "T388",
         "Name": "AWS Backup",
-        "Description": "AWS Backup centrally manages backups across various AWS services, with encryption options to safeguard recovery data.",
+        "Description": "AWS Backup is a fully managed, policy-based service that centralizes and automates data protection across AWS services and hybrid workloads to simplify backup and recovery.",
         "URL": "https://aws.amazon.com/backup/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T283",
         "Name": "AWS CloudTrail",
-        "Description": "A service that records API calls made to AWS resources, which can include URL requests if those URLs are accessed through AWS services.",
+        "Description": "AWS CloudTrail is an AWS service that enables governance, compliance, and operational and risk auditing by recording actions taken by a user, role, or an AWS service as events.",
         "URL": "https://aws.amazon.com/cloudtrail/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T66",
         "Name": "AWS Identity and Access Management (IAM)",
-        "Description": "Provides centralized control over AWS resources by defining granular permissions for users and groups.",
+        "Description": "AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources by centrally managing users, groups, roles, and permissions.",
         "URL": "https://aws.amazon.com/iam/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T104",
         "Name": "AWS Key Management Service (KMS)",
-        "Description": "AWS KMS enables you to easily create and control cryptographic keys used to encrypt your data at rest.",
+        "Description": "AWS Key Management Service (KMS) is a managed cloud service that allows you to create, manage, and control the cryptographic keys used to encrypt and sign your data.",
         "URL": "https://aws.amazon.com/kms/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T109",
         "Name": "AWS Lake Formation",
-        "Description": "This service builds a secure data lake by centralizing governance and security policies across your data, enabling you to control access based on sensitivity levels.",
+        "Description": "AWS Lake Formation is a managed service that simplifies setting up, securing, managing, and governing data lakes by providing a centralized console for data ingestion, cataloging, access control, and auditing.",
         "URL": "https://aws.amazon.com/lake-formation/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T213",
         "Name": "AWS Multi-Factor Authentication (MFA)",
-        "Description": "Enforces MFA for AWS accounts to protect against unauthorized access.",
+        "Description": "A security service from Amazon Web Services that adds a layer of protection on top of a username and password by requiring a second authentication factor to access AWS accounts and services.",
         "URL": "https://aws.amazon.com/iam/features/mfa/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T125",
         "Name": "AWS Network Firewall",
-        "Description": "A managed cloud firewall service that simplifies the process of deploying, configuring, and managing firewalls in AWS environments.",
-        "URL": "https://aws.amazon.com/networkfirewall/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "AWS Network Firewall is a stateful, managed network firewall and intrusion detection and prevention service (IDS/IPS) for Amazon Virtual Private Clouds (VPCs) that provides fine-grained control over network traffic.",
+        "URL": "https://aws.amazon.com/network-firewall/",
+        "EducationUse": true,
+        "Cost": "$$$, $$$$, $$$$$"
     },
     {
         "ID": "T403",
         "Name": "AWS Network Manager",
-        "Description": "AWS Network Manager provides centralized visibility and management of your hybrid network infrastructure, simplifying updates and ensuring consistent configurations.",
+        "Description": "A central management service that provides a unified, global view and a single console to monitor and manage your AWS cloud and on-premises networks.",
         "URL": "https://aws.amazon.com/network-manager/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T391",
         "Name": "AWS S3 Glacier Deep Archive",
-        "Description": "This service provides extremely low-cost, offline storage for infrequently accessed data, offering isolation from primary systems.",
-        "URL": "https://aws.amazon.com/s3/glacier-deep-archive/",
+        "Description": "AWS S3 Glacier Deep Archive is a secure, durable, and extremely low-cost Amazon S3 cloud storage class designed for data archiving and long-term backup of data that is rarely accessed.",
+        "URL": "https://aws.amazon.com/s3/storage-classes/glacier/",
         "EducationUse": false,
         "Cost": "$"
     },
     {
         "ID": "T607",
         "Name": "AWS Systems Manager Automation",
-        "Description": "Allows you to automate operational tasks like applying security patches and hardening configurations on AWS resources.",
-        "URL": "https://aws.amazon.com/systems-manager/automation/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "AWS Systems Manager Automation simplifies IT operations by allowing you to build and run automated workflows, called \"runbooks,\" to execute common maintenance, deployment, and remediation tasks across your AWS and on-premises infrastructure.",
+        "URL": "https://aws.amazon.com/systems-manager/features/",
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T490",
         "Name": "AWS Web Application Firewall (WAF)",
-        "Description": "A managed service that protects web applications from common attacks, providing application layer filtering at scale.",
+        "Description": "AWS WAF is a cloud-based web application firewall that helps protect your web applications and APIs by monitoring and filtering HTTP/HTTPS requests to block common attack patterns like SQL injection and cross-site scripting (XSS).",
         "URL": "https://aws.amazon.com/waf/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$, $$$, $$$$"
     },
     {
         "ID": "T67",
         "Name": "Azure Active Directory (Azure AD)",
-        "Description": "Cloud-based identity and access management service that allows you to manage user access to applications and data.",
-        "URL": "https://azure.microsoft.com/en-us/services/active-directory/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Azure Active Directory (now part of Microsoft Entra ID) is a cloud-based identity and access management (IAM) service that provides single sign-on, multi-factor authentication, and conditional access to protect users and enterprise resources.",
+        "URL": "https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$"
     },
     {
         "ID": "T392",
         "Name": "Azure Archive Storage",
-        "Description": "Similar to AWS Glacier Deep Archive, Azure Archive Storage offers a cost-effective solution for long-term data retention with offline storage capabilities.",
-        "URL": "https://azure.microsoft.com/en-us/products/storage/archive-storage/",
-        "EducationUse": false,
+        "Description": "Azure Archive Storage is a secure, low-cost, and highly durable cloud storage tier designed for rarely accessed data with flexible latency requirements, making it ideal for long-term backup, compliance, and digital preservation.",
+        "URL": "https://azure.microsoft.com/en-us/products/storage/archive",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T383",
         "Name": "Azure Backup",
-        "Description": "Azure Backup offers cloud-based backup as a service to protect your on-premises and Azure workloads with automated scheduling options.",
-        "URL": "https://azure.microsoft.com/en-us/services/backup/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.",
+        "URL": "https://azure.microsoft.com/en-us/products/backup",
+        "EducationUse": true,
+        "Cost": "$$, $$$, $$$$"
     },
     {
         "ID": "T105",
         "Name": "Azure Disk Encryption",
-        "Description": "Azure Disk Encryption provides encryption at-rest for Azure virtual machine disks using industry-standard encryption algorithms.",
-        "URL": "https://azure.microsoft.com/en-us/products/disk-encryption/",
-        "EducationUse": false,
+        "Description": "Azure Disk Encryption (ADE) is a capability that helps protect and safeguard data by encrypting the OS and data disks of Azure virtual machines (VMs) at rest, using the native BitLocker feature of Windows or the DM-Crypt feature of Linux.",
+        "URL": "https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T457",
         "Name": "Azure Firewall",
-        "Description": "A cloud-native firewall service that filters traffic between virtual networks and on-premises environments within Azure.",
-        "URL": "https://azure.microsoft.com/en-us/services/firewall/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Azure Firewall is a managed, cloud-native, and intelligent network firewall security service that protects Azure Virtual Network resources by offering stateful L3-L7 filtering, threat intelligence, and advanced intrusion detection and prevention (IDPS) capabilities.",
+        "URL": "https://azure.microsoft.com/en-us/products/azure-firewall",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T263",
         "Name": "Azure Monitor Logs",
-        "Description": "A fully managed cloud service for collecting, storing, searching, analyzing, and acting on telemetry data from your applications and infrastructure within Azure.",
-        "URL": "https://azure.microsoft.com/en-us/services/monitor/logs/",
+        "Description": "Azure Monitor Logs is a cloud-native service that collects, correlates, and analyzes log and performance data from your Azure, on-premises, and multi-cloud environments to provide monitoring, alerting, and deep diagnostics.",
+        "URL": "https://azure.microsoft.com/en-us/products/monitor",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T408",
         "Name": "Azure Network Watcher",
-        "Description": "This service provides tools to monitor and diagnose network issues in Azure, aiding in architecture design validation and ongoing security maintenance.",
-        "URL": "https://azure.microsoft.com/en-us/services/network-watcher/",
+        "Description": "Azure Network Watcher is a native Azure service that provides a suite of tools to monitor, diagnose, view metrics, and manage logs for resources within an Azure virtual network.",
+        "URL": "https://azure.microsoft.com/en-us/products/network-watcher/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$"
     },
     {
         "ID": "T387",
         "Name": "Azure Recovery Services Vault",
-        "Description": "Azure's vault provides encrypted backup copies of your data, ensuring protection during the recovery process.",
-        "URL": "https://azure.microsoft.com/en-us/services/recovery-services/vaults/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Azure Recovery Services Vault is a cloud-based management entity that stores and manages backups and disaster recovery data for various on-premises and Azure workloads.",
+        "URL": "https://azure.microsoft.com/en-us/solutions/backup-and-disaster-recovery",
+        "EducationUse": true,
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T608",
-        "Name": "Azure Security Benchmark (formerly CIS Azure Foundations Benchmark)",
-        "Description": "Offers a set of prescriptive guidance for securing Azure deployments, aligning with industry best practices and CIS benchmarks.",
-        "URL": "https://learn.microsoft.com/en-us/azure/security/benchmarks/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Name": "Azure Security Benchmark",
+        "Description": "The Azure Security Benchmark (ASB) provides prescriptive best practices and recommendations to help improve the security of workloads, data, and services on Azure.",
+        "URL": "https://learn.microsoft.com/en-us/security/benchmark/azure/overview-v3",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T377",
         "Name": "Azure Site Recovery",
-        "Description": "Microsoft's Azure Site Recovery offers disaster recovery as a service (DRaaS), replicating workloads to Azure for failover and recovery.",
-        "URL": "https://azure.microsoft.com/en-us/products/site-recovery/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Azure Site Recovery is a cloud-native Disaster Recovery as a Service (DRaaS) that orchestrates and automates the replication, failover, and recovery of on-premises physical servers, virtual machines, and Azure-based VMs to a secondary location for business continuity.",
+        "URL": "https://azure.microsoft.com/en-us/products/site-recovery",
+        "EducationUse": true,
+        "Cost": "$$, $$$"
     },
     {
         "ID": "T438",
         "Name": "Azure Virtual Network",
-        "Description": "Offers similar functionality to AWS VPC, providing logically isolated network environments in Azure for administrative tasks.",
-        "URL": "https://azure.microsoft.com/en-us/services/virtual-network/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Azure Virtual Network (VNet) is the fundamental building block for a private network in Azure, enabling resources like virtual machines to securely communicate with each other, the internet, and on-premises networks while providing isolation, segmentation, and traffic filtering.",
+        "URL": "https://azure.microsoft.com/en-us/products/virtual-network",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T393",

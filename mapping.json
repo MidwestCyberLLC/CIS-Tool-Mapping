@@ -1,183 +1,11 @@
 [
     {
-        "SafeguardID": "SG16.7",
-        "ToolID": "T135"
-    },
-    {
-        "SafeguardID": "SG4.6",
-        "ToolID": "T135"
-    },
-    {
-        "SafeguardID": "SG3.2",
-        "ToolID": "T64"
-    },
-    {
-        "SafeguardID": "SG17.4",
-        "ToolID": "T663"
-    },
-    {
-        "SafeguardID": "SG15.6",
-        "ToolID": "T566"
-    },
-    {
-        "SafeguardID": "SG15.2",
-        "ToolID": "T547"
-    },
-    {
-        "SafeguardID": "SG8.8",
-        "ToolID": "T288"
-    },
-    {
         "SafeguardID": "SG5.6",
         "ToolID": "T198"
     },
     {
         "SafeguardID": "SG6.3",
         "ToolID": "T198"
-    },
-    {
-        "SafeguardID": "SG10.3",
-        "ToolID": "T356"
-    },
-    {
-        "SafeguardID": "SG11.1",
-        "ToolID": "T388"
-    },
-    {
-        "SafeguardID": "SG11.2",
-        "ToolID": "T388"
-    },
-    {
-        "SafeguardID": "SG11.3",
-        "ToolID": "T388"
-    },
-    {
-        "SafeguardID": "SG11.5",
-        "ToolID": "T388"
-    },
-    {
-        "SafeguardID": "SG8.3",
-        "ToolID": "T283"
-    },
-    {
-        "SafeguardID": "SG8.7",
-        "ToolID": "T283"
-    },
-    {
-        "SafeguardID": "SG16.11",
-        "ToolID": "T66"
-    },
-    {
-        "SafeguardID": "SG3.3",
-        "ToolID": "T66"
-    },
-    {
-        "SafeguardID": "SG3.11",
-        "ToolID": "T104"
-    },
-    {
-        "SafeguardID": "SG3.12",
-        "ToolID": "T109"
-    },
-    {
-        "SafeguardID": "SG6.5",
-        "ToolID": "T213"
-    },
-    {
-        "SafeguardID": "SG12.2",
-        "ToolID": "T125"
-    },
-    {
-        "SafeguardID": "SG13.3",
-        "ToolID": "T125"
-    },
-    {
-        "SafeguardID": "SG13.4",
-        "ToolID": "T125"
-    },
-    {
-        "SafeguardID": "SG13.8",
-        "ToolID": "T125"
-    },
-    {
-        "SafeguardID": "SG4.4",
-        "ToolID": "T125"
-    },
-    {
-        "SafeguardID": "SG12.1",
-        "ToolID": "T403"
-    },
-    {
-        "SafeguardID": "SG11.4",
-        "ToolID": "T391"
-    },
-    {
-        "SafeguardID": "SG16.7",
-        "ToolID": "T607"
-    },
-    {
-        "SafeguardID": "SG13.10",
-        "ToolID": "T490"
-    },
-    {
-        "SafeguardID": "SG16.11",
-        "ToolID": "T67"
-    },
-    {
-        "SafeguardID": "SG3.3",
-        "ToolID": "T67"
-    },
-    {
-        "SafeguardID": "SG5.3",
-        "ToolID": "T67"
-    },
-    {
-        "SafeguardID": "SG11.4",
-        "ToolID": "T392"
-    },
-    {
-        "SafeguardID": "SG11.2",
-        "ToolID": "T383"
-    },
-    {
-        "SafeguardID": "SG3.11",
-        "ToolID": "T105"
-    },
-    {
-        "SafeguardID": "SG13.4",
-        "ToolID": "T457"
-    },
-    {
-        "SafeguardID": "SG4.4",
-        "ToolID": "T457"
-    },
-    {
-        "SafeguardID": "SG8.3",
-        "ToolID": "T263"
-    },
-    {
-        "SafeguardID": "SG12.2",
-        "ToolID": "T408"
-    },
-    {
-        "SafeguardID": "SG11.3",
-        "ToolID": "T387"
-    },
-    {
-        "SafeguardID": "SG16.7",
-        "ToolID": "T608"
-    },
-    {
-        "SafeguardID": "SG11.1",
-        "ToolID": "T377"
-    },
-    {
-        "SafeguardID": "SG11.5",
-        "ToolID": "T377"
-    },
-    {
-        "SafeguardID": "SG12.8",
-        "ToolID": "T438"
     },
     {
         "SafeguardID": "SG11.4",
@@ -5811,5 +5639,2350 @@
         "ToolID": "T3",
         "SafeguardID": "SG15.4",
         "Rationale": "The tool provides \"Contract management\", allowing an organization to store service provider contracts and track key data, such as renewal dates and custom fields for whether security requirements have been reviewed. This facilitates the annual review process mandated by the safeguard."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.1",
+        "Rationale": "Atlan is the platform used to execute a data management process by providing tools to define and manage data sensitivity, data ownership, and data handling rules."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.2",
+        "Rationale": "This is a core function of Atlan. As a data catalog, it is designed to discover and maintain a detailed, searchable inventory of an enterprise's data assets (e.g., tables, databases, BI reports)."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Atlan enables the creation and management of dynamic access policies and supports role-based access control, allowing organizations to configure who can access specific data assets based on their role and the data's sensitivity"
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.7",
+        "Rationale": "The tool allows users to classify and tag data assets with custom metadata (e.g., \"Sensitive,\" \"PII,\" \"Confidential\"). It can also auto-detect PII, which is fundamental to a classification scheme"
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.8",
+        "Rationale": "Atlan provides automated data lineage, which creates a visual map of how data moves and transforms across different systems. This directly fulfills the requirement to document data flows."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.12",
+        "Rationale": "By first identifying and classifying sensitive data (per SG3.7), Atlan provides the necessary intelligence for an organization to know what data needs to be segmented and where it is located."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Atlan acts as a critical component of a Data Loss Prevention (DLP) strategy by identifying and inventorying all sensitive data (like PII) across the enterprise, which is the first step in protecting it from loss."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The platform's governance features include auditing capabilities and incident alerts, which can be used to monitor and log access to, and modification of, sensitive data assets."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Atlan's documentation and features explicitly mention its capability to manage role-based access control (RBAC) and create policies for data access, helping to define and enforce access rights."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Atlan's auditing and lineage features generate detailed logs specifically related to data access, transformation, and governance, which can be fed into a central logging system."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The platform's \"Incident Alerts\" and dashboarding capabilities facilitate the review of data-specific audit logs to detect anomalies or abnormal events related to data access."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG14.4",
+        "Rationale": "Atlan supports this as a key enabler. Its data catalog and business glossary act as the single source of truth, allowing employees to look up data definitions and handling rules (e.g., \"This data is PII\") in real-time."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG15.1",
+        "Rationale": "By inventorying all data assets, Atlan indirectly identifies the systems and platforms (e.g., Snowflake, AWS, Databricks) where data is stored, thus helping to build an inventory of data-related service providers."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG16.1",
+        "Rationale": "Atlan supports the \"Data Contracts\" feature, which is a key part of a secure data development life cycle. This ensures data being produced by an application meets predefined quality and security standards."
+    },
+    {
+        "ToolID": "T64",
+        "SafeguardID": "SG17.8",
+        "Rationale": "In the event of a data breach or data quality incident, Atlan's automated lineage and impact analysis tools are critical for post-incident review to determine the root cause and full \"blast radius\" of the incident."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG1.1",
+        "Rationale": "JSM includes a built-in Configuration Management Database (CMDB) called \"Assets\" specifically designed to be the central inventory for enterprise assets, including hardware, owners, and departments."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG1.2",
+        "Rationale": "JSM is the ticketing system used to create, assign, and track the workflow for addressing an unauthorized asset (e.g., remove, quarantine) once it is discovered."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The JSM \"Assets\" (CMDB) feature is used to establish and maintain the software inventory, often linking software licenses and installations to the hardware assets they reside on."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG2.3",
+        "Rationale": "JSM's ticketing workflow is used to manage the process of removing unauthorized software or documenting an exception once it is identified."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG3.1",
+        "Rationale": "JSM, through its integrated Confluence knowledge base, is used to"
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The \"Assets\" (CMDB) feature can be configured to serve as the data inventory, documenting data sensitivity, owners, and location."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG4.1",
+        "Rationale": "JSM's change management module is used to review, approve, and log all changes to configurations, while the knowledge base hosts the documented process itself."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The \"Assets\" feature can be used to maintain the inventory of user, admin, and service accounts. The quarterly validation is managed as a recurring task/ticket within JSM."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG5.3",
+        "Rationale": "The process of disabling a dormant account is managed via a service request or automated ticket in JSM to ensure it is tracked and completed."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG5.5",
+        "Rationale": "JSM's \"Assets\" feature is an ideal location to inventory service accounts, their owners, and their purpose. The quarterly review is managed as a recurring JSM task."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG6.1",
+        "Rationale": "This is a core function of JSM. A new hire or role change is a \"service request\" that is submitted, approved, and tracked to completion within JSM."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG6.2",
+        "Rationale": "This is the \"off-boarding\" service request. JSM is used to create and track the ticket to ensure all access is revoked immediately upon termination."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The process itself is documented and maintained within the JSM knowledge base."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG7.2",
+        "Rationale": "JSM is the workflow engine for remediation. Vulnerability scanners can be integrated to automatically create tickets in JSM for new findings, which are then assigned and tracked."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG7.7",
+        "Rationale": "JSM provides the ticketing and workflow platform to manage, prioritize, and document the remediation of vulnerabilities, creating an audit trail of actions taken."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The audit log management process is formally documented and maintained in the JSM knowledge base."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG8.11",
+        "Rationale": "When an anomaly is discovered during a log review (e.g., in a SIEM), an incident ticket is created in JSM to track the investigation, response, and resolution."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The detailed data recovery and backup procedures are documented, stored, and updated within the JSM knowledge base."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The quarterly data recovery test is planned, scheduled, and documented as a recurring change request or task in JSM to ensure it is performed and its results are recorded."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG14.6",
+        "Rationale": "JSM's customer portal is the mechanism for reporting. Training workforce members on how to report an incident (e.g., \"go to the help portal and click 'Report Security Incident'\") directly involves JSM as the intake tool."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG15.1",
+        "Rationale": "Service providers can be tracked as CIs (Configuration Items) within the JSM \"Assets\" (CMDB), along with enterprise contacts and classification."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG15.2",
+        "Rationale": "This policy is documented and maintained within the JSM knowledge base."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG16.2",
+        "Rationale": "JSM can be configured as the intake system (e.g., via a portal request type) for vulnerability reports. Its workflows are used to track assignment, remediation, and testing."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG16.3",
+        "Rationale": "JSM includes \"Problem Management\" workflows, which are specifically designed to perform root cause analysis on recurring incidents (like vulnerabilities) and track the resulting corrective actions."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG16.4",
+        "Rationale": "A \"bill of materials\" can be stored and managed within the JSM \"Assets\" (CMDB), linking components to the applications that use them."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG16.8",
+        "Rationale": "JSM's change management workflows are used to manage, approve, and document all code promotion and configuration changes between non-production and production systems."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.1",
+        "Rationale": "JSM's on-call scheduling, escalation policies, and response teams are used to programmatically designate and notify the correct personnel for an incident."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.2",
+        "Rationale": "This contact list is stored and maintained in the JSM knowledge base for easy access during an incident."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.3",
+        "Rationale": "JSM is the process. The customer portal is the mechanism for reporting, and the incident workflow is the defined process for handling the report."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.4",
+        "Rationale": "The process is documented in the knowledge base, while the incident workflows, playbooks, and automation rules in JSM are the execution of that process."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.5",
+        "Rationale": "JSM's incident workflows can be configured to automatically assign tasks and notifications to different teams (e.g., legal, PR, security) based on the incident's type and severity."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.6",
+        "Rationale": "JSM has native features for incident communications, including stakeholder update templates, and integrations with chat (Slack/Teams) and status pages (Statuspage)."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.8",
+        "Rationale": "JSM has a built-in \"Post-Incident Review\" (PIR) feature that is part of the incident workflow, allowing teams to document lessons learned and create follow-up \"Problem\" tickets."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG17.9",
+        "Rationale": "The thresholds are documented in the knowledge base. JSM's automation rules and workflows are configured to enforce these thresholds (e.g., automatically escalate an incident to \"Major\" if it meets certain criteria)."
+    },
+    {
+        "ToolID": "T663",
+        "SafeguardID": "SG18.1",
+        "Rationale": "The program's scope, rules of engagement, and frequency are documented and maintained in the JSM knowledge base."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The platform would be used to store, manage, and audit the asset inventory, tracking review cycles and storing evidence of its accuracy."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG1.2",
+        "Rationale": "AuditBoard can document the process for handling unauthorized assets and track any findings or remediation \"issues\" to ensure the process is followed."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The tool would serve as the repository for the software inventory, managing the bi-annual review process and storing evidence of updates."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG2.2",
+        "Rationale": "AuditBoard can be used to document and manage exceptions for unsupported software, including mitigating controls and risk acceptance, and track the monthly review process."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG2.3",
+        "Rationale": "The platform can document the process and track the remediation (removal or exception) of any unauthorized software identified."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG3.1",
+        "Rationale": "AuditBoard is an ideal place to store this documented process, manage its annual review, and retain version history."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The platform can host the data inventory and track the annual review process, linking it to the data management process (3.1)."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG3.7",
+        "Rationale": "The tool can store the documented classification scheme and manage its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG3.8",
+        "Rationale": "AuditBoard can serve as the central repository for data flow documentation and track its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The platform would store and version-control this documented process and manage its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Similar to 4.1, this documentation would be stored, managed, and reviewed within AuditBoard."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG5.1",
+        "Rationale": "AuditBoard can be used to manage the quarterly validation process, store evidence of the reviews, and track any identified issues (e.g., dormant accounts)."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG5.5",
+        "Rationale": "The platform can host the service account inventory and document that the quarterly reviews are being performed."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG6.1",
+        "Rationale": "The tool can document this process and be used to audit that the process is being followed, storing evidence of compliance."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG6.2",
+        "Rationale": "AuditBoard can document the revoking process and be used to audit its effectiveness and timeliness."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The platform can store the role-based access control documentation and manage the annual access control reviews, tracking them to completion."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG7.1",
+        "Rationale": "AuditBoard would store this documented process and track its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG7.2",
+        "Rationale": "The platform can document the risk-based remediation strategy and be used to track that monthly reviews are occurring."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The tool's risk and issue management features can be used to log, prioritize, and track the remediation of vulnerabilities to ensure they are fixed according to policy."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The platform would store this documented process and manage its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG8.11",
+        "Rationale": "AuditBoard can be used to track and store evidence that weekly log reviews are occurring and manage any findings that result from them."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The tool would store the documented recovery process and track its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG11.5",
+        "Rationale": "AuditBoard can be used to schedule, track, and store the results and evidence of quarterly data recovery tests."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The platform can store all documentation, policies, and design components related to the network architecture."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG12.4",
+        "Rationale": "AuditBoard can be the central repository for these diagrams and track their annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG14.1",
+        "Rationale": "The platform can document the program's contents and track evidence of annual training (e.g., completion reports) and content reviews."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG14.9",
+        "Rationale": "AuditBoard can document the role-specific training plan and store evidence of its execution."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.1",
+        "Rationale": "The platform's Third-Party Risk Management (TPRM) module is designed specifically to be this inventory and track its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.2",
+        "Rationale": "AuditBoard would store and manage this policy and its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.3",
+        "Rationale": "The TPRM module would be used to perform, document, and review the classification of all service providers."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.4",
+        "Rationale": "The tool can manage the contract review process and store evidence (e.g., attestations, contract clauses) that security requirements are included."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.5",
+        "Rationale": "The TPRM module is built to manage these assessments, storing SOC 2 reports, questionnaires, and other evidence, and tracking the annual reassessment."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.6",
+        "Rationale": "The platform can document the monitoring process and store evidence of monitoring activities."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG15.7",
+        "Rationale": "AuditBoard can manage the decommissioning workflow/checklist and store evidence of its secure completion."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG16.1",
+        "Rationale": "The platform can store this documented process and manage its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG16.2",
+        "Rationale": "AuditBoard can document the vulnerability handling policy and be used to track vulnerabilities (or integrate with a tool that does)."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG16.4",
+        "Rationale": "The tool can act as the repository for this \"bill of materials\" and track the monthly review process."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG16.6",
+        "Rationale": "The platform can document this rating system and track its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.1",
+        "Rationale": "The platform can document these designations and track the annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.2",
+        "Rationale": "AuditBoard can be the central repository for this contact list and manage its annual verification."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.3",
+        "Rationale": "The tool can store this documented process and track its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.4",
+        "Rationale": "AuditBoard can store the full IR process, including roles and communication plans, and manage its annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.5",
+        "Rationale": "The platform can document these assignments and track their annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.6",
+        "Rationale": "The tool can document these mechanisms and track the annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.7",
+        "Rationale": "AuditBoard can be used to plan, track, and store the results and lessons learned from annual IR exercises."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The tool's issue-tracking features are perfect for documenting lessons learned and tracking follow-up actions to completion."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG17.9",
+        "Rationale": "The platform can document these thresholds and manage the annual review."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG18.1",
+        "Rationale": "AuditBoard can store the documented program, including scope, frequency, and rules of engagement."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG18.2",
+        "Rationale": "The platform can be used to track the scheduling of annual tests and store the final reports as evidence."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG18.3",
+        "Rationale": "AuditBoard's issue and risk management modules are ideal for logging, prioritizing, and tracking the remediation of all findings from the test."
+    },
+    {
+        "ToolID": "T566",
+        "SafeguardID": "SG18.5",
+        "Rationale": "Similar to 18.2, the tool can track the execution of internal tests and store the reports."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.1",
+        "Rationale": "The tool provides a central platform to \"centralize vendor data\" and manage a comprehensive inventory of all third-party service providers."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.2",
+        "Rationale": "The platform is designed to execute and enforce the components of a service provider management policy, such as assessment, monitoring, and decommissioning workflows."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.3",
+        "Rationale": "A core feature is the ability to identify, categorize, and tier vendors based on risk (e.g., high, medium, low), which is the definition of classification."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.4",
+        "Rationale": "The tool helps manage the due diligence process, which includes reviewing and verifying that contractual provisions for security, compliance, and incident response are in place."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.5",
+        "Rationale": "This is a primary function of the tool. It automates sending, tracking, and reviewing vendor security assessments and questionnaires (e.g., SIG) and can manage compliance reports like SOC 2."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.6",
+        "Rationale": "The platform offers \"continuous monitoring\" and \"real-time monitoring\" to track changes in a vendor's risk posture, security performance, and compliance status."
+    },
+    {
+        "ToolID": "T547",
+        "SafeguardID": "SG15.7",
+        "Rationale": "The tool supports managing the vendor lifecycle, which includes \"clear vendor offboarding procedures\" to ensure data is handled properly and access is revoked upon termination of a relationship."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG3.14",
+        "Rationale": "Auditd can be configured with \"watch\" rules (auditctl -w) to monitor specific sensitive files or directories (e.g., those containing PII or financial data). It logs every access, modification, or attribute change to that data, directly fulfilling this requirement."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.1",
+        "Rationale": "Auditd is the core technical tool used to implement the collection and local management requirements defined in an organization's audit log management process. Its configuration files (audit.rules, auditd.conf) are the technical expression of the process's policies."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.2",
+        "Rationale": "This is the primary function of auditd. The daemon runs on the asset and, based on its rule set, collects logs for events ranging from user logins, file access, and system calls to security policy changes."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The auditd.conf file provides directives (e.g., max_log_file, num_logs, space_left_action) to manage log file rotation, define maximum storage size, and determine what action to take (like alerting an admin) when disk space runs low, thereby managing log storage on the asset."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Auditd logs are exceptionally detailed by default, capturing the event source, date, timestamp, username, system call, success/failure, and other forensic data needed for an investigation, as specified by this safeguard."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.8",
+        "Rationale": "This is a classic use case for auditd. By creating rules to log the execve system call, auditd can capture all commands executed on the system, including those run in BASH or by remote administrative terminals."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.9",
+        "Rationale": "While auditd itself is not a central log server, its dispatch plugin (audispd) can be configured with plugins (like audisp-remote) to forward all collected logs in real-time to a central log aggregator or SIEM, acting as the essential client-side component for centralization."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.10",
+        "Rationale": "Auditd's local log rotation capabilities (managed in auditd.conf or via logrotate) ensure that logs are retained on the asset for a specified period, helping to meet the 90-day minimum requirement."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG8.11",
+        "Rationale": "Auditd enables log reviews by producing the raw data. Furthermore, it comes with a suite of tools like ausearch (to query logs) and aureport (to create summary reports), which are used to conduct the reviews this safeguard requires."
+    },
+    {
+        "ToolID": "T288",
+        "SafeguardID": "SG13.2",
+        "Rationale": "When configured with rules to monitor for suspicious activity (e.g., changes to critical system files like /etc/passwd, unauthorized network connections via connect syscalls, or loading of kernel modules), auditd functions as a powerful data source for a Host-based Intrusion Detection System (HIDS) or can act as a basic HIDS itself."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG2.3",
+        "Rationale": "This is a primary function of Autoruns. It allows an administrator to review every piece of software that has established persistence (auto-start) on a system, identify unauthorized items (malware, unwanted toolbars, etc.), and then disable or delete the entry to remove it."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The command-line version, autorunsc.exe, can be scripted and deployed across the enterprise to automatically collect and document all auto-starting software from assets, feeding this data into a central inventory or change-monitoring system."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG4.6",
+        "Rationale": "Autoruns helps secure software configurations by revealing and allowing the removal of potentially insecure items like legacy browser helper objects (BHOs), Explorer shell extensions, and toolbars that can create security vulnerabilities or performance issues."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG4.8",
+        "Rationale": "The \"Services\" tab within Autoruns lists all third-party services configured to run automatically. This allows an administrator to identify services that are not required for business functions and disable them, thereby reducing the system's attack surface."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG9.4",
+        "Rationale": "Autoruns has specific tabs for \"Internet Explorer\" and \"Explorer\" that enumerate add-ons, BHOs, and shell extensions. This allows an administrator to identify and disable unauthorized or unnecessary browser components."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG10.1",
+        "Rationale": "While not an anti-malware engine itself, Autoruns is a critical support tool for malware defense. It is used by incident responders and system administrators to find malware persistence mechanisms (like registry keys or scheduled tasks) that traditional antivirus software may have missed."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Autoruns can be used as a simple, host-based change detection system. An administrator can save a \"baseline\" snapshot of a known-good system and then use the \"Compare\" feature to see exactly what has been added or changed, which is a key part of detecting a potential intrusion."
+    },
+    {
+        "ToolID": "T356",
+        "SafeguardID": "SG17.4",
+        "Rationale": "Autoruns is a standard tool in the \"Analysis\" and \"Containment\" phases of incident response. When a machine is compromised, running Autoruns is one of the first steps to identify how the malware is persisting on the system, which is necessary information for successfully containing and remediating the incident."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG3.5",
+        "Rationale": "AWS Backup automates data disposal by using lifecycle policies within \"backup plans\" that automatically delete backups after their defined retention period expires."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The service encrypts data as it moves from the source AWS resource (like a database or storage volume) to the AWS Backup vault."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG3.11",
+        "Rationale": "AWS Backup encrypts all backup data stored within its \"Backup Vaults,\" integrating with AWS Key Management Service (KMS) to protect the recovery data."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As a service provider, AWS Backup integrates with AWS CloudTrail, which logs all API calls (e.g., backup creation, restore attempts, vault configuration changes). These logs can be collected and centralized for auditing."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG11.1",
+        "Rationale": "This tool is the core technical mechanism for executing the \"detailed backup procedures\" and \"data recovery activities\" that must be documented in a formal data recovery process."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG11.2",
+        "Rationale": "This is the primary function of the tool. It allows an enterprise to create \"backup plans\" that define and automate backup schedules across all supported resources."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The service protects the recovery data (backups) through mandatory encryption at rest and by using IAM (Identity and Access Management) vault access policies to secure the backups."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG11.4",
+        "Rationale": "AWS Backup directly facilitates this by allowing automated, policy-based copying of backups to different, isolated AWS Regions or separate AWS accounts. Its \"Backup Vault Lock\" feature also creates immutable, write-once-read-many (WORM) backups, isolating them from modification or deletion."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The tool provides the \"restore\" functionality used to perform recovery tests. Furthermore, the \"AWS Backup Audit Manager\" feature can be used to automate restore testing and validate the compliance of recovery procedures."
+    },
+    {
+        "ToolID": "T388",
+        "SafeguardID": "SG15.6",
+        "Rationale": "The \"AWS Backup Audit Manager\" feature allows an enterprise to continuously monitor, audit, and generate reports on its backup policies and activities. This serves as a mechanism to monitor the service provider's performance against the enterprise's defined data protection requirements."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG1.2",
+        "Rationale": "CloudTrail logs all API calls, including asset creation events (e.g., RunInstances for an EC2 server, CreateDBInstance for a database). By monitoring these logs, an organization can detect the creation of assets that don't align with procurement or deployment policies, enabling a process to address them."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG3.14",
+        "Rationale": "CloudTrail can be configured to log \"Data Events,\" which capture object-level API activity for services like Amazon S3 or DynamoDB. This directly fulfills the requirement to log who accessed what sensitive data and when."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG5.1",
+        "Rationale": "While AWS IAM is the inventory, CloudTrail is the tool used to \"Validate that all active accounts are authorized,\" as specified in the safeguard. It provides a complete audit trail of every action taken by every user or role, which is essential for reviewing account activity."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG5.3",
+        "Rationale": "By analyzing CloudTrail logs, an administrator can identify accounts (users or roles) that have not had any API activity over a set period (e.g., 45 days), flagging them as dormant and candidates for disabling."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG6.2",
+        "Rationale": "CloudTrail provides the critical audit trail to verify that the access revoking process was followed. It will record events like DeleteUser, RemoveUserFromGroup, or DeleteAccessKey, confirming that an account was properly disabled or de-provisioned."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.1",
+        "Rationale": "CloudTrail is a fundamental component of the audit log management process for any workload running on AWS. It is the primary service designed by AWS to meet logging requirements."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.2",
+        "Rationale": "This is the core function of AWS CloudTrail. It is designed to \"collect audit logs\" (API calls, console sign-ins, and other user/service actions) across the AWS environment."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.3",
+        "Rationale": "CloudTrail directly integrates with Amazon S3, a highly durable and scalable object storage service, allowing for the long-term retention of audit logs to meet compliance requirements."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.4",
+        "Rationale": "All events logged by CloudTrail are stamped with a standardized, synchronized timestamp from AWS's internal time sources. This ensures all logs from all services and regions can be accurately correlated."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.5",
+        "Rationale": "CloudTrail logs are exceptionally detailed, capturing the event source, date, timestamp, username (identity), source IP address, destination (service), and other crucial elements like request parameters, which are essential for forensic investigation."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.9",
+        "Rationale": "CloudTrail can be configured to centralize all logs from all regions and all member accounts (using AWS Organizations) into a single, central S3 bucket or CloudTrail Lake, providing a single source of truth for auditing."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.10",
+        "Rationale": "While the default \"Event History\" is 90 days, configuring a CloudTrail \"Trail\" allows logs to be delivered to an S3 bucket, where retention policies can be set to keep logs for any required period (e.g., 1 year, 7 years, or indefinitely)."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.11",
+        "Rationale": "CloudTrail provides the raw data necessary for audit log reviews. The logs it collects can be queried directly (using CloudTrail Lake, Amazon Athena) or fed into SIEMs and other analysis tools to \"detect anomalies or abnormal events.\""
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG8.12",
+        "Rationale": "In the context of using AWS as a cloud service provider, CloudTrail is the mechanism for collecting the service provider's activity logs, giving visibility into actions taken within the account."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG13.1",
+        "Rationale": "CloudTrail logs are the primary data source for security event alerting in AWS. While CloudTrail captures the log, it integrates with services like Amazon EventBridge or AWS Security Hub, which can correlate events and trigger alerts based on the data CloudTrail provides."
+    },
+    {
+        "ToolID": "T283",
+        "SafeguardID": "SG17.8",
+        "Rationale": "In the event of a security incident in an AWS environment, CloudTrail logs are the single most important source of evidence. They provide an immutable, chronological record of every action, allowing responders to conduct a \"post-incident review\" to identify lessons learned and prevent recurrence."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG3.3",
+        "Rationale": "IAM policies are the mechanism used to define and configure fine-grained access control, acting as the \"access control lists\" that specify who can access and manipulate data in AWS services like S3 buckets or databases"
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG4.7",
+        "Rationale": "A fundamental AWS security best practice is to stop using the default \"root\" account. IAM is the tool used to create all other administrator and user accounts, allowing the default root account to be secured and unused for daily tasks."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG5.1",
+        "Rationale": "IAM provides the central dashboard and API for creating, viewing, and managing all user, administrator, and service (role) accounts within an AWS environment, serving as the definitive inventory."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG5.2",
+        "Rationale": "IAM enables administrators to create and enforce a custom password policy for all users, mandating password length, complexity, and rotation rules"
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG5.3",
+        "Rationale": "IAM provides \"last used\" data for credentials (passwords, access keys), which allows administrators to identify dormant accounts that can then be disabled or deleted."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG5.4",
+        "Rationale": "IAM is the tool used to create dedicated administrator accounts and roles, separate from the root user and standard user accounts, to enforce the principle of least privilege."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG5.5",
+        "Rationale": "In AWS, \"service accounts\" are implemented as IAM roles. IAM is the service used to create, manage, and inventory these roles and their specific permissions"
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG5.6",
+        "Rationale": "IAM is the centralized directory and identity service for an AWS account, managing all users, groups, and roles from a single control plane."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.1",
+        "Rationale": "IAM is the specific tool used to execute the access granting process by creating a user or role and attaching policies that grant specific permissions."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.2",
+        "Rationale": "IAM is the tool used to revoke access by detaching policies, disabling credentials, or deleting the user or role entirely."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.3",
+        "Rationale": "IAM provides the controls to enforce Multi-Factor Authentication (MFA) for the AWS Management Console, which is an externally-exposed application."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.4",
+        "Rationale": "IAM manages and enforces MFA for all forms of remote access to the AWS environment, including the console (HTTPS) and programmatic API/CLI access."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.5",
+        "Rationale": "A core feature of IAM is the ability to create policies that require MFA to be active for any user, especially administrative accounts, to perform actions."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.6",
+        "Rationale": "IAM is the primary authentication and authorization system for an AWS environment. The service itself serves as the inventory and management point for this system."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.7",
+        "Rationale": "This is the primary function of IAM: to centralize the management of access controls for all AWS resources, rather than managing permissions on each resource individually."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The IAM \"Roles\" feature is the direct implementation of Role-Based Access Control (RBAC). It allows administrators to define a set of permissions for a \"role\" (e.g., \"Developer,\" \"Auditor\") and then assign that role to any user, group, or service."
+    },
+    {
+        "ToolID": "T66",
+        "SafeguardID": "SG12.5",
+        "Rationale": "IAM provides the centralized Authentication (verifying user/service identity) and Authorization (granting permissions) for all AWS resources, including network services. The Auditing component is generated by IAM and logged by AWS CloudTrail."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG3.11",
+        "Rationale": "This is the primary function of AWS KMS. It provides the keys that are used by other AWS services (like S3, EBS, and RDS) to perform server-side encryption on data stored at rest."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG3.14",
+        "Rationale": "KMS integrates with AWS CloudTrail to create a detailed, immutable audit log of every API call, including requests to decrypt data. This log provides a critical \"who, what, when\" record of potential access to the sensitive data protected by the keys."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG4.6",
+        "Rationale": "KMS contributes to this by managing keys within FIPS 140-3 validated Hardware Security Modules (HSMs) and enforcing access via secure APIs (HTTPS). This secure management of keys is a core part of securely managing the assets (data) they protect."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG6.7",
+        "Rationale": "KMS, combined with AWS Identity and Access Management (IAM), acts as the central control point for cryptographic access. It centralizes the decision-making process for who or what (e.g., users, roles, services) is allowed to use specific keys."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG6.8",
+        "Rationale": "You use KMS key policies and IAM policies to define granular, role-based access. For example, you can specify that only a specific \"BackendAppRole\" can perform the kms:Decrypt action, which is a direct implementation of RBAC for data access."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG8.2",
+        "Rationale": "KMS is a critical source of security audit logs. It generates detailed logs for all key management and cryptographic operations, which are then collected by AWS CloudTrail."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The logs generated by KMS and captured in CloudTrail are highly detailed. They include the event source, timestamp, source IP, user/role, and specific API action (e.g., CreateKey, Decrypt), which is essential for forensic investigation."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG8.9",
+        "Rationale": "KMS does not store its own logs; it natively integrates with AWS CloudTrail, which is a service specifically designed to centralize audit logs from all across an AWS environment."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As a cloud \"service provider,\" AWS provides logs for KMS actions. These logs detail authentication events (who used a key) and data access events (e.g., Decrypt), fulfilling this safeguard's requirement to monitor service provider activity."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG11.3",
+        "Rationale": "When backups (e.g., EBS snapshots, S3 backups) are encrypted, KMS manages the keys. By securing the key (with access policies, rotation, etc.), you are protecting the recovery data itself. Access to the backup file is useless without access to the KMS key to decrypt it."
+    },
+    {
+        "ToolID": "T104",
+        "SafeguardID": "SG16.11",
+        "Rationale": "This safeguard advises developers to use vetted services for encryption and logging rather than building their own. KMS is the exact \"vetted service\" for key management and encryption that developers should leverage to secure their applications, preventing common and dangerous \"roll-your-own-crypto\" flaws"
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.1",
+        "Rationale": "Lake Formation provides the technical framework to build and enforce a documented data management process, including data handling, access, and security policies, all from a central location."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The tool is built on the AWS Glue Data Catalog, which acts as a central, queryable metadata inventory of all data assets (databases, tables, and schemas) in the data lake."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.3",
+        "Rationale": "This is a core function. Lake Formation provides fine-grained access control (at the database, table, column, row, and cell level) for data, acting as the modern equivalent of access control lists for a data lake."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.7",
+        "Rationale": "Lake Formation implements Tag-Based Access Control (LF-TBAC), allowing you to create a classification scheme (e.g., \"Sensitive,\" \"PII,\" \"Confidential\") and apply these tags to data resources to manage permissions."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.11",
+        "Rationale": "Lake Formation integrates with AWS Key Management Service (KMS) to enforce encryption policies for data stored in Amazon S3 and for the data catalog itself, ensuring data is encrypted at rest."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.12",
+        "Rationale": "The fine-grained and tag-based permissions model allows you to create policies that \"segment\" data access, ensuring that users and applications can only access data (e.g., \"Public\") and not data of a higher sensitivity (e.g., \"PII\") unless explicitly authorized."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG3.14",
+        "Rationale": "Lake Formation integrates with AWS CloudTrail to create detailed audit logs, capturing who accessed what data (or was denied access), when, and through which service (e.g., Athena, Redshift)."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG6.1",
+        "Rationale": "Lake Formation is the centralized process for granting data access. It provides the console and APIs to manage permissions, simplifying and standardizing the process of granting access to data."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Just as it grants access, Lake Formation provides the central mechanism to immediately revoke data access permissions from a single location, which are then enforced across all integrated services."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG6.6",
+        "Rationale": "Lake Formation functions as the central authorization system for all data in the data lake, integrating with AWS IAM (the authentication system) to manage permissions"
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG6.7",
+        "Rationale": "This is the tool's fundamental purpose. It provides a \"single pane of glass\" to define and enforce access control policies for data, rather than managing complex and decentralized policies on S3 buckets or other services"
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Lake Formation's model is designed to grant permissions to IAM roles (which represent business roles, e.g., \"DataAnalyst\") and uses tags (e.g., department:finance), enabling both Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC)."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG8.1",
+        "Rationale": "Lake Formation's native integration with AWS CloudTrail is a key component of an audit log management process, as it automatically handles the generation of logs for data access events."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Lake Formation automatically generates and sends logs for data access and permission changes to CloudTrail for collection."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The logs provided include the user/role, the data resource (table, column) accessed, the service used, the time, and the source IP, providing the detail needed for investigations."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All Lake Formation audit logs are sent to AWS CloudTrail, which is a centralized logging service. From there, logs can be aggregated, archived, and forwarded to a SIEM."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As AWS is the service provider, Lake Formation provides the necessary logs (via CloudTrail) to see what access events are occurring within their environment, fulfilling this requirement for data hosted in the data lake."
+    },
+    {
+        "ToolID": "T109",
+        "SafeguardID": "SG15.6",
+        "Rationale": "When using AWS as a service provider, Lake Formation (paired with CloudTrail) is a tool that directly monitors the \"service\" by logging all access to your data, allowing you to audit activity and ensure it aligns with your policies"
+    },
+    {
+        "ToolID": "T213",
+        "SafeguardID": "SG6.3",
+        "Rationale": "AWS MFA can be used to secure access to the AWS Management Console, which is an externally-exposed, web-based application used to manage all enterprise cloud resources."
+    },
+    {
+        "ToolID": "T213",
+        "SafeguardID": "SG6.4",
+        "Rationale": "This tool can enforce MFA for users attempting to gain remote access to the enterprise's cloud network, such as through an AWS Client VPN connection or when using the AWS CLI (Command Line Interface) from a remote location."
+    },
+    {
+        "ToolID": "T213",
+        "SafeguardID": "SG6.5",
+        "Rationale": "This is a primary use case for the tool. AWS MFA can be strictly enforced for all IAM (Identity and Access Management) users and roles that have administrative privileges, ensuring that even if admin credentials are stolen, the account remains secure."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The tool provides detailed logs and metrics of the network traffic it inspects, which can be used for auditing purposes."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Its domain-based filtering and web filtering capabilities necessarily involve processing and logging DNS-level requests to known-bad domains."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The service provides web filtering to block or monitor traffic to specific URLs, generating logs of these requests."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG8.9",
+        "Rationale": "AWS Network Firewall natively integrates with AWS CloudWatch and Amazon S3, which are centralized services for log collection, storage, and analysis."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG9.2",
+        "Rationale": "This is a core feature, described as \"domain filtering\" and \"web filtering,\" which is used to block access to known malicious domains"
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The logs and metrics generated by the firewall can be sent to a SIEM (such as AWS CloudWatch or a third-party tool) to be correlated and to generate centralized security alerts."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The service is explicitly described as an \"intrusion detection and prevention service\" (IDS/IPS)."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG13.4",
+        "Rationale": "A primary use case is filtering traffic at the VPC perimeter and inspecting \"VPC-to-VPC traffic to logically separate networks,\" which is the definition of inter-segment filtering."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The tool provides \"detailed logs and metrics\" and \"flow capture\" capabilities to monitor and analyze all network traffic that passes through it."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG13.8",
+        "Rationale": "The tool functions as an \"intrusion prevention system (IPS)\" that provides \"active traffic flow inspection\" to \"identify and block vulnerability exploits\"."
+    },
+    {
+        "ToolID": "T125",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The firewall provides control over Layer 3-7 traffic, performs \"deep packet inspection\", and allows for protocol-based blocking, all of which are application-layer filtering techniques"
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG1.1",
+        "Rationale": "AWS Network Manager allows you to register and create a \"global network\" that includes your AWS Transit Gateways, on-premises devices, and site-to-site VPN connections. This creates a centralized inventory of your core network infrastructure assets."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG3.12",
+        "Rationale": "The tool is used to manage AWS Transit Gateways, which are a primary service for creating network segmentation between different Virtual Private Clouds (VPCs) (e.g., separating production, development, and testing environments). Network Manager provides the high-level visibility to manage and validate this segmentation."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG4.6",
+        "Rationale": "AWS Network Manager is accessed via the secure AWS Management Console (HTTPS) and AWS APIs. This provides a secure, centralized administrative interface for managing your global network infrastructure, aligning with the requirement to use secure protocols for management."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The service generates events for network changes, such as topology and routing updates, and can send these to Amazon EventBridge. It also provides network metrics that are sent to Amazon CloudWatch. These are forms of audit logs for network activity and status."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG8.9",
+        "Rationale": "By integrating with Amazon EventBridge and Amazon CloudWatch, Network Manager helps centralize its own network-related events and metrics alongside logs from other services, which can then be fed into a SIEM"
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The dashboard's core function is to provide a \"single global view\" with visualizations, metrics, and event notifications, which is a key tool for facilitating the review of network health and changes"
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG12.2",
+        "Rationale": "This is a primary function of the tool. It helps you design, implement, and maintain a secure network architecture by managing and visualizing the connectivity and segmentation provided by Transit Gateways."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG12.3",
+        "Rationale": "AWS Network Manager is a tool specifically designed for the secure management of network infrastructure (Transit Gateways, VPNs, on-prem devices) from a single, secure, central point."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG12.4",
+        "Rationale": "A key feature is its ability to automatically generate and display your global network in a \"topology diagram and in a geographical map\". This directly fulfills the need for maintaining up-to-date network architecture diagrams."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The tool generates alerts for changes in network topology and routing and delivers them via Amazon EventBridge. These events can be used to trigger automated alerts, forming a part of a centralized security event alerting system for the network."
+    },
+    {
+        "ToolID": "T403",
+        "SafeguardID": "SG13.4",
+        "Rationale": "While Network Manager is not the filtering engine itself, it manages the Transit Gateways that are used to create network segments. It provides the visibility and management plane for the segmented architecture, which is a prerequisite for applying traffic filtering rules between those segments (e.g., via security groups or Network Firewall)."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG3.4",
+        "Rationale": "S3 Glacier Deep Archive is designed for long-term data retention. It can be combined with S3 Lifecycle policies to automatically move data into this archive tier and S3 Object Lock to enforce Write-Once-Read-Many (WORM) policies, making data non-deletable for a specified retention period."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG3.5",
+        "Rationale": "As a managed cloud service, data deleted from S3 Glacier Deep Archive is securely and permanently removed by AWS, fulfilling the disposal requirement."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG3.11",
+        "Rationale": "All data stored in S3 Glacier Deep Archive is encrypted at rest by default. It also supports server-side encryption with customer-managed keys (SSE-KMS) or customer-provided keys (SSE-C) for enhanced security and control."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The extremely low cost of this storage class makes it an ideal solution for storing massive volumes of audit logs for long-term retention without incurring significant expense."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG8.10",
+        "Rationale": "This tool is built to retain data for 7-10 years or more, far exceeding the 90-day minimum requirement. It is a perfect fit for archiving logs for compliance and future forensic analysis."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG11.1",
+        "Rationale": "S3 Glacier Deep Archive is a foundational component of a modern data recovery and disaster recovery (DR) plan, serving as the secure, long-term repository for backups."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG11.2",
+        "Rationale": "The tool directly supports this safeguard by integrating with services like AWS Backup and S3 Lifecycle policies, which automate the process of moving backup data into this long-term archive tier."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG11.3",
+        "Rationale": "This is a primary function of the tool. It protects recovery data (backups) by offering 99.999999999% (11 nines) of durability, automatically storing data across multiple, geographically separate facilities, and encrypting all data at rest."
+    },
+    {
+        "ToolID": "T391",
+        "SafeguardID": "SG11.4",
+        "Rationale": "This tool is the modern equivalent of an off-site tape vault. By design, it is isolated from production systems and is considered \"offline\" storage due to its long retrieval times (12-48 hours). This isolation protects backups from being immediately compromised during a live ransomware attack."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG1.2",
+        "Rationale": "An automation runbook can be triggered by a discovery tool (like AWS Config) to automatically isolate, quarantine, or de-register an unauthorized asset found on the network."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Automation runbooks can be created to automatically uninstall specific software that has been identified as \"unauthorized\" by an inventory scan."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Automation can be used to deploy the Systems Manager (SSM) agent or other inventory agents to new and existing assets, ensuring they are enrolled in the inventory process."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Automation runbooks are a key component of enforcing a secure configuration process, allowing you to define and apply hardening scripts and settings consistently at scale."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG4.6",
+        "Rationale": "Automation runbooks function as version-controllable, Infrastructure-as-Code (IaC) for operations, allowing you to securely and repeatably manage configurations."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG4.8",
+        "Rationale": "A runbook can be built to scan for and automatically disable or uninstall a list of defined, unnecessary services from servers or end-user devices."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG7.2",
+        "Rationale": "This is a primary function. Automation runbooks serve as the documented, automated remediation process for specific vulnerabilities or misconfigurations."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The tool is a core part of the AWS patching solution, enabling the creation of complex, automated patching workflows to deploy OS updates across the fleet."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Custom automation runbooks can be written to patch third-party applications or any software that requires a non-standard update process."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG7.7",
+        "Rationale": "This is the \"Automated Response\" in \"Automated Response and Remediation.\" Runbooks can be triggered by vulnerability findings from tools like AWS Security Hub to apply a patch, change a configuration, or isolate the asset."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG8.8",
+        "Rationale": "When Automation runbooks execute scripts (e.g., via aws:executeScript) or run commands on instances, the execution details, commands, and output are logged, contributing to a detailed audit trail of actions performed."
+    },
+    {
+        "ToolID": "T607",
+        "SafeguardID": "SG13.1",
+        "Rationale": "This tool is the \"action\" component for centralized alerts. A SIEM or detection service (like AWS GuardDuty) can send an event to AWS EventBridge, which then triggers a specific automation runbook to respond to the threat (e.g., \"block this IP address\" or \"isolate this instance\")."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG8.7",
+        "Rationale": "AWS WAF intrinsically logs all web requests it processes, including the full URL, headers, and source IP. This data can be sent to services like Amazon CloudWatch Logs or Amazon S3 for retention and analysis, directly fulfilling the need to log URL requests."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG9.2",
+        "Rationale": "While not a traditional DNS-level filter, AWS WAF can be configured with managed rule groups (e.g., the \"Amazon IP reputation list\") that are automatically updated with threat intelligence to block requests from known malicious IP addresses and botnets, achieving a similar outcome of blocking access to malicious domains."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is a core function of AWS WAF. You can create custom rules to inspect parts of the URL (URI path, query string) and block requests that match unapproved or malicious patterns, effectively acting as a network-based URL filter for your web applications."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG13.3",
+        "Rationale": "AWS WAF rules can be set to \"Count\" mode. In this mode, the WAF will identify and log malicious requests (like SQL injection or XSS) based on its ruleset but will not block them, allowing it to function as a passive Network Intrusion Detection System (NIDS) for web traffic."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG13.8",
+        "Rationale": "This is the primary use case for AWS WAF. By setting rules to \"Block,\" the service actively inspects and stops web-based attacks before they reach the application, serving as a Network Intrusion Prevention System (NIPS) specifically for the application layer."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG13.10",
+        "Rationale": "This is the definition of a Web Application Firewall. AWS WAF operates at Layer 7 (the application layer) to inspect the content of HTTP/HTTPS requests, allowing it to filter traffic based on application-specific logic, not just IP addresses and ports."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG16.1",
+        "Rationale": "AWS WAF acts as a \"virtual patch.\" When a new vulnerability is discovered in an application, a WAF rule can be deployed in minutes to block the exploit. This provides immediate protection in the production environment while the development team works on a permanent code-level fix, which is a key component of a mature, secure development lifecycle."
+    },
+    {
+        "ToolID": "T490",
+        "SafeguardID": "SG18.4",
+        "Rationale": "After a penetration test identifies vulnerabilities, new WAF rules are often a part of the remediation (SG18.3). The WAF's logs and metrics are then used to validate that the exploits used during the test are now being successfully detected and blocked, confirming the effectiveness of the new security measures."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Azure AD maintains an inventory of all devices that are registered or joined (Azure AD joined, Hybrid Azure AD joined) to it. This record includes machine name, owner, and OS, and serves as a prerequisite for management by tools like Intune."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG1.2",
+        "Rationale": "Using Conditional Access policies, Azure AD can deny authentication requests from devices that are not registered or marked as \"compliant,\" effectively quarantining unauthorized or unhealthy assets from accessing enterprise resources."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Azure AD is the modern engine for access control. It configures who has access to what data (stored in applications like SharePoint, OneDrive, or Teams) by enforcing user authentication and authorization"
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG3.6",
+        "Rationale": "Azure AD securely stores BitLocker recovery keys for Windows devices. This ensures that encrypted devices can be recovered by authorized IT staff, linking device-level encryption directly to the central identity platform."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG5.1",
+        "Rationale": "This is the primary function of Azure AD. It serves as the central directory and authoritative source for all user, administrator, and guest accounts."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG5.2",
+        "Rationale": "Azure AD enforces password complexity, history, and expiration policies. Its Password Protection feature (P1/P2) also blocks users from setting common or known-compromised passwords, forcing more unique choices."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG5.3",
+        "Rationale": "Azure AD includes built-in policies to identify and automatically disable or delete inactive accounts based on their last sign-in date."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG5.4",
+        "Rationale": "Azure AD is built to support this. It allows for the creation of standard, non-privileged user accounts for daily tasks and separate, dedicated accounts that are assigned administrative roles (e.g., Global Administrator)."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG5.5",
+        "Rationale": "In Azure AD, these are known as Service Principals and Managed Identities. The platform provides a complete, centralized inventory of these non-human accounts and what they have permission to access."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG5.6",
+        "Rationale": "This is the definition of Azure AD. It acts as the central, cloud-based directory service for managing all enterprise identities."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.1",
+        "Rationale": "Azure AD provides multiple tools for this, including Entitlement Management (access packages), dynamic group memberships, and automated user provisioning from HR systems (like Workday) or on-premises AD."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Access is revoked immediately when an account is disabled in Azure AD (or synced as disabled from on-premises AD). This single action blocks access to all connected applications."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.3",
+        "Rationale": "This is a core function of Conditional Access. A policy can be set to require MFA for any user accessing any (or specific) cloud applications from a network location that is not a trusted corporate IP."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.4",
+        "Rationale": "Azure AD can serve as the authentication provider for enterprise VPNs (via the NPS extension or SAML) and enforce Conditional Access policies that require MFA for all remote access."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.5",
+        "Rationale": "This is a default and critical best practice. Azure AD Conditional Access is used to enforce MFA for all users assigned any administrative role (e.g., Global Admin, User Admin)."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.6",
+        "Rationale": "Azure AD is the central authentication and authorization system. The Enterprise Applications blade also serves as an inventory of all third-party systems that have been configured to trust Azure AD for authentication."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.7",
+        "Rationale": "This is the core purpose of Single Sign-On (SSO) and Conditional Access. Azure AD centralizes access decisions for thousands of applications into one platform and one set of policies."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Azure AD has dozens of built-in RBAC roles (e.g., Security Reader, Helpdesk Administrator) to grant granular permissions for managing the directory and other Microsoft services."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Azure AD automatically generates detailed Sign-in logs (tracking all authentication attempts) and Audit logs (tracking all administrative changes) for all tenants."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.3",
+        "Rationale": "Azure AD stores logs for a default period (7-30 days depending on license) and provides robust connectors to export them to Azure Monitor (Log Analytics) or a SIEM for long-term storage."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.4",
+        "Rationale": "As a global cloud service, all logs generated by Azure AD are automatically timestamped and synchronized, ensuring log correlation is accurate."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The sign-in logs contain detailed forensic data, including username, timestamp, source IP address, location, application, device, and authentication success/failure."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Azure AD is the central repository for all identity and access logs. It also serves as a source, feeding these logs into a centralized enterprise SIEM (like Microsoft Sentinel)."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.10",
+        "Rationale": "While default retention varies, Azure AD enables long-term (90+ days) retention by integrating with log storage solutions like Azure Monitor."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The Azure AD Identity Protection (P2) feature automates the review of sign-in logs, using machine learning to detect and alert on anomalies and potential threats (e.g., impossible travel, unfamiliar location)."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As Azure AD is the identity service provider, it provides all the necessary authentication, authorization, and user management logs."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG12.5",
+        "Rationale": "Azure AD can serve as the central authentication component for network infrastructure, such as wireless networks or VPNs, by integrating with a RADIUS server (like Microsoft NPS) via an extension."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG12.7",
+        "Rationale": "Azure AD acts as the AAA infrastructure that users authenticate against (with MFA) before being granted access to the VPN."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG13.1",
+        "Rationale": "Azure AD Identity Protection generates real-time security alerts for identity-based threats (e.g., \"Leaked credentials,\" \"Risky sign-in\") and feeds them into central dashboards and SIEMs."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG13.5",
+        "Rationale": "It can check the health and compliance status of a remote device (via Intune) before granting it access to enterprise resources, thus enforcing security policies on remote assets"
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG15.1",
+        "Rationale": "The Enterprise Applications blade in Azure AD acts as a live inventory of all third-party SaaS applications (i.e., service providers) that are integrated for single sign-on."
+    },
+    {
+        "ToolID": "T67",
+        "SafeguardID": "SG16.11",
+        "Rationale": "Azure AD provides the Microsoft Authentication Library (MSAL) for developers. This allows them to integrate their custom applications with the robust, vetted Azure AD platform for all identity, authentication, and authorization needs, rather than insecurely building their own."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG3.4",
+        "Rationale": "Azure Archive Storage is a primary tool for this safeguard, providing an extremely low-cost, durable location to store data for long periods (months or years) to meet documented retention requirements."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG3.5",
+        "Rationale": "By using automated lifecycle management policies, data can be set to automatically delete from the archive tier after its retention period, fulfilling disposal requirements. As a cloud service, Microsoft also handles the secure physical destruction of the underlying media."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG3.10",
+        "Rationale": "All data uploaded to Azure Archive Storage is encrypted in transit by default using protocols like HTTPS."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG3.11",
+        "Rationale": "The service automatically encrypts all data at rest using 256-bit AES encryption, with no additional configuration required."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG3.12",
+        "Rationale": "The archive tier is, by definition, a form of storage segmentation. It separates rarely-used \"cold\" data (such as compliance records or long-term backups) from \"hot\" or \"cool\" production data."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG3.14",
+        "Rationale": "Because data must be \"rehydrated\" (moved to a hot or cool tier) before it can be accessed, this rehydration action is a distinct, high-signal event that can be logged, providing a clear audit trail for any attempts to access sensitive archived data."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The primary challenge with log storage is volume. Azure Archive Storage provides a massive, highly-scalable, and low-cost solution, making it feasible to store vast quantities of audit logs for extended periods."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG8.9",
+        "Rationale": "This service is an ideal destination for centralized, long-term log storage. SIEMs and log management tools can be configured to \"tier\" or \"archive\" older, rarely-accessed logs from expensive \"hot\" storage to the \"cold\" archive tier."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG8.10",
+        "Rationale": "This is a perfect use case for the tool. It is designed for long-term retention, easily and cost-effectively fulfilling the 90-day minimum requirement and extending it to multiple years for compliance."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG11.2",
+        "Rationale": "Azure Archive Storage is a common target for automated backups, particularly for long-term \"cold\" backups. Lifecycle policies can automatically move older backup snapshots to the archive tier."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG11.3",
+        "Rationale": "Backup data stored in the archive tier is protected by the same security as the original data, including mandatory encryption at rest and in transit."
+    },
+    {
+        "ToolID": "T392",
+        "SafeguardID": "SG11.4",
+        "Rationale": "The archive tier is an \"offline\" storage tier, meaning data is not immediately accessible. This provides inherent isolation from production networks, making it a strong defense against ransomware that targets and encrypts online backups."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG3.4",
+        "Rationale": "Azure Backup allows administrators to define and automatically enforce specific data retention policies for how long backups are kept, fulfilling the requirement for minimum and maximum retention timelines"
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The tool automatically manages the data lifecycle, securely and permanently deleting backup data that has passed its defined retention period."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The service is designed to encrypt all backup data while it is being transferred from the source (on-premises or cloud) to the Azure Backup vault."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG3.11",
+        "Rationale": "A core feature of Azure Backup is that all data stored in the Recovery Services vault is encrypted by default, protecting sensitive backup data at rest."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Azure Backup integrates with Azure Monitor to generate and collect detailed audit logs for all backup, restore, and management operations."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG8.3",
+        "Rationale": "As a scalable cloud service, it provides the necessary storage (e.g., in a Recovery Services vault or Log Analytics workspace) to retain audit logs according to the enterprise's defined policy"
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All logs generated by Azure Backup are centralized within the Azure platform (e.g., Azure Monitor), allowing for unified collection, retention, and review."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG11.1",
+        "Rationale": "Azure Backup is a tool used to execute the \"detailed backup procedures\" and \"recovery\" portions of a data recovery process."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG11.2",
+        "Rationale": "This is the primary function of the tool. It allows an enterprise to schedule and perform automated backups of both on-premises and cloud-based enterprise assets."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The service protects the recovery data by enforcing encryption at rest, encryption in transit, and using Azure Role-Based Access Control (RBAC) to secure the vault."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG11.4",
+        "Rationale": "By storing backups in the Azure cloud, the tool creates an \"offline\" and \"off-site\" instance of recovery data that is isolated from the primary enterprise network, which is critical for recovering from incidents like ransomware."
+    },
+    {
+        "ToolID": "T383",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The tool provides the core \"restore\" functionality that allows an enterprise to perform tests of its data recovery procedures, whether for a single file or an entire system."
+    },
+    {
+        "ToolID": "T105",
+        "SafeguardID": "SG3.6",
+        "Rationale": "This safeguard specifically calls for encrypting data on end-user devices and lists \"Windows BitLocker®\" and \"Linux® dm-crypt\" as example implementations. Azure Disk Encryption uses these exact technologies to encrypt the OS and data disks of Azure VMs, which are the cloud equivalent of enterprise assets."
+    },
+    {
+        "ToolID": "T105",
+        "SafeguardID": "SG3.11",
+        "Rationale": "This safeguard requires that sensitive data be encrypted at rest on servers. Azure Disk Encryption provides full-volume encryption for the disks used by Azure VMs (servers), ensuring all data written to storage is encrypted, thereby meeting this requirement."
+    },
+    {
+        "ToolID": "T105",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Part of a secure configuration process for enterprise assets, including servers and operating systems, is enabling security features like encryption. Implementing ADE is a critical step in securely hardening a virtual machine's configuration in Azure."
+    },
+    {
+        "ToolID": "T105",
+        "SafeguardID": "SG11.3",
+        "Rationale": "This safeguard requires that recovery (backup) data is protected with controls equivalent to the original data, such as encryption. Related Azure services, like Azure Backup, are designed to back up and restore VMs that are encrypted with ADE, ensuring the backed-up data remains encrypted and protected."
+    },
+    {
+        "ToolID": "T105",
+        "SafeguardID": "SG16.7",
+        "Rationale": "This safeguard involves using standard hardening configurations for application infrastructure, which includes the underlying servers. Enabling disk encryption is a standard, industry-recommended hardening practice for any server, and ADE provides the native mechanism to apply this hardening to Azure-hosted infrastructure."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Azure Firewall is a critical network infrastructure device. Its configuration, managed through \"Firewall Policies\" (sets of network, application, and DNAT rules), is a core part of establishing and enforcing a secure network configuration."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG4.4",
+        "Rationale": "Azure Firewall functions as a centralized, managed network firewall that inspects and filters all traffic destined for and leaving servers (virtual machines) within the protected Azure Virtual Network, effectively acting as the primary firewall for those server workloads at the network level."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Azure Firewall includes a DNS proxy feature. When enabled, it can be configured to intercept all DNS requests from protected assets and forward them to the organization's designated trusted DNS server, ensuring assets cannot bypass this control."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG8.6",
+        "Rationale": "When the DNS proxy feature is used, Azure Firewall can be configured to log all DNS queries processed, providing a centralized audit trail of DNS requests from protected assets."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The Application-level (L7) filtering rules, URL filtering (Premium), and web category features inherently log all processed web traffic, including the requested URLs and the firewall's action (allow/deny)."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Azure Firewall natively integrates with Azure Monitor and Log Analytics (Azure's central logging and SIEM-like solution), allowing all its logs (traffic, threat, DNS, etc.) to be centralized for collection, retention, and analysis."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG9.2",
+        "Rationale": "By combining its DNS proxy, threat intelligence feeds, and custom rule capabilities, Azure Firewall can function as a powerful DNS filtering service, blocking access to known malicious domains and user-defined categories at the network edge."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is a core function. Azure Firewall Standard provides FQDN and web category filtering, while Premium offers more granular URL filtering. Both are network-based solutions that limit assets from connecting to malicious or unapproved websites."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG12.1",
+        "Rationale": "As a managed Platform-as-a-Service (PaaS) solution, Microsoft is responsible for all underlying infrastructure, patching, and software updates for the firewall service itself, ensuring it is always up-to-date."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG12.2",
+        "Rationale": "Azure Firewall is a foundational tool for implementing secure network architectures in the cloud, such as the recommended \"hub-and-spoke\" topology, by creating a central \"hub\" (DMZ) through which all traffic is filtered."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG12.3",
+        "Rationale": "All management of Azure Firewall is conducted over secure protocols (HTTPS via the Azure Portal, Azure CLI, and PowerShell) and can be automated and version-controlled using Infrastructure-as-Code (IaC) tools like ARM, Bicep, or Terraform."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The Premium SKU of Azure Firewall includes a fully managed, signature-based Intrusion Detection and Prevention System (IDPS) that monitors all network traffic for malicious activity and known exploit patterns."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is a primary use case. Azure Firewall is designed to be placed between network segments (e.g., between different virtual networks, or \"spokes\" in a hub-spoke model) to inspect and filter east-west (internal) traffic, in addition to north-south (internet) traffic."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG13.6",
+        "Rationale": "Azure Firewall's diagnostic settings allow it to log all allowed and denied traffic flows, providing a comprehensive record that can be sent to Azure Monitor for analysis."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG13.8",
+        "Rationale": "The IDPS feature in Azure Firewall Premium can be configured to not only \"Alert\" but also \"Alert and Deny,\" actively blocking detected threats and exploits, thereby functioning as a Network Intrusion Prevention System (NIPS)."
+    },
+    {
+        "ToolID": "T457",
+        "SafeguardID": "SG13.10",
+        "Rationale": "This is a core L7 capability. Azure Firewall can filter traffic based on application-layer attributes like Fully Qualified Domain Names (FQDNs), specific URLs, and predefined web categories (e.g., \"social media,\" \"gambling\")."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG1.4",
+        "Rationale": "Azure Monitor Logs can ingest DHCP server logs. Security teams can then query these logs to identify new or unknown devices connecting to the network, providing the raw data needed to update an asset inventory."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG2.1",
+        "Rationale": "By collecting application logs, security event logs, and data from inventory services (like Azure Automation Change Tracking), Azure Monitor Logs can be queried to help discover and list software installed across enterprise assets."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG3.14",
+        "Rationale": "This is a core function. It can ingest diagnostic and audit logs from data repositories (like Azure SQL Database and Azure Storage) to create a centralized audit trail of who accessed or modified sensitive data."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG4.9",
+        "Rationale": "The platform can collect DNS query logs from servers, allowing administrators to audit and verify that assets are correctly using the enterprise's trusted DNS servers and not querying malicious or unauthorized ones."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG5.1",
+        "Rationale": "It collects Azure Activity Logs and security events related to account management (e.g., create, delete, modify). This provides a verifiable log for auditing and maintaining the accuracy of an account inventory."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG5.3",
+        "Rationale": "By ingesting sign-in logs (e.g., from Azure AD/Entra ID), administrators can run queries to identify user accounts that have not had any login activity for a defined period (e.g., 45 days), flagging them for disabling."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG6.6",
+        "Rationale": "It centralizes logs from various authentication systems (like Azure AD, RADIUS, NPS), which allows administrators to audit and confirm the list of active authentication and authorization systems in the enterprise"
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.1",
+        "Rationale": "Azure Monitor Logs is a primary tool for implementing the technical components of a log management process, specifically addressing log collection, review, and retention."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.2",
+        "Rationale": "This is the fundamental purpose of the tool. It is designed to collect a wide variety of audit logs, including platform logs, resource logs, activity logs, and application logs, from numerous sources."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.3",
+        "Rationale": "As a scalable cloud service, it automatically manages storage, ensuring logs can be retained according to policy without administrators needing to manage physical disk space."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.4",
+        "Rationale": "The platform timestamps all ingested logs, which is critical for correlating events. This allows analysts to effectively review a sequence of events across multiple systems, a task that relies on the assets having standardized time."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.5",
+        "Rationale": "It is capable of ingesting and storing highly detailed logs containing timestamps, usernames, source/destination IPs, and other elements essential for forensic investigation."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The service has connectors and agents to collect detailed DNS query logs from both Azure-native DNS and on-premises Windows DNS servers"
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.7",
+        "Rationale": "It can ingest URL and web traffic logs from sources like Azure Firewall, Azure Application Gateway, and on-premises web proxies or web servers."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.8",
+        "Rationale": "When configured (e.g., via agents and Windows Event Forwarding), it can collect logs that include command-line process creation events, providing deep visibility into endpoint activity."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.9",
+        "Rationale": "This is the tool's core value proposition. The Log Analytics workspace is a centralized repository for audit logs from across the entire enterprise (cloud and on-premises)."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.10",
+        "Rationale": "Log retention is a key configurable feature. It retains Azure Activity Logs for 90 days by default and allows for configurable retention periods (from days to years) for all other log types."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The tool provides the Log Analytics interface, which uses the powerful Kusto Query Language (KQL), specifically for the purpose of reviewing and analyzing the collected logs."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As part of the Azure platform, it automatically collects logs from the service provider (Microsoft Azure) in the form of Platform and Activity Logs."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG9.2",
+        "Rationale": "It provides the means to audit the effectiveness of DNS filtering by collecting and analyzing DNS query logs to see which malicious domains were blocked (and which were not)."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG9.3",
+        "Rationale": "It collects logs from network-based URL filters (like web proxies or Azure Firewall), allowing administrators to review traffic, identify policy violations, and analyze web-based threats."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG10.1",
+        "Rationale": "It can ingest logs and alerts from anti-malware solutions (like Microsoft Defender), providing a central dashboard to monitor malware detections and the health status of the anti-malware agents"
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG10.6",
+        "Rationale": "While not the management tool itself, it serves as the central reporting and visibility component, allowing administrators to monitor the status, definitions, and alerts from all anti-malware clients in one place."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG12.5",
+        "Rationale": "Azure Monitor Logs fulfills the \"Auditing\" component of AAA by ingesting and centralizing authentication logs from network devices (e.g., VPNs, RADIUS, Wi-Fi controllers) for review and alerting."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The tool is the foundation for security alerting. The Azure Monitor Alerts feature runs queries against the data in Azure Monitor Logs to correlate events and generate alerts based on predefined or custom-written rules."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG13.2",
+        "Rationale": "It acts as the central repository for alerts and logs generated by Host-Based Intrusion Detection Systems (HIDS), allowing for correlation with other network and application logs."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG13.3",
+        "Rationale": "It ingests alerts and logs from Network Intrusion Detection Systems (NIDS) (e.g., Azure Firewall Premium), enabling centralized analysis and alerting on network-based threats."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The platform is the native destination for collecting, storing, and analyzing network traffic logs, such as Network Security Group (NSG) flow logs, to monitor traffic patterns between resources."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The centralized, time-stamped, and long-term logs stored in the platform are the primary source of truth for performing a post-incident review to determine the timeline and root cause of a security incident."
+    },
+    {
+        "ToolID": "T263",
+        "SafeguardID": "SG18.4",
+        "Rationale": "After a penetration test, security teams will query the logs in Azure Monitor to validate if the test's malicious activities were successfully logged and if the corresponding security alerts were triggered as expected."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The Topology feature provides an interactive visualization of Azure network resources and their interconnections, acting as a discovery tool for virtual assets."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG1.5",
+        "Rationale": "NSG Flow Logs and Traffic Analytics passively collect and analyze network traffic, which can be used to identify previously unknown or uninventoried assets communicating within the Azure environment."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The Topology feature provides a visual map of the network, and the NSG Flow Logs feature (especially when combined with Traffic Analytics) logs and visualizes the IP traffic between resources, helping to document data flows."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG8.2",
+        "Rationale": "A primary function of Network Watcher is to enable and manage NSG Flow Logs and VNet Flow Logs, which are types of audit logs for network traffic."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Flow logs capture detailed Layer 4 traffic information, including source/destination IP, port, protocol, and the specific security rule that allowed or denied the traffic."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The Packet Capture feature can be triggered on-demand to capture all network traffic from a VM, which would include DNS queries for diagnostic purposes."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Network Watcher integrates with Azure Storage accounts and Azure Monitor Log Analytics, allowing for the centralization, retention, and analysis of the network logs it generates."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As a native tool, Network Watcher is the mechanism for collecting network-level service logs from the Azure cloud service provider."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The Topology feature visualizes the current network architecture. Diagnostic tools like IP Flow Verify and NSG Diagnostics help validate and maintain the security of that architecture by testing rule configurations."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG12.4",
+        "Rationale": "The Topology feature provides a dynamic, interactive, and up-to-date diagram of the virtual network architecture."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG13.3",
+        "Rationale": "Traffic Analytics processes flow log data to identify threats, such as traffic from known malicious IPs, and helps identify \"unknown or undesired traffic,\" forming a key component of a cloud-based NIDS."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG13.4",
+        "Rationale": "While Network Security Groups (NSGs) perform the filtering, Network Watcher's IP Flow Verify and NSG Diagnostics tools are essential for auditing and verifying that the filtering rules are working as intended."
+    },
+    {
+        "ToolID": "T408",
+        "SafeguardID": "SG13.6",
+        "Rationale": "This is a core function of the tool through its NSG Flow Logs and VNet Flow Logs features, which capture IP traffic flowing through the network."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool enforces that all backup data sent from servers to the Recovery Services Vault is encrypted in transit using protocols like HTTPS and TLS 1.2+."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG3.11",
+        "Rationale": "The vault automatically encrypts all backup data at rest using strong 256-bit AES encryption, with options for both platform-managed and customer-managed keys."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG6.5",
+        "Rationale": "The vault integrates with Azure Active Directory and can be protected by Multi-Factor Authentication (MFA) for administrative access. It also offers features like multi-user authorization (MUA) to prevent unauthorized deletion of backups."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The service provides dashboards, backup reports, and alerts that log all backup, restore, and configuration activities, effectively collecting audit logs for data recovery operations."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The centralized monitoring dashboard and alerting features are designed to facilitate the regular review of backup and recovery logs to detect failures or abnormal events."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The vault is the technical implementation for a data recovery process, allowing you to define, store, and manage detailed backup and retention policies."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG11.2",
+        "Rationale": "The tool is built to run automated, scheduled backups of in-scope assets on a time-based (e.g., daily, weekly) schedule."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The vault protects backup data through a combination of encryption at rest and in transit, role-based access control (RBAC), \"soft delete\" (retaining deleted data for a period), immutability, and multi-user authorization."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG11.4",
+        "Rationale": "By its nature as a cloud service, the vault stores backups in a location that is logically and physically isolated from the production environment, protecting it from on-premises disasters or ransomware. It also supports geo-redundant storage (GRS) to replicate backups to a secondary region."
+    },
+    {
+        "ToolID": "T387",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The tool allows for \"test failover\" drills (using Azure Site Recovery) that do not impact production workloads, as well as on-demand restores of backed-up data to validate integrity."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The ASB (via Defender for Cloud) provides a central inventory of all Azure resources."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The inventory and policy features allow for the identification and remediation of non-compliant or \"unauthorized\" resources."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG1.3",
+        "Rationale": "ASB relies on the continuous discovery capabilities of the Azure platform and Defender for Cloud to inventory new assets as they are deployed."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG2.1",
+        "Rationale": "ASB's posture management recommendations, when combined with Defender for Cloud's vulnerability management, provide an inventory of software installed on virtual machines."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG2.2",
+        "Rationale": "The integrated vulnerability management tools identify unsupported software."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG2.4",
+        "Rationale": "This is a core function of the tools (like Defender for Cloud) that implement and monitor ASB recommendations."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG2.5",
+        "Rationale": "ASB recommendations support \"Adaptive Application Control,\" which is an intelligent, automated form of allowlisting."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG3.2",
+        "Rationale": "ASB recommendations integrate with data discovery and classification tools like Microsoft Purview."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG3.3",
+        "Rationale": "The benchmark's \"Identity Management\" and \"Data Protection\" domains are built around enforcing proper access controls."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG3.7",
+        "Rationale": "ASB recommendations guide the use of Azure's data classification tools."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG3.10",
+        "Rationale": "ASB includes specific recommendations to enforce the use of secure protocols (e.g., HTTPS) for data in transit."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG3.11",
+        "Rationale": "A core recommendation of ASB is to ensure that all storage, databases, and virtual disks are encrypted at rest."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The \"Logging and Threat Detection\" domain includes recommendations for logging access to sensitive data"
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The Azure Security Benchmark is the documented secure configuration process for Azure assets."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.2",
+        "Rationale": "The \"Network security\" domain of ASB provides specific hardening guidance for network resources."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.4",
+        "Rationale": "ASB recommendations check for the presence and proper configuration of firewalls."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The benchmark enforces the use of secure management protocols and tools."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.7",
+        "Rationale": "This is a key recommendation within the \"Identity Management\" and \"Privileged Access\" domains."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.8",
+        "Rationale": "ASB's vulnerability management recommendations identify and flag unnecessary open ports and services."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG4.9",
+        "Rationale": "This is covered by ASB's \"Network security\" domain."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG5.1",
+        "Rationale": "ASB recommendations leverage Microsoft Entra ID to manage and inventory all user, admin, and service accounts."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG5.4",
+        "Rationale": "This is a core principle of ASB's \"Privileged Access\" domain."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG5.6",
+        "Rationale": "ASB is built on the principle of using a centralized identity provider, Microsoft Entra ID."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG6.3",
+        "Rationale": "ASB recommendations, monitored by Defender for Cloud, strictly check for MFA enforcement."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG6.4",
+        "Rationale": "ASB recommendations enforce MFA for all remote access, including VPNs."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG6.5",
+        "Rationale": "This is one of the highest-priority recommendations within the ASB framework."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG6.7",
+        "Rationale": "ASB's controls are designed to be enforced via the centralized Microsoft Entra ID."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The benchmark leverages and provides best practices for Azure's native Role-Based Access Control (RBAC)."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The ASB \"Posture and Vulnerability Management (PV)\" domain provides the framework for this process."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG7.3",
+        "Rationale": "ASB (via Defender for Cloud) identifies and tracks missing OS patches"
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG7.4",
+        "Rationale": "The benchmark's monitoring tools identify vulnerabilities in installed applications."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG7.5",
+        "Rationale": "This is a core function of the CSPM (Defender for Cloud) tools that monitor against the benchmark."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG7.6",
+        "Rationale": "ASB recommendations are prioritized based on resource exposure, with internet-facing assets scanned for vulnerabilities"
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG7.7",
+        "Rationale": "ASB (via Defender for Cloud) provides a prioritized list of vulnerabilities, and the \"Secure Score\" tracks remediation progress."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The \"Logging and Threat Detection\" domain of ASB is the documented process for logging in Azure."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG8.2",
+        "Rationale": "ASB includes recommendations (enforced by Azure Policy) to ensure audit logs are enabled for all Azure services."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG8.3",
+        "Rationale": "ASB recommendations specify log retention policies."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The benchmark specifies which diagnostic and activity logs should be enabled to capture detailed events."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG8.9",
+        "Rationale": "ASB recommendations guide the centralization of all logs into a Log Analytics workspace, which forms the basis for Microsoft Sentinel."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG8.11",
+        "Rationale": "This is the \"Threat Detection\" component of the \"LT\" domain, which automates the review of logs for anomalies and threats."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG9.2",
+        "Rationale": "ASB's \"Network security\" domain includes recommendations for securing DNS resolution."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG9.3",
+        "Rationale": "ASB provides the secure configuration benchmark for network tools like Azure Firewall, which perform URL filtering."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG10.1",
+        "Rationale": "ASB (via Defender for Cloud) ensures that anti-malware (like Microsoft Defender) is enabled on servers."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The benchmark's monitoring tools validate that anti-malware is active and updating"
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG10.6",
+        "Rationale": "ASB is part of a centrally managed security suite (Defender for Cloud) that controls endpoint protection on Azure assets."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG11.1",
+        "Rationale": "ASB's \"Data Protection\" domain includes recommendations to ensure backups are configured for critical resources."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG11.2",
+        "Rationale": "ASB (via Azure Policy) checks if Azure Backup is enabled for critical assets like VMs and SQL databases."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG11.3",
+        "Rationale": "Benchmark recommendations for encryption and access control apply to backup vaults (Recovery Services Vaults) just as they do to production data."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG12.1",
+        "Rationale": "ASB's posture management identifies vulnerabilities or outdated versions of network appliances."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The \"Network security\" domain is built on secure architecture principles like network segmentation (VNets, subnets) and least privilege (NSGs)."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The benchmark includes recommendations to use secure management tools like Azure Bastion and Just-in-Time (JIT) access, and to disable insecure protocols."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG12.5",
+        "Rationale": "ASB recommendations are built around using Microsoft Entra ID for network AAA."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG13.1",
+        "Rationale": "This is a primary function of the tools that implement ASB. Recommendations and alerts are centralized in Microsoft Defender for Cloud."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG13.2",
+        "Rationale": "ASB recommendations include deploying Defender for Servers, which provides host-based detection."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG13.3",
+        "Rationale": "ASB recommendations include deploying Defender for Cloud, which provides network-level threat detection"
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG13.4",
+        "Rationale": "ASB recommendations enforce the proper configuration of Network Security Groups (NSGs) to filter traffic between subnets."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG13.6",
+        "Rationale": "ASB recommendations (via Azure Policy) ensure that NSG Flow Logs are enabled and collected."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG14.9",
+        "Rationale": "The benchmark itself is a key component of role-specific training for Azure administrators, developers, and security engineers, with Microsoft providing extensive training on its use."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG16.1",
+        "Rationale": "ASB v3 includes a \"DevOps Security\" domain that provides guidance for this."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG16.7",
+        "Rationale": "This is the primary purpose of ASB—it is the hardening template for Azure services (e.g., App Service, Functions, SQL)."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG16.8",
+        "Rationale": "ASB recommendations for RBAC, networking, and resource tagging are used to enforce this separation."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG16.10",
+        "Rationale": "ASB recommendations are the tactical implementation of secure design principles (e.g., least privilege, network segmentation) in the cloud."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG17.4",
+        "Rationale": "ASB (via Defender for Cloud) provides the detection, alerting, and investigation tools that are foundational to a modern IR process."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG17.5",
+        "Rationale": "ASB's \"Governance and Strategy\" domain covers the establishment of security roles and responsibilities."
+    },
+    {
+        "ToolID": "T608",
+        "SafeguardID": "SG17.9",
+        "Rationale": "This is achieved by configuring the alerting rules in Defender for Cloud, which are based on ASB recommendations"
+    },
+    {
+        "ToolID": "T377",
+        "SafeguardID": "SG11.1",
+        "Rationale": "Azure Site Recovery is a tool specifically designed to implement a data recovery process. It allows an enterprise to create, manage, and automate \"recovery plans\" that define the steps for failing over and recovering applications and data in the event of an outage."
+    },
+    {
+        "ToolID": "T377",
+        "SafeguardID": "SG11.2",
+        "Rationale": "The tool provides continuous or near-continuous replication of workloads and creates \"recovery points\" (both crash-consistent and application-consistent) at regular intervals. This automated replication and snapshotting process functions as a form of backup, enabling restoration to a recent, known-good state."
+    },
+    {
+        "ToolID": "T377",
+        "SafeguardID": "SG11.3",
+        "Rationale": "ASR protects recovery data by replicating it to resilient Azure storage. It supports encryption of data in transit and at rest in the secondary location, ensuring the backup data has equivalent security controls to the original data."
+    },
+    {
+        "ToolID": "T377",
+        "SafeguardID": "SG11.4",
+        "Rationale": "The fundamental model of ASR is to create an isolated instance of data and workloads. It replicates from a primary site (on-premises or an Azure region) to a separate, secondary location (another Azure region). This secondary site is isolated from a disaster or outage affecting the primary site."
+    },
+    {
+        "ToolID": "T377",
+        "SafeguardID": "SG11.5",
+        "Rationale": "ASR provides a built-in feature to conduct \"disaster recovery drills\" or \"test failovers\". This allows an organization to test its recovery plans and validate data recovery in an isolated network environment without impacting production workloads."
+    },
+    {
+        "ToolID": "T377",
+        "SafeguardID": "SG16.8",
+        "Rationale": "The \"test failover\" capability allows an enterprise to spin up a production-like copy of its environment in an isolated, non-production network. This directly supports the separation of systems by enabling development, debugging, and recovery testing to occur on a clone of the production environment without any risk to live operations."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG3.8",
+        "Rationale": "A VNet's design, including its subnet layout, peering connections, and route tables, inherently documents the intended flow of network data. This can be further enhanced by using VNet Flow Logs to record actual IP traffic flows."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG3.10",
+        "Rationale": "VNets can use an Azure VPN Gateway for encrypted site-to-site or point-to-site tunnels over the internet, or use ExpressRoute for a private, dedicated connection to on-premises networks."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG3.12",
+        "Rationale": "This is a primary function of VNets. An enterprise can create separate VNets or subnets for different data sensitivity levels (e.g., a subnet for public web servers and a separate, isolated subnet for backend databases) to control access and data flow."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Azure VNet is the network infrastructure. Defining its address space, subnets, DNS settings, route tables, and associated Network Security Groups (NSGs) is the practical application of this safeguard in the cloud."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG4.4",
+        "Rationale": "The Network Security Groups (NSGs) associated with a VNet act as a stateful, host-level firewall. They can filter inbound and outbound traffic to and from Azure resources (like virtual machines) based on IP, port, and protocol."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG4.9",
+        "Rationale": "A VNet allows you to specify custom DNS servers for all resources within it, enabling you to point all assets to enterprise-controlled or trusted DNS resolvers."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG9.3",
+        "Rationale": "While not a native VNet function, a VNet's User Defined Routes (UDRs) allow an enterprise to force all outbound internet traffic to flow through a central network virtual appliance (NVA) or Azure Firewall, where URL filtering can be enforced."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG12.1",
+        "Rationale": "As a core Azure service, Microsoft manages the underlying physical hardware and software of the VNet infrastructure, ensuring it is patched and up-to-date."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG12.2",
+        "Rationale": "This is the core purpose of Azure VNet. It is the tool used to design, build, and maintain a secure, segmented cloud network architecture, including hub-and-spoke models."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG12.3",
+        "Rationale": "All VNet configurations can be managed through secure, authenticated channels (like the Azure portal over HTTPS, Azure CLI, or PowerShell) and can be defined using Infrastructure-as-Code (IaC) for version-controlled, repeatable deployments."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG12.4",
+        "Rationale": "The Azure portal provides visualization tools for VNets and their connected resources, which aids in creating and maintaining network architecture diagrams."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG12.7",
+        "Rationale": "A VNet can be configured with a Point-to-Site (P2S) VPN Gateway, which allows individual remote users to establish a secure, encrypted connection from their device into the private Azure network."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG13.3",
+        "Rationale": "A VNet can be configured with a Virtual Network TAP (vTAP), which mirrors network traffic from a virtual machine to a monitoring appliance or NIDS solution."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is a fundamental capability of Network Security Groups (NSGs), which are applied to subnets (network segments) to filter traffic passing between them."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG13.6",
+        "Rationale": "VNet Flow Logs are a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through the Network Security Groups associated with your VNet."
+    },
+    {
+        "ToolID": "T438",
+        "SafeguardID": "SG13.10",
+        "Rationale": "A VNet can integrate with an Azure Application Gateway, a Layer 7 load balancer, or route traffic to an Azure Firewall (NVA) to perform deep-packet inspection and application-layer filtering."
     }
 ]
