@@ -90,50 +90,50 @@
     {
         "ID": "T78",
         "Name": "Amazon S3 Glacier Deep Archive",
-        "Description": "Offers extremely low-cost archival storage with a retrieval time of 12-48 hours, suitable for long-term data retention that eventually needs secure deletion.",
-        "URL": "https://aws.amazon.com/s3/glacier-deep-archive/",
+        "Description": "Amazon S3 Glacier Deep Archive is a secure, durable, and extremely low-cost Amazon S3 cloud storage class designed for long-term data archiving and digital preservation of data that is accessed less than once a year.",
+        "URL": "https://aws.amazon.com/s3/storage-classes/glacier/",
         "EducationUse": false,
         "Cost": "$"
     },
     {
         "ID": "T71",
         "Name": "Amazon S3 Lifecycle Policies",
-        "Description": "Configure automated data tiering and deletion rules for objects stored in Amazon S3 based on age or other criteria.",
-        "URL": "https://aws.amazon.com/s3/lifecycle/",
-        "EducationUse": false,
+        "Description": " Amazon S3 Lifecycle Policies are a set of rules used to automate the management of objects within an Amazon S3 bucket, enabling automatic transitioning of data to different storage classes or scheduling their deletion to optimize costs and enforce retention policies.",
+        "URL": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T268",
         "Name": "Amazon TimeSync Service (AWS)",
-        "Description": "Provides highly accurate time synchronization for AWS resources using Precision Time Protocol (PTP).",
-        "URL": "https://aws.amazon.com/timestream/time-sync-service/",
+        "Description": "A highly accurate and reliable time synchronization service that uses a fleet of redundant, satellite-connected atomic clocks to deliver Coordinated Universal Time (UTC) to AWS resources and external devices.",
+        "URL": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html",
         "EducationUse": false,
         "Cost": "$"
     },
     {
         "ID": "T437",
         "Name": "Amazon VPC (Virtual Private Cloud)",
-        "Description": "Enables the creation of isolated virtual networks within AWS, allowing for dedicated computing resources without internet access.",
+        "Description": "Amazon VPC is a service that allows you to provision a logically isolated section of the Amazon Web Services (AWS) Cloud where you can launch AWS resources in a virtual network that you define and control.",
         "URL": "https://aws.amazon.com/vpc/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T610",
         "Name": "Amazon Web Services (AWS) - Multiple AWS Accounts",
-        "Description": "Utilize distinct AWS accounts to isolate production and non-production environments, providing strong logical separation and resource control.",
-        "URL": "https://aws.amazon.com/accounts/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "An architectural best practice, enabled by services like AWS Organizations and AWS Control Tower, that uses multiple, isolated AWS accounts to enhance security, governance, and billing clarity.",
+        "URL": " https://aws.amazon.com/organizations/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T168",
-        "Name": "Android Enterprise - Google Play for Work",
-        "Description": "This service allows organizations to manage Android devices, including utilizing work profiles that create a separate workspace for enterprise applications and data.",
-        "URL": "https://play.google.com/work/public/about/",
-        "EducationUse": false,
-        "Cost": "$, $$"
+        "Name": "Android Enterprise",
+        "Description": "A Google-led initiative that provides APIs and tools for Enterprise Mobility Management (EMM) solutions to securely manage Android devices, applications, and data in an organizational setting.",
+        "URL": "https://www.android.com/enterprise/",
+        "EducationUse": true,
+        "Cost": "$$, $$$, $$$$"
     },
     {
         "ID": "T2",
@@ -146,10 +146,10 @@
     {
         "ID": "T412",
         "Name": "Ansible",
-        "Description": "Simplifies network automation through playbooks that define desired states, ensuring consistent and secure network configurations across devices.",
-        "URL": "https://www.ansible.com/",
+        "Description": "Ansible is an open-source IT automation engine that automates software provisioning, configuration management, and application deployment to enforce a desired state across an enterprise.\n",
+        "URL": "https://www.redhat.com/en/technologies/management/ansible",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T135",
@@ -162,18 +162,18 @@
     {
         "ID": "T363",
         "Name": "Apple System Integrity Protection (SIP)",
-        "Description": "SIP is a core security feature built into macOS that protects system processes and files from unauthorized modification, significantly reducing the attack surface for exploits.",
-        "URL": "https://support.apple.com/en-us/HT204169",
-        "EducationUse": false,
+        "Description": "System Integrity Protection (SIP) is a built-in macOS security technology that prevents malicious software from modifying protected system files, folders, and processes by restricting the permissions of all users, including the root account.\n",
+        "URL": "https://support.apple.com/en-us/102149",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T52",
         "Name": "AppLocker (Microsoft)",
-        "Description": "AppLocker allows administrators to control which applications and scripts users can run by specifying rules based on file paths, publishers, or file hashes.",
-        "URL": "https://learn.microsoft.com/en-us/windows/security/threat-protection/application-control/applocker",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "AppLocker is a built-in Windows security feature that allows administrators to control which applications and files users can run based on rules for file attributes (like publisher, product name, or version), file hash, or path.\n",
+        "URL": "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/applocker/applocker-overview",
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T1",
@@ -186,10 +186,10 @@
     {
         "ID": "T624",
         "Name": "Aqua Security",
-        "Description": "This platform provides security throughout the entire application lifecycle, including container scanning and vulnerability management to minimize infrastructure attack surface.",
-        "URL": "https://www.aquasecurity.com/",
+        "Description": "Aqua Security is a comprehensive Cloud Native Application Protection Platform (CNAPP) that provides full-lifecycle security—from code development to production—for containerized applications, Kubernetes, serverless functions, and virtual machines.",
+        "URL": "https://www.aquasec.com",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T8",
@@ -218,10 +218,10 @@
     {
         "ID": "T3",
         "Name": "Asset Panda",
-        "Description": "Asset Panda offers a mobile-first asset tracking platform for managing physical and digital assets with customizable fields and reporting features.",
-        "URL": "https://assetpanda.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Asset Panda is a highly customizable, cloud-based asset management platform used to track the lifecycle of both physical hardware and digital assets, including software licenses and contracts.",
+        "URL": "https://www.assetpanda.com/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T64",

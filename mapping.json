@@ -1,55 +1,11 @@
 [
     {
-        "SafeguardID": "SG3.5",
-        "ToolID": "T78"
-    },
-    {
-        "SafeguardID": "SG3.4",
-        "ToolID": "T71"
-    },
-    {
-        "SafeguardID": "SG8.4",
-        "ToolID": "T268"
-    },
-    {
-        "SafeguardID": "SG12.8",
-        "ToolID": "T437"
-    },
-    {
-        "SafeguardID": "SG16.8",
-        "ToolID": "T610"
-    },
-    {
-        "SafeguardID": "SG4.12",
-        "ToolID": "T168"
-    },
-    {
-        "SafeguardID": "SG12.3",
-        "ToolID": "T412"
-    },
-    {
         "SafeguardID": "SG16.7",
         "ToolID": "T135"
     },
     {
         "SafeguardID": "SG4.6",
         "ToolID": "T135"
-    },
-    {
-        "SafeguardID": "SG10.5",
-        "ToolID": "T363"
-    },
-    {
-        "SafeguardID": "SG2.6",
-        "ToolID": "T52"
-    },
-    {
-        "SafeguardID": "SG16.10",
-        "ToolID": "T624"
-    },
-    {
-        "SafeguardID": "SG1.1",
-        "ToolID": "T3"
     },
     {
         "SafeguardID": "SG3.2",
@@ -4985,5 +4941,875 @@
         "ToolID": "T18",
         "SafeguardID": "SG17.4",
         "Rationale": "Hudu's Knowledge Base and Process Organization features are used to store, version-control, and execute the detailed incident response playbooks and SOPs."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The tool integrates with Amazon S3 Lifecycle policies, which can be configured to automatically and permanently delete data after a specified retention period, fulfilling data disposal requirements."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG3.10",
+        "Rationale": "All data uploaded to Amazon S3, including for transfer to Glacier Deep Archive, is done over secure, encrypted HTTPS/TLS connections by default."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG3.11",
+        "Rationale": "This is a core feature of the service. All objects stored in S3 Glacier Deep Archive are automatically encrypted at rest using server-side encryption."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The tool provides a virtually unlimited and extremely low-cost storage destination, making it ideal for storing massive volumes of audit logs that must be retained for compliance."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG8.10",
+        "Rationale": "This service is a perfect-fit solution for retaining audit logs for long periods (e.g., 7-10 years), far exceeding the 90-day minimum, at the lowest possible cost."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG11.1",
+        "Rationale": "S3 Glacier Deep Archive is a key technology component for building a data recovery process, serving as the secure, long-term, off-site repository for critical data backups."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG11.2",
+        "Rationale": "While not a backup tool itself, it serves as the destination for automated backups. It is commonly used with S3 Lifecycle policies to automatically \"archive\" backups by moving them from other S3 tiers into Deep Archive."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The service is designed with 99.999999999% (11 nines) of durability, stores data redundantly across multiple physical locations, and encrypts all data at rest, providing exceptionally strong protection for recovery data."
+    },
+    {
+        "ToolID": "T78",
+        "SafeguardID": "SG11.4",
+        "Rationale": "This is a primary use case. The tool provides an \"air-gapped\" equivalent by being an off-site, cloud-based service. It can be combined with S3 Object Lock (WORM) to make backups immutable, which isolates them from the primary network and protects them against deletion or modification by ransomware."
+    },
+    {
+        "ToolID": "T71",
+        "SafeguardID": "SG3.4",
+        "Rationale": "This safeguard requires that data retention includes minimum and maximum timelines. S3 Lifecycle Policies directly fulfill this by allowing you to define \"Transition actions\" to move data to archive storage (enforcing a minimum retention) and \"Expiration actions\" to automatically delete data after a set period (enforcing a maximum retention)."
+    },
+    {
+        "ToolID": "T71",
+        "SafeguardID": "SG3.5",
+        "Rationale": "This safeguard requires the secure disposal of data based on policy. S3 Lifecycle Policies provide an automated, policy-driven \"Expiration action\" that securely and permanently deletes objects from S3 on your behalf once they reach the end of their defined lifecycle."
+    },
+    {
+        "ToolID": "T71",
+        "SafeguardID": "SG8.10",
+        "Rationale": "This safeguard specifies a minimum retention period for audit logs. When audit logs are stored in Amazon S3 (a common practice), S3 Lifecycle Policies are the ideal tool to enforce this. A policy can be set to keep logs for 90 days (or any required period) and then automatically delete them, ensuring compliance with retention requirements."
+    },
+    {
+        "ToolID": "T268",
+        "SafeguardID": "SG8.4",
+        "Rationale": "This safeguard requires enterprises to \"Standardize time synchronization\" and \"Configure at least two synchronized time sources across enterprise assets.\" Amazon TimeSync Service is designed specifically for this purpose, providing a highly accurate, stable, and redundant time source. Using this service allows an organization to standardize all its EC2 instances and other connected devices to a single, authoritative time reference, which is critical for sequencing events, log correlation, and forensic investigations."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG1.5",
+        "Rationale": "VPC Flow Logs can be enabled to passively capture IP traffic information for all assets within the VPC, which can be analyzed to discover and inventory communicating devices."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The fundamental design of a VPC, including its subnets, route tables, and security groups, serves as documentation for data flows. This is supplemented by VPC Flow Logs, which provide a detailed record of actual traffic."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG3.10",
+        "Rationale": "VPC provides multiple methods to ensure data is encrypted in transit, including AWS Site-to-Site VPN, AWS Client VPN, and AWS PrivateLink, which prevents traffic from traversing the public internet."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG3.12",
+        "Rationale": "This is a primary function of VPC. You can create public subnets for web-facing servers and private subnets for sensitive resources like databases, using route tables and firewalls to strictly control the communication between them."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG4.2",
+        "Rationale": "The VPC is the network infrastructure. Its entire configuration (subnets, gateways, firewalls) can be defined and managed as code using tools like AWS CloudFormation, enabling a secure, repeatable, and version-controlled process."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG4.4",
+        "Rationale": "VPC Security Groups act as a stateful, host-level firewall that is applied directly to server instances (like EC2) to control all inbound and outbound traffic."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG4.9",
+        "Rationale": "VPC DHCP Option Sets allow you to define the DNS servers that all instances within the VPC will use for name resolution, ensuring they point to trusted, enterprise-controlled resolvers."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG8.2",
+        "Rationale": "VPC Flow Logs are a form of audit log specifically for network traffic, capturing accepted and rejected connections."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG8.5",
+        "Rationale": "VPC Flow Logs capture detailed, forensics-ready information, including source/destination IPs, source/destination ports, protocol, and timestamps."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG8.9",
+        "Rationale": "VPC Flow Logs can be configured to deliver all log data to a central repository, such as an Amazon S3 bucket or Amazon CloudWatch Logs, for aggregation and analysis."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG9.2",
+        "Rationale": "VPC can be integrated with services like Route 53 Resolver DNS Firewall, which allows you to create and enforce filtering rules for outbound DNS queries from within your VPC."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG9.3",
+        "Rationale": "You can configure VPC route tables to force all outbound internet traffic from private subnets through a NAT Gateway and then through a filtering appliance, such as AWS Network Firewall, which can perform network-based URL filtering."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG12.1",
+        "Rationale": "As an AWS-managed service, the underlying physical and virtual infrastructure that powers the VPC is patched and maintained by AWS, removing the operational burden from the user."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG12.2",
+        "Rationale": "This is the core purpose of VPC. It provides the building blocks (subnets, route tables, gateways) to design and implement a secure, multi-layered network architecture."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG12.3",
+        "Rationale": "All modifications to a VPC are made via secure, authenticated, and logged API calls (over HTTPS). This also enables secure management through Infrastructure-as-Code (IaC)"
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG12.4",
+        "Rationale": "The VPC configuration itself, especially when defined as code, serves as the documentation for the network architecture. Additionally, tools like AWS Network Access Analyzer visualize and validate network paths based on this configuration."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG12.7",
+        "Rationale": "VPC provides AWS Client VPN, which is a managed service that allows remote users to securely connect to the VPC. This service integrates with AWS and third-party authentication systems (AAA)"
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG13.3",
+        "Rationale": "VPC Traffic Mirroring can copy network traffic and send it to NIDS/SIEM tools for analysis. VPC Flow Logs can also be ingested by these tools to detect anomalies."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG13.4",
+        "Rationale": "VPC uses two types of firewalls for this: Network Access Control Lists (NACLs), which are stateless filters at the subnet (segme"
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG13.6",
+        "Rationale": "This is the exact function of the VPC Flow Logs feature."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG13.8",
+        "Rationale": "VPC can be configured to route all traffic through an inline NIPS, such as the AWS Network Firewall service or a third-party appliance from the AWS Marketplace."
+    },
+    {
+        "ToolID": "T437",
+        "SafeguardID": "SG13.10",
+        "Rationale": "You can place an Application Load Balancer (ALB) in your VPC, which operates at Layer 7 (application layer) and can be integrated with AWS Web Application Firewall (WAF) to filter common web exploits."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG1.1",
+        "Rationale": "This strategy enables the use of tools like AWS Config, deployed across all accounts via AWS Organizations, to create a detailed, automated inventory of all cloud assets (servers, databases, network devices, etc.)."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG1.2",
+        "Rationale": "Service Control Policies (SCPs), a core feature of AWS Organizations, can prevent unauthorized asset creation by restricting which AWS services or regions can be used within an account."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The multi-account structure allows a central \"Security\" account to run active discovery tools (like AWS Config or AWS Systems Manager) across all other accounts to identify and catalog all cloud resources."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Using AWS Systems Manager (SSM) Inventory, which can be managed centrally via AWS Organizations, allows you to collect and aggregate software inventories from all managed instances (e.S., EC2 servers) across your accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG3.1",
+        "Rationale": "The strategy is a form of data management. By creating separate accounts (e.g., \"Production,\" \"Development,\" \"Analytics\"), you are enforcing a process for how data is handled and isolated based on its sensitivity."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The account structure provides a high-level data inventory (e.g., \"the 'Student-Data' account holds PII\"). This also enables the central deployment of tools like Amazon Macie to discover and classify sensitive data within all accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG3.3",
+        "Rationale": "AWS Identity and Access Management (IAM), which is fundamental to this strategy, provides granular control (access control lists, policies) over who can access what data and resources within and between accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG3.8",
+        "Rationale": "A common pattern is a central \"Network\" account that manages all traffic. This allows for the collection of VPC Flow Logs in one place, providing a clear, auditable record of all data flows between accounts and the internet."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG3.12",
+        "Rationale": "This is a primary driver for the multi-account strategy. Sensitive data (e.g., student PII) is stored in a dedicated account with strict access controls, completely isolated from less sensitive data in other accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG4.1",
+        "Rationale": "AWS Control Tower and SCPs are used to establish and enforce secure baseline configurations (e.g., \"disallow public S3 buckets,\" \"enforce encryption\") across every account in the organization."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG4.2",
+        "Rationale": "This strategy commonly uses a dedicated \"Network\" account to manage all VPCs, subnets, firewalls, and routing, providing a central, securely configured process for all cloud networking."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG4.6",
+        "Rationale": "IAM enforces secure management by definition. Access to manage all assets (via the AWS API/Console) is over secure HTTPS and is governed by roles and policies, not insecure protocols."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG4.7",
+        "Rationale": "A core security tenet of this strategy is to lock away the \"root\" user (the default super-admin) for each account and enforce the use of least-privilege IAM roles for all administrative tasks."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG5.1",
+        "Rationale": "AWS Organizations itself provides a centralized, authoritative inventory of all AWS accounts. AWS IAM Identity Center and IAM provide an inventory of all user and role accounts that can access them."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG5.4",
+        "Rationale": "This strategy enforces the use of dedicated IAM roles (e.g., \"BillingAdmin,\" \"NetworkAdmin,\" \"SecurityAdmin\") for administrative tasks, separating them from standard user accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG5.5",
+        "Rationale": "IAM roles used by applications or services (e.g., an EC2 instance role) are the AWS equivalent of service accounts. IAM provides a full inventory and manages their permissions."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG5.6",
+        "Rationale": "This is the primary function of AWS IAM Identity Center (formerly AWS SSO), which integrates with AWS Organizations to centralize user identity and manage access to all accounts from one place."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.1",
+        "Rationale": "AWS IAM Identity Center provides a formal, centralized process for granting access. Users are added to groups (e.g., \"Developers\") which are then mapped to roles in specific AWS accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Centralized management via IAM Identity Center means revoking a user's access in one place (e.g., the central directory) automatically revokes their access to all AWS accounts and applications they were assigned."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.3",
+        "Rationale": "While it doesn't control the app itself, this strategy does enforce MFA for access to the AWS management console and IAM Identity Center portal (which are externally-exposed) used to manage those applications."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.4",
+        "Rationale": "Access to the AWS environment is remote network access. This strategy enforces MFA for all administrative and privileged access via IAM policies."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.5",
+        "Rationale": "This is a foundational best practice. AWS Control Tower and SCPs can be used to enforce policies that require MFA for all administrative roles across all accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.6",
+        "Rationale": "AWS Organizations and IAM Identity Center are the centralized, inventoried authentication and authorization system for the cloud environment."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.7",
+        "Rationale": "This is the core benefit of combining AWS Organizations with IAM Identity Center, providing a single point of control for \"who can access what\" across dozens or hundreds of accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG6.8",
+        "Rationale": "AWS is built entirely on Role-Based Access Control (RBAC). The multi-account strategy relies on IAM roles and policies to define and enforce granular permissions."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG7.1",
+        "Rationale": "This strategy enables a streamlined process by using a \"Security\" account to centrally manage vulnerability scanning tools (like Amazon Inspector) that are deployed across all other accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG7.5",
+        "Rationale": "A central \"Security\" account can be configured to automatically run Amazon Inspector or other scanning tools against all internal (VPC-based) assets in all member accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG7.6",
+        "Rationale": "Similarly, the central \"Security\" account can continuously scan all externally-exposed assets (like public-facing EC2 instances) for vulnerabilities."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG8.1",
+        "Rationale": "A foundational pattern of this strategy is the \"Log Archive\" account. AWS Organizations is configured to force all other accounts to send their audit logs (CloudTrail) to a central, immutable S3 bucket in this one account."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG8.2",
+        "Rationale": "AWS CloudTrail is enabled by default for all accounts managed by AWS Organizations, ensuring all API calls (who did what, and when) are logged."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG8.9",
+        "Rationale": "This is the explicit purpose of the \"Log Archive\" account pattern, which uses AWS Organizations to consolidate all logs (CloudTrail, Config, VPC Flow Logs) into one central, secure location."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The central \"Log Archive\" account uses S3 Lifecycle Policies to automatically manage and enforce data retention periods (e.g., retain for 7 years) for all collected logs."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG8.12",
+        "Rationale": "AWS is the service provider. AWS CloudTrail, AWS Config, and other service logs are the service provider logs, which are collected and centralized by this strategy."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The strategy is a secure network architecture. It often involves a central \"Network\" account that manages all VPCs, AWS Transit Gateway (for inter-account routing), and network firewalls."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG12.5",
+        "Rationale": "Access to manage the network infrastructure (VPCs, firewalls, etc.) is centralized and controlled via IAM roles within the dedicated \"Network\" account."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG13.1",
+        "Rationale": "A \"Security\" account is used to centrally enable and manage Amazon GuardDuty and AWS Security Hub. These services are automatically federated across all accounts, aggregating all security findings into a single dashboard."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG13.3",
+        "Rationale": "Amazon GuardDuty (a NIDS) and AWS Network Firewall are deployed and managed from the central \"Security\" and \"Network\" accounts, respectively, to monitor traffic for all member accounts."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This strategy provides segmentation at multiple levels: between accounts (a hard boundary), between VPCs (using Transit Gateway), and within a VPC (using Security Groups and Network ACLs)."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG13.6",
+        "Rationale": "VPC Flow Logs can be forcibly enabled for all accounts via AWS Organizations and shipped to the central \"Log Archive\" account for analysis."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG15.2",
+        "Rationale": "Service Control Policies (SCPs) act as the technical enforcement for a policy managing your cloud service provider (AWS). You can \"blacklist\" unapproved services or \"whitelist\" only services your organization has vetted."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG15.3",
+        "Rationale": "In this context, AWS Organizations' Organizational Units (OUs) are used to classify groups of accounts. You can create a \"PCI\" or \"HIPAA\" OU and apply stricter SCPs (guardrails) to those accounts, aligning with their higher sensitivity."
+    },
+    {
+        "ToolID": "T610",
+        "SafeguardID": "SG16.8",
+        "Rationale": "This is one of the most common and powerful use cases. The strategy mandates separate AWS accounts for \"Production,\" \"Testing,\" and \"Development,\" creating the ultimate network and permission boundary between these environments."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG1.1",
+        "Rationale": "EMMs using Android Enterprise are designed to enroll and track mobile devices, capturing hardware details, network information, and ownership, thus serving as an asset inventory for mobile endpoints."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The framework enables policies that can detect non-compliant devices (e.g., \"rooted\" or jailbroken) and automatically block them from accessing enterprise resources, effectively quarantining or removing them."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG2.1",
+        "Rationale": "EMMs can query managed devices to get a full list of installed applications, which is then centralized in the management console."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG2.3",
+        "Rationale": "A primary feature is \"Managed Google Play,\" which allows administrators to create a private, approved app store and block users from installing any software not on this \"allowlist.\""
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The EMM solution is the automated tool that discovers, inventories, and manages the software on the Android fleet."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG2.5",
+        "Rationale": "This is a native function of Managed Google Play, which ensures only administrator-approved applications can be installed on a work-managed device or within a work profile."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG3.5",
+        "Rationale": "EMMs provide \"remote wipe\" capabilities. This allows an administrator to securely and remotely erase all enterprise data (or the entire device) if it is lost, stolen, or decommissioned."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG3.6",
+        "Rationale": "Android Enterprise enforces the use of device-level encryption. For \"Bring Your Own Device\" (BYOD) scenarios, it creates an encrypted \"work profile\" (container) to keep all enterprise data separate and secure."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG3.9",
+        "Rationale": "Device configuration policies pushed by the EMM can be set to enforce encryption on any removable media used with the device."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The entire platform is built for this. It allows an administrator to create and enforce secure configuration profiles (e.g., password complexity, disabling cameras) and push them to all managed devices."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG4.3",
+        "Rationale": "This is a basic device policy that can be set and enforced via the EMM console, requiring the screen to lock after a defined period of inactivity."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG4.10",
+        "Rationale": "EMMs can enforce a policy that locks the device (requiring an administrator reset) after a specific number of failed password attempts."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG4.11",
+        "Rationale": "This is a core \"remote lock/wipe/locate\" feature of any EMM solution using the Android Enterprise framework."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG4.12",
+        "Rationale": "This is the primary function of the \"Work Profile,\" which creates a separate, managed, and encrypted container on a user's device to isolate work apps and data from personal ones."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG5.6",
+        "Rationale": "The framework integrates with enterprise identity providers (like Google Workspace or Microsoft Entra ID) to ensure devices are tied to a central, managed user account."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG6.7",
+        "Rationale": "By integrating with a central directory and EMM, all access from the mobile device to enterprise resources is governed by a central set of policies."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG7.3",
+        "Rationale": "EMMs can manage and enforce the installation of operating system (OS) updates, ensuring devices are patched against known vulnerabilities."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Using Managed Google Play, administrators can control and automate application updates, ensuring that vulnerable, out-of-date apps are not in use."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Android Enterprise natively integrates Google Play Protect, which continuously scans devices and applications for malware. EMMs can also enforce that this feature is active."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG10.3",
+        "Rationale": "Device restriction policies can be configured to block the use of USB file transfers or external media, mitigating this risk."
+    },
+    {
+        "ToolID": "T168",
+        "SafeguardID": "SG13.5",
+        "Rationale": "EMMs can enforce \"conditional access,\" where a device's security state (e.g., is it patched? is it rooted? is anti-malware running?) is checked before it is granted access to the network or enterprise applications."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Ansible playbooks can be written to query all managed assets for installed software, helping to build and maintain this inventory."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG2.2",
+        "Rationale": "Automation can check software versions against a known list of supported versions and flag or update non-compliant assets."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Ansible can enforce a \"desired state\" configuration that actively uninstalls any software not on the authorized list."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Ansible is a tool that can be used to automate the discovery and documentation of installed software."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.1",
+        "Rationale": "This is a primary function of Ansible. Playbooks serve as version-controlled, documented, and repeatable \"Infrastructure-as-Code\" to establish and maintain secure configurations."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Ansible has robust support for network devices, allowing it to apply secure, standardized configurations to routers, switches, and firewalls."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.3",
+        "Rationale": "An Ansible playbook can easily define and enforce this specific operating system setting across the entire enterprise."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.4",
+        "Rationale": "Ansible can be used to manage host-based firewall rules (like firewalld or iptables) to ensure they are active and correctly configured."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.5",
+        "Rationale": "As with servers, Ansible can manage firewall settings on end-user workstations."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.6",
+        "Rationale": "Ansible promotes this by using secure, agentless communication (primarily SSH) and by eliminating the need for manual, unsecure changes."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.7",
+        "Rationale": "A playbook can be written to automatically disable, remove, or change the password for any known default accounts on new systems."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG4.8",
+        "Rationale": "Ansible can enforce a \"minimal\" baseline, ensuring only approved services are enabled and running."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG7.3",
+        "Rationale": "This is a core use case. Ansible can be scheduled to automatically apply the latest OS patches to all systems."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Similar to OS patching, Ansible can manage application updates and patches."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG7.7",
+        "Rationale": "When a vulnerability scanner finds an issue (e.g., a required patch or a configuration flaw), Ansible is the tool used to remediate that finding at scale across all affected assets."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Ansible can deploy and configure logging agents (e.g., Splunk Universal Forwarder, rsyslog) on all assets to ensure they are collecting the correct logs."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG8.4",
+        "Rationale": "A simple Ansible playbook can ensure the NTP service is correctly configured and running on all assets to standardize time."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Ansible can configure all assets to forward their logs to a central SIEM or log server, as defined in the log management process."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Ansible can be used to automate the deployment of anti-malware agents to all enterprise assets."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG10.2",
+        "Rationale": "Ansible can enforce the configuration of anti-malware software to ensure automatic updates are enabled."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG12.1",
+        "Rationale": "Ansible can be used to automate the deployment of firmware and software updates to network devices."
+    },
+    {
+        "ToolID": "T412",
+        "SafeguardID": "SG12.3",
+        "Rationale": "Ansible's use of secure protocols (like SSH) for managing network devices aligns directly with this safeguard."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG2.6",
+        "Rationale": "SIP protects system directories (like /System and /usr) where critical software libraries are stored. By making these locations read-only even for the root user, it ensures that only Apple-signed processes (like OS updates) can write to or modify them, effectively acting as a high-level allowlist for core system components."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG4.1",
+        "Rationale": "SIP is a foundational element of a secure macOS configuration. It is enabled by default, and any secure configuration baseline for macOS assets would mandate that SIP remains active to protect the OS integrity."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG4.6",
+        "Rationale": "By preventing unauthorized modification of core system files, SIP is a key mechanism for securely managing the operating system, protecting it from tampering by users or malicious software."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG4.7",
+        "Rationale": "SIP directly addresses the risk of all-powerful default accounts by restricting the capabilities of the root user, preventing it from performing dangerous modifications to protected parts of the system."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG4.8",
+        "Rationale": "SIP protects the directories where system services and daemons are stored. This prevents unauthorized software from installing new, unnecessary services or modifying existing ones, helping to maintain a clean and secure system baseline."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG10.1",
+        "Rationale": "While not a traditional antivirus scanner, SIP is a core anti-malware technology. Its primary purpose is to protect the system from malware by preventing common attack techniques like modifying system files to gain persistence."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG10.5",
+        "Rationale": "SIP is a powerful, built-in anti-exploitation feature. It is designed to block specific techniques used by exploits, such as injecting code into system processes or loading untrusted kernel extensions."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG10.7",
+        "Rationale": "SIP operates on behavior, not signatures. It blocks a specific action (e.g., an unauthorized process attempting to write to a protected file) regardless of whether the process is a known threat, thereby protecting against new or unknown malware."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG16.7",
+        "Rationale": "For the macOS operating system itself (the \"infrastructure\"), SIP is the standard hardening template. It enforces a read-only, immutable system volume, which is a key principle of a hardened configuration."
+    },
+    {
+        "ToolID": "T363",
+        "SafeguardID": "SG16.10",
+        "Rationale": "SIP is a clear example of the \"secure design principle\" of least privilege, applied at the OS level. It minimizes the attack surface by ensuring that even the most privileged account (root) does not have permission to modify the system's core."
+    },
+    {
+        "ToolID": "T52",
+        "SafeguardID": "SG2.3",
+        "Rationale": "AppLocker's core function is to act as a technical control to prevent unauthorized software from running. By creating rules that deny specific applications or, more securely, by only allowing approved applications, it directly addresses and removes unauthorized software from use."
+    },
+    {
+        "ToolID": "T52",
+        "SafeguardID": "SG2.5",
+        "Rationale": "This is the primary use case for AppLocker. It is a technical control specifically designed to create and enforce application allowlists. Administrators can create rules to ensure that only authorized executable files (.exe, .com) and packaged apps can be accessed or executed by users."
+    },
+    {
+        "ToolID": "T52",
+        "SafeguardID": "SG2.6",
+        "Rationale": "AppLocker policies can be configured with a specific rule collection for Dynamic-Link Libraries (DLLs). This allows an administrator to create an allowlist for authorized .dll and .ocx files, which prevents an attacker or unauthorized application from loading malicious or unapproved libraries into a system process."
+    },
+    {
+        "ToolID": "T52",
+        "SafeguardID": "SG2.7",
+        "Rationale": "AppLocker provides a rule collection specifically for scripts (e.g., .ps1, .py, .bat, .vbs, .js). This allows an organization to use AppLocker as a technical control to ensure only digitally signed or otherwise authorized scripts are allowed to execute, blocking a common vector for malware."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Aqua Security's platform provides \"Cloud Asset Discovery\" to gain visibility across cloud infrastructure, including virtual machines, containers, and serverless functions, which are all forms of enterprise assets."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The platform's agent-based and agentless scanning capabilities function as an active discovery tool to identify and inventory cloud-native assets (like running containers) connected to the enterprise's environment."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Aqua Security scans container images and virtual machines for all installed software packages, libraries, and dependencies, and can generate a Software Bill of Materials (SBOM) to create a detailed software inventory."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG2.2",
+        "Rationale": "As part of its vulnerability management, the tool's scans identify software with known vulnerabilities, which often includes unsupported or end-of-life (EOL) software, allowing it to be flagged."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Aqua Security is an automated tool that integrates into the CI/CD pipeline and runtime environments to discover and document software within cloud-native assets."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The tool's \"Image Assurance\" policies can be configured to act as an allowlist, preventing any container image that has not been scanned and approved (or that contains unapproved software) from being deployed."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG2.6",
+        "Rationale": "This is a core function of image scanning. Aqua identifies all software libraries (e.g., .dll, .so) within an image, and its policies can block images containing unauthorized or vulnerable libraries."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Aqua Security's scanning capabilities can be configured to look for sensitive data (like secrets, keys, or PII patterns) hard-coded within container images, IaC templates, and running workloads, acting as a form of DLP for the cloud-native environment."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Aqua Security automates the assessment of configurations. Its CSPM (Cloud Security Posture Management) and KSPM (Kubernetes Security Posture Management) features scan cloud environments and Kubernetes clusters against industry benchmarks."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG4.4",
+        "Rationale": "Aqua Security's runtime protection includes micro-segmentation features that can automatically generate and enforce network firewall rules for containers and workloads, effectively managing a host-level firewall."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG4.8",
+        "Rationale": "Configuration scanning identifies and flags unnecessary open ports or insecure services running within container images, allowing teams to remediate them before deployment."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG7.1",
+        "Rationale": "Aqua Security is a comprehensive vulnerability management platform, providing scanning, assessment, prioritization (based on risk context), and remediation guidance as a documented process."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG7.4",
+        "Rationale": "While it doesn't perform the patch, it is the automated tool that drives patch management. It scans applications (images) for vulnerabilities daily or on every build and provides the \"fix\" information (e.g., \"update package X to version Y\") needed for remediation."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG7.5",
+        "Rationale": "This is a primary function. Aqua Security performs automated, authenticated scans of internal assets like container images in registries, running containers, and virtual machines."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The platform provides risk-based prioritization and remediation guidance, and its \"Assurance Policies\" can block the deployment of new assets that contain vulnerabilities exceeding a defined risk threshold, thereby enforcing remediation."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Aqua Security's agents collect granular audit logs related to runtime activity, including process execution, file access, and network connections within containers"
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The tool provides detailed runtime event logs, including command-line arguments, user information, and network details, which are essential for forensic investigation."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG8.8",
+        "Rationale": "A core feature of its runtime protection is capturing command-line activity within containers to detect malicious behavior."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The Aqua Security platform centralizes all collected logs from its various agents and scanners and is designed to forward this data to a central SIEM for enterprise-wide correlation."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Aqua Security functions as an anti-malware solution for cloud-native workloads. It scans images for known malware and uses runtime protection to detect and block malicious processes in real-time."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The runtime protection component is an anti-exploitation feature. It uses \"drift prevention\" to enforce container immutability, blocking any executable or process that was not part of the original, scanned image from running."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The Aqua Security console is the central management plane for configuring scanning, policies, and runtime protection for all protected workloads."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG10.7",
+        "Rationale": "Aqua's runtime protection is behavior-based. It uses eBPF and kernel-level visibility to monitor for suspicious behaviors (like reverse shells, privilege escalation, or fileless attacks) rather than just relying on signatures."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG12.3",
+        "Rationale": "Aqua Security scans Infrastructure-as-Code (IaC) templates (like Terraform and CloudFormation) for misconfigurations, ensuring that network infrastructure is securely configured before it is deployed."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Aqua's runtime protection agent is a host-based intrusion detection solution (HIDS) specifically designed for cloud-native workloads, detecting suspicious activity at the kernel level."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The platform's runtime agent monitors network traffic to and from containers, detecting malicious patterns (like C2 communication) and enforcing micro-segmentation rules, acting as a distributed NIDS."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG13.4",
+        "Rationale": "Aqua's micro-segmentation capability allows administrators to visualize, create, and enforce L4 firewall rules between containers and services, effectively performing traffic filtering."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The runtime protection component can be set to \"enforce\" mode, which actively blocks detected threats (like unauthorized processes or network connections), elevating it from detection (HIDS) to prevention (HIPS)"
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG16.1",
+        "Rationale": "Aqua Security is a tool built to enforce a secure development process. It integrates directly into CI/CD pipelines (e.g., Jenkins, GitLab) to scan code, artifacts, and images, failing builds that do not meet security standards"
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG16.4",
+        "Rationale": "The platform's SBOM (Software Bill of Materials) generation feature directly addresses this, creating an inventory of all third-party and open-source components used in development."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG16.5",
+        "Rationale": "By scanning for vulnerabilities in third-party components, Aqua Security provides the necessary data to ensure only up-to-date and trusted (i.e., non-vulnerable) components are used."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG16.7",
+        "Rationale": "Aqua scans Infrastructure-as-Code (IaC) templates against CIS benchmarks and other standards, ensuring that the underlying application infrastructure (like Kubernetes clusters or cloud services) is deployed according to hardened configurations."
+    },
+    {
+        "ToolID": "T624",
+        "SafeguardID": "SG16.12",
+        "Rationale": "The tool's \"shift-left\" capabilities include Static Application Security Testing (SAST) and scanning of IaC templates and source code repositories for vulnerabilities and misconfigurations."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG1.1",
+        "Rationale": "This is the core function of Asset Panda. It is a tool specifically designed to create and maintain a detailed, up-to-date inventory of enterprise assets like laptops, mobile devices, and other hardware. It allows for tracking details like asset owner, department, and location, and supports this with features like barcode scanning and mobile app access."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Asset Panda can track \"digital... like contracts and software licenses\". Its highly customizable platform can be configured to build and maintain a detailed inventory of software, documenting the publisher, title, number of licenses, and business purpose as required by the safeguard."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG2.2",
+        "Rationale": "By maintaining the software inventory (SG2.1), the tool directly supports this process. An organization can use Asset Panda's custom fields and reporting to track software support status (e.g., end-of-life dates), document exceptions, and designate software as authorized or unsupported."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Asset Panda is a tool that automates the documentation and management of the software inventory. It replaces manual tracking in spreadsheets, providing a centralized, automated system for managing software assets through their lifecycle."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG15.1",
+        "Rationale": "The tool's flexibility allows it to track any type of \"asset,\" including \"contracts\". It can be configured to serve as the central inventory for all service providers, listing the provider, enterprise contact, and other details required by the safeguard."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG15.3",
+        "Rationale": "As an extension of SG15.1, Asset Panda's customizable fields allow an organization to add and track classification data (e.g., data sensitivity, risk level, availability requirements) for each service provider record in the inventory."
+    },
+    {
+        "ToolID": "T3",
+        "SafeguardID": "SG15.4",
+        "Rationale": "The tool provides \"Contract management\", allowing an organization to store service provider contracts and track key data, such as renewal dates and custom fields for whether security requirements have been reviewed. This facilitates the annual review process mandated by the safeguard."
     }
 ]
