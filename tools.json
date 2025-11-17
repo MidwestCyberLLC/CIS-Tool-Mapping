@@ -1928,6 +1928,14 @@
         "Cost": "$"
     },
     {
+        "ID": "T20",
+        "Name": "Lumu",
+        "Description": "Lumu is a cybersecurity platform that provides real-time detection, analysis, and response to network threats by continuously monitoring and analyzing network metadata.",
+        "URL": "https://lumu.io/",
+        "EducationUse": true,
+        "Cost": "$$$"
+    },
+    {
         "ID": "T330",
         "Name": "Mail-Tester.com",
         "Description": "A free service that allows you to test your email authentication records (SPF, DKIM, DMARC) by sending a test email.",

@@ -9343,5 +9343,110 @@
         "ToolID": "T711",
         "SafeguardID": "SG18.5",
         "Rationale": "The tool works a_ny_ web application the tester has access to, making it equally effective for testing internal-facing applications (e.g., admin portals, intranets) as it is for external ones."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG1.5",
+        "Rationale": "Lumu provides network-wide visibility by passively monitoring traffic from sources like DNS, firewalls, and proxies. This allows it to discover and identify assets, including unmanaged and IoT devices, that are communicating on the network without actively scanning them."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG7.1",
+        "Rationale": "Lumu's \"Continuous Compromise Assessment\" model is a key component of a modern vulnerability and threat management process. It moves beyond just finding potential vulnerabilities by continuously identifying assets that are in actual contact with malicious infrastructure."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The \"Lumu Defender\" tier integrates with other security tools (like firewalls and EDRs) to automate responses. This allows it to move from detection to remediation by, for example, automatically blocking a compromised asset from communicating with an attacker."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The Lumu platform acts as a \"Security Data Lake\" by ingesting, normalizing, and storing network-related logs. Its tiered plans define data retention policies (e.g., 1-2 years), serving as a technical foundation for a log management process."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Lumu's core function is to collect network metadata logs from multiple sources, including DNS servers, proxies, and firewalls, to feed its analysis engine."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The platform is a cloud-native \"Data Archive for Forensic Investigation\" and is designed to store the large volumes of network metadata it collects."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Lumu directly ingests and analyzes DNS query metadata as one of its primary data sources for detecting threats like DNS tunneling and command-and-control (C2) communication."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The tool collects and analyzes logs from web proxies, which contain a detailed record of URL requests made by assets on the network."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Lumu's platform \"unifies\" disparate log sources (DNS, proxy, firewall) into a single, centralized \"Security Data Lake\" for correlation and analysis."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.10",
+        "Rationale": "Lumu's paid subscription tiers (Insights and Defender) offer 1-year and 2-year data retention, respectively, which satisfies the 90-day minimum requirement for long-term analysis and forensics."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG8.11",
+        "Rationale": "This is Lumu's primary value. It uses AI and machine learning to automatically and continuously review all ingested logs, detecting anomalies and real-time compromises that would be missed by manual human review."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG9.2",
+        "Rationale": "While not a DNS filter itself, Lumu's \"Defender\" tier provides threat intelligence by integrating with DNS filters (like DNSFilter). It automatically pushes Indicators of Compromise (IoCs) to the filter's blocklist, arming it with real-time intelligence."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG10.7",
+        "Rationale": "Lumu functions as a Network Detection and Response (NDR) solution. It uses AI to baseline normal network activity and then detects anomalies and deviations (e.g., an insider threat, a ransomware beacon), which is a form of network-level behavioral detection."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The Lumu Portal is a centralized dashboard that \"groups related adversarial activity\" into \"a single incident.\" This correlates disparate, low-level events into a single, high-fidelity alert for security teams."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG13.3",
+        "Rationale": "This is the definition of Lumu's core function. It is a Network Detection and Response (NDR) platform that monitors network traffic to detect \"real-time evidence of compromise.\""
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG13.6",
+        "Rationale": "Lumu's entire model is based on collecting network metadata and flow logs from firewalls, proxies, and other network sensors."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG13.8",
+        "Rationale": "When configured in the \"Defender\" tier, Lumu integrates with enforcement points (like firewalls) to provide \"automated responses\" and \"block adversaries in real-time,\" elevating it from a passive detection system (NIDS) to an active prevention system (NIPS)."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG13.11",
+        "Rationale": "By using AI to correlate events and provide \"high-fidelity, context-rich alerts,\" Lumu automatically \"reduces alert fatigue.\" This functions as an automated alert tuning mechanism, separating real threats from noise."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG17.4",
+        "Rationale": "Lumu provides \"Incident Response Playbooks\" based on the NIST framework. This gives organizations a documented, best-practice process to follow when Lumu detects an incident."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The platform's long-term \"Data Archive for Forensic Investigation\" and its detailed incident timelines provide the necessary data and context to conduct a post-incident review and determine the root cause of a compromise."
+    },
+    {
+        "ToolID": "T20",
+        "SafeguardID": "SG17.9",
+        "Rationale": "Lumu's AI and correlation engine automatically apply incident thresholds. It distinguishes low-level, benign \"events\" from high-risk \"incidents\" by grouping related activities, allowing security teams to focus on confirmed threats."
     }
 ]
