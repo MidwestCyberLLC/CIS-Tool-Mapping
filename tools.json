@@ -29,7 +29,7 @@
         "Description": "Acronis Cyber Protect is an all-in-one cyber protection solution that integrates data protection, cybersecurity, and endpoint management into a single platform.",
         "URL": "https://www.acronis.com/en/products/cyber-protect/",
         "EducationUse": true,
-        "Cost": "$$$"
+        "Cost": "$$, $$$, $$$$"
     },
     {
         "ID": "T380",
@@ -37,7 +37,7 @@
         "Description": "Acronis Cyber Protect Cloud is a unified cybersecurity solution that integrates backup, disaster recovery, AI-based malware protection, and endpoint management into a single platform.",
         "URL": "https://www.acronis.com/en/solutions/cloud/",
         "EducationUse": true,
-        "Cost": "$$$"
+        "Cost": "$$, $$$, $$$$"
     },
     {
         "ID": "T13",
