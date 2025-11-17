@@ -490,106 +490,90 @@
     {
         "ID": "T149",
         "Name": "BIND (Berkeley Internet Domain Name Server)",
-        "Description": "A widely used, highly configurable DNS server software allowing for complete control over internal DNS resolution.",
+        "Description": "BIND is a widely used, open-source DNS server software that translates human-readable domain names into IP addresses, and can be configured as an authoritative server, a recursive resolver, or both.",
         "URL": "https://www.isc.org/bind/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T695",
         "Name": "Bishop Fox",
-        "Description": "Bishop Fox is a cybersecurity consultancy offering comprehensive external penetration testing services, including enterprise reconnaissance and various testing methodologies.",
+        "Description": "Bishop Fox is an offensive security provider that offers a range of services, including penetration testing, red teaming, and attack surface management, to help organizations assess the security of their applications, networks, and cloud infrastructure.",
         "URL": "https://bishopfox.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T692",
         "Name": "Bishop Fox Managed Security Services",
-        "Description": "Bishop Fox offers comprehensive pentesting services including program development, scoping, execution, and reporting tailored to specific organizational needs.",
-        "URL": "https://bishopfox.com/services/penetration-testing/",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T53",
-        "Name": "Bit9 (Now part of Cardinal Peak)",
-        "Description": "Bit9's Integrity Engine provides application allowlisting and control, verifying the authenticity and integrity of applications before execution.",
-        "URL": "https://www.cardinalpeak.com/products/bit9-integrity-engine/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Bishop Fox is an offensive security provider offering a range of managed services, including continuous penetration testing, red teaming, attack surface management, and security assessments for applications, products, cloud infrastructure, and AI. ",
+        "URL": "https://bishopfox.com/services",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T358",
         "Name": "Bitdefender GravityZone",
-        "Description": "Bitdefender's solution provides centralized management of endpoint security, including automatic scanning of removable storage devices.",
-        "URL": "https://www.bitdefender.com/business/gravityzone/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Bitdefender GravityZone is a unified cybersecurity platform that provides multi-layered security—including prevention, detection, and response—for endpoints, multi-cloud, and hybrid environments from a single console.",
+        "URL": "https://www.bitdefender.com/en-us/business/gravityzone-platform/",
+        "EducationUse": true,
+        "Cost": "$$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T80",
         "Name": "BitLocker (Windows)",
-        "Description": "Microsoft's BitLocker provides full-disk encryption for Windows devices, protecting data at rest.",
-        "URL": "https://learn.microsoft.com/en-us/windows/security/encryption-bitlocker",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T95",
-        "Name": "BitLocker Drive Encryption (Windows)",
-        "Description": "Built into Windows Pro and Enterprise, BitLocker provides full-disk encryption for removable drives.",
-        "URL": "https://learn.microsoft.com/en-us/windows/security/encryption-bitlocker",
-        "EducationUse": false,
+        "Description": "BitLocker is a full-volume encryption feature built into specific versions of Microsoft Windows, designed to protect data by encrypting entire drives to prevent data theft or exposure from lost, stolen, or inappropriately decommissioned devices.",
+        "URL": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T176",
         "Name": "Bitwarden",
-        "Description": "An open-source password manager providing end-to-end encryption for passwords and other sensitive data.",
+        "Description": " Bitwarden is a freemium, open-source password management service that stores sensitive information, such as website credentials and passkeys, in an end-to-end encrypted vault.",
         "URL": "https://bitwarden.com/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T589",
         "Name": "Black Duck (Synopsys)",
-        "Description": "Black Duck provides comprehensive software composition analysis to identify components, track licenses, and detect security vulnerabilities across the entire development lifecycle.",
-        "URL": "https://www.synopsys.com/software-integrity/blackduck",
+        "Description": "Black Duck is a Software Composition Analysis (SCA) tool that automatically inventories open-source components in applications, identifies known security vulnerabilities, and manages license compliance risks.",
+        "URL": "https://www.blackduck.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T679",
         "Name": "Blameless",
-        "Description": "Provides a collaborative platform for conducting thorough postmortems focused on learning and improvement rather than assigning blame.",
-        "URL": "https://blameless.com/",
+        "Description": "Blameless is a Site Reliability Engineering (SRE) platform that helps teams coordinate incident response, automate blameless postmortems, and manage Service Level Objectives (SLOs) to improve system reliability.",
+        "URL": "https://www.blameless.com",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$, $$$, $$$$"
     },
     {
         "ID": "T76",
         "Name": "Blancco Drive Eraser",
-        "Description": "Provides certified data erasure solutions for hard drives, SSDs, and USB drives, verifying complete data removal according to industry standards.",
-        "URL": "https://www.blancco.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Blancco Drive Eraser is a certified data sanitization software that permanently and verifiably erases data from a wide range of storage devices, including HDDs and SSDs, to ensure regulatory compliance and enable the safe reuse, resale, or disposal of IT assets.",
+        "URL": "https://blancco.com/products/drive-eraser/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T84",
         "Name": "Boxcryptor (Cross-Platform)",
-        "Description": "Boxcryptor encrypts files stored in cloud storage services like Google Drive or Dropbox, adding an extra layer of security.",
-        "URL": "https://boxcryptor.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Boxcryptor is a client-side encryption software that protects files by encrypting them on a user's device before they are uploaded to cloud storage services like Dropbox, Google Drive, and Microsoft OneDrive.",
+        "URL": "https://www.boxcryptor.com/",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$"
     },
     {
         "ID": "T711",
         "Name": "Burp Suite Professional",
-        "Description": "An integrated platform for performing web application penetration testing, useful for assessing internal web-based applications.",
-        "URL": "https://portswigger.net/burp",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Burp Suite Professional is a comprehensive web application security testing toolkit used by cybersecurity professionals to perform dynamic scanning and in-depth manual penetration testing to find and exploit vulnerabilities.",
+        "URL": "https://portswigger.net/burp/pro",
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T49",
@@ -3534,6 +3518,14 @@
         "URL": "https://www.veritas.com/products/enterprise-data-protection",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T53",
+        "Name": "VMware Carbon Black App Control",
+        "Description": "VMware Carbon Black App Control is a \"positive security\" endpoint solution that locks down critical systems by enforcing application allowlisting, preventing unauthorized software, scripts, and libraries from executing.",
+        "URL": "https://www.broadcom.com/products/carbon-black/threat-prevention/app-control",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T435",
