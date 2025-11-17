@@ -458,42 +458,34 @@
     {
         "ID": "T393",
         "Name": "Backblaze B2 Cloud Storage",
-        "Description": "This service provides affordable cloud storage with options for lifecycle rules to move data to colder, more isolated tiers.",
-        "URL": "https://www.backblaze.com/b2/",
-        "EducationUse": false,
+        "Description": "Backblaze B2 Cloud Storage is an S3-compatible object storage service designed for building applications, safeguarding data, and creating backups, offering a low-cost, high-performance solution for businesses and individuals.",
+        "URL": "https://www.backblaze.com/cloud-storage",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T335",
         "Name": "Barracuda Email Security Gateway",
-        "Description": "Barracuda's gateway provides attachment filtering capabilities, enabling the blocking of specific file types based on organizational needs.",
-        "URL": "https://www.barracuda.com/products/email-security-gateway",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T340",
-        "Name": "Barracuda Email Security Service",
-        "Description": "Delivers cloud-based email security with features like attachment sandboxing, spam filtering, and anti-phishing capabilities.",
-        "URL": "https://www.barracuda.com/products/email-security",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "The Barracuda Email Security Gateway is a dedicated email security solution that filters all inbound and outbound email traffic to protect against email-borne threats, spam, malware, and data leaks.",
+        "URL": "https://www.barracuda.com/products/email-protection",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T322",
         "Name": "Barracuda Web Security Gateway",
-        "Description": "Filters web traffic, blocks malicious sites, and enforces acceptable use policies with customizable block lists and reputation-based filtering.",
-        "URL": "https://www.barracuda-networks.com/products/web-security-gateway",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "A comprehensive web security and management solution (available as a physical or virtual appliance) that provides content filtering, malware protection, and policy enforcement to protect organizations from web-borne threats.",
+        "URL": "https://www.barracuda.com/products/network-protection/web-security-gateway",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T193",
         "Name": "BeyondTrust Privileged Remote Access",
-        "Description": "Discovers and manages privileged accounts, including service accounts, with features for access reviews and automated remediation.",
-        "URL": "https://www.beyondtrust.com/privileged-remote-access/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "BeyondTrust Privileged Remote Access provides secure, managed, and audited access to critical systems for administrators and third-party vendors without requiring a VPN, enforcing least privilege and creating detailed session logs.",
+        "URL": "https://www.beyondtrust.com/remote-access",
+        "EducationUse": true,
+        "Cost": "$$$$"
     },
     {
         "ID": "T149",

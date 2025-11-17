@@ -8,30 +8,6 @@
         "ToolID": "T198"
     },
     {
-        "SafeguardID": "SG11.4",
-        "ToolID": "T393"
-    },
-    {
-        "SafeguardID": "SG9.6",
-        "ToolID": "T335"
-    },
-    {
-        "SafeguardID": "SG9.7",
-        "ToolID": "T340"
-    },
-    {
-        "SafeguardID": "SG9.3",
-        "ToolID": "T322"
-    },
-    {
-        "SafeguardID": "SG5.4",
-        "ToolID": "T193"
-    },
-    {
-        "SafeguardID": "SG5.5",
-        "ToolID": "T193"
-    },
-    {
         "SafeguardID": "SG4.9",
         "ToolID": "T149"
     },
@@ -7984,5 +7960,365 @@
         "ToolID": "T438",
         "SafeguardID": "SG13.10",
         "Rationale": "A VNet can integrate with an Azure Application Gateway, a Layer 7 load balancer, or route traffic to an Azure Firewall (NVA) to perform deep-packet inspection and application-layer filtering."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG3.2",
+        "Rationale": "B2 acts as a centralized repository for data backups and archives. Using it as a storage target helps an organization inventory and account for where its backup data is located."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The tool provides data lifecycle policies and API/manual deletion capabilities, allowing an enterprise to securely delete data from cloud storage in accordance with its retention and disposal process."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG3.10",
+        "Rationale": "As a modern cloud service, B2 secures data transferred to and from its storage buckets using encryption protocols like TLS (HTTPS)."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG3.11",
+        "Rationale": "Backblaze B2 automatically encrypts all data server-side before it is written to disk, directly fulfilling the requirement to protect sensitive data at rest."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG3.12",
+        "Rationale": "B2 uses \"buckets\" which can be configured with different access policies, lifecycle rules, and replication settings. This allows an enterprise to segment its stored data, for example, by placing highly sensitive data in a bucket with stricter access controls."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The service provides audit logs and event notifications that record actions such as data access, modification, and deletion. These logs are essential for monitoring who is accessing sensitive data."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG8.2",
+        "Rationale": "B2 generates its own audit logs for account and data access. An enterprise would collect these logs as part of its overall logging strategy."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG8.3",
+        "Rationale": "B2 is a highly scalable and low-cost storage solution, making it an ideal destination for storing large volumes of audit logs from other enterprise systems (like firewalls, servers, etc.)."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The tool can serve as the centralized storage repository for logs from disparate systems across the enterprise, often acting as the storage backend for a SIEM or log analytics platform."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG8.10",
+        "Rationale": "B2's inexpensive, durable storage is well-suited for the long-term retention of audit logs, allowing an enterprise to easily meet and exceed the 90-day minimum requirement."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG8.12",
+        "Rationale": "As Backblaze is a service provider, this safeguard requires the enterprise to collect the logs that B2 provides (as noted in SG8.2) for its own security monitoring."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG11.1",
+        "Rationale": "B2 is a key component of a data recovery process. The procedures for restoring data from B2 would be a critical part of the enterprise's documented plan."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG11.2",
+        "Rationale": "The tool is not the automation engine itself, but it is the destination for automated backup tools. It provides an S3-compatible API that integrates with common backup software (e.g., Veeam, Rubrik) to receive automated backups."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG11.3",
+        "Rationale": "B2 protects the backup data stored on it using native security features like encryption at rest, access controls, and immutability (Object Lock)."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG11.4",
+        "Rationale": "B2 is an off-site, geographically separate cloud service. Using its Object Lock feature makes backup data immutable (Write-Once-Read-Many), which isolates it from being deleted or modified by ransomware, a core principle of this safeguard."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The tool enables recovery testing by keeping data \"always-hot\" (immediately accessible), allowing administrators to perform test restores as part of their validation procedures."
+    },
+    {
+        "ToolID": "T393",
+        "SafeguardID": "SG15.5",
+        "Rationale": "While this is a process, Backblaze enables an enterprise to perform this safeguard by providing compliance documentation, such as SOC 2 reports, which are used to assess the provider's security posture."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool provides policy-based email encryption for outbound messages and supports secure protocols like SMTP over TLS to encrypt email traffic between servers."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG3.13",
+        "Rationale": "The gateway can be configured with content policies to scan outbound emails and attachments for sensitive data (like PII or financial information) and automatically block or encrypt them to prevent data leaks."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG8.2",
+        "Rationale": "As a gateway for all email, the tool inherently creates detailed message logs for all inbound and outbound traffic, which are essential for incident investigation and auditing."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The tool's \"link protection\" feature rewrites URLs in emails. This process logs attempts to click these links, providing a clear audit trail of user requests for potentially malicious sites originating from email."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The gateway uses real-time reputation checks against known malicious domains and URLs as part of its pre-filtering process, effectively acting as a DNS-based filter for email content."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The tool enforces URL filtering by rewriting links and analyzing them at the \"time-of-click\" to block users from visiting malicious websites."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG9.5",
+        "Rationale": "This tool provides domain fraud protection by enforcing and verifying email authentication standards like DMARC, SPF, and DKIM to block spoofed or fraudulent emails."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG9.6",
+        "Rationale": "A core function of the gateway is to scan attachments and use policies to block high-risk or unnecessary file types (e.g., .exe, .ps1) from being delivered to users."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG9.7",
+        "Rationale": "This is the primary function of the tool. It provides dedicated, multi-layered anti-malware protection for the email server, including real-time virus scanning and sandboxing of attachments."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The gateway is a form of network-level anti-malware software, specifically designed to detect and block viruses, ransomware, and other malware delivered via the email vector."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The solution includes advanced threat protection features, such as \"sandboxing,\" which detonates suspicious attachments in a safe, virtual environment to observe their behavior and block zero-day exploits."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The gateway functions as a Network Intrusion Detection System (NIDS) for the email protocol (SMTP), using behavioral and heuristic analysis to identify threats like phishing and malware."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG13.8",
+        "Rationale": "By actively blocking detected threats in real-time before they reach the email server or end-users, the tool acts as a Network Intrusion Prevention System (NIPS) for email traffic."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The tool operates at the application layer to inspect and filter SMTP traffic, scan email content, analyze attachments, and filter URLs, which is the definition of application layer filtering."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG14.2",
+        "Rationale": "While the gateway is a technical control, the full \"Barracuda Email Protection\" suite often includes security awareness training modules to help users identify phishing and other attacks."
+    },
+    {
+        "ToolID": "T335",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The tool provides incident response features that allow administrators to search for and delete malicious emails after delivery, which is a critical tool for post-incident review and remediation."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The tool can detect compromised devices (e.g., those infected with spyware) by monitoring their outbound command-and-control traffic. Its policy engine can then be used to \"quarantine\" these assets by blocking their internet access, effectively addressing them."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The \"Application Control\" feature allows administrators to explicitly block or allow specific web-based applications, such as social media platforms or unauthorized cloud storage. This functions as a network-level allowlist/blocklist for web applications."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The appliance is a central point for web traffic and is designed to generate detailed logs of all web-related user activity, security events, and policy violations, which are critical components of an audit log collection strategy."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The tool includes DNS filtering capabilities. As part of this function, it logs the DNS requests made by clients, which can be reviewed for security and policy compliance."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG8.7",
+        "Rationale": "This is a core function of the tool. It logs all HTTP/S URL requests from users, providing a detailed record of web browsing activity across the enterprise."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The solution provides a centralized management console (\"Barracuda Cloud Control\") that aggregates logs and reports from the appliance. It also supports Syslog, allowing it to forward its logs to a central SIEM for enterprise-wide correlation."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The gateway's \"intuitive dashboard\" and \"integrated reporting engine\" are specifically designed to help administrators review web traffic logs, identify anomalies, and investigate potential policy violations or security threats."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The tool explicitly provides \"Advanced DNS and URL filtering\" as a feature to block access to known malicious domains at the DNS request level, preventing a connection from ever being established."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is a primary function of the product. It uses \"dynamic URL classification,\" \"predefined content-filtering categories\" (e.g., adult, gambling, malware), and custom policies to enforce network-based filtering of web content."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG9.6",
+        "Rationale": "Its anti-malware engine includes the ability to block file downloads based on their type (e.g., executables, scripts) to prevent users from downloading malicious payloads from the web."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The tool is a network-based anti-malware solution. It provides \"dual-layer virus protection,\" \"malware download blocking,\" and automatically receives \"virus and spyware definition updates\" from Barracuda Central."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The optional \"Advanced Threat Protection (ATP)\" feature is a behavior-based solution. It sends unknown files to a cloud-based sandbox for \"cloud-based analysis\" to \"find and block unknown and zero-day threats,\" which is a classic example of behavioral detection."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The gateway functions as a NIDS by monitoring all web traffic in real-time for signatures of \"spyware,\" \"malware,\" and other web-borne threats, and generating alerts for administrators."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG13.4",
+        "Rationale": "As a gateway appliance, it is designed to sit between the trusted internal network (LAN) and the untrusted external network (WAN) and perform stateful traffic filtering based on defined security policies."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG13.8",
+        "Rationale": "By actively blocking detected threats in-line—such as stopping malware downloads, preventing access to malicious sites, and blocking spyware communication—the tool acts as a NIPS for web traffic."
+    },
+    {
+        "ToolID": "T322",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The tool's core functionality, including \"Application Control,\" \"SSL Inspection,\" and URL/content filtering, operates at the application layer (Layer 7) to inspect and filter traffic based on its content, not just its port or protocol."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG3.3",
+        "Rationale": "The tool is built to enforce granular, role-based access controls, allowing administrators to define precisely which users (e.g., vendors, internal IT) can access which specific systems and what they can do."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool establishes a secure, encrypted tunnel for all remote sessions, protecting the data (such as commands and screen sharing) as it travels from the user to the target system."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The tool provides a secure, hardened pathway for administrative access to servers, network devices, and other critical assets, replacing the need for insecure protocols or broad network-level access."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG5.4",
+        "Rationale": "It enables this control by allowing a user with a non-privileged account to request and receive temporary, \"just-in-time\" access for a specific task, often using injected credentials for a dedicated admin account that the user never sees."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG5.6",
+        "Rationale": "The tool acts as a central broker for all privileged access, integrating with identity services (like Active Directory) to manage and enforce access policies from a single platform."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.1",
+        "Rationale": "It directly supports this by providing features for access approval workflows, where users must request access and receive management approval before a session can be initiated."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Access for any user or vendor can be immediately and centrally terminated, either manually (e.g., when a contract ends) or automatically (e.g., if suspicious activity is detected)."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.3",
+        "Rationale": "The tool's portal, which is often exposed externally for vendor access, integrates with and enforces Multi-Factor Authentication (MFA) before granting any access."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.4",
+        "Rationale": "It serves as a secure replacement for traditional VPNs, requiring MFA as a prerequisite for all remote users (employees or vendors) to gain privileged access."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.5",
+        "Rationale": "This is a core function. The tool enforces MFA for any user attempting to perform administrative tasks on a target system through its platform."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.7",
+        "Rationale": "It provides a single, centralized console for defining, applying, and monitoring all privileged access control policies across the enterprise."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The tool's policy engine is explicitly designed to create roles (e.g., \"Database Vendor,\" \"Windows Admin\") and assign granular permissions based on those roles."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG8.2",
+        "Rationale": "A primary feature of the tool is the creation of detailed, tamper-resistant audit logs for every privileged session it manages."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Session logs are highly detailed, often including keystroke logging, command-line records, and full video recordings of the session, providing forensic-level detail."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG8.8",
+        "Rationale": "The tool can capture and log all commands entered by a user during a command-line session (e.g., SSH, PowerShell), which is crucial for auditing."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG8.9",
+        "Rationale": "It centralizes all privileged session logs into its own database and can be configured to forward these logs to a central SIEM for enterprise-wide correlation."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The tool is frequently used to provide secure, audited access to network devices (routers, switches, firewalls) for management and configuration."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG12.5",
+        "Rationale": "It acts as a specialized AAA (Authentication, Authorization, and Auditing) system specifically for privileged sessions, brokering and logging all access."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG12.7",
+        "Rationale": "The tool fulfills the intent of this safeguard by providing a more secure, \"zero-trust\" alternative to a traditional VPN. It provides application-level access (not full network access) and connects to the enterprise's AAA infrastructure."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG13.5",
+        "Rationale": "This is a perfect description of the tool's function. It manages access for remote employees, contractors, and vendors, and can enforce policies based on the user and their device."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG15.6",
+        "Rationale": "This is a core use case (often called Vendor Privileged Access Management or VPAM). The tool allows an organization to monitor vendor sessions in real-time and review full video recordings of all vendor activity."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG15.7",
+        "Rationale": "When a service provider's contract ends, their access can be instantly and completely revoked from the tool's central console, securing all endpoints they previously had access to."
+    },
+    {
+        "ToolID": "T193",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The immutable video and text logs from the tool are a primary source of evidence for post-incident reviews, allowing security teams to see exactly what actions a compromised account or malicious insider took."
     }
 ]
