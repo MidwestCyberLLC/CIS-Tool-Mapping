@@ -8,14 +8,6 @@
         "ToolID": "T198"
     },
     {
-        "SafeguardID": "SG2.5",
-        "ToolID": "T49"
-    },
-    {
-        "SafeguardID": "SG2.7",
-        "ToolID": "T49"
-    },
-    {
         "SafeguardID": "SG13.2",
         "ToolID": "T448"
     },
@@ -34,66 +26,6 @@
     {
         "SafeguardID": "SG10.4",
         "ToolID": "T361"
-    },
-    {
-        "SafeguardID": "SG13.8",
-        "ToolID": "T480"
-    },
-    {
-        "SafeguardID": "SG16.1",
-        "ToolID": "T621"
-    },
-    {
-        "SafeguardID": "SG16.10",
-        "ToolID": "T621"
-    },
-    {
-        "SafeguardID": "SG16.12",
-        "ToolID": "T621"
-    },
-    {
-        "SafeguardID": "SG16.7",
-        "ToolID": "T605"
-    },
-    {
-        "SafeguardID": "SG4.6",
-        "ToolID": "T605"
-    },
-    {
-        "SafeguardID": "SG4.8",
-        "ToolID": "T148"
-    },
-    {
-        "SafeguardID": "SG9.1",
-        "ToolID": "T310"
-    },
-    {
-        "SafeguardID": "SG8.4",
-        "ToolID": "T267"
-    },
-    {
-        "SafeguardID": "SG16.7",
-        "ToolID": "T603"
-    },
-    {
-        "SafeguardID": "SG12.7",
-        "ToolID": "T430"
-    },
-    {
-        "SafeguardID": "SG12.1",
-        "ToolID": "T404"
-    },
-    {
-        "SafeguardID": "SG12.2",
-        "ToolID": "T404"
-    },
-    {
-        "SafeguardID": "SG12.3",
-        "ToolID": "T404"
-    },
-    {
-        "SafeguardID": "SG13.4",
-        "ToolID": "T456"
     },
     {
         "SafeguardID": "SG12.5",
@@ -9448,5 +9380,1125 @@
         "ToolID": "T20",
         "SafeguardID": "SG17.9",
         "Rationale": "Lumu's AI and correlation engine automatically apply incident thresholds. It distinguishes low-level, benign \"events\" from high-risk \"incidents\" by grouping related activities, allowing security teams to focus on confirmed threats."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The tool's agent provides continuous, real-time visibility into all executable files, scripts, and libraries across all managed endpoints, creating a de facto software inventory."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG2.3",
+        "Rationale": "The tool's agent provides continuous, real-time visibility into all executable files, scripts, and libraries across all managed endpoints, creating a de facto software inventory."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The tool is an automated agent-based solution that discovers and documents all executable software on an asset."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG2.5",
+        "Rationale": "This is the tool's core identity. It is a technical solution designed specifically to create and enforce application allow lists, ensuring only authorized software can execute."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG2.6",
+        "Rationale": "Its allow-listing capability extends beyond simple .exe files to include libraries (e.g., .dll files), preventing unauthorized libraries from being loaded by processes."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG2.7",
+        "Rationale": "The tool can control the execution of scripts (e.g., .ps1, .py), ensuring that only organizationally-approved scripts are allowed to run."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG4.8",
+        "Rationale": "By only allowing approved executables to run, the tool effectively disables any unnecessary or unauthorized services from starting, even if the service files are still present on the disk."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The tool's agent generates detailed event logs for all file execution attempts, modifications, and policy blocks."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG8.5",
+        "Rationale": "It specifically logs all execution attempts (both allowed and blocked), file modifications, and other activities that are crucial for forensic investigations."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The solution's management server centralizes these logs and typically provides connectors to forward this event data to a SIEM."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG10.1",
+        "Rationale": "While not a traditional signature-based antivirus, its positive security model is a highly effective anti-malware control, preventing malware, ransomware, and zero-day attacks from executing."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG10.3",
+        "Rationale": "This is a function of the tool's integrated Device Control feature, which can manage and block actions from removable media."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The tool includes memory and tamper protection features to prevent common exploitation techniques, such as buffer overflows or unauthorized processes tampering with protected services."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The built-in File Integrity Monitoring (FIM) capability detects and alerts on unauthorized changes to critical system files or configurations, serving as a HIDS."
+    },
+    {
+        "ToolID": "T49",
+        "SafeguardID": "SG13.7",
+        "Rationale": "This is the tool's primary purpose. By actively blocking unauthorized execution attempts in real-time, it functions as a powerful Host-Based Intrusion Prevention System (HIPS)."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The gateway can be configured with policies to identify, quarantine, or block network access from unauthorized devices."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The gateway's IoT security capabilities can actively discover and profile new devices as they connect to the network."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The \"Application Control\" feature blade allows administrators to create explicit allowlists, blocking all other (unauthorized) applications from communicating over the network."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool's robust remote access VPN functionality is used to create encrypted tunnels for data in transit between remote users and the enterprise network."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG3.13",
+        "Rationale": "The gateway offers a Data Loss Prevention (DLP) software blade that inspects network traffic to detect and block the exfiltration of sensitive data patterns."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG4.4",
+        "Rationale": "As a network firewall, it enforces firewall policies for traffic going to and from servers, effectively acting as the primary firewall for those assets."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG4.5",
+        "Rationale": "The gateway enforces firewall rules for entire subnets of end-user devices, controlling their access to other network segments and the internet."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG6.3",
+        "Rationale": "When used as the access gateway, it can integrate with identity providers to enforce MFA before granting access to web applications."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG6.4",
+        "Rationale": "The gateway's VPN (IPsec and SSL) functionality can be configured to require MFA as part of the remote user authentication process."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The gateway is a primary source of audit logs, generating detailed records of all network connections, threats, and administrative changes."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Its logging is highly detailed, capturing source/destination IPs, ports, protocols, user identities, application types, and threat-blocking decisions."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The DNS filtering and \"DNS attack protection\" features inherently involve logging all DNS queries that pass through or are resolved by the gateway."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The \"URL Filtering\" feature blade logs all HTTP/S requests, user identities, and the resulting action (allow/block)."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The \"Unified Security Management\" platform centralizes logs from all gateways and can be configured to forward them to a central SIEM."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The gateway provides DNS filtering capabilities to block access to known malicious domains at the DNS query level."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is a core feature. The \"URL Filtering\" blade allows for category-based and reputation-based filtering of web traffic."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG9.5",
+        "Rationale": "The gateway's email security and anti-phishing features (often part of Check Point Harmony, which integrates) check DMARC, SPF, and DKIM records to block spoofed emails."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG9.6",
+        "Rationale": "Firewall policies and anti-malware features can be set to block specific file types (e.g., .exe, .scr) from being downloaded over the web or via email."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG9.7",
+        "Rationale": "The \"Threat Emulation (sandboxing)\" and \"Threat Extraction\" features scan email attachments for malware, delivering a clean, sandboxed version to the user."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The gateway is the network-level anti-malware solution, using its Antivirus and Anti-Bot blades to scan all traffic for known malware signatures."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG10.7",
+        "Rationale": "This is a key capability. The \"Threat Emulation\" (sandboxing) feature executes unknown files in a virtual environment to detect malicious behavior, even for zero-day threats."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG12.1",
+        "Rationale": "The central management platform is used to deploy and manage firmware and software updates for the gateway appliances themselves."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The tool is a fundamental component for building a secure, segmented network architecture."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The unified management platform provides a secure, encrypted (HTTPS/SSH) and role-based interface for managing the gateways."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The \"Unified management\" console provides a single pane of glass for all security events and alerts from the gateway."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The \"Intrusion Prevention System (IPS)\" blade monitors network traffic for known attack patterns and malicious signatures, functioning as a NIDS."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is the primary function of a firewall: applying rules to filter traffic between different network zones (e.g., DMZ, Internal, Guest)."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The gateway's logs serve as a comprehensive record of network traffic flows for analysis and incident response."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG13.8",
+        "Rationale": "The gateway's \"IPS\" feature is a network intrusion prevention system (NIPS) that can actively block detected threats in real-time."
+    },
+    {
+        "ToolID": "T480",
+        "SafeguardID": "SG13.10",
+        "Rationale": "As a next-generation firewall, its \"Application Control\" feature provides deep packet inspection to identify and filter traffic at the application layer (Layer 7), not just by port and protocol."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG7.1",
+        "Rationale": "CxSAST is a key tool for implementing the application-specific side of a vulnerability management process, allowing for the systematic discovery of flaws in in-house developed software."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The tool directly enables remediation by finding vulnerabilities in software and providing detailed remediation guidance, reports, and \"best fix locations\" to help developers correct the flaws efficiently."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.1",
+        "Rationale": "CxSAST is a tool that automates and enforces key parts of a secure development process, specifically \"vulnerability management\" and \"application security testing procedures\"."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.2",
+        "Rationale": "The tool provides the \"vulnerability tracking system\" mentioned in the safeguard. It is the mechanism for discovering, reporting, and tracking the vulnerabilities that this process is designed to handle."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.3",
+        "Rationale": "CxSAST facilitates root cause analysis by providing \"in-depth security insights\" and data flow graphs that show the \"attack vector and the flow of data from input to sink\", helping developers understand the underlying issue, not just the symptom."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.4",
+        "Rationale": "The tool and its associated platform can identify vulnerabilities in \"open source components\", which is a core part of Software Composition Analysis (SCA) and essential for maintaining a component inventory, or \"bill of materials\"."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.5",
+        "Rationale": "By scanning third-party and open-source libraries for known vulnerabilities, CxSAST helps an organization validate whether the components they are using are trusted and free from known exploits."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.6",
+        "Rationale": "The tool's findings are a primary input for this process. CxSAST integrates with vulnerability response platforms to help \"determine the impact and priority\" and includes severity ratings in its reports to help teams triage and prioritize fixes."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.9",
+        "Rationale": "The tool's findings are a primary input for this process. CxSAST integrates with vulnerability response platforms to help \"determine the impact and priority\" and includes severity ratings in its reports to help teams triage and prioritize fixes."
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.10",
+        "Rationale": "CxSAST helps enforce secure design principles (like \"never trust user input\") by automatically detecting violations, such as SQL Injection, Cross-Site Scripting (XSS), and other data-handling flaws"
+    },
+    {
+        "ToolID": "T621",
+        "SafeguardID": "SG16.12",
+        "Rationale": "This is the core function of CxSAST. It is a \"static... analysis tool\" used \"within the application life cycle to verify that secure coding practices are being followed\"."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Chef can maintain a software inventory by defining the exact state and versions of software that should be installed on any managed node."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.2",
+        "Rationale": "Chef recipes can be written to audit for unsupported software versions and automate the upgrade or removal process."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.3",
+        "Rationale": "As a 'desired state' configuration tool, Chef can be configured to automatically remove any software not explicitly defined in its recipes (i.e., 'unauthorized' software)."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Chef functions as an automated tool to discover (on managed nodes) and document installed software as part of its configuration runs."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.5",
+        "Rationale": "Chef can be the enforcement mechanism for an allowlist; the recipes themselves act as the allowlist, and Chef ensures only that software is present."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.6",
+        "Rationale": "Similar to software allowlisting, Chef recipes can be granular enough to manage and enforce authorized libraries and dependencies."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG2.7",
+        "Rationale": "Chef can manage the presence, content, and permissions of scripts on a system, thereby enforcing an allowlist of authorized scripts."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Chef can configure and enforce file system permissions, user/group ownership, and Access Control Lists (ACLs) on managed assets."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG3.6",
+        "Rationale": "Chef can automate the configuration and enforcement of settings for end-user device encryption tools like BitLocker or FileVault."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG3.11",
+        "Rationale": "Chef can be used to configure and enforce encryption settings on servers, databases, and applications to protect data at rest."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.1",
+        "Rationale": "This is a primary function. Chef codifies the secure configuration of enterprise assets in version-controlled 'cookbooks' and 'recipes,' serving as the core of the secure configuration process."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Chef can be extended to manage network devices (routers, switches, firewalls), applying and enforcing secure configuration templates to them."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.3",
+        "Rationale": "Chef can easily manage and enforce OS-level settings, such as registry keys or configuration files, that control automatic session locking."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.4",
+        "Rationale": "Chef can manage the state and rulesets of host-based firewalls (like iptables, firewalld, or Windows Firewall) on servers."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.5",
+        "Rationale": "Chef can manage and enforce host-based firewall policies on end-user devices."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.6",
+        "Rationale": "Chef is a 'version-controlled Infrastructure-as-Code (IaC)' tool, which is explicitly mentioned as an example implementation for securely managing assets."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.7",
+        "Rationale": "Chef recipes can be written to disable, remove, or change the passwords for default vendor accounts on any managed asset."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.8",
+        "Rationale": "A core hardening task for Chef is to define a list of approved services and automatically disable or uninstall any services not on that list."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Chef can enforce network settings on all enterprise assets, ensuring they are all configured to use specific, trusted DNS servers."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG5.4",
+        "Rationale": "Chef can manage local users and groups, including the sudoers file on Linux or local administrator group membership on Windows, to enforce least privilege."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG5.6",
+        "Rationale": "Chef can automate the client-side configuration of all assets to ensure they are joined to and authenticated against a central directory service (e.g., Active Directory, LDAP)."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG6.7",
+        "Rationale": "Chef enforces the configuration on endpoints to ensure they utilize a central directory or SSO provider for access control."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG7.3",
+        "Rationale": "Chef enforces the configuration on endpoints to ensure they utilize a central directory or SSO provider for access control."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Chef can automate the patching and version management of applications, not just the underlying OS."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG7.7",
+        "Rationale": "Chef is the 'remediation' tool. After a vulnerability scanner (another tool) finds a problem, a Chef recipe is created or updated to fix the vulnerability (e.g., disable a weak cipher, update a config file), and Chef applies this fix everywhere."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Chef can install, configure, and ensure the 'running' state of audit log agents (e.g., auditd, Splunk forwarders, rsyslog) on all assets."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG8.4",
+        "Rationale": "Chef can manage the NTP (Network Time Protocol) configuration on all assets to ensure they are all synchronized with a standard time source."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Chef recipes can enforce the detailed logging configurations required by this safeguard, such as enabling specific Windows Event IDs or auditd rules."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG8.8",
+        "Rationale": "Chef can be used to enable and configure advanced logging, such as PowerShell logging or BASH history logging, across the fleet."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Chef can automate the deployment, configuration, and ensuring the 'running' state of anti-malware software on all enterprise assets."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG10.2",
+        "Rationale": "Chef can enforce the configuration of anti-malware software to ensure that automatic signature updates are always enabled."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG10.3",
+        "Rationale": "Chef can set the specific registry keys or configuration files required to disable autorun and autoplay functionality on devices."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG10.6",
+        "Rationale": "Chef itself can act as the central management tool for enforcing the configuration of anti-malware software, ensuring it is consistent everywhere."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG12.1",
+        "Rationale": "When used to manage network infrastructure, Chef can automate the deployment of firmware and software updates to keep devices up-to-date."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG12.3",
+        "Rationale": "This safeguard's description specifically names 'version-controlled Infrastructure-as-Code (IaC),' which is precisely what Chef is."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Chef can automate the deployment and configuration of host-based intrusion detection (HIDS) agents, such as Wazuh or OSSEC."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG13.7",
+        "Rationale": "Chef can automate the deployment and configuration of host-based intrusion prevention (HIPS) or Endpoint Detection and Response (EDR) agents."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG16.7",
+        "Rationale": "Chef's 'cookbooks' serve as the 'standard hardening configuration templates' that are applied to application infrastructure components."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG16.8",
+        "Rationale": "Chef's 'cookbooks' serve as the 'standard hardening configuration templates' that are applied to application infrastructure components."
+    },
+    {
+        "ToolID": "T605",
+        "SafeguardID": "SG16.12",
+        "Rationale": "The Chef InSpec component, part of the broader Chef suite, is used to run automated compliance and security checks (static/dynamic analysis) against the infrastructure."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The Google Admin console, which manages the policies, inventories all installed browser extensions and web applications across the managed fleet."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Policies can be created to block or automatically remove any browser extension or application that is not on the approved allowlist."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The Google Admin console acts as an automated tool to discover, inventory, and report on all extensions (software) installed in managed Chrome browsers."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG2.5",
+        "Rationale": "This is a primary function. Policies can enforce a \"block all\" setting and then explicitly allowlist only approved extensions and web apps for execution."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG3.5",
+        "Rationale": "Policies can be set to automatically clear all browsing data (e.g., cache, cookies, history) upon browser exit, securely disposing of session data."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG3.6",
+        "Rationale": "Policies can enforce and manage the built-in encryption (e.g., BitLocker on Windows, FileVault on Mac, or native ChromeOS encryption) on the devices where the browser is managed."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG3.10",
+        "Rationale": "Policies can enforce secure web connections by blocking mixed content, disabling insecure TLS/SSL protocols, and forcing HTTPS connections."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG3.13",
+        "Rationale": "The Chrome Enterprise Premium tier includes integrated Data Loss Prevention (DLP) that can be configured via policies to scan, report on, and block the exfiltration of sensitive data (e.g., credit card numbers, PII) through the browser."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG4.1",
+        "Rationale": "This is the core purpose of Chrome Enterprise Policy. It is the tool used to define, deploy, and maintain a secure configuration baseline for the Chrome browser and ChromeOS assets."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG4.3",
+        "Rationale": "This is the core purpose of Chrome Enterprise Policy. It is the tool used to define, deploy, and maintain a secure configuration baseline for the Chrome browser and ChromeOS assets."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG4.5",
+        "Rationale": "Policies can be used to manage the built-in firewall on managed ChromeOS devices."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG4.8",
+        "Rationale": "Policies are used to disable or block unnecessary browser features, extensions, and services to reduce the attack surface."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Policies can set the DNS provider for the browser, forcing all DNS lookups to go through a trusted enterprise DNS or a secure external service (e.g., DNS-over-HTTPS)."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG6.3",
+        "Rationale": "As part of the Google Admin suite, policies work with Google's identity platform to enforce MFA for access to Google Workspace and other integrated web applications."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG6.5",
+        "Rationale": "Access to the Google Admin console itself, where policies are managed, can be (and should be) protected with MFA."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Policies can be applied to specific Organizational Units (OUs) or groups, allowing an administrator to define different roles (e.g., \"Student,\" \"Teacher,\" \"Finance\") with different levels of browser access and restrictions."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG7.3",
+        "Rationale": "Policies can be set to enforce automatic updates for the Chrome browser and for the entire ChromeOS, ensuring patches are applied as soon as they are available."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Policies can enforce automatic updates for all approved browser extensions."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Policies can enable browser-level logging, with reports on security events, user activity, and policy compliance sent to the Google Admin console."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG8.7",
+        "Rationale": "Chrome Enterprise Premium policies can be configured to log all URL requests and integrate with security reporting tools for analysis and filtering."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The Google Admin console centralizes the audit and reporting logs from all managed browsers and devices in one location."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG9.1",
+        "Rationale": "Policies enforce the use of the enterprise-managed Chrome browser and ensure it is always updated to the latest supported version."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG9.2",
+        "Rationale": "Policies can enforce the use of a specific DNS filtering service (by setting the DNS provider) to block access to malicious domains."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is a key feature. Policies can be used to create and enforce URL blocklists and allowlists directly in the browser."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG9.4",
+        "Rationale": "This is a key feature. Policies can be used to create and enforce URL blocklists and allowlists directly in the browser."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG9.6",
+        "Rationale": "Policies can be configured to block the download of specific file types (e.g., .exe, .bat) or files flagged as dangerous."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Policies manage and enforce Chrome's built-in anti-malware features, such as Google Safe Browsing and file scanning."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG10.2",
+        "Rationale": "Enforcing browser updates via policy also ensures that the Safe Browsing lists and other anti-malware definitions are automatically updated."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG10.3",
+        "Rationale": "Policies on ChromeOS can be set to disable autoplay for removable media."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG10.5",
+        "Rationale": "Policies enforce the use of Chrome's built-in anti-exploitation features, such as sandboxing and Site Isolation, and can prevent users from disabling them."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG13.5",
+        "Rationale": "The premium \"context-aware access\" feature, configured via policy, allows the enterprise to grant or deny access to web applications based on the remote device's security posture (e.g., OS is up-to-date, device is compliant)."
+    },
+    {
+        "ToolID": "T310",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The URL and content filtering capabilities enforced by policy are a form of application-layer filtering, as the browser itself inspects and blocks web traffic."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG3.9",
+        "Rationale": "Chronosync can be configured to back up and synchronize data to an encrypted disk image (.dmg) on any destination, including removable media, thereby ensuring the data is encrypted at rest."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool supports secure transfer protocols, such as SFTP (SSH File Transfer Protocol), and secure connections to cloud providers, which encrypts data while it is being synchronized over a network."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG3.11",
+        "Rationale": "While not an encryption tool itself, Chronosync integrates with macOS's native encryption (FileVault) and can create backups within encrypted disk images, directly enabling the protection of data at rest on backup targets."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG11.1",
+        "Rationale": "Chronosync is a tool used to execute the backup procedures that are a core component of any data recovery process."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG11.2",
+        "Rationale": "This is a primary function of the tool. It includes a robust scheduler that can run backups and synchronizations automatically at set times, upon specific events (like a drive being connected), or on a recurring basis."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The tool helps protect backup data (recovery data) by using secure, encrypted transit protocols (SFTP) and by storing data on encrypted destinations, giving it equivalent protection to the source data"
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG11.4",
+        "Rationale": "Chronosync is ideal for creating isolated backups. It can back up to external drives (which can be taken offline), to off-site file servers or network-attached storage (NAS), or to cloud storage (like Amazon S3 or Backblaze B2), all of which fulfill the \"3-2-1\" backup rule and create isolated copies."
+    },
+    {
+        "ToolID": "T267",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The backups and archives created by Chronosync are the assets that would be used to conduct and validate a data recovery test, ensuring that files can be successfully restored."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG3.6",
+        "Rationale": "Benchmarks for end-user operating systems (e.g., Windows, macOS) provide the exact policy settings to enforce the use of full-disk encryption like BitLocker or FileVault."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG3.9",
+        "Rationale": "OS benchmarks, particularly for Windows, include configuration recommendations to enforce encryption for any removable media (e.g., USB drives) that is connected to the system."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG3.11",
+        "Rationale": "Benchmarks for servers and databases (e.g., Microsoft SQL Server, MySQL) specify the secure settings to enable and configure data-at-rest encryption (like Transparent Data Encryption)."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The CIS Benchmarks are the documented, industry-standard secure configuration standards. Using them is a core part of establishing the process this safeguard requires."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.2",
+        "Rationale": "CIS provides specific, vendor-level benchmarks for network devices from manufacturers like Cisco, Palo Alto Networks, and Juniper, detailing the secure configuration for them."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.3",
+        "Rationale": "This is a fundamental setting in every OS benchmark (e.g., Windows, macOS, Linux). The benchmark provides the specific policy to set (e.g., \"15 minutes or less\")."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.4",
+        "Rationale": "Server OS benchmarks (e.g., Windows Server, Ubuntu Linux) contain detailed sections on enabling and properly configuring the host-based firewall."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.5",
+        "Rationale": "End-user OS benchmarks (e.g., Windows 11) specify the settings to ensure the local firewall is on and configured with a default-deny rule."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.6",
+        "Rationale": "All device benchmarks (for servers, network devices, etc.) explicitly recommend disabling insecure management protocols (like Telnet) and enforcing secure-only access (like SSH or HTTPS)."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.7",
+        "Rationale": "A standard component of every CIS Benchmark is to disable, rename, or secure default vendor accounts (e.g., \"admin,\" \"guest\")."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.8",
+        "Rationale": ": This is the definition of \"hardening.\" Benchmarks provide extensive lists of services that are non-essential and should be disabled to reduce the attack surface."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG4.9",
+        "Rationale": "OS and network device benchmarks include settings to ensure assets are configured to use specific, authorized DNS servers and not be susceptible to malicious DNS redirection."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG5.2",
+        "Rationale": "While a benchmark can't guarantee uniqueness across systems, benchmarks for operating systems and directory services (like Active Directory) define the policy settings (e.g., password complexity, length, history) that enforce strong password creation."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The benchmarks provide the granular, technical settings needed to implement the logging process, specifying what to log (e.g., logon events, process creation) to meet logging requirements."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Following the audit policy settings in an OS benchmark (e.g., Windows Server) is the technical mechanism that enables the collection of logs as required by this safeguard."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The Level 2 benchmarks, in particular, provide \"advanced\" or detailed audit settings (like \"Audit Object Access\") that satisfy the need for more granular logging on sensitive assets."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG8.8",
+        "Rationale": "Benchmarks for modern operating systems (like Windows) explicitly recommend enabling detailed logging for command-line tools, such as \"PowerShell Module Logging\" and \"PowerShell Script Block Logging.\""
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG9.1",
+        "Rationale": "Benchmarks for browsers (e.g., Google Chrome, Firefox) include configuration settings to enforce automatic updates, ensuring the latest version is always in use."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG9.4",
+        "Rationale": "Browser benchmarks provide specific policies to manage extensions, such as creating an allowlist or blocklist, which directly implements this safeguard."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Benchmarks for operating systems that include native anti-malware (like Windows Defender) provide all the necessary configuration settings to ensure it is enabled, updated, and running correctly."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG10.3",
+        "Rationale": "This is a classic hardening step that is explicitly defined as a setting in all Windows benchmarks to prevent a common malware infection vector."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG10.5",
+        "Rationale": "OS benchmarks (e.g., Windows) include settings to ensure that features like Data Execution Prevention (DEP) and other exploit-guard capabilities are enabled."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The specific benchmarks for network devices (e.g., Cisco, Fortinet) are the definitive guides for securely managing them, including disabling insecure protocols and using version-controlled configurations."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG12.6",
+        "Rationale": "Benchmarks for wireless controllers and network switches define the specific, secure settings required to implement protocols like 802.1X and WPA2/3 Enterprise."
+    },
+    {
+        "ToolID": "T603",
+        "SafeguardID": "SG16.7",
+        "Rationale": "This safeguard perfectly describes CIS Benchmarks. The benchmarks are the \"standard, industry-recommended hardening configuration templates\" used to secure application infrastructure components like web servers (e.g., Apache, Nginx), databases (e.g., MySQL), and servers (e.g., Linux)."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG6.3",
+        "Rationale": "The AnyConnect VPN portal is an externally-exposed application used for access, and it natively integrates with MFA providers (like Cisco Duo) to verify user identity before granting a connection."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG6.4",
+        "Rationale": "This is a primary function of the tool. AnyConnect is the client that enforces the MFA challenge when a user attempts to establish a remote network access VPN connection."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG9.2",
+        "Rationale": "AnyConnect includes an optional \"Umbrella Roaming Module\" that provides DNS-layer security, blocking access to known malicious domains and enforcing web content policies even when the user is not connected to the VPN."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG12.1",
+        "Rationale": "The tool's posture assessment feature can check that the AnyConnect client software itself is up-to-date on the endpoint before allowing a connection, ensuring a critical piece of the network infrastructure (the VPN client) is not running a vulnerable version."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG12.6",
+        "Rationale": "The client uses strong, standard encryption protocols (such as SSL/TLS and IPsec IKEv2) to create a secure, private tunnel for all communication, protecting data in transit."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG12.7",
+        "Rationale": "This is the core purpose of AnyConnect. It is the VPN client used by remote devices to establish a secure connection and authenticate against the enterprise's central AAA (Authentication, Authorization, and Accounting) services."
+    },
+    {
+        "ToolID": "T430",
+        "SafeguardID": "SG13.5",
+        "Rationale": "AnyConnect provides robust endpoint posture assessment (also known as \"HostScan\"). Before granting network access, it can check the remote device's compliance with security policies, such as ensuring anti-malware is running and up-to-date, a host-based firewall is on, and the operating system is patched. Access can be denied or limited if the device fails these checks."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The platform's core function is to discover, onboard, and maintain a real-time inventory of all network devices (switches, routers, access points) and connected endpoints (computers, IoT, mobile devices)."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG1.2",
+        "Rationale": "Through its integration with Network Access Control (NAC) solutions like Cisco ISE, Catalyst Center can enforce policies that automatically quarantine, deny, or remove unauthorized assets that attempt to connect to the network."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG1.3",
+        "Rationale": "Catalyst Center continuously runs discovery protocols (like CDP, LLDP, and SNMP) and scans the network to identify new and existing assets, effectively acting as a persistent active discovery tool."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The \"Software Image Management\" (SWIM) feature maintains a central inventory of the operating system (e.g., IOS XE) versions running on all network infrastructure devices."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG2.2",
+        "Rationale": "The SWIM feature allows administrators to designate \"golden images\" (approved, supported versions) and use built-in PSIRT (Product Security Incident Response Team) alerts to identify devices running software that is vulnerable or no-longer-supported."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The platform is built for this. It automates device provisioning using configuration templates and \"Network Profiles,\" ensuring that every new and existing asset adheres to a documented, consistent, and secure baseline."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG4.2",
+        "Rationale": "This is a primary use case. Catalyst Center manages the entire lifecycle (design, provision, policy, assurance) of network infrastructure, enforcing secure configurations at scale."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The tool automates configuration and uses modern, secure protocols for management, replacing insecure legacy methods (like individual Telnet/HTTP sessions)."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG6.7",
+        "Rationale": "While often used with a separate tool like Cisco ISE, Catalyst Center acts as the central policy engine. It defines and pushes segmentation and access policies (e.g., \"who, what, where\") to the entire network, centralizing the enforcement of access control."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The platform uses \"Scalable Group Tags\" (SGTs) to implement micro-segmentation. This allows for the creation of role-based policies (e.g., \"Guest,\" \"Student,\" \"Faculty,\" \"IoT-Camera\") that are enforced regardless of where the user or device connects on the network."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The platform's PSIRT integration and software image management provide the foundation for a network-device vulnerability management process, flagging devices that require patching."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The SWIM feature is designed to automate the deployment of operating system updates and patches to hundreds or thousands of network devices from a central controller."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The platform provides \"audit logging\" to track all changes made to the network configuration, including who made the change, what was changed, and when."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Catalyst Center is a collection point for logs, traps, and telemetry data from all managed network devices."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG8.4",
+        "Rationale": "Proper time synchronization (via NTP) is a prerequisite for Catalyst Center to function and correlate event data, so it inherently enforces this safeguard."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The platform acts as the central repository for collecting and analyzing telemetry and operational logs from the network infrastructure."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG12.1",
+        "Rationale": "This is a primary function of the SWIM feature, which simplifies and automates the process of keeping network device operating systems patched and current."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The platform's \"Design\" tools and its ability to deploy \"SD-Access\" (Software-Defined Access) fabric are used to build and maintain a modern, secure, and segmented network architecture."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG12.3",
+        "Rationale": "Catalyst Center provides a centralized, secure GUI and API for managing network infrastructure, replacing device-by-device manual (and often insecure) configuration."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG12.4",
+        "Rationale": "The platform's \"Assurance\" feature provides real-time topology maps of the network, from a high-level overview down to individual device connections."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG12.5",
+        "Rationale": "The platform integrates with and enforces policies from AAA servers (like Cisco ISE), acting as the central management point for network-wide AAA policies."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The \"Assurance\" engine collects telemetry from all devices, analyzes it for anomalies, and generates correlated alerts for security and performance issues in a single dashboard."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG13.2",
+        "Rationale": "By analyzing streaming telemetry and network traffic patterns (like Encrypted Traffic Analytics), the platform can detect suspicious traffic, anomalies, and threat behaviors, acting as a network-wide detection system."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is the core purpose of its micro-segmentation and SD-Access capabilities. It creates and enforces the policies that filter traffic between different roles and segments (e.g., blocking student devices from accessing faculty servers)."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The \"Assurance\" component is built on collecting and analyzing massive amounts of network telemetry and flow data from across the enterprise."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG13.8",
+        "Rationale": "When an unauthorized or compromised device is detected, Catalyst Center can automatically enforce a policy (e.g., via SGTs) to \"contain\" the threat by blocking its access to the rest of the network, acting as a prevention system."
+    },
+    {
+        "ToolID": "T404",
+        "SafeguardID": "SG17.9",
+        "Rationale": "The \"Assurance\" module uses AI to baseline normal network behavior. It then generates \"issues\" and \"alerts\" when behavior deviates from this baseline, effectively establishing and monitoring incident thresholds."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG1.2",
+        "Rationale": "As the network enforcement point, the firewall can be configured to block, quarantine, or deny network access to assets identified as unauthorized."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The Application Visibility and Control (AVC) feature allows administrators to create network-level policies that explicitly permit traffic from authorized applications (e.g., \"Microsoft 365\") while blocking all other unapproved applications."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool functions as a VPN (Virtual Private Network) concentrator, enforcing encrypted sessions for remote users and site-to-site connections to protect data in transit."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG3.12",
+        "Rationale": "A primary function of the firewall is to create and enforce secure network segments (e.g., separating student, staff, and sensitive data networks) and control all traffic that flows between them."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG4.2",
+        "Rationale": "The firewall is a critical piece of network infrastructure that is managed centrally via the Firepower Management Center (FMC) or cloud dashboard, allowing for standardized, secure configurations."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The firewall itself is managed securely using encrypted protocols like HTTPS and SSH, typically through its centralized management console (FMC)."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG4.9",
+        "Rationale": "The firewall's DNS security policies intercept and inspect DNS requests from clients, enforcing the use of trusted DNS and blocking queries to malicious domains."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG6.4",
+        "Rationale": "When used as a VPN concentrator, Firepower integrates with MFA providers (like Cisco Duo) to mandate multi-factor authentication for all remote access users."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The firewall is a primary source of audit logs, generating detailed connection, threat, and intrusion events for all traffic it inspects."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The URL and DNS filtering features log all DNS queries processed by the firewall, providing visibility into requests for malicious or categorized domains."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The URL Filtering feature logs all HTTP/S web requests, allowing for auditing of web access and policy violations."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The firewall natively sends all logs to the Firepower Management Center for centralization and correlation, and can also be configured to forward logs to a central SIEM."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG9.2",
+        "Rationale": "This is a core feature. The firewall uses Cisco Talos threat intelligence to provide DNS-layer filtering, blocking access to known malicious domains before a connection is even established."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG9.3",
+        "Rationale": "This is a core feature. Firepower provides robust, category-based URL filtering to block access to unapproved or malicious websites, which is critical for CIPA compliance."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG9.6",
+        "Rationale": "File policies within the firewall can inspect web and email traffic (SMTP) to block the transfer of specific, unnecessary, or dangerous file types (e.g., .exe, .scr, .ps1)."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG9.7",
+        "Rationale": "When inspecting SMTP traffic, the Advanced Malware Protection (AMP) and sandboxing features can scan email attachments for malware, providing a layer of anti-malware protection for the email gateway."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The built-in Advanced Malware Protection (AMP) for Networks feature acts as network-based anti-malware, inspecting files in transit for known and unknown threats."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG10.5",
+        "Rationale": "The Next-Generation Intrusion Prevention System (NGIPS) is a network-level anti-exploitation feature that uses signatures and heuristics to detect and block attempts to exploit known vulnerabilities."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG12.1",
+        "Rationale": "The FMC provides a central dashboard to manage and report on the software versions of all firewall appliances, simplifying the patch management and update process."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG12.2",
+        "Rationale": "A firewall is a foundational tool for designing and enforcing a secure, segmented network architecture"
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG12.3",
+        "Rationale": "A firewall is a foundational tool for designing and enforcing a secure, segmented network architecture"
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG12.5",
+        "Rationale": "The firewall integrates with identity services (like Active Directory) to centralize AAA for user-based firewall rules and with TACACS+/RADIUS for administrative access to the device itself."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG12.7",
+        "Rationale": "The firewall's VPN capability is the primary mechanism for ensuring remote devices connect to an enterprise's AAA infrastructure and are encrypted before accessing internal resources."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The FMC centralizes, correlates, and generates alerts from all security events (IPS, malware, URL, etc.) detected by the managed firewalls."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG13.3",
+        "Rationale": "This is a core function of the NGIPS. The system can be set to \"detect\" mode (NIDS) to log and alert on threats without actively blocking them."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG13.4",
+        "Rationale": "This is the fundamental definition of a firewall. It filters all traffic based on source, destination, port, and application rules as it passes between network segments."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The firewall generates connection event logs for all traffic flows, which serve as the primary source for network flow data."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG13.8",
+        "Rationale": "This is a core function of the NGIPS. When set to \"prevent\" mode (NIPS), the firewall actively blocks traffic that it identifies as malicious or an exploit attempt."
+    },
+    {
+        "ToolID": "T456",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The Application Visibility and Control (AVC) feature is a key application-layer (Layer 7) filter, allowing policy to be based on the specific application (e.g., \"Facebook\" or \"BitTorrent\") rather than just port numbers."
     }
 ]

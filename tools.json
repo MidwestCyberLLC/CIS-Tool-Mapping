@@ -578,10 +578,10 @@
     {
         "ID": "T49",
         "Name": "Carbon Black App Control",
-        "Description": "This tool uses a dynamic approach to application control, allowing you to define policies based on file characteristics and behavior rather than just signatures.",
-        "URL": "https://www.paloaltonetworks.com/products/carbon-black/app-control",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Carbon Black App Control is an application allow-listing solution that locks down critical systems and endpoints to prevent unwanted changes and ensure only trusted and approved software is allowed to execute.",
+        "URL": "https://www.broadcom.com/products/carbon-black/threat-prevention/app-control",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T448",
@@ -626,82 +626,74 @@
     {
         "ID": "T480",
         "Name": "Check Point Security Gateway",
-        "Description": "Offers comprehensive security, including intrusion prevention, application control, and URL filtering to protect network traffic.",
-        "URL": "https://www.checkpoint.com/products/security-gateway/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Check Point Security Gateway is an AI-powered, next-generation firewall (NGFW) that provides consolidated, advanced threat prevention, secure remote access (VPN), and unified policy management for on-premise, cloud, and remote users.",
+        "URL": "https://www.checkpoint.com/quantum/next-generation-firewall/",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T621",
         "Name": "Checkmarx CxSAST",
-        "Description": "This Static Application Security Testing (SAST) tool analyzes source code to identify security flaws, promoting secure coding practices and adherence to design principles like least privilege.",
-        "URL": "https://checkmarx.com/cxsaast/",
+        "Description": "Checkmarx CxSAST is a Static Application Security Testing (SAST) solution that scans uncompiled source code to identify, track, and remediate security vulnerabilities early in the software development lifecycle (SDLC).",
+        "URL": "https://checkmarx.com/cxsast-source-code-scanning/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T605",
         "Name": "Chef Infrastructure Automation",
-        "Description": "Enables consistent configuration management and enforcement of security baselines for servers, databases, and other infrastructure elements.",
+        "Description": "Chef is an Infrastructure-as-Code (IaC) platform that automates the configuration, deployment, and management of infrastructure and applications to enforce a 'desired state.' ",
         "URL": "https://www.chef.io/",
         "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T148",
-        "Name": "Chef/Puppet/Ansible",
-        "Description": "These configuration management tools automate the process of installing, configuring, and removing software, including disabling services, across your infrastructure as code.",
-        "URL": "https://www.chef.io/ https://puppet.com/ https://www.ansible.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$"
     },
     {
         "ID": "T310",
         "Name": "Chrome Enterprise Policy",
-        "Description": "Chrome Enterprise provides policies to control which browser features are enabled and the minimum version allowed, ensuring users stay on supported versions.",
-        "URL": "https://chromeenterprise.google/policies/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "A set of rules and settings managed from the Google Admin console that allows administrators to control, configure, and enforce security for Chrome browsers and ChromeOS devices.",
+        "URL": "https://chromeenterprise.google/",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T267",
         "Name": "Chronosync",
-        "Description": "A robust NTP server software designed for high accuracy and reliability in time synchronization.",
-        "URL": "https://www.chronosync.net/",
+        "Description": "Chronosync is a comprehensive data backup, file synchronization, and bootable backup utility designed specifically for macOS.",
+        "URL": "https://www.econtechnologies.com",
         "EducationUse": false,
         "Cost": "$"
     },
     {
         "ID": "T603",
         "Name": "CIS Benchmarks",
-        "Description": "Provides industry-recognized security configuration baselines for various operating systems, cloud platforms, and applications, ensuring consistent hardening practices.",
-        "URL": "https://www.cisecurity.org/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "CIS Benchmarks are globally recognized, consensus-driven best practices for securely configuring specific IT systems, software, network devices, and cloud infrastructure to help organizations proactively safeguard against cyber risks.",
+        "URL": "https://www.cisecurity.org/cis-benchmarks-overview",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T430",
         "Name": "Cisco AnyConnect Secure Mobility Client",
-        "Description": "This client provides secure remote access through a VPN connection integrated with Ciscoâ€™s AAA infrastructure for authentication and authorization.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility.html",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cisco AnyConnect Secure Mobility Client (now part of Cisco Secure Client) is a unified security endpoint agent that provides secure remote access via VPN, along with integrated features like endpoint posture assessment, multi-factor authentication, and web security filtering.",
+        "URL": "https://www.cisco.com/go/anyconnect",
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T404",
-        "Name": "Cisco DNA Center",
-        "Description": "Cisco DNA Center offers automated network provisioning, assurance, and analytics to streamline software upgrades and maintain optimal performance.",
-        "URL": "https://www.cisco.com/c/en/us/products/software/dna-center/index.html",
-        "EducationUse": false,
-        "Cost": "$"
+        "Name": "Cisco Catalyst Center",
+        "Description": "Cisco Catalyst Center is a centralized network management and automation platform that uses AI and analytics to design, deploy, monitor, and secure enterprise networks from a single dashboard.",
+        "URL": "https://www.cisco.com/c/en/us/products/cloud-systems-management/dna-center-platform/index.html",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T456",
         "Name": "Cisco Firepower NGFW",
-        "Description": "Provides advanced threat protection and application visibility with robust filtering capabilities across network segments.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/firepower-next-generation-firewall.html",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cisco Firepower NGFW is an integrated network security solution that combines a stateful firewall, application control, an intrusion prevention system (NGIPS), URL filtering, and advanced malware protection (AMP) to provide unified threat defense.",
+        "URL": "https://www.cisco.com/c/en/us/products/security/firewalls/index.html",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T423",
