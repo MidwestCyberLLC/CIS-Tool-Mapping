@@ -6,6 +6,17 @@
     <title>CIS Mapper Data Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- File Parsing Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Set worker source for PDF.js
+        if (window.pdfjsLib) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+
     <style>
         body { font-family: 'Inter', sans-serif; }
         .form-input, .form-select, .form-textarea {
@@ -107,12 +118,57 @@
         .cost-checkbox-item span {
             font-size: 0.875rem;
         }
+
+        /* Drag and Drop Styles */
+        #dropZone {
+            border: 2px dashed #3B82F6;
+            background-color: #EFF6FF;
+            transition: all 0.3s;
+        }
+        #dropZone.dragover {
+            background-color: #BFDBFE;
+            border-color: #1D4ED8;
+            transform: scale(1.01);
+        }
+
+        /* Modal Styles */
+        #conflictModal {
+            z-index: 50;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 p-4 md:p-8">
 
     <div class="container mx-auto max-w-4xl bg-white p-6 shadow-xl rounded-lg">
         <h1 class="text-3xl font-bold text-blue-800 mb-6">CIS Mapper Data Editor</h1>
+
+        <!-- Conflict Modal -->
+        <div id="conflictModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden flex items-center justify-center">
+            <div class="relative p-5 border w-96 shadow-lg rounded-md bg-white">
+                <div class="mt-3 text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
+                        <svg class="h-6 w-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 mt-2">Tool Conflict Detected</h3>
+                    <div class="mt-2 px-2 py-3">
+                        <p class="text-sm text-gray-500">
+                            The tool "<span id="conflictToolName" class="font-bold text-gray-800"></span>" already exists with ID <span id="conflictToolID" class="font-mono bg-gray-100 px-1"></span>.
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2">
+                            Would you like to modify the existing tool or add this as a new entry?
+                        </p>
+                    </div>
+                    <div class="items-center px-2 py-3">
+                        <button id="btnConflictModify" class="px-4 py-2 bg-blue-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                            Modify Existing Tool
+                        </button>
+                        <button id="btnConflictAdd" class="mt-3 px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md w-full shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                            No, Add as New Tool
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Section 1: Load Data -->
         <div class="mb-6 p-4 border rounded-lg bg-gray-50">
@@ -138,11 +194,28 @@
 
         <!-- Section 1.5: Mode Selection -->
         <div id="modeSelectionSection" class="hidden mb-6 p-4 border rounded-lg">
-            <h2 class="text-xl font-semibold mb-3">2. Choose Your Mode</h2>
-            <p class="text-sm text-gray-600 mb-4">Data loaded. Do you want to add new data or modify existing data?</p>
-            <div class="flex space-x-4">
-                <button id="showAddModeBtn" class="btn btn-secondary">Add New Data</button>
-                <button id="showModifyModeBtn" class="btn btn-secondary">Modify Existing Data</button>
+            <h2 class="text-xl font-semibold mb-3">2. Choose Your Action</h2>
+            
+            <!-- File Drop Zone -->
+            <div id="dropZone" class="mb-6 p-8 rounded-lg text-center cursor-pointer bg-blue-50 border-blue-300 border-dashed border-2 hover:bg-blue-100 transition-colors">
+                <div class="mx-auto h-12 w-12 text-blue-500 mb-3">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                </div>
+                <p class="text-lg font-medium text-blue-700">Drag & Drop AI Output File Here</p>
+                <p class="text-sm text-gray-500 mt-1">Supports .docx and .pdf. The system will detect if this is a new or existing tool.</p>
+                <input type="file" id="fileInput" class="hidden" accept=".docx,.pdf">
+                <p id="dropStatus" class="mt-2 text-sm font-medium h-5"></p>
+            </div>
+
+            <div class="relative flex py-2 items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="flex-shrink-0 mx-4 text-gray-400 font-medium text-sm">OR SELECT MANUALLY</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+
+            <div class="flex space-x-4 mt-4 justify-center">
+                <button id="showAddModeBtn" class="btn btn-secondary">Add New Data Manually</button>
+                <button id="showModifyModeBtn" class="btn btn-secondary">Modify Existing Data Manually</button>
             </div>
         </div>
 
@@ -176,7 +249,7 @@
                                 <option value="true">True</option>
                             </select>
                         </div>
-                        <!-- MODIFIED: Cost Selection -->
+                        <!-- Cost Selection -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Cost (Select multiple)</label>
                             <div id="toolCostContainer" class="cost-checkbox-group">
@@ -203,7 +276,7 @@
                             <option value="" disabled selected>-- Select a Tool --</option>
                         </select>
                     </div>
-                    <!-- UPDATED MAPPING SECTION FOR ADD MODE -->
+                    
                     <div>
                          <label class="block text-sm font-medium text-gray-700 mb-2">Select Safeguard(s) & Rationale</label>
                          <p class="text-sm text-gray-600 mb-2">Select safeguards that map to this tool and provide a rationale for each.</p>
@@ -257,7 +330,7 @@
                                     <option value="true">True</option>
                                 </select>
                             </div>
-                            <!-- MODIFIED: Cost Selection (Modify Mode) -->
+                            <!-- Cost Selection (Modify Mode) -->
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Cost (Select multiple)</label>
                                 <div id="modifyToolCostContainer" class="cost-checkbox-group">
@@ -310,6 +383,12 @@
         let currentModifyToolId = null; 
         let sortedSafeguards = []; 
 
+        // Temporary store for parsed mappings from file
+        let pendingFileMappings = [];
+        // Temporary store for current parsed tool data (for conflict resolution)
+        let tempParsedData = null;
+        let tempExistingTool = null;
+
         // DOM Elements
         const loadDataBtn = document.getElementById('loadDataBtn');
         const loadStatus = document.getElementById('loadStatus');
@@ -330,10 +409,20 @@
         const mappingForm = document.getElementById('mappingForm');
         const mappingStatus = document.getElementById('mappingStatus');
         const toolSelect = document.getElementById('toolSelect');
-        // New Add Mode List Element
         const addSafeguardsList = document.getElementById('addSafeguardsList');
-        // MODIFIED: Cost Containers
         const toolCostContainer = document.getElementById('toolCostContainer');
+
+        // Drop Zone Elements
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const dropStatus = document.getElementById('dropStatus');
+
+        // Modal Elements
+        const conflictModal = document.getElementById('conflictModal');
+        const conflictToolName = document.getElementById('conflictToolName');
+        const conflictToolID = document.getElementById('conflictToolID');
+        const btnConflictModify = document.getElementById('btnConflictModify');
+        const btnConflictAdd = document.getElementById('btnConflictAdd');
 
         // Modify Mode Elements
         const modifyToolSelect = document.getElementById('modifyToolSelect');
@@ -343,7 +432,6 @@
         const modifyToolDesc = document.getElementById('modifyToolDesc');
         const modifyToolUrl = document.getElementById('modifyToolUrl');
         const modifyToolEducationUse = document.getElementById('modifyToolEducationUse'); 
-        // MODIFIED: Cost Containers
         const modifyToolCostContainer = document.getElementById('modifyToolCostContainer');
         const modifySafeguardsList = document.getElementById('modifySafeguardsList');
         const saveChangesBtn = document.getElementById('saveChangesBtn');
@@ -361,20 +449,351 @@
             return Array.from(checked).map(cb => cb.value).join(', ');
         }
 
-        function setCostSelection(container, costString) {
+        function setCostSelection(container, costData) {
             // Reset all
-            container.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            
-            if (!costString) return;
-            
-            // Split by comma and trim whitespaces
-            const values = costString.split(',').map(s => s.trim());
             container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-                if (values.includes(cb.value)) {
-                    cb.checked = true;
-                }
+                cb.checked = false;
+            });
+            
+            if (!costData) return;
+            
+            let values = [];
+            if (Array.isArray(costData)) {
+                values = costData; 
+            } else if (typeof costData === 'string') {
+                values = costData.split(',').map(s => s.trim());
+            }
+
+            container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                if (values.includes(cb.value)) cb.checked = true;
             });
         }
+
+        // --- Drag and Drop Logic ---
+        dropZone.addEventListener('click', () => fileInput.click());
+        
+        dropZone.addEventListener('dragover', (e) => { 
+            e.preventDefault(); 
+            dropZone.classList.add('dragover'); 
+        });
+        
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        
+        fileInput.addEventListener('change', (e) => { 
+            if (e.target.files.length) handleFile(e.target.files[0]); 
+        });
+
+        async function handleFile(file) {
+            dropStatus.textContent = `Processing ${file.name}...`;
+            dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
+
+            try {
+                let text = '';
+                if (file.type === 'application/pdf') {
+                    text = await parsePdf(file);
+                } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                    text = await parseDocx(file);
+                } else {
+                    throw new Error('Unsupported file type. Please drop .docx or .pdf');
+                }
+                
+                const parsedData = parseToolData(text);
+                
+                // Check for duplicate
+                const existingTool = tools.find(t => t.Name.toLowerCase() === parsedData.name.toLowerCase());
+                
+                if (existingTool) {
+                    // Conflict: Show Modal
+                    tempParsedData = parsedData;
+                    tempExistingTool = existingTool;
+                    
+                    conflictToolName.textContent = existingTool.Name;
+                    conflictToolID.textContent = existingTool.ID;
+                    conflictModal.classList.remove('hidden');
+                    
+                    dropStatus.textContent = `Conflict detected for "${parsedData.name}".`;
+                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-yellow-600';
+                } else {
+                    // No Conflict: Switch to Add Mode and Populate
+                    // 1. Hide Selection Screen
+                    modeSelectionSection.classList.add('hidden');
+                    // 2. Show Add Screen
+                    addModeContainer.classList.remove('hidden');
+                    generateSection.classList.remove('hidden');
+                    // 3. Populate
+                    populateAddForm(parsedData);
+                    dropStatus.textContent = `Loaded data from ${file.name}.`;
+                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
+                }
+                
+            } catch (err) {
+                console.error(err);
+                dropStatus.textContent = `Error: ${err.message}`;
+                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-red-600';
+            }
+        }
+
+        // Modal Actions
+        btnConflictModify.addEventListener('click', () => {
+            conflictModal.classList.add('hidden');
+            switchToModifyModeAndPopulate(tempExistingTool, tempParsedData);
+            dropStatus.textContent = `Switched to Modify Mode for "${tempParsedData.name}".`;
+            dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
+        });
+
+        btnConflictAdd.addEventListener('click', () => {
+            conflictModal.classList.add('hidden');
+            
+            // Switch to Add Mode
+            modeSelectionSection.classList.add('hidden');
+            addModeContainer.classList.remove('hidden');
+            generateSection.classList.remove('hidden');
+
+            populateAddForm(tempParsedData);
+            dropStatus.textContent = `Prepared "${tempParsedData.name}" as a new tool.`;
+            dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
+        });
+
+
+        async function parseDocx(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+            return result.value; 
+        }
+
+        async function parsePdf(file) {
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+            let fullText = '';
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const textContent = await page.getTextContent();
+                const pageText = textContent.items.map(item => item.str).join(' ');
+                fullText += pageText + '\n';
+            }
+            return fullText;
+        }
+
+        // Helper function to escape RegExp special characters
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function parseToolData(text) {
+            // Clean up text but keep newlines
+            const cleanText = text.replace(/\*\*/g, '').trim(); 
+            const lines = cleanText.split('\n').map(l => l.trim()).filter(l => l);
+
+            // 1. Name (Usually top line or "Name of Tool:")
+            let name = "";
+            const nameRegex = /Name of Tool:\s*(.+)/i;
+            const nameMatch = cleanText.match(nameRegex);
+            if (nameMatch) {
+                name = nameMatch[1].trim();
+            } else if (lines.length > 0) {
+                name = lines[0].trim(); 
+            }
+
+            // 2. Description
+            let desc = "";
+            const descRegex = /(?:Description(?: of Tool)?|Description):\s*(.+)/i;
+            const descMatch = cleanText.match(descRegex);
+            if (descMatch) desc = descMatch[1].trim();
+
+            // 3. URL
+            let url = "";
+            const urlRegex = /(?:URL(?: of Tool)?|URL).*?(https?:\/\/[^\s]+)/i;
+            const urlMatch = cleanText.match(urlRegex);
+            if (urlMatch) url = urlMatch[1].trim();
+
+            // 4. Cost (Parse range or exact dollar signs)
+            let costs = [];
+            // Look for the line starting with Cost/Relative Cost, then capture the value part
+            const costLabelRegex = /(?:Relative Cost(?: of Tool)?|Relative Cost|Cost)\s*[:\-\u2013\u2014]?\s*(.+)/i;
+            const costLabelMatch = cleanText.match(costLabelRegex);
+
+            if (costLabelMatch) {
+                const rawCost = costLabelMatch[1];
+                
+                // Check for range pattern: "$... - $..." or "$... to $..."
+                const rangeRegex = /(\$+)\s*(?:[\-\u2013\u2014]|to)\s*(\$+)/i;
+                const rangeMatch = rawCost.match(rangeRegex);
+
+                if (rangeMatch) {
+                    const startLen = rangeMatch[1].length;
+                    const endLen = rangeMatch[2].length;
+                    const min = Math.min(startLen, endLen);
+                    const max = Math.max(startLen, endLen);
+                    
+                    // Generate all intermediate dollar strings
+                    for (let i = min; i <= max; i++) {
+                        costs.push('$'.repeat(i));
+                    }
+                } else {
+                    // Fallback: Extract all individual dollar groups
+                    const dollarMatches = rawCost.match(/\$+/g);
+                    if (dollarMatches) {
+                        costs = dollarMatches;
+                    }
+                }
+            }
+
+            // 5. Education Use
+            let eduUse = false;
+            const eduLineRegex = /(?:Education|K-12).*?(Yes|No)/i;
+            const eduMatch = cleanText.match(eduLineRegex);
+            
+            if (eduMatch) {
+                if (eduMatch[1].toLowerCase() === 'yes') eduUse = true;
+            }
+
+            // 6. Mappings (Robust Scan)
+            let fileMappings = [];
+            
+            // Find where the Safeguards section likely begins
+            const sectionMatch = cleanText.match(/(?:Applicable|CIS).{0,20}Safeguards/i);
+            
+            if (sectionMatch) {
+                const startIndex = sectionMatch.index;
+                const safeguardsText = cleanText.substring(startIndex);
+
+                // Regex to find SG/Control numbers
+                const sgRegex = /(?:SG|Safeguard|CIS Control|Control)\s*#?\s*(\d+\.\d+)/gi;
+                
+                let match;
+                while ((match = sgRegex.exec(safeguardsText)) !== null) {
+                    const sgNum = match[1];
+                    
+                    // Capture the text following this match until the next match or end
+                    const remainingText = safeguardsText.substring(match.index + match[0].length);
+                    // Find next SG to delimit
+                    const nextMatch = remainingText.match(/(?:SG|Safeguard|CIS Control|Control)\s*#?\s*\d+\.\d+/i);
+                    const endIndex = nextMatch ? nextMatch.index : remainingText.length;
+                    
+                    let blockText = remainingText.substring(0, endIndex).trim();
+                    let rationale = "";
+
+                    const dbSafeguard = safeguards.find(s => `${s.ControlNumber}.${s.SafeguardNumber}` === sgNum);
+
+                    // 1. Look for explicit labels like "Reason:", "Justification:", "Evidence:"
+                    const labelMatch = blockText.match(/(?:Reason|Justification|Rationale|Evidence)\s*:\s*([\s\S]+)/i);
+                    
+                    if (labelMatch) {
+                        rationale = labelMatch[1].trim();
+                    } else if (dbSafeguard) {
+                        // 2. Check if text starts with the Safeguard Title, then strip it
+                        
+                        // Normalize both strings for comparison (remove non-alphanumeric, whitespace, lowercase)
+                        const normalize = (str) => str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                        const normBlock = normalize(blockText);
+                        const normTitle = normalize(dbSafeguard.Title);
+
+                        if (normBlock.startsWith(normTitle)) {
+                            // The block starts with the title. Now we need to find where the title ends in the real text.
+                            // Since exact string matching is hard due to format variance (e.g. "Title:" vs "Title -"),
+                            // we construct a fuzzy regex or just try to match the title text loosely.
+                            
+                            // Simple approach: Create a case-insensitive regex of the title
+                            // Escape special chars in title first
+                            const titleRegex = new RegExp(`^\\s*[\\(\\-: ]*${escapeRegExp(dbSafeguard.Title)}[\\)\\-: ]*`, 'i');
+                            
+                            // Replace the matched title at start of string
+                            // This also consumes any separator characters immediately following the title
+                            const textWithoutTitle = blockText.replace(titleRegex, '');
+                            
+                            // If replacement happened (length changed), use the new text
+                            if (textWithoutTitle.length < blockText.length) {
+                                rationale = textWithoutTitle.trim();
+                                
+                                // Cleanup any residual leading separators that the regex missed
+                                rationale = rationale.replace(/^[:\-\)]+\s*/, '').trim();
+                            } else {
+                                // Fallback if regex failed despite normalization match (unlikely)
+                                // Try splitting by colon if it exists
+                                const colonIndex = blockText.indexOf(':');
+                                if (colonIndex !== -1) {
+                                    rationale = blockText.substring(colonIndex + 1).trim();
+                                } else {
+                                    rationale = blockText;
+                                }
+                            }
+
+                        } else {
+                           // 3. Title not present at start. Fallback to Colon logic.
+                            const colonIndex = blockText.indexOf(':');
+                            if (colonIndex !== -1) {
+                                rationale = blockText.substring(colonIndex + 1).trim();
+                            } else {
+                                // 4. No colon? Strip leading hyphens or parens
+                                rationale = blockText.replace(/^[\s\-\(\)]+/, '').trim();
+                            }
+                        }
+                    } else {
+                         // Safeguard not found in DB, process blockText blindly using colon logic
+                        const colonIndex = blockText.indexOf(':');
+                        if (colonIndex !== -1) {
+                            rationale = blockText.substring(colonIndex + 1).trim();
+                        } else {
+                            rationale = blockText.replace(/^[\s\-\(\)]+/, '').trim();
+                        }
+                    }
+
+                    if (dbSafeguard) {
+                        fileMappings.push({
+                            SafeguardID: dbSafeguard.ID,
+                            Rationale: rationale
+                        });
+                    }
+                }
+            }
+
+            return { name, desc, url, costs, eduUse, mappings: fileMappings };
+        }
+
+        function populateAddForm(data) {
+            document.getElementById('toolName').value = data.name;
+            document.getElementById('toolDesc').value = data.desc;
+            document.getElementById('toolUrl').value = data.url;
+            document.getElementById('toolEducationUse').value = data.eduUse ? 'true' : 'false';
+            setCostSelection(toolCostContainer, data.costs); 
+            
+            pendingFileMappings = data.mappings;
+            renderSafeguardsList(addSafeguardsList, 'add', null, pendingFileMappings);
+        }
+
+        function switchToModifyModeAndPopulate(existingTool, newData) {
+            // 1. Switch Mode UI
+            modeSelectionSection.classList.add('hidden');
+            addModeContainer.classList.add('hidden');
+            generateSection.classList.remove('hidden');
+            modifyModeContainer.classList.remove('hidden');
+
+            // 2. Select the tool in the dropdown
+            modifyToolSelect.value = existingTool.ID;
+            currentModifyToolId = existingTool.ID;
+            
+            // 3. Show the form
+            modifyFormContainer.classList.remove('hidden');
+
+            modifyToolId.value = existingTool.ID;
+            modifyToolName.value = newData.name; 
+            modifyToolDesc.value = newData.desc; 
+            modifyToolUrl.value = newData.url;   
+            modifyToolEducationUse.value = newData.eduUse ? 'true' : 'false'; 
+            setCostSelection(modifyToolCostContainer, newData.costs); 
+
+            // 5. Handle Mappings: Merge existing with new
+            renderSafeguardsList(modifySafeguardsList, 'mod', existingTool.ID, newData.mappings);
+        }
+
 
         // --- 1. Load Data ---
         loadDataBtn.addEventListener('click', async () => {
@@ -447,24 +866,36 @@
         function setModifyStatus(message, color) {
             modifyStatus.textContent = message;
             modifyStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
-            // Clear message after 5 seconds for errors, 3 for success
             setTimeout(() => { modifyStatus.textContent = ''; }, color === 'red' ? 5000 : 3000);
         }
 
         // --- SHARED: Render Safeguard List with Rationales ---
-        // Used by both Add and Modify modes to ensure consistent UI and behavior
-        function renderSafeguardsList(containerElement, modePrefix, toolIdForEditing = null) {
+        // Added 'pendingData' parameter to support file drag-and-drop pre-filling
+        function renderSafeguardsList(containerElement, modePrefix, toolIdForEditing = null, pendingData = []) {
             containerElement.innerHTML = '';
             sortedSafeguards.forEach(sg => {
-                // If editing, check if mapping exists
                 let isChecked = false;
                 let currentRationale = '';
+
+                // Check Real Mappings (Modify Mode)
                 if (toolIdForEditing) {
                      const existingMapping = mapping.find(m => m.ToolID === toolIdForEditing && m.SafeguardID === sg.ID);
                      if (existingMapping) {
                          isChecked = true;
                          currentRationale = existingMapping.Rationale || '';
                      }
+                }
+                
+                // Check Pending Mappings (File Drop) - This takes priority for rationale if present
+                if (pendingData.length > 0) {
+                    const pending = pendingData.find(p => p.SafeguardID === sg.ID);
+                    if (pending) {
+                        isChecked = true;
+                        // Overwrite rationale if file has one, or if we are adding fresh
+                        if (pending.Rationale) {
+                            currentRationale = pending.Rationale;
+                        }
+                    }
                 }
 
                 // Create elements
@@ -503,7 +934,7 @@
                         rationaleInput.focus();
                     } else {
                         rationaleInput.style.display = 'none';
-                        rationaleInput.classList.remove('border-red-500', 'bg-red-50'); // Clear error state on uncheck
+                        rationaleInput.classList.remove('border-red-500', 'bg-red-50');
                     }
                 });
 
@@ -523,7 +954,7 @@
                 toolSelect.add(option);
             });
 
-            // Use shared renderer for the add mode list
+            // Render standard list (clear pending)
             renderSafeguardsList(addSafeguardsList, 'add');
         }
 
@@ -555,7 +986,6 @@
             const desc = document.getElementById('toolDesc').value;
             const url = document.getElementById('toolUrl').value;
             const educationUse = document.getElementById('toolEducationUse').value === 'true'; 
-            // MODIFIED: Get cost from checkboxes
             const cost = getCostString(toolCostContainer);
 
             if (tools.some(t => t.ID === id)) {
@@ -577,15 +1007,30 @@
             toolStatus.textContent = `Added "${name}". You now have ${tools.length} tools.`;
             toolStatus.className = 'mt-2 text-sm font-medium text-green-600';
             
+            // Refresh dropdowns
             populateAddModeDropdowns();
             populateModifyToolDropdown();
+            
+            // Auto-select the new tool in the mapping section
+            toolSelect.value = id;
+
+            // If we have pending mappings from a file drop, re-apply them to the list
+            // This ensures they don't disappear when we refresh the dropdowns
+            if (pendingFileMappings.length > 0) {
+                renderSafeguardsList(addSafeguardsList, 'add', null, pendingFileMappings);
+                mappingStatus.textContent = "Tool added. Please review extracted mappings below and click 'Add Mapping(s)'.";
+                mappingStatus.className = 'mt-2 text-sm font-medium text-blue-600';
+            }
+
+            // Reset Tool Form parts
             toolForm.reset();
             document.getElementById('toolEducationUse').value = 'false'; 
-            setCostSelection(toolCostContainer, ''); // Reset cost checkboxes
+            setCostSelection(toolCostContainer, ''); 
             suggestNextToolId();
+            dropStatus.textContent = ''; // Clear file drop status
         });
 
-        // --- 3. Add Mapping (UPDATED for individual rationales) ---
+        // --- 3. Add Mapping ---
         mappingForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const toolID = toolSelect.value;
@@ -596,7 +1041,6 @@
                 return;
             }
 
-            // Gather new mappings and validate Rationales
             const newMappingsToAdd = [];
             let validationError = false;
             let hasSelection = false;
@@ -611,7 +1055,7 @@
                     const rationaleVal = rationaleInput.value.trim();
                     if (!rationaleVal) {
                         validationError = true;
-                        rationaleInput.classList.add('border-red-500', 'bg-red-50'); // Visual error cue
+                        rationaleInput.classList.add('border-red-500', 'bg-red-50');
                     } else {
                         rationaleInput.classList.remove('border-red-500', 'bg-red-50');
                         newMappingsToAdd.push({
@@ -637,14 +1081,12 @@
                 return;
             }
 
-            // Process valid mappings
             let addedCount = 0;
             let skippedCount = 0;
 
             newMappingsToAdd.forEach(nm => {
                  if (mapping.some(m => m.ToolID === nm.ToolID && m.SafeguardID === nm.SafeguardID)) {
                     skippedCount++;
-                    // Optional: Update rationale of existing one? Current logic just skips.
                 } else {
                     mapping.push(nm);
                     addedCount++;
@@ -655,8 +1097,8 @@
             mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
             
             mappingForm.reset();
-            // Re-render list to clear selections and hidden inputs
-            renderSafeguardsList(addSafeguardsList, 'add');
+            pendingFileMappings = []; // Clear pending
+            renderSafeguardsList(addSafeguardsList, 'add'); // Clear list
         });
 
         // --- Modify Mode Logic ---
@@ -675,35 +1117,28 @@
             const tool = tools.find(t => t.ID === toolId);
             if (!tool) return;
 
-            // 1. Populate Tool Attribute fields
             modifyToolId.value = tool.ID;
             modifyToolName.value = tool.Name;
             modifyToolDesc.value = tool.Description;
             modifyToolUrl.value = tool.URL;
             modifyToolEducationUse.value = tool.EducationUse ? 'true' : 'false';
-            // MODIFIED: Load Cost into checkboxes
             setCostSelection(modifyToolCostContainer, tool.Cost || '');
 
-            // 2. Populate Safeguard List with Rationale Inputs using SHARED renderer
             renderSafeguardsList(modifySafeguardsList, 'mod', toolId);
         }
 
-        // "Save Changes" button in Modify Mode
         saveChangesBtn.addEventListener('click', () => {
             if (!currentModifyToolId) return;
 
-            // 1. Save Tool Attribute changes
             const toolIndex = tools.findIndex(t => t.ID === currentModifyToolId);
             if (toolIndex > -1) {
                 tools[toolIndex].Name = modifyToolName.value;
                 tools[toolIndex].Description = modifyToolDesc.value;
                 tools[toolIndex].URL = modifyToolUrl.value;
                 tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; 
-                // MODIFIED: Save Cost from checkboxes
                 tools[toolIndex].Cost = getCostString(modifyToolCostContainer);
             }
 
-            // 2. Gather new mappings and validate Rationales
             const newMappingsForTool = [];
             let validationError = false;
 
@@ -716,7 +1151,7 @@
                     const rationaleVal = rationaleInput.value.trim();
                     if (!rationaleVal) {
                         validationError = true;
-                        rationaleInput.classList.add('border-red-500', 'bg-red-50'); // Visual error cue
+                        rationaleInput.classList.add('border-red-500', 'bg-red-50');
                     } else {
                         rationaleInput.classList.remove('border-red-500', 'bg-red-50');
                         newMappingsForTool.push({
@@ -735,15 +1170,11 @@
                 return;
             }
 
-            // 3. Remove all old mappings for this tool
             mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
-
-            // 4. Add all newly gathered mappings
             mapping.push(...newMappingsForTool);
 
             setModifyStatus('Changes saved successfully.', 'green');
 
-            // 5. Repopulate dropdowns and re-select current tool to refresh view
             const selectedToolId = currentModifyToolId; 
             populateAddModeDropdowns();
             populateModifyToolDropdown();
