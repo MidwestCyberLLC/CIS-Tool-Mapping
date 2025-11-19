@@ -419,11 +419,18 @@
                                     // Handle potential case differences or missing fields in JSON
                                     li.dataset.edu = (tool.EducationUse !== undefined ? tool.EducationUse : tool.educationUse).toString(); 
                                     
+                                    // SPLIT COST INTO INDIVIDUAL TAGS
+                                    const costTagsHTML = (tool.Cost || '').split(',')
+                                        .map(c => c.trim())
+                                        .filter(c => c)
+                                        .map(c => createToolTag(c, 'bg-green-100 text-green-800').outerHTML)
+                                        .join('');
+
                                     li.innerHTML = `
                                         <div class="flex items-start justify-between flex-wrap gap-2">
                                             <a href="${tool.URL}" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline">${tool.Name}</a>
-                                            <div class="flex">
-                                                ${createToolTag(tool.Cost, 'bg-green-100 text-green-800').outerHTML}
+                                            <div class="flex flex-wrap gap-1">
+                                                ${costTagsHTML}
                                                 ${(tool.EducationUse || tool.educationUse) ? createToolTag('K-12', 'bg-yellow-100 text-yellow-800').outerHTML : ''}
                                             </div>
                                         </div>
@@ -464,7 +471,15 @@
                 
                 const titleDiv = toolHeader.querySelector('div');
                 const subtitle = titleDiv.querySelector('p');
-                titleDiv.insertBefore(createToolTag(tool.Cost, 'bg-green-100 text-green-800'), subtitle);
+                
+                // SPLIT COST AND INSERT INDIVIDUAL TAGS
+                if (tool.Cost) {
+                    const costs = tool.Cost.split(',').map(c => c.trim()).filter(c => c);
+                    costs.forEach(c => {
+                        titleDiv.insertBefore(createToolTag(c, 'bg-green-100 text-green-800'), subtitle);
+                    });
+                }
+
                 if (isEdu) titleDiv.insertBefore(createToolTag('K-12', 'bg-yellow-100 text-yellow-800'), subtitle);
 
                 toolCard.appendChild(toolHeader);
