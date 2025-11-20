@@ -29,9 +29,68 @@
         .fade-in {
             animation: fadeIn 0.5s ease-in-out;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion-content.expanded {
+            max-height: 2000px; /* Arbitrary large height */
+        }
+        
+        /* Tab Styles */
+        .tab-btn.active {
+            border-bottom: 2px solid #2563eb; /* blue-600 */
+            color: #1e40af; /* blue-800 */
+            background-color: #eff6ff; /* blue-50 */
+        }
+        .tab-btn {
+            color: #6b7280; /* gray-500 */
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover:not(.active) {
+            color: #374151; /* gray-700 */
+            background-color: #f9fafb; /* gray-50 */
+        }
+        /* Custom scrollbar for lists */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d1d5db; 
+            border-radius: 3px;
+        }
+
+        /* Filter Styles (from mapper.html) */
+        .filter-dropdown {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: #374151;
+            cursor: pointer;
+        }
+        .filter-btn:hover {
+            background-color: #f9fafb;
+        }
+        .arrow-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+        .arrow-icon.rotate-180 {
+            transform: rotate(180deg);
         }
     </style>
 </head>
@@ -47,7 +106,7 @@
                 <h1 class="text-xl font-bold text-gray-900">CIS Framework Scorer</h1>
             </div>
             <div class="text-sm text-gray-500">
-                Comparison Tool v2.3
+                Comparison Tool v5.3
             </div>
         </div>
     </nav>
@@ -126,10 +185,12 @@
 
         <!-- STAGE 3: Results (Hidden Initially) -->
         <div id="results-section" class="hidden fade-in">
+            
+            <!-- Results Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900">Analysis Results</h2>
-                    <p class="text-gray-500">Sorted by Calculated Score (Tier × Assessment Score)</p>
+                    <h2 class="text-2xl font-bold text-gray-900">Analysis Dashboard</h2>
+                    <p class="text-gray-500">Review assessment scores and recommended tooling</p>
                 </div>
                 <div class="flex space-x-3">
                     <button onclick="document.getElementById('file-input').click()" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 text-sm font-medium">
@@ -141,24 +202,116 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-8">
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard ID</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard Description</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Tier (JSON)</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Assess. Score (XLSX)</th>
-                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-blue-50">Calculated Score</th>
-                            </tr>
-                        </thead>
-                        <tbody id="results-body" class="bg-white divide-y divide-gray-200">
-                            <!-- Rows will be populated here -->
-                        </tbody>
-                    </table>
+            <!-- Tab Navigation -->
+            <div class="flex space-x-1 mb-6 border-b border-gray-200">
+                <button onclick="switchTab('tab-analysis')" id="btn-tab-analysis" class="tab-btn active px-6 py-3 font-medium text-sm rounded-t-lg focus:outline-none">
+                    <i class="fas fa-table mr-2"></i>Safeguard Analysis
+                </button>
+                <button onclick="switchTab('tab-tools')" id="btn-tab-tools" class="tab-btn px-6 py-3 font-medium text-sm rounded-t-lg focus:outline-none">
+                    <i class="fas fa-tools mr-2"></i>Suggested Tools
+                </button>
+            </div>
+
+            <!-- TAB 1: Analysis Results -->
+            <div id="tab-analysis" class="tab-content">
+                <!-- Filter section removed per previous request -->
+
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-8">
+                    <div class="p-4 bg-blue-50 border-b border-blue-100 text-sm text-blue-800">
+                        <i class="fas fa-info-circle mr-2"></i> Sorted by <strong>Calculated Score</strong> (Ascending). Lowest scores indicate highest priority.
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard ID</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard Description</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Tier (JSON)</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Assess. Score (XLSX)</th>
+                                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-blue-50">Calculated Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body" class="bg-white divide-y divide-gray-200">
+                                <!-- Rows will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+            <!-- TAB 2: Suggested Tools -->
+            <div id="tab-tools" class="tab-content hidden">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="mb-6 border-b border-gray-100 pb-4">
+                        <h3 class="text-lg font-medium text-gray-900">Impact-Based Tool Recommendations</h3>
+                        <p class="text-sm text-gray-500 mt-1">
+                            Sorted by <strong>Lowest Average Tool Score</strong>. Tools with a lower average score address the safeguards you are struggling with the most.
+                        </p>
+                    </div>
+
+                    <!-- Tools Filters -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 flex flex-wrap gap-4 items-center relative z-10">
+                        <div class="text-sm font-medium text-gray-700"><i class="fas fa-filter mr-1"></i> Tool Filters:</div>
+                        
+                        <!-- K-12 Dropdown -->
+                        <div class="relative inline-block text-left">
+                            <button type="button" class="filter-btn w-48 focus:ring-2 focus:ring-blue-500" onclick="toggleFilter('dropdown-k12')">
+                                <span>K-12 Education</span>
+                                <i class="fas fa-chevron-down ml-2 arrow-icon text-gray-400"></i>
+                            </button>
+                            <div id="dropdown-k12" class="hidden absolute mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 filter-dropdown z-20">
+                                <div class="py-1" role="menu" aria-orientation="vertical">
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-k12" value="true" onchange="applyToolFilters()">
+                                        <span class="ml-3 text-sm text-gray-700">K-12 Friendly</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cost Dropdown -->
+                        <div class="relative inline-block text-left">
+                            <button type="button" class="filter-btn w-48 focus:ring-2 focus:ring-blue-500" onclick="toggleFilter('dropdown-cost')">
+                                <span>Relative Cost</span>
+                                <i class="fas fa-chevron-down ml-2 arrow-icon text-gray-400"></i>
+                            </button>
+                            <div id="dropdown-cost" class="hidden absolute mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 filter-dropdown z-20">
+                                <div class="py-1" role="menu" aria-orientation="vertical">
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$" onchange="applyToolFilters()">
+                                        <span class="ml-3 text-sm text-gray-700">$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$" onchange="applyToolFilters()">
+                                        <span class="ml-3 text-sm text-gray-700">$$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$$" onchange="applyToolFilters()">
+                                        <span class="ml-3 text-sm text-gray-700">$$$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$$$" onchange="applyToolFilters()">
+                                        <span class="ml-3 text-sm text-gray-700">$$$$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$$$$" onchange="applyToolFilters()">
+                                        <span class="ml-3 text-sm text-gray-700">$$$$$</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ml-auto text-xs text-gray-500">
+                            <span id="tools-filter-count">0</span> tools displayed
+                        </div>
+                    </div>
+                    
+                    <div id="tools-list" class="space-y-4">
+                        <!-- Collapsible Tool Cards Injected Here -->
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </main>
@@ -171,6 +324,12 @@
             tools: null
         };
 
+        // Data caches for filtering
+        let currentAnalysisData = [];
+        let currentRankedTools = []; // Store all ranked tools for filtering
+        let safeguardToToolsMap = new Map();
+        let toolDetailsMap = new Map();
+
         // DOM Elements
         const configSection = document.getElementById('config-section');
         const uploadSection = document.getElementById('upload-section');
@@ -181,9 +340,52 @@
         const loadConfigBtn = document.getElementById('btn-load-config');
         const errorMessage = document.getElementById('error-message');
 
-        // Simplified logger that just goes to console
         function log(msg) {
             console.log(msg);
+        }
+
+        // --- UI Helpers for Dropdowns ---
+        // Close dropdowns when clicking outside
+        window.addEventListener('click', function(e) {
+            if (!e.target.closest('.relative.inline-block')) {
+                document.querySelectorAll('.filter-dropdown').forEach(d => d.classList.add('hidden'));
+                document.querySelectorAll('.arrow-icon').forEach(i => i.classList.remove('rotate-180'));
+            }
+        });
+
+        function toggleFilter(id) {
+            // Close others first
+            document.querySelectorAll('.filter-dropdown').forEach(d => {
+                if (d.id !== id) d.classList.add('hidden');
+            });
+            document.querySelectorAll('.arrow-icon').forEach(i => {
+                // Simply remove rotation from all arrows (simplification)
+                i.classList.remove('rotate-180');
+            });
+
+            const dropdown = document.getElementById(id);
+            const btn = dropdown.previousElementSibling;
+            const icon = btn.querySelector('.arrow-icon');
+
+            const isHidden = dropdown.classList.contains('hidden');
+            
+            if (isHidden) {
+                dropdown.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                dropdown.classList.add('hidden');
+                // icon rotation already removed above
+            }
+        }
+
+        // --- Tab Switching Logic ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('active', 'bg-blue-50', 'border-b-2', 'border-blue-600', 'text-blue-800');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('active');
         }
 
         // --- 1. Configuration Loading Logic ---
@@ -193,7 +395,6 @@
             loadConfigBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Loading...';
             configStatus.classList.remove('hidden');
             configStatus.innerHTML = '';
-            log("Starting configuration load...");
 
             const urls = {
                 mapping: document.getElementById('url-mapping').value,
@@ -202,7 +403,6 @@
             };
 
             try {
-                // Fetch all JSONs
                 const [mappingRes, safeguardsRes, toolsRes] = await Promise.all([
                     fetchOrMock(urls.mapping, 'mapping'),
                     fetchOrMock(urls.safeguards, 'safeguards'),
@@ -212,6 +412,9 @@
                 loadedConfig.mapping = mappingRes;
                 loadedConfig.safeguards = safeguardsRes;
                 loadedConfig.tools = toolsRes;
+                
+                // Pre-process maps for faster filtering
+                processConfigurationMaps();
 
                 showSuccess("Configuration loaded successfully.");
                 setTimeout(() => {
@@ -227,14 +430,41 @@
             }
         });
 
+        function processConfigurationMaps() {
+            // 1. Safeguard -> Tools Map
+            safeguardToToolsMap = new Map();
+            if (loadedConfig.mapping && Array.isArray(loadedConfig.mapping)) {
+                loadedConfig.mapping.forEach(mapItem => {
+                    let sgId = mapItem.SafeguardID || mapItem.safeguardID || mapItem.Safeguard;
+                    let toolId = mapItem.ToolID || mapItem.toolID || mapItem.Tool;
+                    
+                    if (sgId && toolId) {
+                        let rawId = String(sgId).trim();
+                        if (rawId.toUpperCase().startsWith("SG")) rawId = rawId.replace(/^SG/i, '');
+                        
+                        if (!safeguardToToolsMap.has(rawId)) {
+                            safeguardToToolsMap.set(rawId, []);
+                        }
+                        safeguardToToolsMap.get(rawId).push(toolId);
+                    }
+                });
+            }
+
+            // 2. Tool Details Map
+            toolDetailsMap = new Map();
+            if (loadedConfig.tools && Array.isArray(loadedConfig.tools)) {
+                loadedConfig.tools.forEach(t => {
+                    let tId = t.ID || t.id;
+                    if (tId) toolDetailsMap.set(tId, t);
+                });
+            }
+        }
+
         async function fetchOrMock(url, type) {
             try {
-                log(`Fetching ${type} from ${url}...`);
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const json = await response.json();
-                log(`Success: ${type}`);
-                return json;
+                return await response.json();
             } catch (e) {
                 throw new Error(`Failed to load ${type}: ${e.message}`);
             }
@@ -305,62 +535,44 @@
                     }
 
                     const summarySheet = workbook.Sheets['Summary'];
-                    // Parse with header:A to get raw column mapping
                     const rows = XLSX.utils.sheet_to_json(summarySheet, { header: 'A', blankrows: false });
-                    log(`Rows found in Summary tab: ${rows.length}`);
 
                     const results = [];
                     
-                    // --- Enhanced Map Creation ---
-                    let safeguardsMap = new Map();
-                    let idKey = null; // We will try to auto-detect the ID key
+                    // Safeguard Metadata Map
+                    let safeguardsMetaMap = new Map();
+                    let idKey = null; 
 
                     if (loadedConfig.safeguards) {
                         const list = Array.isArray(loadedConfig.safeguards) 
                             ? loadedConfig.safeguards 
                             : Object.values(loadedConfig.safeguards);
 
-                        // Auto-detect keys on first item
                         if (list.length > 0) {
                             const sample = list[0];
-                            // Prioritize 'ID', then 'id', then 'Safeguard', then keys containing 'id'
                             idKey = Object.keys(sample).find(k => k === 'ID' || k === 'id') 
                                     || Object.keys(sample).find(k => k.toLowerCase().includes('id'));
-                            log(`Auto-detected ID key in JSON: '${idKey}'`);
                         }
 
                         list.forEach(sg => {
                             if (sg && idKey && sg[idKey]) {
-                                // Normalize ID: string, trimmed
                                 let rawId = String(sg[idKey]).trim();
-                                
-                                // CRITICAL FIX: Remove "SG" prefix from JSON IDs (e.g., "SG1.1" -> "1.1")
-                                // Using regex to match "SG" at start, case insensitive
                                 if (rawId.toUpperCase().startsWith("SG")) {
                                     rawId = rawId.replace(/^SG/i, '');
                                 }
-
-                                safeguardsMap.set(rawId, sg);
+                                safeguardsMetaMap.set(rawId, sg);
                             }
                         });
                     }
                     
-                    log(`Safeguards Map created with ${safeguardsMap.size} entries.`);
-
-                    // Regex for valid Safeguard numbers (#.# or #.##)
                     const validIdRegex = /^\d+\.\d+$/;
 
-                    // --- Enhanced Tier Extraction ---
                     const extractTier = (obj) => {
                         if (!obj) return 0;
-                        
-                        // 1. Try explicit known keys
                         let candidates = [
                             obj.TierNumber, obj.Tier, obj.tier, obj.tierNumber, 
                             obj.ImplementationGroup, obj.IG, obj.Group
                         ];
-
-                        // 2. Try fuzzy search on keys
                         if (candidates.every(c => c === undefined)) {
                             const fuzzyKey = Object.keys(obj).find(k => {
                                 const lower = k.toLowerCase();
@@ -368,16 +580,10 @@
                             });
                             if (fuzzyKey) candidates.push(obj[fuzzyKey]);
                         }
-
-                        // 3. Process found value
                         for (let val of candidates) {
                             if (val !== undefined && val !== null && val !== "") {
-                                // If it's already a number, return it
                                 if (typeof val === 'number') return val;
-                                
-                                // If string, look for first digit
                                 const strVal = String(val);
-                                // Matches "1", "Tier 1", "IG1", "Group 1"
                                 const match = strVal.match(/(\d+)/); 
                                 if (match) return parseFloat(match[0]);
                             }
@@ -385,49 +591,58 @@
                         return 0;
                     };
 
-                    let matchCount = 0;
+                    // Extract IG Helper (Updated to check IGNumber)
+                    const extractIG = (obj) => {
+                        // Explicit check for IGNumber field
+                        if (obj.IGNumber !== undefined && obj.IGNumber !== null) {
+                            const val = String(obj.IGNumber).trim();
+                            if (val.toUpperCase().startsWith("IG")) return val.toUpperCase();
+                            return "IG" + val;
+                        }
+
+                        // Fallbacks
+                        if (obj.IG1 === true || obj.IG1 === "true") return "IG1";
+                        if (obj.ImplementationGroup) return "IG" + obj.ImplementationGroup;
+                        if (obj.IG) return "IG" + obj.IG;
+                        
+                        const keys = Object.keys(obj);
+                        const igKey = keys.find(k => k.toUpperCase().startsWith("IG") && k.length === 3);
+                        if(igKey && (obj[igKey] === true || obj[igKey] === "true")) return igKey;
+
+                        if (obj['Implementation Groups']) return "IG" + obj['Implementation Groups'];
+
+                        return "N/A";
+                    };
 
                     rows.forEach((row, index) => {
-                        const cellA = row['A']; // Safeguard Number
-                        const cellD = row['D']; // Assessment Score
+                        const cellA = row['A'];
+                        const cellD = row['D']; 
                         
                         if (!cellA) return;
                         
                         const idStr = String(cellA).trim();
 
                         if (validIdRegex.test(idStr)) {
-                            // Attempt to parse Score (Column D)
                             let scoreVal = parseFloat(cellD);
                             if (isNaN(scoreVal)) scoreVal = 0;
 
-                            // Find Safeguard
-                            const safeguardData = safeguardsMap.get(idStr);
+                            const safeguardData = safeguardsMetaMap.get(idStr);
                             let tierNum = 0;
-                            let sgDescription = row['B'] || "Unknown"; // Default to Excel desc
+                            let igStr = "N/A";
+                            let sgDescription = row['B'] || "Unknown"; 
 
                             if (safeguardData) {
-                                matchCount++;
                                 tierNum = extractTier(safeguardData);
-                                
-                                // Debug first match to ensure logic works
-                                if (matchCount === 1) {
-                                    log(`First Match: ID ${idStr} -> Tier extracted: ${tierNum}.`);
-                                }
-
-                                // Prefer JSON description
+                                igStr = extractIG(safeguardData);
                                 if(safeguardData.Title) sgDescription = safeguardData.Title;
                                 else if(safeguardData.Description) sgDescription = safeguardData.Description;
-                            } else {
-                                // Log first few misses to help debug
-                                if (results.length < 3) {
-                                    log(`Missed ID: ${idStr} (Not found in JSON map)`);
-                                }
                             }
 
                             results.push({
                                 id: idStr,
                                 description: sgDescription,
                                 tier: tierNum,
+                                ig: igStr,
                                 assessmentScore: scoreVal,
                                 calculatedScore: tierNum * scoreVal,
                                 foundInJson: !!safeguardData
@@ -435,15 +650,19 @@
                         }
                     });
 
-                    log(`Processing complete. Matched ${matchCount} of ${results.length} rows.`);
-                    
-                    // Sort results
+                    // Sort results for Tab 1
                     results.sort((a, b) => a.calculatedScore - b.calculatedScore);
+                    
+                    // Store for filtering
+                    currentAnalysisData = results;
+
                     renderResults(results);
+                    
+                    // --- GENERATE TOOL RECOMMENDATIONS (TAB 2) ---
+                    generateToolRecommendations(results);
 
                 } catch (err) {
                     console.error(err);
-                    log(`CRITICAL ERROR: ${err.message}`);
                     errorMessage.textContent = err.message;
                     errorMessage.classList.remove('hidden');
                     indicator.classList.add('hidden');
@@ -453,38 +672,327 @@
             reader.readAsArrayBuffer(file);
         }
 
-        // --- 4. Rendering Logic ---
-
+        // --- 4. Rendering Logic (Tab 1 - Analysis) ---
+        
         function renderResults(data) {
             const tbody = document.getElementById('results-body');
             tbody.innerHTML = '';
-
+            
             if (data.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">No matching data found. Check Debug Log.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">No data loaded yet.</td></tr>`;
+                return;
             }
 
-            data.forEach(row => {
-                const tr = document.createElement('tr');
-                tr.className = 'hover:bg-gray-50 transition-colors';
-                
-                const scoreClass = row.calculatedScore > 0 ? 'text-gray-900 font-medium' : 'text-gray-400';
-                const jsonStatus = row.foundInJson 
-                    ? `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Tier ${row.tier}</span>`
-                    : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800" title="ID not found in JSON">Not Found</span>`;
+            const nonZeroScores = data.filter(r => r.calculatedScore > 0);
+            const zeroScores = data.filter(r => r.calculatedScore === 0);
 
-                tr.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${row.id}</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 max-w-md truncate" title="${row.description}">${row.description}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">${jsonStatus}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">${row.assessmentScore}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm ${scoreClass} bg-blue-50/50">${row.calculatedScore.toFixed(2)}</td>
+            nonZeroScores.forEach(row => tbody.appendChild(createResultRow(row)));
+
+            if (zeroScores.length > 0) {
+                const toggleRow = document.createElement('tr');
+                toggleRow.className = 'bg-gray-100 cursor-pointer hover:bg-gray-200 transition-colors no-export';
+                toggleRow.onclick = toggleZeroRows;
+                toggleRow.innerHTML = `
+                    <td colspan="5" class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <div class="flex items-center select-none">
+                            <i id="toggle-icon" class="fas fa-chevron-right mr-2 transition-transform duration-200"></i>
+                            <span>${zeroScores.length} Safeguards with 0 Calculated Score (Click to Expand)</span>
+                        </div>
+                    </td>
                 `;
-                tbody.appendChild(tr);
-            });
+                tbody.appendChild(toggleRow);
+
+                zeroScores.forEach(row => {
+                    const tr = createResultRow(row);
+                    tr.classList.add('zero-score-row', 'hidden', 'bg-gray-50', 'opacity-75'); 
+                    tbody.appendChild(tr);
+                });
+            }
 
             document.getElementById('processing-indicator').classList.add('hidden');
             uploadSection.classList.add('hidden');
             resultsSection.classList.remove('hidden');
+        }
+
+        // VISUAL BAR LOGIC
+        function getScoreBar(score) {
+            // Determine color
+            let colorClass = 'bg-gray-200';
+            let widthPercent = score * 100; // Assuming score is 0-1. If it's 1-4, adjust.
+            // Based on sample data (0.25, 0.5, 0.75, 1), it is 0-1 range.
+            
+            // Using fuzzy matching for float values
+            if (score >= 0.99) colorClass = 'bg-green-500';
+            else if (score >= 0.74) colorClass = 'bg-yellow-400'; // yellow-500 can be dark, 400 pops more
+            else if (score >= 0.49) colorClass = 'bg-orange-500';
+            else if (score > 0) colorClass = 'bg-red-500';
+            else colorClass = 'bg-gray-300';
+
+            return `
+                <div class="flex items-center w-full">
+                    <div class="flex-grow bg-gray-200 rounded-full h-2.5 mr-2">
+                        <div class="${colorClass} h-2.5 rounded-full" style="width: ${widthPercent}%"></div>
+                    </div>
+                    <span class="text-xs font-medium text-gray-600 w-8 text-right">${score.toFixed(2)}</span>
+                </div>
+            `;
+        }
+
+        function createResultRow(row) {
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-gray-50 transition-colors border-b border-gray-100';
+            const scoreClass = row.calculatedScore > 0 ? 'text-gray-900 font-medium' : 'text-gray-400';
+            const jsonStatus = row.foundInJson 
+                ? `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">${row.tier}</span>`
+                : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Not Found</span>`;
+
+            tr.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${row.id}</td>
+                <td class="px-6 py-4 text-sm text-gray-500 max-w-md truncate" title="${row.description}">${row.description}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">${jsonStatus}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500 w-48">
+                    ${getScoreBar(row.assessmentScore)}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm ${scoreClass} bg-blue-50/50">${row.calculatedScore.toFixed(2)}</td>
+            `;
+            return tr;
+        }
+
+        function toggleZeroRows() {
+            const rows = document.querySelectorAll('.zero-score-row');
+            const icon = document.getElementById('toggle-icon');
+            if (rows.length === 0) return;
+            const isExpanding = rows[0].classList.contains('hidden');
+            rows.forEach(row => row.classList.toggle('hidden'));
+            icon.className = isExpanding ? 'fas fa-chevron-down mr-2 transition-transform duration-200' : 'fas fa-chevron-right mr-2 transition-transform duration-200';
+        }
+
+        // --- 5. Tool Recommendation Logic (Tab 2) ---
+
+        function generateToolRecommendations(allResults) {
+            // Create a Map of SafeguardID -> Safeguard Object for quick lookup
+            const sgLookup = new Map();
+            allResults.forEach(r => sgLookup.set(r.id, r));
+
+            // 1. Group Safeguards by Tool
+            const toolStats = new Map(); // ToolID -> { count, totalScore, safeguards: [] }
+
+            if (loadedConfig.tools) {
+                loadedConfig.tools.forEach(tool => {
+                    const tId = tool.ID || tool.id;
+                    if (!tId) return;
+
+                    // Extract K12 using EducationUse boolean
+                    const isK12 = tool.EducationUse === true;
+                    const costVal = tool.Relative_Cost || tool.relative_cost || tool.Cost || tool.Price;
+
+                    // Initialize Stats
+                    toolStats.set(tId, {
+                        id: tId,
+                        name: tool.Name || tool.name || "Unknown Tool",
+                        desc: tool.Description || tool.description || "",
+                        k12: isK12,
+                        cost: costVal,
+                        totalCalculatedScore: 0,
+                        safeguards: []
+                    });
+                });
+            }
+
+            // 2. Iterate mappings to populate toolStats
+            if (loadedConfig.mapping) {
+                loadedConfig.mapping.forEach(mapItem => {
+                    let sgId = String(mapItem.SafeguardID || mapItem.Safeguard || "").trim();
+                    if (sgId.toUpperCase().startsWith("SG")) sgId = sgId.replace(/^SG/i, '');
+
+                    let toolId = mapItem.ToolID || mapItem.Tool;
+                    
+                    if (toolStats.has(toolId) && sgLookup.has(sgId)) {
+                        const sgData = sgLookup.get(sgId);
+                        const stats = toolStats.get(toolId);
+                        
+                        if (sgData.calculatedScore > 0) {
+                            stats.safeguards.push(sgData);
+                            stats.totalCalculatedScore += sgData.calculatedScore;
+                        }
+                    }
+                });
+            }
+
+            // 3. Calculate Averages and Convert to Array
+            const rankedTools = [];
+            toolStats.forEach(stats => {
+                if (stats.safeguards.length > 0) {
+                    stats.averageScore = stats.totalCalculatedScore / stats.safeguards.length;
+                    
+                    if (stats.averageScore > 0) {
+                        rankedTools.push(stats);
+                    }
+                }
+            });
+
+            // 4. Sort by Lowest Average Score (ASC)
+            rankedTools.sort((a, b) => a.averageScore - b.averageScore);
+            
+            // Store global for filtering
+            currentRankedTools = rankedTools;
+
+            // Render
+            renderToolsTab(rankedTools);
+        }
+
+        function applyToolFilters() {
+            // Collect checkbox values
+            const k12Checked = Array.from(document.querySelectorAll('.checkbox-k12:checked')).map(cb => cb.value);
+            const costChecked = Array.from(document.querySelectorAll('.checkbox-cost:checked')).map(cb => cb.value);
+
+            const filteredTools = currentRankedTools.filter(tool => {
+                // K12 Filter Logic:
+                let matchK12 = true;
+                if (k12Checked.length > 0) {
+                    matchK12 = tool.k12;
+                }
+
+                // Cost Filter Logic:
+                let matchCost = true;
+                if (costChecked.length > 0) {
+                    const cStr = String(tool.cost || "");
+                    // Match if tool cost contains any of the selected values.
+                    // Logic is correct for "$, $$" string vs selected "$" or "$$"
+                    // split tool cost by comma
+                    const toolCosts = cStr.split(',').map(s => s.trim());
+                    matchCost = costChecked.some(checkedVal => toolCosts.includes(checkedVal));
+                }
+
+                return matchK12 && matchCost;
+            });
+
+            renderToolsTab(filteredTools);
+        }
+        
+        function toggleDescription(el) {
+            el.classList.toggle('truncate');
+            el.classList.toggle('whitespace-normal');
+        }
+
+        function renderToolsTab(tools) {
+            const container = document.getElementById('tools-list');
+            const countSpan = document.getElementById('tools-filter-count');
+            container.innerHTML = '';
+            countSpan.textContent = tools.length;
+
+            if (tools.length === 0) {
+                container.innerHTML = `<div class="text-center text-gray-500 py-8">No mapped tools found matching the criteria.</div>`;
+                return;
+            }
+
+            tools.forEach((tool, index) => {
+                const card = document.createElement('div');
+                card.className = 'border border-gray-200 rounded-lg bg-white overflow-hidden';
+                
+                const uniqueId = `tool-${index}`;
+
+                // --- K12 Badge ---
+                let k12Badge = '';
+                if (tool.k12) {
+                    k12Badge = `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-bold border border-blue-200 ml-2 flex items-center" title="K-12 Education Friendly"><i class="fas fa-graduation-cap mr-1"></i>K-12</span>`;
+                }
+
+                // --- Cost Badge (Split) ---
+                let costBadgesHtml = '';
+                if (tool.cost) {
+                    const rawCostStr = String(tool.cost).trim();
+                    // Split by comma (or assume simple structure if comma is used in json e.g. "$,$$")
+                    // Just splitting by ',' to support multiple distinct entries
+                    const costParts = rawCostStr.split(',').map(s => s.trim()).filter(s => s.length > 0);
+
+                    costBadgesHtml = costParts.map(part => {
+                        let costColor = 'bg-gray-100 text-gray-600 border-gray-200';
+                        
+                        // Color logic based on string content
+                        if (part === '$' || part === '1') costColor = 'bg-green-100 text-green-800 border-green-200';
+                        else if (part === '$$' || part === '2') costColor = 'bg-yellow-100 text-yellow-800 border-yellow-200';
+                        else if (part === '$$$' || part === '3' || part.length >= 3) costColor = 'bg-red-100 text-red-800 border-red-200';
+
+                        return `<span class="${costColor} border text-xs px-2 py-1 rounded-full font-mono font-bold ml-1" title="Relative Cost">${part}</span>`;
+                    }).join('');
+                }
+                
+                // Generate SG Table rows
+                const sgRows = tool.safeguards.map(sg => `
+                    <tr class="border-b border-gray-50 hover:bg-gray-50">
+                        <td class="px-4 py-2 text-xs font-mono text-gray-500 w-24 whitespace-nowrap">
+                            <span class="bg-gray-100 px-2 py-1 rounded text-gray-700 font-bold mr-1">${sg.ig}</span>
+                            <span class="bg-blue-50 px-2 py-1 rounded text-blue-700 font-bold">${sg.tier}</span>
+                        </td>
+                        <td class="px-4 py-2 text-sm font-bold text-gray-900 w-16 text-center">${sg.id}</td>
+                        <td class="px-4 py-2 text-sm text-gray-600">${sg.description}</td>
+                        <td class="px-4 py-2 text-sm text-gray-500 w-32">
+                            ${getScoreBar(sg.assessmentScore)}
+                        </td>
+                        <td class="px-4 py-2 text-sm font-bold text-right ${sg.calculatedScore === 0 ? 'text-gray-400' : 'text-blue-600'}">${sg.calculatedScore.toFixed(2)}</td>
+                    </tr>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="p-4 cursor-pointer hover:bg-gray-50 transition-colors flex justify-between items-center" onclick="toggleAccordion('${uniqueId}', this)">
+                        <div class="flex-1">
+                            <div class="flex items-center mb-1">
+                                <h4 class="text-lg font-bold text-gray-900 mr-2">${tool.name}</h4>
+                                ${k12Badge}
+                                <div class="flex items-center ml-2">
+                                   ${costBadgesHtml}
+                                </div>
+                            </div>
+                            <div class="flex items-start text-sm text-gray-500 mt-1">
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full font-medium mr-2 flex-shrink-0">${tool.safeguards.length} Safeguards</span>
+                                <span class="truncate max-w-xl cursor-pointer hover:text-gray-700" onclick="event.stopPropagation(); toggleDescription(this);" title="Click to expand description">${tool.desc || "No description available."}</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-end ml-4">
+                            <div class="text-xs text-gray-500 uppercase font-semibold">Avg Score</div>
+                            <div class="text-xl font-bold ${tool.averageScore < 0.5 ? 'text-red-600' : 'text-gray-800'}">${tool.averageScore.toFixed(2)}</div>
+                        </div>
+                        <div class="ml-4 text-gray-400">
+                            <i class="fas fa-chevron-down transition-transform duration-300 transform"></i>
+                        </div>
+                    </div>
+                    
+                    <div id="${uniqueId}" class="accordion-content bg-gray-50 border-t border-gray-100">
+                        <div class="p-4">
+                            <table class="min-w-full">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">IG / Tier</th>
+                                        <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                                        <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-32">Assess.</th>
+                                        <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Calc.</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    ${sgRows}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function toggleAccordion(id, headerElement) {
+            const content = document.getElementById(id);
+            const icon = headerElement.querySelector('.fa-chevron-down');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.classList.remove('rotate-180');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.add('rotate-180');
+            }
         }
 
         // --- Utilities ---
@@ -494,20 +1002,29 @@
             resultsSection.classList.add('hidden');
             configSection.classList.remove('hidden');
             document.getElementById('file-input').value = '';
-            log("App reset.");
             
-            // Re-enable button
+            switchTab('tab-analysis');
+
             loadConfigBtn.disabled = false;
             loadConfigBtn.innerHTML = 'Load Configuration <i class="fas fa-arrow-right ml-2"></i>';
             configStatus.classList.add('hidden');
         }
 
         function exportTableToCSV() {
-            const rows = Array.from(document.querySelectorAll("table tr"));
-            const csvContent = rows.map(row => {
+            const rows = Array.from(document.querySelectorAll("#results-body tr:not(.no-export)"));
+            if (rows.length === 0) return;
+
+            let csvContent = "Safeguard ID,Safeguard Description,Tier,Assessment Score,Calculated Score\n";
+
+            const dataRows = rows.map(row => {
                 const cells = Array.from(row.querySelectorAll("th, td"));
-                return cells.map(cell => `"${cell.innerText}"`).join(",");
+                return cells.map(cell => {
+                    let text = cell.innerText.replace(/(\r\n|\n|\r)/gm, " ").replace(/"/g, '""');
+                    return `"${text}"`;
+                }).join(",");
             }).join("\n");
+
+            csvContent += dataRows;
 
             const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
             const link = document.createElement("a");
