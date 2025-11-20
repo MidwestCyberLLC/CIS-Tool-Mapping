@@ -288,6 +288,11 @@
                     <p id="mappingStatus" class="mt-2 text-sm font-medium text-green-600"></p>
                 </form>
             </fieldset>
+            
+             <!-- New Back to Start Button for Add Mode -->
+             <div class="mt-4 pt-4 border-t text-center">
+                <button id="backToStartBtn" class="btn btn-secondary w-full md:w-auto">Finished? Add/Modify Another</button>
+            </div>
         </div>
 
         <!-- Modify Mode Container -->
@@ -351,8 +356,9 @@
                         </div>
                         
                         <!-- Actions -->
-                        <div class="pt-4 flex flex-wrap gap-4">
+                        <div class="pt-4 flex flex-wrap gap-4 items-center">
                             <button id="saveChangesBtn" class="btn btn-primary">Save Changes</button>
+                            <button id="resetWorkflowBtn" class="hidden btn btn-green">Add/Modify Another?</button> <!-- New Button -->
                             <div class="flex-grow"></div> <!-- Spacer -->
                             <button id="removeToolBtn" class="btn btn-red">Remove This Tool (Single Click)</button>
                         </div>
@@ -411,6 +417,7 @@
         const toolSelect = document.getElementById('toolSelect');
         const addSafeguardsList = document.getElementById('addSafeguardsList');
         const toolCostContainer = document.getElementById('toolCostContainer');
+        const backToStartBtn = document.getElementById('backToStartBtn');
 
         // Drop Zone Elements
         const dropZone = document.getElementById('dropZone');
@@ -437,6 +444,7 @@
         const saveChangesBtn = document.getElementById('saveChangesBtn');
         const removeToolBtn = document.getElementById('removeToolBtn');
         const modifyStatus = document.getElementById('modifyStatus');
+        const resetWorkflowBtn = document.getElementById('resetWorkflowBtn');
 
         // Generate Section
         const generateSection = document.getElementById('generateSection');
@@ -792,7 +800,38 @@
 
             // 5. Handle Mappings: Merge existing with new
             renderSafeguardsList(modifySafeguardsList, 'mod', existingTool.ID, newData.mappings);
+            
+            // Hide the new button initially
+             resetWorkflowBtn.classList.add('hidden');
         }
+
+        // Return to Start Logic (Shared)
+        function returnToStart() {
+             // Hide all operational containers
+            addModeContainer.classList.add('hidden');
+            modifyModeContainer.classList.add('hidden');
+            generateSection.classList.add('hidden');
+            
+            // Show Start
+            modeSelectionSection.classList.remove('hidden');
+            
+            // Clear Statuses
+            dropStatus.textContent = '';
+            toolStatus.textContent = '';
+            mappingStatus.textContent = '';
+            modifyStatus.textContent = '';
+            
+            // Clear Form Data
+            toolForm.reset();
+            mappingForm.reset();
+            modifyFormContainer.classList.add('hidden');
+            currentModifyToolId = null;
+            modifyToolSelect.value = "";
+        }
+
+        // Connect the "Back to Start" buttons
+        resetWorkflowBtn.addEventListener('click', returnToStart);
+        backToStartBtn.addEventListener('click', returnToStart);
 
 
         // --- 1. Load Data ---
@@ -1174,12 +1213,16 @@
             mapping.push(...newMappingsForTool);
 
             setModifyStatus('Changes saved successfully.', 'green');
+            
+            // Show the loop-back button
+            resetWorkflowBtn.classList.remove('hidden');
 
             const selectedToolId = currentModifyToolId; 
             populateAddModeDropdowns();
             populateModifyToolDropdown();
             modifyToolSelect.value = selectedToolId;
-            loadToolForEditing(selectedToolId); 
+            // Don't reload, keeping form open to show success, just update dropdowns
+            // loadToolForEditing(selectedToolId); 
         });
 
         removeToolBtn.addEventListener('click', () => {
