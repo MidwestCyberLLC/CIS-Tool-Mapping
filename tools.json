@@ -1624,6 +1624,14 @@
         "Cost": "$"
     },
     {
+        "ID": "T27",
+        "Name": "iboss",
+        "Description": "iboss is a cloud-native Zero Trust Edge (SASE) platform that consolidates network security services—including Secure Web Gateway (SWG), CASB, DLP, and Zero Trust Network Access (ZTNA)—to protect users, applications, and data regardless of location, effectively replacing legacy on-premises firewalls and VPNs.",
+        "URL": "https://www.iboss.com/",
+        "EducationUse": true,
+        "Cost": "$$$"
+    },
+    {
         "ID": "T113",
         "Name": "Immuta",
         "Description": "This platform provides automated data governance and masking capabilities, allowing organizations to segment data based on sensitivity and enforce access controls.",

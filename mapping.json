@@ -12942,5 +12942,90 @@
         "ToolID": "T30",
         "SafeguardID": "SG18.2",
         "Rationale": "Tenable's external scanning capabilities are used to perform the vulnerability discovery and \"reconnaissance\" phase of an external penetration test."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The iboss Zero Trust platform allows administrators to define access policies based on device posture; unauthorized or non-compliant assets can be automatically quarantined or denied internet/network access."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG3.10",
+        "Rationale": "iboss performs full SSL/TLS inspection and decryption to analyze encrypted traffic, enforcing the use of secure protocols for data in transit and preventing encryption bypass by threats."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG3.13",
+        "Rationale": "The platform features an advanced Data Loss Prevention (DLP) suite that inspects network traffic and cloud application activity to identify and block the exfiltration of sensitive data (like PII or student records)."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG4.9",
+        "Rationale": "iboss includes a DNS Security module that acts as a trusted, filtered DNS resolver for all connected assets, protecting them from resolving malicious domains."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG6.4",
+        "Rationale": "As a Zero Trust Network Access (ZTNA) solution replacing legacy VPNs, iboss integrates with Identity Providers (IdPs) to enforce Multi-Factor Authentication (MFA) before granting remote users access to private enterprise applications."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The platform automatically generates and collects comprehensive logs for all user activity, web traffic, and security events processed by the cloud gateway."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG8.6",
+        "Rationale": "The DNS Security feature logs DNS queries from endpoints, providing visibility into domain resolution activity for security auditing."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG8.7",
+        "Rationale": "As a Secure Web Gateway (SWG), a primary function of iboss is to log every HTTP/HTTPS URL request made by users, including the full path, category, and action taken."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG8.9",
+        "Rationale": "iboss is a cloud platform that naturally centralizes logging for all distributed users and locations into a single console; it also supports log forwarding to external SIEMs."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The platform's DNS Security capabilities block connections to known malicious domains at the DNS layer, preventing malware communication and phishing attempts."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The core SWG component enforces granular URL filtering policies, blocking access to malicious, inappropriate (CIPA), or unapproved websites based on categories and reputation."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The platform provides network-based anti-malware scanning, inspecting traffic for viruses and malicious payloads before they reach the endpoint."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG10.7",
+        "Rationale": "iboss utilizes advanced threat protection and sandboxing (often signatureless) to analyze suspicious files and traffic behaviors to detect zero-day threats."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG12.7",
+        "Rationale": "iboss ZTNA fulfills the modern intent of this safeguard by providing a secure, authenticated connection method for remote users to access private resources without a traditional VPN, integrated with enterprise AAA (Identity Providers)."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The platform includes IPS/IDS capabilities that inspect traffic flows for signatures of known exploits and malicious network behavior."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The \"Firewall as a Service\" (FWaaS) capability allows administrators to define policies that filter traffic between users (internet) and specific cloud or private application segments."
+    },
+    {
+        "ToolID": "T27",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The platform's CASB and SWG features operate at Layer 7, allowing for the inspection and filtering of specific application actions (e.g., \"allow login to Gmail but block file upload\")."
     }
 ]
