@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Framework Scorer & Comparator</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SheetJS for Excel Processing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .drop-zone {
+            border: 2px dashed #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        .drop-zone.dragover {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen text-gray-800">
+
+    <!-- Header -->
+    <nav class="bg-white border-b border-gray-200 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 text-white p-2 rounded-lg">
+                    <i class="fas fa-shield-alt text-xl"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-900">CIS Framework Scorer</h1>
+            </div>
+            <div class="text-sm text-gray-500">
+                Comparison Tool v2.3
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-8">
+
+        <!-- STAGE 1: Configuration Loading -->
+        <div id="config-section" class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 max-w-3xl mx-auto fade-in">
+            <div class="mb-6 border-b border-gray-100 pb-4">
+                <h2 class="text-lg font-semibold text-gray-900">1. Load Configuration Files</h2>
+                <p class="text-sm text-gray-500 mt-1">Please specify the locations of the required JSON definition files.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Mapping File (mapping.json)</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">URL</span>
+                        <input type="text" id="url-mapping" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json" class="flex-1 block w-full rounded-r-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm border p-2.5" placeholder="path/to/mapping.json">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Safeguards File (safeguards.json)</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">URL</span>
+                        <input type="text" id="url-safeguards" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json" class="flex-1 block w-full rounded-r-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm border p-2.5" placeholder="path/to/safeguards.json">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Tools File (tools.json)</label>
+                    <div class="flex">
+                        <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">URL</span>
+                        <input type="text" id="url-tools" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json" class="flex-1 block w-full rounded-r-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 sm:text-sm border p-2.5" placeholder="path/to/tools.json">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button id="btn-load-config" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-lg transition-colors flex items-center">
+                    <span>Load Configuration</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <div id="config-status" class="mt-4 hidden"></div>
+        </div>
+
+        <!-- STAGE 2: File Upload (Hidden Initially) -->
+        <div id="upload-section" class="hidden bg-white rounded-xl shadow-sm border border-gray-200 p-8 max-w-3xl mx-auto fade-in">
+            <div class="mb-6 border-b border-gray-100 pb-4 flex justify-between items-center">
+                <div>
+                    <h2 class="text-lg font-semibold text-gray-900">2. Upload Assessment Data</h2>
+                    <p class="text-sm text-gray-500 mt-1">Upload the completed XLSX Excel file.</p>
+                </div>
+                <button onclick="resetApp()" class="text-sm text-gray-500 hover:text-red-600">Reset</button>
+            </div>
+
+            <div id="drop-area" class="drop-zone rounded-xl p-12 text-center cursor-pointer">
+                <input type="file" id="file-input" class="hidden" accept=".xlsx, .xls">
+                <div class="pointer-events-none">
+                    <i class="fas fa-file-excel text-green-500 text-5xl mb-4"></i>
+                    <p class="text-lg font-medium text-gray-700">Drag & Drop your Excel file here</p>
+                    <p class="text-sm text-gray-500 mt-2">or click to browse</p>
+                </div>
+            </div>
+            
+            <div id="processing-indicator" class="hidden mt-6 text-center">
+                <i class="fas fa-circle-notch fa-spin text-blue-600 text-2xl"></i>
+                <p class="text-sm text-gray-600 mt-2">Processing Summary Tab...</p>
+            </div>
+            
+            <div id="error-message" class="hidden mt-4 p-4 bg-red-50 text-red-700 rounded-lg border border-red-200 text-sm"></div>
+        </div>
+
+        <!-- STAGE 3: Results (Hidden Initially) -->
+        <div id="results-section" class="hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900">Analysis Results</h2>
+                    <p class="text-gray-500">Sorted by Calculated Score (Tier × Assessment Score)</p>
+                </div>
+                <div class="flex space-x-3">
+                    <button onclick="document.getElementById('file-input').click()" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 text-sm font-medium">
+                        Upload Different File
+                    </button>
+                    <button onclick="exportTableToCSV()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm">
+                        <i class="fas fa-download mr-2"></i>Export CSV
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-8">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard Description</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Tier (JSON)</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Assess. Score (XLSX)</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-blue-50">Calculated Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Global Data Storage
+        let loadedConfig = {
+            mapping: null,
+            safeguards: null,
+            tools: null
+        };
+
+        // DOM Elements
+        const configSection = document.getElementById('config-section');
+        const uploadSection = document.getElementById('upload-section');
+        const resultsSection = document.getElementById('results-section');
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-input');
+        const configStatus = document.getElementById('config-status');
+        const loadConfigBtn = document.getElementById('btn-load-config');
+        const errorMessage = document.getElementById('error-message');
+
+        // Simplified logger that just goes to console
+        function log(msg) {
+            console.log(msg);
+        }
+
+        // --- 1. Configuration Loading Logic ---
+
+        loadConfigBtn.addEventListener('click', async () => {
+            loadConfigBtn.disabled = true;
+            loadConfigBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Loading...';
+            configStatus.classList.remove('hidden');
+            configStatus.innerHTML = '';
+            log("Starting configuration load...");
+
+            const urls = {
+                mapping: document.getElementById('url-mapping').value,
+                safeguards: document.getElementById('url-safeguards').value,
+                tools: document.getElementById('url-tools').value
+            };
+
+            try {
+                // Fetch all JSONs
+                const [mappingRes, safeguardsRes, toolsRes] = await Promise.all([
+                    fetchOrMock(urls.mapping, 'mapping'),
+                    fetchOrMock(urls.safeguards, 'safeguards'),
+                    fetchOrMock(urls.tools, 'tools')
+                ]);
+
+                loadedConfig.mapping = mappingRes;
+                loadedConfig.safeguards = safeguardsRes;
+                loadedConfig.tools = toolsRes;
+
+                showSuccess("Configuration loaded successfully.");
+                setTimeout(() => {
+                    configSection.classList.add('hidden');
+                    uploadSection.classList.remove('hidden');
+                }, 1000);
+
+            } catch (error) {
+                showError(configStatus, "Failed to load files. Check console for details.");
+                log(`ERROR: ${error.message}`);
+                loadConfigBtn.disabled = false;
+                loadConfigBtn.innerHTML = 'Load Configuration <i class="fas fa-arrow-right ml-2"></i>';
+            }
+        });
+
+        async function fetchOrMock(url, type) {
+            try {
+                log(`Fetching ${type} from ${url}...`);
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const json = await response.json();
+                log(`Success: ${type}`);
+                return json;
+            } catch (e) {
+                throw new Error(`Failed to load ${type}: ${e.message}`);
+            }
+        }
+
+        function showSuccess(msg) {
+            configStatus.innerHTML = `<div class="p-3 bg-green-50 text-green-700 rounded border border-green-200 flex items-center"><i class="fas fa-check-circle mr-2"></i> ${msg}</div>`;
+        }
+
+        function showError(container, msg) {
+            container.classList.remove('hidden');
+            container.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded border border-red-200 flex items-center"><i class="fas fa-exclamation-circle mr-2"></i> ${msg}</div>`;
+        }
+
+        // --- 2. Drag and Drop Logic ---
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight() { dropArea.classList.add('dragover'); }
+        function unhighlight() { dropArea.classList.remove('dragover'); }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+        dropArea.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => {
+            if(e.target.files[0]) processFile(e.target.files[0]);
+        });
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            if (files.length > 0) {
+                processFile(files[0]);
+            }
+        }
+
+        // --- 3. Excel Processing & Calculation Logic ---
+
+        function processFile(file) {
+            log(`Processing file: ${file.name}`);
+            const reader = new FileReader();
+            const indicator = document.getElementById('processing-indicator');
+            
+            indicator.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, {type: 'array'});
+
+                    if (!workbook.Sheets['Summary']) {
+                        throw new Error("Excel file missing 'Summary' tab.");
+                    }
+
+                    const summarySheet = workbook.Sheets['Summary'];
+                    // Parse with header:A to get raw column mapping
+                    const rows = XLSX.utils.sheet_to_json(summarySheet, { header: 'A', blankrows: false });
+                    log(`Rows found in Summary tab: ${rows.length}`);
+
+                    const results = [];
+                    
+                    // --- Enhanced Map Creation ---
+                    let safeguardsMap = new Map();
+                    let idKey = null; // We will try to auto-detect the ID key
+
+                    if (loadedConfig.safeguards) {
+                        const list = Array.isArray(loadedConfig.safeguards) 
+                            ? loadedConfig.safeguards 
+                            : Object.values(loadedConfig.safeguards);
+
+                        // Auto-detect keys on first item
+                        if (list.length > 0) {
+                            const sample = list[0];
+                            // Prioritize 'ID', then 'id', then 'Safeguard', then keys containing 'id'
+                            idKey = Object.keys(sample).find(k => k === 'ID' || k === 'id') 
+                                    || Object.keys(sample).find(k => k.toLowerCase().includes('id'));
+                            log(`Auto-detected ID key in JSON: '${idKey}'`);
+                        }
+
+                        list.forEach(sg => {
+                            if (sg && idKey && sg[idKey]) {
+                                // Normalize ID: string, trimmed
+                                let rawId = String(sg[idKey]).trim();
+                                
+                                // CRITICAL FIX: Remove "SG" prefix from JSON IDs (e.g., "SG1.1" -> "1.1")
+                                // Using regex to match "SG" at start, case insensitive
+                                if (rawId.toUpperCase().startsWith("SG")) {
+                                    rawId = rawId.replace(/^SG/i, '');
+                                }
+
+                                safeguardsMap.set(rawId, sg);
+                            }
+                        });
+                    }
+                    
+                    log(`Safeguards Map created with ${safeguardsMap.size} entries.`);
+
+                    // Regex for valid Safeguard numbers (#.# or #.##)
+                    const validIdRegex = /^\d+\.\d+$/;
+
+                    // --- Enhanced Tier Extraction ---
+                    const extractTier = (obj) => {
+                        if (!obj) return 0;
+                        
+                        // 1. Try explicit known keys
+                        let candidates = [
+                            obj.TierNumber, obj.Tier, obj.tier, obj.tierNumber, 
+                            obj.ImplementationGroup, obj.IG, obj.Group
+                        ];
+
+                        // 2. Try fuzzy search on keys
+                        if (candidates.every(c => c === undefined)) {
+                            const fuzzyKey = Object.keys(obj).find(k => {
+                                const lower = k.toLowerCase();
+                                return lower.includes('tier') || lower.includes('implementation') || lower === 'ig';
+                            });
+                            if (fuzzyKey) candidates.push(obj[fuzzyKey]);
+                        }
+
+                        // 3. Process found value
+                        for (let val of candidates) {
+                            if (val !== undefined && val !== null && val !== "") {
+                                // If it's already a number, return it
+                                if (typeof val === 'number') return val;
+                                
+                                // If string, look for first digit
+                                const strVal = String(val);
+                                // Matches "1", "Tier 1", "IG1", "Group 1"
+                                const match = strVal.match(/(\d+)/); 
+                                if (match) return parseFloat(match[0]);
+                            }
+                        }
+                        return 0;
+                    };
+
+                    let matchCount = 0;
+
+                    rows.forEach((row, index) => {
+                        const cellA = row['A']; // Safeguard Number
+                        const cellD = row['D']; // Assessment Score
+                        
+                        if (!cellA) return;
+                        
+                        const idStr = String(cellA).trim();
+
+                        if (validIdRegex.test(idStr)) {
+                            // Attempt to parse Score (Column D)
+                            let scoreVal = parseFloat(cellD);
+                            if (isNaN(scoreVal)) scoreVal = 0;
+
+                            // Find Safeguard
+                            const safeguardData = safeguardsMap.get(idStr);
+                            let tierNum = 0;
+                            let sgDescription = row['B'] || "Unknown"; // Default to Excel desc
+
+                            if (safeguardData) {
+                                matchCount++;
+                                tierNum = extractTier(safeguardData);
+                                
+                                // Debug first match to ensure logic works
+                                if (matchCount === 1) {
+                                    log(`First Match: ID ${idStr} -> Tier extracted: ${tierNum}.`);
+                                }
+
+                                // Prefer JSON description
+                                if(safeguardData.Title) sgDescription = safeguardData.Title;
+                                else if(safeguardData.Description) sgDescription = safeguardData.Description;
+                            } else {
+                                // Log first few misses to help debug
+                                if (results.length < 3) {
+                                    log(`Missed ID: ${idStr} (Not found in JSON map)`);
+                                }
+                            }
+
+                            results.push({
+                                id: idStr,
+                                description: sgDescription,
+                                tier: tierNum,
+                                assessmentScore: scoreVal,
+                                calculatedScore: tierNum * scoreVal,
+                                foundInJson: !!safeguardData
+                            });
+                        }
+                    });
+
+                    log(`Processing complete. Matched ${matchCount} of ${results.length} rows.`);
+                    
+                    // Sort results
+                    results.sort((a, b) => a.calculatedScore - b.calculatedScore);
+                    renderResults(results);
+
+                } catch (err) {
+                    console.error(err);
+                    log(`CRITICAL ERROR: ${err.message}`);
+                    errorMessage.textContent = err.message;
+                    errorMessage.classList.remove('hidden');
+                    indicator.classList.add('hidden');
+                }
+            };
+            
+            reader.readAsArrayBuffer(file);
+        }
+
+        // --- 4. Rendering Logic ---
+
+        function renderResults(data) {
+            const tbody = document.getElementById('results-body');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">No matching data found. Check Debug Log.</td></tr>`;
+            }
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-50 transition-colors';
+                
+                const scoreClass = row.calculatedScore > 0 ? 'text-gray-900 font-medium' : 'text-gray-400';
+                const jsonStatus = row.foundInJson 
+                    ? `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Tier ${row.tier}</span>`
+                    : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800" title="ID not found in JSON">Not Found</span>`;
+
+                tr.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${row.id}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500 max-w-md truncate" title="${row.description}">${row.description}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">${jsonStatus}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">${row.assessmentScore}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm ${scoreClass} bg-blue-50/50">${row.calculatedScore.toFixed(2)}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('processing-indicator').classList.add('hidden');
+            uploadSection.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+        }
+
+        // --- Utilities ---
+
+        function resetApp() {
+            uploadSection.classList.add('hidden');
+            resultsSection.classList.add('hidden');
+            configSection.classList.remove('hidden');
+            document.getElementById('file-input').value = '';
+            log("App reset.");
+            
+            // Re-enable button
+            loadConfigBtn.disabled = false;
+            loadConfigBtn.innerHTML = 'Load Configuration <i class="fas fa-arrow-right ml-2"></i>';
+            configStatus.classList.add('hidden');
+        }
+
+        function exportTableToCSV() {
+            const rows = Array.from(document.querySelectorAll("table tr"));
+            const csvContent = rows.map(row => {
+                const cells = Array.from(row.querySelectorAll("th, td"));
+                return cells.map(cell => `"${cell.innerText}"`).join(",");
+            }).join("\n");
+
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "cis_score_analysis.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+    </script>
+</body>
+</html>
