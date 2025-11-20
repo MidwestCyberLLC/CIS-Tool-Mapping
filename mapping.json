@@ -28,24 +28,12 @@
         "ToolID": "T361"
     },
     {
-        "SafeguardID": "SG12.5",
-        "ToolID": "T423"
-    },
-    {
         "SafeguardID": "SG12.6",
         "ToolID": "T426"
     },
     {
         "SafeguardID": "SG13.9",
         "ToolID": "T481"
-    },
-    {
-        "SafeguardID": "SG9.7",
-        "ToolID": "T342"
-    },
-    {
-        "SafeguardID": "SG9.6",
-        "ToolID": "T336"
     },
     {
         "SafeguardID": "SG13.8",
@@ -56,42 +44,6 @@
         "ToolID": "T467"
     },
     {
-        "SafeguardID": "SG9.2",
-        "ToolID": "T318"
-    },
-    {
-        "SafeguardID": "SG9.3",
-        "ToolID": "T318"
-    },
-    {
-        "SafeguardID": "SG4.12",
-        "ToolID": "T167"
-    },
-    {
-        "SafeguardID": "SG9.2",
-        "ToolID": "T317"
-    },
-    {
-        "SafeguardID": "SG12.4",
-        "ToolID": "T420"
-    },
-    {
-        "SafeguardID": "SG6.4",
-        "ToolID": "T208"
-    },
-    {
-        "SafeguardID": "SG4.9",
-        "ToolID": "T151"
-    },
-    {
-        "SafeguardID": "SG3.10",
-        "ToolID": "T100"
-    },
-    {
-        "SafeguardID": "SG13.10",
-        "ToolID": "T487"
-    },
-    {
         "SafeguardID": "SG18.2",
         "ToolID": "T696"
     },
@@ -100,120 +52,12 @@
         "ToolID": "T690"
     },
     {
-        "SafeguardID": "SG18.5",
-        "ToolID": "T713"
-    },
-    {
-        "SafeguardID": "SG16.13",
-        "ToolID": "T635"
-    },
-    {
-        "SafeguardID": "SG16.9",
-        "ToolID": "T619"
-    },
-    {
-        "SafeguardID": "SG11.3",
-        "ToolID": "T389"
-    },
-    {
-        "SafeguardID": "SG3.2",
-        "ToolID": "T93"
-    },
-    {
-        "SafeguardID": "SG3.8",
-        "ToolID": "T93"
-    },
-    {
-        "SafeguardID": "SG11.5",
-        "ToolID": "T74"
-    },
-    {
-        "SafeguardID": "SG3.4",
-        "ToolID": "T74"
-    },
-    {
-        "SafeguardID": "SG1.2",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG10.1",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG10.2",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG10.6",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG10.7",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG13.5",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG13.7",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG9.4",
-        "ToolID": "T371"
-    },
-    {
-        "SafeguardID": "SG2.3",
-        "ToolID": "T38"
-    },
-    {
-        "SafeguardID": "SG2.5",
-        "ToolID": "T38"
-    },
-    {
         "SafeguardID": "SG4.4",
         "ToolID": "T129"
     },
     {
-        "SafeguardID": "SG2.7",
-        "ToolID": "T57"
-    },
-    {
-        "SafeguardID": "SG14.1",
-        "ToolID": "T514"
-    },
-    {
-        "SafeguardID": "SG14.3",
-        "ToolID": "T514"
-    },
-    {
-        "SafeguardID": "SG14.4",
-        "ToolID": "T514"
-    },
-    {
-        "SafeguardID": "SG14.5",
-        "ToolID": "T514"
-    },
-    {
-        "SafeguardID": "SG14.7",
-        "ToolID": "T514"
-    },
-    {
-        "SafeguardID": "SG14.8",
-        "ToolID": "T514"
-    },
-    {
         "SafeguardID": "SG16.6",
         "ToolID": "T598"
-    },
-    {
-        "SafeguardID": "SG5.5",
-        "ToolID": "T216"
-    },
-    {
-        "SafeguardID": "SG6.6",
-        "ToolID": "T216"
     },
     {
         "SafeguardID": "SG5.1",
@@ -226,18 +70,6 @@
     {
         "SafeguardID": "SG5.4",
         "ToolID": "T185"
-    },
-    {
-        "SafeguardID": "SG17.7",
-        "ToolID": "T675"
-    },
-    {
-        "SafeguardID": "SG14.9",
-        "ToolID": "T617"
-    },
-    {
-        "SafeguardID": "SG16.9",
-        "ToolID": "T617"
     },
     {
         "SafeguardID": "SG13.6",
@@ -10194,12 +10026,12 @@
     {
         "ToolID": "T430",
         "SafeguardID": "SG6.4",
-        "Rationale": "This is a primary function of the tool. AnyConnect is the client that enforces the MFA challenge when a user attempts to establish a remote network access VPN connection."
+        "Rationale": "This is a primary function of the tool. AnyConnect is the client that enforces the MFA challenge when a user attempts to establish a remote network access VPN connection.CIS Control 9: Email and Web Browser Protections"
     },
     {
         "ToolID": "T430",
         "SafeguardID": "SG9.2",
-        "Rationale": "AnyConnect includes an optional \"Umbrella Roaming Module\" that provides DNS-layer security, blocking access to known malicious domains and enforcing web content policies even when the user is not connected to the VPN."
+        "Rationale": "AnyConnect includes an optional \"Umbrella Roaming Module\" that provides DNS-layer security, blocking access to known malicious domains and enforcing web content policies even when the user is not connected to the VPN.CIS Control 12: Network Infrastructure Management"
     },
     {
         "ToolID": "T430",
@@ -10214,7 +10046,7 @@
     {
         "ToolID": "T430",
         "SafeguardID": "SG12.7",
-        "Rationale": "This is the core purpose of AnyConnect. It is the VPN client used by remote devices to establish a secure connection and authenticate against the enterprise's central AAA (Authentication, Authorization, and Accounting) services."
+        "Rationale": "This is the core purpose of AnyConnect. It is the VPN client used by remote devices to establish a secure connection and authenticate against the enterprise's central AAA (Authentication, Authorization, and Accounting) services.CIS Control 13: Network Monitoring and Defense"
     },
     {
         "ToolID": "T430",
@@ -10229,12 +10061,12 @@
     {
         "ToolID": "T404",
         "SafeguardID": "SG1.2",
-        "Rationale": "Through its integration with Network Access Control (NAC) solutions like Cisco ISE, Catalyst Center can enforce policies that automatically quarantine, deny, or remove unauthorized assets that attempt to connect to the network."
+        "Rationale": "Through its integration with Network Access Control (NAC) solutions like Cisco ISE, DNA Center can enforce policies that automatically quarantine, deny, or remove unauthorized assets that attempt to connect to the network."
     },
     {
         "ToolID": "T404",
         "SafeguardID": "SG1.3",
-        "Rationale": "Catalyst Center continuously runs discovery protocols (like CDP, LLDP, and SNMP) and scans the network to identify new and existing assets, effectively acting as a persistent active discovery tool."
+        "Rationale": "DNA Center continuously runs discovery protocols (like CDP, LLDP, and SNMP) and scans the network to identify new and existing assets, effectively acting as a persistent active discovery tool."
     },
     {
         "ToolID": "T404",
@@ -10254,7 +10086,7 @@
     {
         "ToolID": "T404",
         "SafeguardID": "SG4.2",
-        "Rationale": "This is a primary use case. Catalyst Center manages the entire lifecycle (design, provision, policy, assurance) of network infrastructure, enforcing secure configurations at scale."
+        "Rationale": "This is a primary use case. DNA Center manages the entire lifecycle (design, provision, policy, assurance) of network infrastructure, enforcing secure configurations at scale."
     },
     {
         "ToolID": "T404",
@@ -10264,7 +10096,7 @@
     {
         "ToolID": "T404",
         "SafeguardID": "SG6.7",
-        "Rationale": "While often used with a separate tool like Cisco ISE, Catalyst Center acts as the central policy engine. It defines and pushes segmentation and access policies (e.g., \"who, what, where\") to the entire network, centralizing the enforcement of access control."
+        "Rationale": "While often used with a separate tool like Cisco ISE, DNA Center acts as the central policy engine. It defines and pushes segmentation and access policies (e.g., \"who, what, where\") to the entire network, centralizing the enforcement of access control."
     },
     {
         "ToolID": "T404",
@@ -10289,12 +10121,12 @@
     {
         "ToolID": "T404",
         "SafeguardID": "SG8.2",
-        "Rationale": "Catalyst Center is a collection point for logs, traps, and telemetry data from all managed network devices."
+        "Rationale": "DNA Center is a collection point for logs, traps, and telemetry data from all managed network devices."
     },
     {
         "ToolID": "T404",
         "SafeguardID": "SG8.4",
-        "Rationale": "Proper time synchronization (via NTP) is a prerequisite for Catalyst Center to function and correlate event data, so it inherently enforces this safeguard."
+        "Rationale": "Proper time synchronization (via NTP) is a prerequisite for DNA Center to function and correlate event data, so it inherently enforces this safeguard."
     },
     {
         "ToolID": "T404",
@@ -10314,7 +10146,7 @@
     {
         "ToolID": "T404",
         "SafeguardID": "SG12.3",
-        "Rationale": "Catalyst Center provides a centralized, secure GUI and API for managing network infrastructure, replacing device-by-device manual (and often insecure) configuration."
+        "Rationale": "DNA Center provides a centralized, secure GUI and API for managing network infrastructure, replacing device-by-device manual (and often insecure) configuration."
     },
     {
         "ToolID": "T404",
@@ -10338,6 +10170,11 @@
     },
     {
         "ToolID": "T404",
+        "SafeguardID": "SG13.3",
+        "Rationale": "By analyzing streaming telemetry and network traffic patterns (like Encrypted Traffic Analytics), the platform can detect suspicious traffic, anomalies, and threat behaviors, acting as a network-wide detection system."
+    },
+    {
+        "ToolID": "T404",
         "SafeguardID": "SG13.4",
         "Rationale": "This is the core purpose of its micro-segmentation and SD-Access capabilities. It creates and enforces the policies that filter traffic between different roles and segments (e.g., blocking student devices from accessing faculty servers)."
     },
@@ -10349,7 +10186,7 @@
     {
         "ToolID": "T404",
         "SafeguardID": "SG13.8",
-        "Rationale": "When an unauthorized or compromised device is detected, Catalyst Center can automatically enforce a policy (e.g., via SGTs) to \"contain\" the threat by blocking its access to the rest of the network, acting as a prevention system."
+        "Rationale": "When an unauthorized or compromised device is detected, DNA Center can automatically enforce a policy (e.g., via SGTs) to \"contain\" the threat by blocking its access to the rest of the network, acting as a prevention system."
     },
     {
         "ToolID": "T404",
@@ -10454,12 +10291,12 @@
     {
         "ToolID": "T456",
         "SafeguardID": "SG12.2",
-        "Rationale": "A firewall is a foundational tool for designing and enforcing a secure, segmented network architecture"
+        "Rationale": "A firewall is a foundational tool for designing and enforcing a secure, segmented network architecture."
     },
     {
         "ToolID": "T456",
         "SafeguardID": "SG12.3",
-        "Rationale": "A firewall is a foundational tool for designing and enforcing a secure, segmented network architecture"
+        "Rationale": "The firewall is a piece of network infrastructure that is managed securely over encrypted protocols, with changes logged and controlled via a central management platform."
     },
     {
         "ToolID": "T456",
@@ -10500,5 +10337,2610 @@
         "ToolID": "T456",
         "SafeguardID": "SG13.10",
         "Rationale": "The Application Visibility and Control (AVC) feature is a key application-layer (Layer 7) filter, allowing policy to be based on the specific application (e.g., \"Facebook\" or \"BitTorrent\") rather than just port numbers."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG1.1",
+        "Rationale": "ISE's device profiling feature discovers, identifies, and classifies every asset (laptops, phones, IoT, etc.) as it attempts to connect to the network, which populates the asset inventory."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG1.2",
+        "Rationale": "This is a core function. ISE's policy engine can be configured to automatically deny, quarantine, or place unauthorized devices on a restricted network."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG1.3",
+        "Rationale": "ISE's profiling service actively uses various probes (e.g., Nmap, SNMP, DHCP) to interrogate devices and determine their type, OS, and other attributes."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG1.5",
+        "Rationale": "ISE can also passively discover assets by listening to network traffic (e.g., SPAN, NetFlow) or collecting data from sources like RADIUS and DHCP, allowing it to identify devices without actively probing them.CIS Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG3.12",
+        "Rationale": "ISE is a primary enforcer of network segmentation. It dynamically assigns users and devices to specific VLANs or applies Access Control Lists (ACLs) based on their identity and role, which restricts access to sensitive data segments.CIS Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG4.5",
+        "Rationale": "ISE's posture assessment feature can check an endpoint's compliance, including verifying that its host-based firewall is enabled and running, before granting network access."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG4.9",
+        "Rationale": "As part of its posture assessment, ISE can validate that an endpoint is configured to use the enterprise's trusted DNS servers.CIS Control 5: Account Management"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG5.6",
+        "Rationale": "ISE acts as a central authentication and authorization service (AAA), integrating with identity stores like Active Directory to centralize access management for the entire network (wired, wireless, and VPN).CIS Control 6: Access Control Management"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.1",
+        "Rationale": "ISE automates the access-granting process. When a new user connects, ISE checks their identity, role, and device posture to grant the appropriate, pre-defined level of access."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.2",
+        "Rationale": "When a user's account is disabled in the central directory (e.g., upon termination), ISE immediately revokes access on their next login attempt. It can also receive a Change of Authorization (CoA) to disconnect an active session instantly."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.3",
+        "Rationale": "ISE can serve as the authentication engine for VPNs and other remote access gateways, integrating with MFA providers (like Cisco Duo) to enforce MFA for external access."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.4",
+        "Rationale": "This is a primary use case. ISE is the component that challenges a remote (VPN) user for their credentials and enforces the requirement for MFA."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.5",
+        "Rationale": "ISE can be configured to require MFA for all administrative access, both to network devices (via TACACS+) and to its own administrative interface."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.7",
+        "Rationale": "This is ISE's fundamental purpose. It provides a single, centralized platform for managing and enforcing network access policies across all connection types."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG6.8",
+        "Rationale": "ISE's entire policy model is built on role-based access control (RBAC). It grants access (e.g., \"Student,\" \"Faculty,\" \"Guest\") and permissions based on the user's role in the organization.CIS Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG8.2",
+        "Rationale": "ISE generates highly detailed audit logs for every authentication, authorization, and accounting (AAA) event, including successful logins, failures, and device profile changes."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG8.9",
+        "Rationale": "ISE is the central collection point for all network access and authentication logs. It also forwards these logs to a central SIEM for enterprise-wide correlation."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG8.11",
+        "Rationale": "ISE provides a dedicated monitoring interface for administrators to actively review access logs, troubleshoot failures, and investigate potential security events in real-time.CIS Control 12: Network Infrastructure Management"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG12.2",
+        "Rationale": "ISE is a key implementation tool for a secure architecture by enabling and enforcing dynamic network segmentation and access control."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG12.3",
+        "Rationale": "ISE (using the TACACS+ protocol) provides centralized, role-based, and auditable authentication for administrators logging into network devices (switches, routers, firewalls)."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG12.5",
+        "Rationale": "ISE is a full-featured AAA server. It centralizes AAA for both network users (via RADIUS) and network administrators (via TACACS+)."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG12.6",
+        "Rationale": "ISE is the \"authentication server\" that enables and enforces the 802.1X protocol for secure port-based network access."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG12.7",
+        "Rationale": "ISE is the AAA infrastructure that VPN concentrators connect to in order to authenticate remote users and enforce access policies.CIS Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG13.3",
+        "Rationale": "ISE integrates with NIDS/NIPS (via Cisco pxGrid). When the NIDS detects a threat, it can signal ISE to automatically quarantine the offending endpoint."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG13.4",
+        "Rationale": "ISE enforces this filtering by dynamically assigning ACLs or placing devices in specific VLANs, which dictates how and if traffic can flow between segments."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG13.5",
+        "Rationale": "ISE's posture and compliance checks are applied to remote VPN users, ensuring their device is healthy (e.g., has anti-malware, patches) before granting them access to internal resources."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG13.8",
+        "Rationale": "As with NIDS, ISE's integration with NIPS provides the automated containment and response (e.g., quarantining a device) that makes the NIPS solution effective."
+    },
+    {
+        "ToolID": "T423",
+        "SafeguardID": "SG13.9",
+        "Rationale": "This is the exact definition of what ISE does using the 802.1X and MAC Authentication Bypass (MAB) protocols. It controls access at the physical (or virtual) switch port."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool provides end-to-end email encryption, ensuring that sensitive data remains secure while in transit to external recipients."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG3.13",
+        "Rationale": "The tool includes a Data Loss Prevention (DLP) engine that scans outgoing emails for sensitive content (based on predefined or custom policies) and can block, quarantine, or encrypt messages to prevent data exfiltration."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG7.1",
+        "Rationale": "While the tool doesn't manage vulnerabilities on your assets, it is a critical component of managing the email attack vector. Its threat intelligence, anti-malware, and sandboxing features are a form of vendor-managed vulnerability protection against email-borne exploits."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG9.1",
+        "Rationale": "This tool provides a critical compensating control. By filtering all email before it reaches the user's email client, it protects the client from malicious links, attachments, and scripts that could exploit client-side vulnerabilities."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The tool's real-time URL analysis and reputation filtering function as a specialized form of DNS/URL filtering for the email vector. It checks the reputation of all embedded links and can block access to known malicious domains."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The tool's URL filtering and rewriting capabilities directly support this. It scans message bodies and attachments for URLs, checks them against Cisco's Talos threat intelligence, and can block, quarantine, or \"rewrite\" links to route them through a safe proxy."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG9.5",
+        "Rationale": "The gateway is the technical enforcement point for email authentication. It is configured to perform DMARC, SPF, and DKIM checks on all inbound mail, allowing an organization to enforce its policy (e.g., p=quarantine or p=reject) on spoofed messages."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG9.6",
+        "Rationale": "This is a core function of an email gateway. The tool can be configured with policies to block specific attachment file types (e.g., .exe, .scr, .zip) that are commonly used to deliver malware."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG9.7",
+        "Rationale": "This safeguard is precisely what the tool is. It provides multi-layered anti-malware, including signature-based scanning, heuristic analysis, and advanced attachment sandboxing (via Cisco Secure Malware Analytics) to detect and block malicious payloads."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG10.1",
+        "Rationale": "This tool is the anti-malware solution for the email server/gateway layer, providing a critical line of defense before a threat can even reach an endpoint."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The tool is backed by Cisco's Talos threat intelligence, which provides continuous, automatic updates to its malware signatures, reputation filters, and behavioral detection rules."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The gateway generates detailed logs for all email-related events (e.g., messages blocked, malware detected, DLP violations). These logs are designed to be forwarded to a central SIEM for correlation and analysis."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The tool provides direct, actionable support for training. It can add dynamic warning banners to emails that are external, suspicious, or fail authentication checks, coaching users in real-time to be wary of potential phishing or BEC attacks."
+    },
+    {
+        "ToolID": "T336",
+        "SafeguardID": "SG14.6",
+        "Rationale": "The tool often integrates with a \"report phishing\" button for email clients, providing the mechanism for users to report incidents as described in their training."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool includes an \"Email Encryption Service\" specifically to secure sensitive data while it is in transit to external recipients."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG3.13",
+        "Rationale": "This is a core feature of the \"Advantage\" and \"Premier\" tiers, providing \"Comprehensive Data Loss Prevention\" (DLP) to monitor, detect, and block the unauthorized sharing of sensitive data via email.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The tool's \"real-time URL analysis\" and URL rewriting features log user clicks on links in emails, providing a crucial audit trail for investigating phishing attempts and user behavior.Control 9: Email and Web Browser Protections"
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG9.2",
+        "Rationale": "The tool's URL filtering feature, which is powered by Cisco Talos and Umbrella threat intelligence, blocks access to known malicious domains in email links, serving the same protective function as a DNS filter."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG9.3",
+        "Rationale": "A primary feature of the tool is to scan all inbound emails for malicious links, \"drop[ping] emails with risky links automatically\". This is a form of URL filtering applied to the email vector."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG9.5",
+        "Rationale": "The tool provides domain and \"Forged Email Detection\" to protect against spoofing and BEC, which involves checking and enforcing DMARC, SPF, and DKIM policies."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG9.6",
+        "Rationale": "As an anti-malware gateway, the tool's fundamental purpose is to scan attachments, which includes the ability to block potentially harmful file types (e.g., executables, scripts) based on policy."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG9.7",
+        "Rationale": "This is the tool's primary function. It is a dedicated solution to \"Combat ransomware hidden in attachments\" and \"mitigates advanced threats like phishing, ransomware, and zero-day exploits\" at the email server level.Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Cisco Secure Email is the anti-malware software for the email vector, one of the most common attack paths. It includes \"antispam\" and \"antivirus\" engines."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The solution is \"Powered by the global threat intel from Cisco Talos\", which provides continuous, real-time updates for threat and malware definitions."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The tool includes \"Advanced Malware Protection (AMP)\" and \"Cisco Secure Malware Analytics\", which is a sandboxing technology that observes file behavior to detect zero-day and advanced malware, rather than relying only on signatures.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The tool provides centralized management and reporting and integrates with the Cisco SecureX platform (and other SIEMs) to feed its alerts on malware, phishing, and DLP events into a central system for correlation."
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The tool operates at the application layer by definition. It inspects the content of the SMTP protocol to identify \"illicit content in incoming and outgoing email\", which is a form of application-layer filtering.Control 14: Security Awareness and Training"
+    },
+    {
+        "ToolID": "T342",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The \"Premier\" license bundle explicitly includes \"Secure Awareness Training\" to \"teach your teams how to best protect themselves and your organization\" from attacks like phishing."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG1.5",
+        "Rationale": "The tool is designed to passively listen to network telemetry (NetFlow/IPFIX) to identify and profile every device connecting to the network, creating an inventory without active scanning."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG3.8",
+        "Rationale": "It visualizes network traffic and provides graphical representations of conversations between devices, which is the primary mechanism for documenting and understanding enterprise data flows."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG3.14",
+        "Rationale": "It creates a detailed audit trail of all network communications, allowing security teams to review historical flow records to see which assets accessed sensitive internal systems or databases."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Through its \"Encrypted Traffic Analytics\" (ETA) and integration with flow sensors, it collects and analyzes DNS queries within network flows to detect communication with malicious domains."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The tool creates records of network transactions that include URL and web traffic metadata (often via integration with proxy logs or deep packet inspection from Flow Sensors), allowing for the auditing of web access."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG8.9",
+        "Rationale": "The Flow Collector acts as a centralized repository that aggregates network telemetry and logs from routers, switches, and firewalls across the entire distributed enterprise."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG8.11",
+        "Rationale": "It automatically reviews the massive volume of collected network logs using machine learning to identify \"anomalies or abnormal events,\" effectively automating the log review process."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG12.2",
+        "Rationale": "It provides the necessary visibility to validate that the network architecture is secure, specifically by verifying that network segmentation policies are working as designed (e.g., ensuring student networks cannot access staff networks)."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG12.4",
+        "Rationale": "By automatically mapping and visualizing all active network connections and device relationships, it provides real-time data to create and update accurate network architecture diagrams."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The Management Console serves as a central hub for network security alerts, correlating data from multiple sources to generate high-fidelity alarms that can be forwarded to a SIEM."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG13.3",
+        "Rationale": "As a Network Detection and Response (NDR) tool, its core function is to detect network-based threats (intrusion attempts, lateral movement, C2 activity) using behavioral analysis, fulfilling the modern definition of NIDS."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG13.6",
+        "Rationale": "This is the fundamental capability of the tool; it collects, stores, and analyzes NetFlow, IPFIX, and sFlow records from network infrastructure."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG13.11",
+        "Rationale": "The system uses dynamic behavioral modeling to establish a baseline of \"normal\" traffic for each device, automatically tuning alerting thresholds to reduce false positives without manual intervention."
+    },
+    {
+        "ToolID": "T21",
+        "SafeguardID": "SG17.8",
+        "Rationale": "It provides deep historical retention of network telemetry, allowing incident responders to \"replay\" the network traffic and conduct forensic analysis to understand the root cause of a security incident."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The Cloud Access Security Broker (CASB) feature provides \"Shadow IT\" discovery, which identifies all cloud applications (SaaS) being used. Administrators can then use this inventory to create policies that block unauthorized applications.Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The CASB and app discovery features provide visibility into which cloud applications are in use and by whom, helping to identify and document data flows to external services."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Higher-tier Umbrella packages include a cloud-native Data Loss Prevention (DLP) solution. This can inspect web traffic to identify and block sensitive data (e.g., PII or credit card numbers) from being exfiltrated.Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG4.9",
+        "Rationale": "This is a foundational function of Umbrella. By pointing an enterprise's DNS requests to Umbrella's resolvers, it becomes the trusted, security-filtering DNS service for the organization.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Umbrella's core function is to receive and log all DNS queries from protected devices, providing a complete record of every domain requested."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The Secure Web Gateway (SWG) component logs all URL requests, providing deeper visibility into web traffic beyond just the domain name."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All DNS, URL, and firewall logs are aggregated into a single, centralized cloud dashboard for review and can be exported to a SIEM (Security Information and Event Management) tool.Control 9: Email and Web Browser Protections"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG9.2",
+        "Rationale": "This is the primary, out-of-the-box function of Cisco Umbrella. It blocks access to known malicious domains (for malware, phishing, C2) by filtering DNS requests."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG9.3",
+        "Rationale": "Umbrella provides robust, customizable content filtering by category (e.g., \"adult,\" \"gambling\") and can block specific URLs, which is a key requirement for CIPA compliance in K-12."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG9.6",
+        "Rationale": "The SWG component's intelligent proxy can be configured to block file downloads based on their type (e.g., .exe, .zip) from non-trusted sites.Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG10.1",
+        "Rationale": "While not a traditional on-device antivirus, Umbrella acts as a powerful anti-malware layer. It blocks connections to malicious domains and IPs, preventing malware from being downloaded and stopping already-compromised devices from \"calling home\" to C2 servers.Control 12: Network Infrastructure Management"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG12.7",
+        "Rationale": "The Umbrella roaming client provides protection for remote devices (like laptops) when they are off the network. It enforces the same security and content filtering policies as if the user were in the office, securing their internet access without a traditional VPN.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The Umbrella dashboard provides a single, centralized console that logs and alerts on all blocked threats, policy violations, and security events."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG13.3",
+        "Rationale": "Umbrella's use of Cisco Talos threat intelligence to identify and block connections to active C2 (command-and-control) servers, botnets, and malware-hosting sites functions as a form of network-based threat detection."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The cloud-delivered firewall (FWaaS) component allows for Layer 3/4 (IP, port, protocol) filtering and policy enforcement, which can be used to control traffic."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG13.5",
+        "Rationale": "The roaming client is essential for this. It ensures that remote assets (laptops, mobile devices) are subject to the enterprise's security policy, blocking access to malicious content regardless of the network they are on."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The cloud-delivered firewall and SWG components log all web and non-web traffic, providing visibility into IP addresses, ports, and protocols used."
+    },
+    {
+        "ToolID": "T318",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The SWG and CASB features provide deep, application-layer (Layer 7) filtering, allowing administrators to control and block specific web applications (e.g., \"Dropbox,\" \"Facebook\") rather than just entire websites."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG1.1",
+        "Rationale": "As a UEM/MDM solution, the tool's primary function is to enroll and \"retrieve asset inventories\" from endpoints, helping to build a detailed inventory of end-user devices as required."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The tool can identify and manage corporate vs. employee-owned (BYOD) devices. It can enforce compliance policies to quarantine, wipe, or block unauthorized or non-compliant devices from accessing enterprise resources."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The tool can deploy applications to devices and report on the software installed on them, which forms the basis of a software inventory for managed endpoints."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG2.3",
+        "Rationale": "By controlling which applications can be installed and enforcing \"device policies,\" the tool helps ensure that unauthorized software is identified and removed from managed assets."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG3.6",
+        "Rationale": "A core feature is the ability to \"deploy and enforce security policies such as encryption,\" allowing it to manage and verify the status of native encryption like BitLocker (Windows) and FileVault (macOS)."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG3.12",
+        "Rationale": "The platform supports creating secure, separate \"work profiles\" or containers on BYOD devices. This isolates enterprise applications and data from personal data, preventing sensitive data from being processed on the personal side of the device."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The tool is built to \"deploy device policies\" and enforce secure configuration baselines on all enrolled assets, such as password complexity, screen lock settings, and feature restrictions."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG4.3",
+        "Rationale": "This is a standard \"device policy\" enforced by the UEM to lock a device's screen after a defined period of inactivity."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The tool provides a centralized, secure console for IT to manage device configurations, security policies, and application deployments across the entire fleet of endpoints."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG4.10",
+        "Rationale": "The platform can enforce \"authentication\" policies that lock a device after a set number of failed login attempts."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG4.11",
+        "Rationale": "The tool provides administrators with the ability to \"carry out actions on devices, such as a device wipe,\" which is critical for lost or stolen devices."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG4.12",
+        "Rationale": "The solution is designed to create and manage separate \"work profiles\" (Android) or managed app containers (iOS) to separate enterprise data from personal data."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The tool manages \"user accounts, roles, and enrollment,\" providing an inventory of all users and accounts authorized to access the UEM system and enroll devices."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG6.4",
+        "Rationale": "Citrix Endpoint Management integrates with identity providers and access gateways (like Citrix Gateway) to enforce multi-factor authentication before a remote device is granted access to network resources."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The solution can manage and enforce the deployment of \"software updates and patches\" to the operating systems of enrolled devices."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG7.4",
+        "Rationale": "In addition to OS patches, the tool can manage and deploy updates for applications that it manages on the endpoints."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG10.1",
+        "Rationale": "While not an anti-malware tool itself, it can be used to deploy and enforce the installation of the enterprise's chosen anti-malware solution on endpoints."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The tool can monitor the \"device health and compliance status\" to ensure that anti-malware software is installed, running, and up-to-date, providing a central point of management and verification."
+    },
+    {
+        "ToolID": "T167",
+        "SafeguardID": "SG13.5",
+        "Rationale": "A key feature is its ability to \"adapt access based on device posture and risk factors.\" It can check a remote device's compliance (e.g., OS version, encryption status, anti-malware) before granting it access to enterprise resources."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG1.5",
+        "Rationale": "The paid versions of CleanBrowsing provide DNS query logs that show all domain requests from across the network. By reviewing these logs, administrators can passively discover new or unknown assets (by their IP address or a configured profile) as soon as they attempt to connect to the internet, fulfilling the function of a passive discovery tool."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Implementing CleanBrowsing involves configuring the enterprise's devices or network router to use its DNS servers. This action directly fulfills the safeguard's requirement to use a specific, \"trusted\" DNS server rather than a default ISP or untrusted public resolver."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG8.6",
+        "Rationale": "This is a core feature of the paid CleanBrowsing plans. The tool's dashboard allows an organization to collect, store, and review detailed logs of all DNS queries made by its users, which is essential for security audits and incident investigations."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The DNS query logs generated by CleanBrowsing serve as a log of URL (specifically, domain-level) requests. These logs show which domains users are attempting to access and which ones are being blocked, matching the intent of this safeguard."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG9.2",
+        "Rationale": "This is the primary function of CleanBrowsing. It is a DNS filtering service specifically designed to \"block access to known malicious domains,\" which directly aligns with the safeguard's description."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG9.3",
+        "Rationale": "CleanBrowsing acts as a network-based filter. It uses category-based filtering (e.g., \"adult,\" \"malicious,\" \"phishing\") and custom blocklists to \"limit an enterprise asset from connecting to potentially malicious or unapproved websites,\" which is the exact purpose of this safeguard."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG13.3",
+        "Rationale": "By actively monitoring all DNS requests in real-time and blocking those associated with known malware command-and-control (C2) servers, phishing sites, and other malicious infrastructure, CleanBrowsing acts as a form of Network Intrusion Detection System (NIDS). It detects and prevents the initial stage of many cyberattacks."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG13.6",
+        "Rationale": "DNS logs are a critical form of network traffic metadata. By collecting and centralizing these logs, CleanBrowsing provides the \"network traffic flow logs\" described in this safeguard, which are vital for monitoring, alerting, and incident response."
+    },
+    {
+        "ToolID": "T317",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The Domain Name System (DNS) is an Application Layer (Layer 7) protocol. By filtering requests at this layer based on the domain name, CleanBrowsing is a clear example of an \"application layer filtering\" gateway."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Cloudcraft's \"Live Sync\" feature connects directly to cloud provider APIs (AWS, Azure, GCP) to automatically discover and import all cloud assets, creating a detailed and visual inventory of servers, network devices, and other services. *"
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The tool's live-sync capability functions as an active discovery tool specifically for cloud environments, scanning and identifying all connected assets to build its diagrams."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG2.1",
+        "Rationale": "In a cloud context, \"software\" often means the provisioned services (e.g., a database service, a container-as-a-service platform). Cloudcraft inventories these services, their versions, and their configurations, contributing to the software inventory."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG3.2",
+        "Rationale": "Modern versions of the tool can identify and visualize resources that store sensitive data, helping an organization maintain its inventory of where sensitive data resides within the cloud architecture."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The diagrams generated by Cloudcraft visually map the connections, dependencies, and relationships between different cloud resources, effectively documenting the data flows within the infrastructure."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Cloudcraft helps identify security misconfigurations (e.g., public-facing storage buckets, unrestricted security groups) and visually flags them within the diagram, allowing teams to audit their configurations against security policies."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG4.2",
+        "Rationale": "The tool provides a detailed visualization of all network infrastructure (VPCs, subnets, route tables, firewalls), which is essential for auditing and maintaining secure network configurations."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG6.6",
+        "Rationale": "Cloudcraft can visualize IAM (Identity and Access Management) roles, policies, and their connections to resources, helping to inventory and audit the cloud's authentication and authorization systems."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG7.5",
+        "Rationale": "The tool integrates with security data to visually overlay vulnerability information on the affected assets within the architecture diagram, making it part of the vulnerability management and remediation process."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG7.6",
+        "Rationale": "By diagramming the entire environment, Cloudcraft makes it trivial to identify externally-facing assets and can flag vulnerabilities on those specific resources."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG12.2",
+        "Rationale": "Cloudcraft is a design tool as well as a documentation tool. Teams can use it to design, plan, and model a secure network architecture (e.g., with proper segmentation and least privilege) before it is built."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG12.4",
+        "Rationale": "This is the primary function of Cloudcraft. It automates the creation and, crucially, the maintenance of up-to-date network and system architecture diagrams."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The tool provides a clear, visual audit of traffic filtering rules (like Security Groups and Network Access Control Lists) by showing which ports and protocols are allowed between segments."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG16.7",
+        "Rationale": "By visualizing the live, deployed infrastructure, Cloudcraft allows teams to perform \"configuration drift\" analysis by comparing the actual state of assets against their intended secure hardening templates."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG18.1",
+        "Rationale": "The detailed, up-to-date architecture diagrams generated by Cloudcraft are a critical input for scoping a penetration test, providing testers with a map of the environment and helping teams prioritize remediation of findings."
+    },
+    {
+        "ToolID": "T420",
+        "SafeguardID": "SG18.2",
+        "Rationale": "The tool's diagrams clearly identify the external attack surface, which is necessary for planning and executing an external penetration test."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Cloudflare Access policies function as granular, identity-aware access control lists for applications. You can define who (which user or group) can access what (which specific application or URL) based on their identity."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The solution enforces HTTPS (TLS) for all web applications it protects, ensuring that all data in transit between the end-user and the Cloudflare network is encrypted."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG4.6",
+        "Rationale": "It allows organizations to provide access to administrative interfaces (like SSH, RDP, or web consoles) without exposing them directly to the internet. Access is proxied and authenticated through Cloudflare's secure network."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG5.4",
+        "Rationale": "You can create specific policies that grant access to sensitive administrative applications only to users who are members of \"Administrator\" groups within your identity provider."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG5.6",
+        "Rationale": "The tool is not an identity provider itself but integrates with and enforces centralized account management by connecting to directory services like Okta, Azure AD, or Google Workspace."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.1",
+        "Rationale": "Access policies are tied to an organization's central identity provider. The process of granting access is streamlined: adding a user to a specific group in the IdP automatically grants them the corresponding application access rights defined in Cloudflare."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Access is revoked in near-real-time. When a user is removed from a group or disabled in the central identity provider, their next request to an application will be denied by Cloudflare Access."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.3",
+        "Rationale": "This is a core function. Cloudflare Access can be configured to require Multi-Factor Authentication (MFA) for any application, whether it's an external SaaS app or an internal, self-hosted tool."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.4",
+        "Rationale": "Cloudflare Access serves as a modern replacement for traditional remote access VPNs. It enforces MFA on every remote user's connection to any protected resource."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.5",
+        "Rationale": "You can create highly-specific policies for administrative applications or user groups that always require MFA for every login, even if other applications have more lenient policies."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.7",
+        "Rationale": "This is the primary function of the tool. It centralizes access control for all protected applications (web, SaaS, SSH, RDP) into a single dashboard and policy engine."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Access policies are built by mapping user roles and groups from your identity provider (e.g., \"Finance,\" \"Engineers,\" \"Contractors\") to specific applications, which is the definition of RBAC."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The solution generates an audit log for every single access request (both allowed and denied) to all protected applications."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG8.5",
+        "Rationale": "These logs are detailed, including the event timestamp, user identity, source IP address, application requested, and the policy action (Allow/Deny), which is essential for forensic analysis."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All access logs from all applications are centralized in the Cloudflare dashboard and can be automatically exported to a SIEM or log analytics platform."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG12.2",
+        "Rationale": "Implementing Cloudflare Access is a key step in adopting a Zero Trust network architecture, which moves security from the traditional network perimeter to individual users and devices."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG12.7",
+        "Rationale": "While Cloudflare Access replaces the traditional VPN, it directly fulfills the intent of this safeguard. It ensures all remote devices are fully authenticated and authorized via a central AAA infrastructure (your IdP) before any access to enterprise resources is granted."
+    },
+    {
+        "ToolID": "T208",
+        "SafeguardID": "SG13.5",
+        "Rationale": "Access policies can be based on more than just user identity. They can also check for device posture, such as ensuring the device is running up-to-date anti-malware, is managed by the enterprise, or has a valid client certificate."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG1.5",
+        "Rationale": "The tool's centralized logging dashboard shows all DNS queries from all internal IP addresses, which helps passively identify assets connected to the network."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool supports DNS over HTTPS (DoH) and DNS over TLS (DoT), which encrypt DNS queries (which can be sensitive data) while they are in transit to prevent eavesdropping."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Implementing Cloudflare DNS is the act of configuring enterprise assets and network infrastructure to use a trusted, security-vetted DNS server."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The tool is designed to collect and store audit logs for all DNS requests made by assets within the enterprise."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG8.6",
+        "Rationale": "This is a primary function of the tool. It collects all DNS query logs from assets configured to use it."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The tool logs the destination domain (e.g., malicious-site.com) of all requests, which functions as a URL request log for security and analysis purposes."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All DNS logs from all protected devices and networks are centralized in the Cloudflare dashboard for retention, analysis, and review."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The tool provides a central dashboard, analytics, and reports that allow security personnel to review DNS query logs to detect anomalies or abnormal events."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG9.2",
+        "Rationale": "This is the tool's core security function. It is a DNS filtering service that blocks access to known malicious domains (phishing, malware, etc.) and unwanted content categories."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG9.3",
+        "Rationale": "The tool acts as a network-based filter, using the DNS protocol to block connections to \"malicious or unapproved websites\" based on security and content categories."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The tool's dashboard centralizes security events and alerts, such as when a device attempts to access a blocked malicious, C2, or phishing domain."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG13.3",
+        "Rationale": "By monitoring DNS requests, the tool can detect attempts to connect to known Command and Control (C2) servers, botnets, or phishing sites, acting as a form of Network Intrusion Detection System (NIDS)."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG13.6",
+        "Rationale": "DNS query logs are a critical component of network traffic flow logs, showing which assets are attempting to communicate with which external domains."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG13.8",
+        "Rationale": "By blocking DNS resolution for malicious domains, the tool prevents the asset from ever establishing a connection to the malicious server, acting as a Network Intrusion Prevention System (NIPS)."
+    },
+    {
+        "ToolID": "T151",
+        "SafeguardID": "SG13.10",
+        "Rationale": "DNS operates at the Application Layer (Layer 7), and the tool performs filtering at this layer to block malicious or unauthorized requests."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool's primary function is to create a secure, encrypted tunnel (using HTTPS) between the origin server and the Cloudflare edge, protecting all data in transit from being exposed to the public internet.CIS Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG4.2",
+        "Rationale": "Cloudflare Tunnel is a core component of a modern, secure network architecture. It is configured to securely expose services and is managed as-code (IaC) or via a central dashboard, aligning with secure configuration principles."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The tool is frequently used to provide secure, encrypted, and authenticated access to the administrative interfaces of internal assets (e.g., web GUIs, dashboards) without exposing insecure management protocols (like HTTP) or any port directly to the internet.CIS Control 6: Access Control Management"
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG6.3",
+        "Rationale": "When combined with Cloudflare Access (part of the same ZTNA suite), the Tunnel acts as the enforcement point to require MFA for any user attempting to reach an internally-hosted application, even if the application itself doesn't support MFA."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG6.4",
+        "Rationale": "Cloudflare Tunnel serves as a modern replacement for a traditional VPN. It provides remote access to internal resources and, when combined with Cloudflare Access, enforces MFA for that access."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG6.5",
+        "Rationale": "By placing administrative web panels (e.g., for servers, routers, or applications) behind a Tunnel, an organization can enforce MFA through Cloudflare Access for all administrative accounts."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG6.7",
+        "Rationale": "The tool is a key part of a centralized Zero Trust platform. It routes access requests for many different internal applications through a single, centralized policy engine (Cloudflare Access) to enforce authentication and authorization.CIS Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The Cloudflare platform, which manages all Tunnel connections, generates detailed logs for all access requests, authentication events, and policy decisions."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Logs generated by the platform include critical forensic elements such as the event source, date, username, timestamp, and source/destination addresses for all traffic passing through the tunnel."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All logs from Tunnel and Access policies are centralized within the Cloudflare dashboard and can be exported to a SIEM, rather than being scattered across individual application servers."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The centralized Cloudflare dashboard provides the necessary interface to review these audit logs to detect anomalies or abnormal events.CIS Control 12: Network Infrastructure Management"
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG12.1",
+        "Rationale": "As a managed service, the internet-facing part of the Tunnel (the Cloudflare edge) is continuously updated by Cloudflare, removing the burden of patching and maintaining traditional reverse-proxy hardware from the enterprise."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG12.2",
+        "Rationale": "The tool is a foundational technology for implementing a Zero Trust architecture, which is a modern, secure network design. It eliminates attack surfaces by closing all inbound ports, adhering to a principle of least privilege."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The tunnel itself is managed securely via HTTPS (to the Cloudflare dashboard) or via the cloudflared daemon, which uses secure protocols for its own configuration and operation."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG12.7",
+        "Rationale": "Cloudflare Tunnel, when used with Cloudflare Access, functions as a VPN-less remote access solution that requires users to authenticate against the enterprise's identity provider (the AAA infrastructure) before any access is granted.CIS Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG13.3",
+        "Rationale": "All traffic passing through the Tunnel to the origin server is first inspected by Cloudflare's edge, which includes DDoS protection and (optionally) a Web Application Firewall (WAF), acting as a NIDS/NIPS."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG13.5",
+        "Rationale": "The platform can enforce device posture checks (e.g., ensuring anti-malware is running) before allowing a remote asset to connect through the Tunnel to enterprise resources."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG13.6",
+        "Rationale": "The Cloudflare dashboard logs all Layer 7 (HTTP) and, if configured, Layer 4 (TCP) traffic flows that pass through the Tunnels."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG13.8",
+        "Rationale": "Cloudflare's DDoS mitigation and WAF, which protect all traffic going through the Tunnel, function as a NIPS by actively blocking malicious requests before they reach the origin server."
+    },
+    {
+        "ToolID": "T100",
+        "SafeguardID": "SG13.10",
+        "Rationale": "The Cloudflare Web Application Firewall (WAF) can be applied to traffic on a Tunnel, providing granular, application-layer filtering to block threats like SQL injection and XSS."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The WAF is an integral part of the web application delivery, managing and enforcing Transport Layer Security (TLS). It ensures that all traffic between the user and the application is encrypted, which is a primary example of this safeguard.Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG4.4",
+        "Rationale": "While this safeguard traditionally refers to host-based firewalls, a WAF is an \"application layer firewall\" (L7) that specifically protects the web server. It fulfills the intent by filtering malicious traffic before it reaches the server, acting as a critical, server-focused firewall.Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG7.7",
+        "Rationale": "A WAF provides \"virtual patching\". When a new vulnerability (like a zero-day) is discovered in a web application, a WAF rule can be deployed immediately to block the exploit, effectively \"remediating\" the vulnerability at the edge while the underlying code is being fixed.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The WAF is a primary source for web traffic logs. It is configured by default to log all incoming requests, including those that are blocked, challenged, or allowed."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG8.5",
+        "Rationale": "WAF logs are highly detailed, containing event source (IP), date/timestamp, username (if available), source/destination addresses, the full URL request, and the specific reason a request was blocked (e.g., \"SQL Injection\")."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG8.7",
+        "Rationale": "This is a core function of the tool. The WAF's primary purpose is to inspect and log every URL request made to the web application."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG8.9",
+        "Rationale": "As a cloud service, Cloudflare's WAF inherently centralizes logs from its entire global network into a single dashboard. It also provides integrations to forward these logs to a centralized SIEM."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The Cloudflare dashboard provides the analytics, alerts, and filtering tools necessary to review WAF logs in real-time to detect anomalies, identify attack patterns, and investigate potential threats.Control 9: Email and Web Browser Protections"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG9.3",
+        "Rationale": "A WAF is an advanced network-based URL filter. It can be configured with custom rules to block access to specific URL paths (e.g., /admin) or to filter requests based on patterns in the URL that are known to be malicious.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The WAF generates security events for all blocked and challenged traffic. These events are centralized in the Cloudflare dashboard and can trigger real-time alerts. They are a critical data source for a SIEM, which is the \"best practice implementation\" mentioned in the safeguard."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG13.3",
+        "Rationale": "In its \"Log\" or \"Simulate\" mode, the WAF functions as a Network Intrusion Detection System (NIDS) for web traffic. It detects and logs malicious requests (like SQLi, XSS) without blocking them, allowing for monitoring and analysis."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG13.6",
+        "Rationale": "WAF logs are a form of specialized, application-layer (L7) network traffic logs. They provide complete visibility into all HTTP/S requests, which is a more detailed view than traditional (L3/L4) network flow logs."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG13.8",
+        "Rationale": "This is the primary function of a WAF. When set to \"Block\" or \"Challenge\" mode, it actively prevents detected intrusions (e.g., OWASP Top 10 attacks) from reaching the web application, making it a web-focused Network Intrusion Prevention System (NIPS)."
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG13.10",
+        "Rationale": "This safeguard is the textbook definition of a WAF. The Cloudflare WAF is an \"application layer firewall\" that filters traffic based on application-layer (HTTP/S) data, such as headers, cookies, and request bodies.Control 16: Application Software Security"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG16.10",
+        "Rationale": "A WAF is used to enforce secure design principles as a compensating control. For example, it enforces the \"never trust user input\" principle by validating, filtering, and sanitizing input at the network edge before the application's code ever processes it.Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T487",
+        "SafeguardID": "SG17.8",
+        "Rationale": "In the event of a web-based security incident, the detailed WAF logs are one of the most critical sources of data. They are essential for a post-incident review to determine the attack vector, the attacker's source IP, the timeline of the attack, and which vulnerabilities were targeted."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Coalition Control's attack surface monitoring scans and inventories an organization's external digital footprint, including domains, IP addresses, and open ports, which forms the basis of an external asset inventory."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The platform's scanning engine functions as an active discovery tool for external enterprise assets, identifying services and IPs connected to the internet.CIS Control 2: Inventory and Control of Software Assets"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The external scanning feature identifies and catalogs the \"apps & services\" running on an organization's perimeter, contributing to an inventory of internet-facing software.CIS Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The platform's scanning capabilities reportedly detect \"data leaks,\" which would help an organization identify sensitive data that has been exposed and update its data inventory.CIS Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The entire platform is designed around this concept, providing \"personalized Cyber Risk Assessment\" and \"step-by-step remediation\" guides to institutionalize a vulnerability management process."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG7.2",
+        "Rationale": "Coalition Control \"prioritizes the risks most likely to result in a cyber breach\" and provides \"prioritized action steps,\" directly supporting a risk-based remediation strategy."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG7.6",
+        "Rationale": "This is a core function of the tool. It \"routinely scan[s] your organization's external digital footprint and alert[s] you to existing and emerging vulnerabilities,\" including \"Zero-Day Alerts.\"CIS Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The Managed Detection and Response (MDR) service add-on is built to centralize, correlate, and analyze security alerts from EDR and XDR solutions."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The MDR service explicitly states it manages an organization's \"EDR and XDR solutions,\" which are the primary tools for host-based intrusion detection."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG13.7",
+        "Rationale": "Advanced EDR/XDR tools, managed by the MDR service, include prevention capabilities (such as terminating malicious processes) that satisfy this safeguard.CIS Control 14: Security Awareness and Skills Training"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG14.1",
+        "Rationale": "The Security Awareness Training add-on provides a customizable course of videos and simulations to educate the workforce, directly enabling the establishment of a formal program."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The training module includes \"phishing attack simulations\" specifically designed to train employees to recognize and report social engineering.CIS Control 15: Service Provider Management"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG15.1",
+        "Rationale": "Coalition Control's platform includes \"Third-Party Risk Management\" that \"monitors your suppliers and vendors,\" helping to maintain an inventory of service providers."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG15.3",
+        "Rationale": "By monitoring vendor risk, the tool provides data (e.g., a \"cyber health rating\" for a vendor) that allows an organization to classify its service providers based on their security posture."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG15.6",
+        "Rationale": "This is an explicit feature of the platform, which \"monitors your suppliers and vendors for risks on their attack surfaces, alerting you to any threats.\"CIS Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG17.1",
+        "Rationale": "By subscribing to the affiliate Coalition Incident Response (CIR) service, an organization effectively designates Coalition's experts as the personnel to manage incident handling."
+    },
+    {
+        "ToolID": "T23",
+        "SafeguardID": "SG17.4",
+        "Rationale": "The CIR service provides a pre-defined and battle-tested process for incident response, which an organization adopts when engaging them."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG7.7",
+        "Rationale": "By attempting to exploit known vulnerabilities, Cobalt Strike validates whether the enterprise's remediation process was successful. A successful exploitation proves remediation failed."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG13.1",
+        "Rationale": "A core goal of a Cobalt Strike engagement is to test if its activities—such as C2 (Command and Control) communication, lateral movement, or privilege escalation—generate alerts in a SIEM or other centralized system."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Cobalt Strike's \"Beacon\" payload uses in-memory execution and other advanced techniques to evade host-based detection, directly testing the effectiveness of EDR and HIDS solutions."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG13.3",
+        "Rationale": "The \"Malleable C2\" feature allows attackers to disguise network traffic to evade NIDS. A Cobalt Strike test validates if the NIDS can detect this sophisticated, blended traffic."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG13.7",
+        "Rationale": "This safeguard is tested to see if the HIPS can prevent Cobalt Strike's post-exploitation activities, such as process injection or credential theft, from executing."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG13.8",
+        "Rationale": "This safeguard is tested to see if the NIPS can automatically block Cobalt Strike's C2 traffic, even when it is disguised."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG14.2",
+        "Rationale": "Cobalt Strike includes tools to craft and execute spear-phishing campaigns. This provides a direct, practical test of whether security awareness training was effective."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG16.13",
+        "Rationale": "While not a traditional web application scanner, Cobalt Strike is often used in the post-exploitation phase of an application test to demonstrate the full impact of a vulnerability (e.g., pivoting from the webserver into the internal network)."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG17.7",
+        "Rationale": "Using Cobalt Strike is a form of incident response exercise. It simulates a live attacker to test the IR team's entire process from detection to remediation."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The detailed logs and reports generated by Cobalt Strike are a key input for the post-incident review, allowing the blue team to see exactly what the \"attacker\" did and improve their defenses."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG18.1",
+        "Rationale": "Cobalt Strike is a \"gold standard\" tool used by professional red teams to execute the advanced scenarios required by a mature penetration testing program."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG18.2",
+        "Rationale": "This tool is commonly used in external tests to simulate an attacker's actions after the initial breach, focusing on C2 and data exfiltration."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG18.4",
+        "Rationale": "This is the single best description of Cobalt Strike's purpose. It is used to validate the entire security stack—from firewalls and EDR to the SIEM and the incident response team."
+    },
+    {
+        "ToolID": "T713",
+        "SafeguardID": "SG18.5",
+        "Rationale": "Cobalt Strike is ideal for internal tests, simulating a scenario where an attacker has already gained a foothold (e.g., via a compromised laptop) and is now moving laterally through the network."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG7.2",
+        "Rationale": "The Cobalt.io platform provides a structured workflow for identifying, reporting, and managing vulnerabilities, including integrations with development tools (like Jira) to help organizations build and maintain a remediation process."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The primary goal of the service is to find exploitable vulnerabilities so that the organization can remediate them. The platform's real-time feedback and collaboration features are designed to speed up this remediation.CIS Control 16: Application Security"
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG16.2",
+        "Rationale": "The Cobalt.io platform functions as a formal intake and management system for vulnerabilities discovered by third-party testers, fulfilling the need for a process to accept and address these reports."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG16.13",
+        "Rationale": "This is a core, explicitly stated service. Cobalt.io provides \"Application Pentest Services\" for web applications, mobile apps, and APIs, using human experts to find flaws."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG16.14",
+        "Rationale": "Cobalt.io offers services like a \"Digital Risk Assessment\" which uses OSINT methodologies to assess an organization from an adversary's perspective, which is a key component of threat modeling.CIS Control 18: Penetration Testing"
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG18.1",
+        "Rationale": "The PtaaS platform is designed for managing an ongoing testing program, allowing organizations to plan, schedule, and track pentests over time, moving beyond ad-hoc testing."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG18.2",
+        "Rationale": "This is the central function of Cobalt.io. It provides qualified, on-demand testers to conduct external penetration tests against an organization's applications, networks, and cloud infrastructure."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG18.3",
+        "Rationale": "The platform is built to accelerate remediation by providing real-time results, detailed findings, and direct collaboration with the testers to clarify issues."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG18.4",
+        "Rationale": "Cobalt.io includes free retesting (also called \"fix validation\"), which allows organizations to confirm that vulnerabilities have been successfully remediated and that the security measure is effective."
+    },
+    {
+        "ToolID": "T635",
+        "SafeguardID": "SG18.5",
+        "Rationale": "In addition to external testing, Cobalt.io's \"Network Pentest Service\" can be scoped to assess internal networks, fulfilling the requirement for internal penetration tests."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.1",
+        "Rationale": "A K-12 district can use Codecademy's \"Introduction to Cybersecurity\" course as a foundational component of its security awareness program for all staff and technically-inclined students."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The platform's cybersecurity courses, such as the \"Fundamentals of Cybersecurity\" path, explicitly cover \"phishing and other social engineering tactics,\" training the workforce to recognize these threats."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.3",
+        "Rationale": "The \"Introduction to Cybersecurity\" course includes a specific module on \"Cryptography, Authentication, & Authorization,\" directly addressing this safeguard's requirement."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.4",
+        "Rationale": "Training modules on \"how to keep our data secure online\" teach the principles of secure data handling, clear screen practices, and protecting data from unauthorized access."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.6",
+        "Rationale": "By training users to recognize \"Cyber Threats\", the platform fulfills the first and most critical step of incident reporting: recognition. An organization would then supplement this with its internal reporting procedures."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.8",
+        "Rationale": "The \"Introduction to Cybersecurity\" course covers \"Network Security Basics\", which includes understanding the risks associated with insecure networks."
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG14.9",
+        "Rationale": "This is a key strength. A district's IT staff, developers, or computer science teachers can take advanced, role-specific courses (e.g., \"Becoming a Secure Coder,\" \"Secure Coding Practices in Java\") that go far beyond general awareness.CIS Control 16: Application Security"
+    },
+    {
+        "ToolID": "T619",
+        "SafeguardID": "SG16.9",
+        "Rationale": "Codecademy offers a library of courses like \"Becoming a Secure Coder\" and \"Secure Coding Practices in C\", which are specifically designed to train developers and CS students on how to write secure code and avoid common vulnerabilities."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The platform includes data classification capabilities, which can scan and identify sensitive data within backups, helping to maintain an inventory of protected data."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG3.4",
+        "Rationale": "This is a core function. The tool automates data retention by enforcing backup policies that define how long data is kept, fulfilling both minimum and maximum retention requirements."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG3.5",
+        "Rationale": "By enforcing data retention policies ("
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The platform is specified to use FIPS 140-2 compliant AES-256 encryption for data \"in flight,\" securing backup data as it moves from the source to the Cohesity cluster or cloud."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG3.11",
+        "Rationale": "The platform encrypts all backup data \"at rest\" using AES-256 encryption, ensuring the data stored in the backup repository is protected from unauthorized access.CIS Control 5: Account Management"
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG5.4",
+        "Rationale": "The tool provides Role-Based Access Control (RBAC), allowing organizations to create dedicated administrative accounts with specific, limited privileges for managing the backup environment."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG5.6",
+        "Rationale": "The platform provides a single, centralized management plane (Cohesity Helios) for all data protection tasks, including support for Single Sign-On (SSO) and RBAC to manage user and administrator accounts.CIS Control 6: Access Control Management"
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG6.5",
+        "Rationale": "The tool explicitly supports and enforces multi-factor authentication (MFA) for administrative access to its management interface, protecting against unauthorized changes to backup policies or data."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG6.8",
+        "Rationale": "This is a native feature. The platform allows for the creation of granular roles and permissions, ensuring users and administrators only have the access necessary for their duties (e.g., view logs vs. perform restores vs. change policies).CIS Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG8.3",
+        "Rationale": "As a scalable storage platform, Cohesity can be used as the destination to back up and store large volumes of audit logs from other enterprise assets."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The tool can be configured to back up audit logs from across the enterprise and enforce specific, long-term retention policies (e.g., 90+ days) to meet compliance requirements.CIS Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG10.7",
+        "Rationale": "Cohesity includes AI/ML-based anomaly detection. This feature monitors data change rates and patterns to identify potential ransomware activity, alerting administrators to an attack in progress, which functions as a behavior-based detection mechanism.CIS Control 11: Data Recovery"
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG11.1",
+        "Rationale": "This is the tool's core purpose. It is the technology used to build, automate, and execute the \"detailed backup procedures\" and recovery plans that this safeguard requires."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG11.2",
+        "Rationale": "The platform's primary function is to run automated, policy-based backups of enterprise assets (servers, VMs, SaaS apps, etc.) on a defined schedule."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG11.3",
+        "Rationale": "The tool is designed for this. It protects backup data using a multi-layered approach, including immutability (WORM), encryption, MFA, and RBAC, to prevent backups from being modified or deleted by attackers."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG11.4",
+        "Rationale": "The platform directly provides this capability through features like \"Cohesity FortKnox,\" which is a managed cloud vault that stores an immutable, air-gapped copy of data, isolated from the primary network."
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The tool's \"instant mass restore\" and \"instant volume mount\" features allow administrators to quickly and non-disruptively mount backups to test their integrity and recoverability, facilitating the regular testing required by this safeguard.CIS Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T389",
+        "SafeguardID": "SG17.8",
+        "Rationale": "In the event of a ransomware attack, the tool's logs, anomaly alerts, and threat-scanning features provide critical data for post-incident reviews to understand how the incident occurred and how recovery was performed. Case studies (e.g., Spring ISD) confirm its role in rapid recovery, a key part of the incident response lifecycle."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Collibra's Data Catalog creates a detailed inventory of data assets, including databases, data lakes, reports, and AI models. While not a traditional hardware inventory, it provides a deep inventory of assets that \"store or process data,\" which is a key part of this safeguard.Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.1",
+        "Rationale": "The tool is designed to implement and automate a data management process by centralizing data-related policies, definitions, and workflows."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.2",
+        "Rationale": "This is a core function. The Collibra Data Catalog acts as the central \"data inventory\", with a priority on cataloging \"sensitive data\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.3",
+        "Rationale": "The platform enables the \"assigning [of] roles and responsibilities\" to data assets, which supports the configuration of data access controls based on a user's \"need to know\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.4",
+        "Rationale": "Collibra's policy management capabilities allow an enterprise to define and manage data retention policies as part of the data lifecycle."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The platform supports this by documenting and managing the data management process, which includes \"disposal requirements\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.7",
+        "Rationale": "This is a primary feature. Collibra uses \"manual and automated classification\" to identify and label data (e.g., PII, \"Sensitive,\" \"Confidential\"), which establishes the enterprise's \"data classification scheme\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.8",
+        "Rationale": "The tool's \"Automated Data Lineage\" capability creates visual maps showing \"how data flows from system to system,\" directly fulfilling the need to \"document data flows\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.12",
+        "Rationale": "By first classifying data ("
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The platform provides \"auditable logging and tracing\" and can \"monitor... all personal-data user access activity,\" which directly addresses the requirement to \"log sensitive data access\".Control 6: Access Control Management"
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG6.1",
+        "Rationale": "Collibra includes \"access request workflows\" that allow users to formally request access to data assets, automating the \"process for granting access\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG6.2",
+        "Rationale": "By centralizing data access policies, the tool supports automated \"revoking [of] access... upon... role change\". When a user's role is changed in the central identity system, their access to data in Collibra is updated accordingly."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The platform is built on defining and maintaining \"role-based access\" by allowing administrators to assign data-specific roles and responsibilities to users, ensuring they can only access data appropriate for their role.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The platform's \"auditable logging and tracing capabilities\" fulfill the requirement to \"collect audit logs\" for data access and governance activities."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Collibra's logging is focused on \"personal-data user access activity,\" which directly aligns with collecting \"detailed audit logging for enterprise assets containing sensitive data\"."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The platform includes dashboards and User-Based Analytics (UBA) to \"detect anomalies and suspicious user behavior,\" providing the tools to \"conduct reviews of audit logs\".Control 15: Service Provider Management"
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG15.1",
+        "Rationale": "Collibra's data lineage feature can \"visualize how [data] flows throughout the organization and third parties.\" This creates an inventory of service providers (\"third parties\") that process or store enterprise data."
+    },
+    {
+        "ToolID": "T93",
+        "SafeguardID": "SG15.3",
+        "Rationale": "By knowing what type of data is flowing to a third party (using its data classification features), the tool enables an enterprise to \"classify service providers\" based on \"data sensitivity\"."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.1",
+        "Rationale": "The tool's features directly enforce critical parts of a data management process, particularly data retention limits and disposal requirements."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.2",
+        "Rationale": "Commvault includes data discovery and classification tools that can scan data and help establish and maintain an inventory of sensitive data."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.4",
+        "Rationale": "This is a core function of the platform, allowing administrators to create and automatically enforce data retention policies for backups and archives."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The platform securely disposes of data by purging it from backup media once it has exceeded its documented retention timeline."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.6",
+        "Rationale": "While not a direct Full Disk Encryption (FDE) tool, Commvault's endpoint protection features back up data from end-user devices and secure that data with its own file-level encryption, protecting the data once it leaves the device."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.7",
+        "Rationale": "The platform includes automated data classification capabilities, allowing an enterprise to identify and apply labels (like \"Sensitive\" or \"Confidential\") to data it manages."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.10",
+        "Rationale": "The tool encrypts backup and replication data \"in flight\" as it is transmitted between servers, cloud environments, and off-site locations."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.11",
+        "Rationale": "The platform encrypts all backup data \"at rest\" on its target media, whether on disk, tape, or in the cloud."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Commvault's data discovery and classification features allow it to identify sensitive data across repositories, acting as a data-at-rest discovery tool to support DLP efforts."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The platform provides access governance features and comprehensive audit trails, which log access and administrative actions performed within the Commvault environment, supporting compliance and investigation.CIS Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG8.1",
+        "Rationale": "Commvault generates and maintains its own detailed audit logs for all backup, recovery, and administrative tasks, which is a key component of an enterprise's overall logging process."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG8.3",
+        "Rationale": "The platform manages the storage for its own logs and metadata, using deduplication and compression to ensure retention requirements are met."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The same data retention policies used for backups can be applied to the platform's internal audit logs and job history, ensuring they are retained for the required period.CIS Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG10.7",
+        "Rationale": "Commvault includes \"Anomaly Detection\" which monitors backup data for unusual activity (like mass file changes or encryption) indicative of a ransomware attack. This acts as a behavior-based defense for the backup data itself.CIS Control 11: Data Recovery"
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG11.1",
+        "Rationale": "The platform is the technical engine for executing the \"detailed backup procedures\" and recovery plans outlined in this safeguard."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG11.2",
+        "Rationale": "This is the primary function of Commvault. It allows for scheduling and automating backups of servers, applications, and endpoints across the enterprise."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG11.3",
+        "Rationale": "Commvault protects its backup data through encryption at rest and in transit, ensuring the recovery data is as secure as the original data."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG11.4",
+        "Rationale": "The tool is designed to create isolated, or \"air-gapped,\" copies of data in off-site locations, tape, or immutable cloud storage, which is a critical defense against ransomware."
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG11.5",
+        "Rationale": "The platform includes features for recovery validation and automated disaster recovery failover/failback testing, allowing an organization to test its data recovery capabilities without impacting production systems.CIS Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T74",
+        "SafeguardID": "SG17.8",
+        "Rationale": "In the event of an incident, Commvault's \"Cleanroom Recovery\" and forensic analysis features allow responders to restore data to an isolated environment for post-incident investigation and analysis."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The tool provides a real-time, detailed inventory of all managed, unmanaged, and unsupported assets (end-user devices, servers) connected to the enterprise."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG1.2",
+        "Rationale": "By providing a continuous, real-time inventory, Falcon Discover allows IT and security teams to instantly identify new or \"rogue\" assets as they appear, enabling the process to quarantine or remove them."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG1.3",
+        "Rationale": "Falcon Discover acts as a discovery tool to identify assets connected to the network, fulfilling the need for an automated tool to find and document assets.Control 2: Inventory and Control of Software AssetsThe tool's application inventory provides deep visibility into all software running in the environment."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Falcon Discover automatically generates a \"real-time application inventory\" that documents installed software, including sanctioned, unsanctioned, and suspicious applications."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG2.3",
+        "Rationale": "The tool's dashboards specifically highlight \"unsanctioned\" and \"suspicious\" applications, providing the necessary data to find and remove unauthorized software."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Falcon Discover is an automated software inventory tool that uses its single endpoint agent to continuously discover and document installed software without requiring manual intervention.Control 5: Account ManagementA core feature of Falcon Discover is its comprehensive account monitoring and inventory capability."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The tool provides an \"Account Monitoring\" dashboard that inventories user, administrator, and service accounts across all Windows hosts."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG5.3",
+        "Rationale": "The account monitoring feature tracks \"user logon activities,\" which can be used to identify accounts that have been inactive for 45 days or more, flagging them for disablement."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG5.4",
+        "Rationale": "Falcon Discover specifically tracks and monitors the use of administrator credentials, providing visibility into which users have administrative privileges and how they are being used."
+    },
+    {
+        "ToolID": "T38",
+        "SafeguardID": "SG5.5",
+        "Rationale": "The account monitoring functionality extends to all account types, including service accounts, allowing organizations to inventory their purpose and usage."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The Falcon Discover module provides real-time and historical asset inventory, identifying devices connected to the network."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG1.2",
+        "Rationale": "By providing a comprehensive inventory ("
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The Falcon agent actively communicates with the cloud, and the Discover module actively scans and identifies asset details, fulfilling this requirement.Control 2: Software Inventory"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The Falcon Discover module provides a detailed and continuously updated inventory of all software and applications installed on all endpoints where the Falcon agent is deployed."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Using the inventory from"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The platform's application control features can be used to create and enforce application allowlists, ensuring only authorized software can execute.Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG3.9",
+        "Rationale": "The Falcon Device Control module provides visibility and control over USB and other removable media, which is the enforcement mechanism needed to ensure encryption policies are being followed.Control 4: Secure Configuration"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG4.1",
+        "Rationale": "The Falcon Spotlight (vulnerability management) and Falcon Discover (IT hygiene) modules can assess endpoint configurations against benchmarks like CIS to identify misconfigurations."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG4.4",
+        "Rationale": "The Falcon Firewall Management module provides a centralized, host-based firewall management solution for servers."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG4.5",
+        "Rationale": "The Falcon Firewall Management module allows administrators to centrally create, enforce, and monitor host-based firewall policies on all end-user devices.Control 5: Account Management"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The Falcon Discover (IT hygiene) module can identify and inventory local and domain accounts, including administrator accounts, on endpoints."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG5.3",
+        "Rationale": "By inventorying accounts and their activity, Falcon Discover helps administrators identify dormant accounts that need to be disabled.Control 6: Access Control Management"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG6.3",
+        "Rationale": "While not an MFA provider, Falcon's Identity Protection module can detect and prevent identity-based attacks that seek to bypass MFA, adding a critical layer of protection."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG6.5",
+        "Rationale": "Falcon's Identity Protection module monitors for and alerts on suspicious administrative account activity, helping to enforce and protect privileged access.Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The Falcon Spotlight module is a dedicated vulnerability management solution that provides the data and workflows needed to run this process."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG7.2",
+        "Rationale": "Falcon Spotlight provides rich, prioritized vulnerability data, including remediation guidance, which is the foundation of a risk-based remediation process."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG7.5",
+        "Rationale": "Falcon Spotlight provides \"agent-based\" vulnerability scanning, which is continuous and automated for all internal assets with the agent installed."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The platform provides the necessary vulnerability detection, prioritization, and tracking to manage and verify the remediation of vulnerabilities.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.1",
+        "Rationale": "The platform is a comprehensive log generation and collection tool, providing the raw data needed for an audit log management process."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The Falcon agent collects deep endpoint telemetry, including process creation, network connections, file modifications, and more."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.3",
+        "Rationale": "As a cloud-native SaaS platform, CrowdStrike handles all log storage, retaining detailed endpoint telemetry for a set period (e.g., 30, 60, or 90+ days) based on the subscription."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The platform's EDR capability is built on collecting detailed forensic logs, including username, source/destination addresses, timestamps, and event details."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.8",
+        "Rationale": "This is a core feature of the EDR. The platform logs all command-line and script (e.g., PowerShell) execution for investigation and threat hunting."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All endpoint logs are streamed from the agent to the central, cloud-based Falcon platform, where they are indexed and correlated."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The entire Falcon Insight (EDR) module is built for this. It automates the review of logs to find threats (Indicators of Attack) and provides a console for security analysts to proactively hunt through and review logs.Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.1",
+        "Rationale": "This is the primary function of the Falcon Prevent (NGAV) module."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The cloud-native platform is \"signature-less\" but continuously updates its threat intelligence, AI models, and behavioral indicators in the cloud, meaning all endpoints are always protected with the latest intelligence without needing signature file downloads."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.3",
+        "Rationale": "This policy can be enforced using the Falcon Device Control module."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.4",
+        "Rationale": "The agent's real-time protection scans all file and process activity, which automatically covers any files accessed from or executed on removable media."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.5",
+        "Rationale": "This is a core strength. Falcon Prevent uses behavioral detection and AI to block memory-based attacks, fileless attacks, and common exploit techniques (e.g., for browsers or Office)."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.6",
+        "Rationale": "All policies, detections, and response actions are managed from a single, centralized cloud console."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG10.7",
+        "Rationale": "This is the foundation of Falcon's \"Indicators of Attack\" (IOA) engine, which detects malicious behavior rather than just matching file signatures.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The Falcon Insight (EDR) module functions as a sophisticated host-based IDS, detecting suspicious activity and adversary tradecraft."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The Falcon Prevent (NGAV) module actively blocks malicious processes, exploits, and network connections in real-time, functioning as a host-based IPS.Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG17.1",
+        "Rationale": "The Falcon Complete offering is a fully-managed service (MDR) where CrowdStrike's personnel are designated to manage incident handling 24/7."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG17.4",
+        "Rationale": "The Falcon platform provides the core tools for incident response, including detection, investigation, and remediation (e.g., remote containment, process killing, file deletion)."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG17.5",
+        "Rationale": "The platform's console supports role-based access, and the Falcon Complete (MDR) service is the assigned team for many organizations."
+    },
+    {
+        "ToolID": "T25",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The EDR's investigation \"timeline\" and \"process tree\" features provide all the necessary data to conduct a detailed post-incident review and root cause analysis."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The Falcon agent, once deployed, provides \"fleet-wide visibility\". Modules like \"Falcon Discover\" create a comprehensive inventory of all endpoints (servers, laptops, etc.) where the agent is installed."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG1.2",
+        "Rationale": "By providing a live inventory of all reporting assets, security teams can compare this data against a \"golden\" inventory to quickly identify and subsequently address any unauthorized devices that have connected to the network.Control 2: Inventory and Control of Software Assets"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The tool's continuous monitoring of \"running processes, network connections, [and] file changes\" inherently creates a detailed, real-time inventory of software running on all endpoints."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Security teams can use the software inventory to identify unauthorized applications. The \"Real Time Response (RTR)\" feature can then be used to kill the associated processes or uninstall the software."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The Falcon platform automates the discovery and documentation of installed software across all managed endpoints."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG2.5",
+        "Rationale": "The platform's ability to \"block processes\" and provide full visibility into all running applications gives security teams the mechanism to enforce application allowlisting policies."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG2.7",
+        "Rationale": "A core feature of its EDR capability is the detection, analysis, and blocking of script-based attacks, such as those using PowerShell or WMI.Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG3.13",
+        "Rationale": "The \"Falcon Data Protection\" module is designed to provide \"real-time visibility into what is happening with sensitive data and stops data theft\"."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG3.14",
+        "Rationale": "As part of its EDR and DLP functions, the tool monitors and logs file and process access, which can be configured to alert on access to assets containing sensitive data.Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG4.5",
+        "Rationale": "While not a firewall manager itself, Falcon's \"Zero Trust Assessment\" capability checks endpoint health and configuration, which includes verifying that the host firewall is active and properly configured."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG4.8",
+        "Rationale": "The platform's complete visibility into all running processes and services allows administrators to easily identify services that are unnecessary and should be disabled to reduce the attack surface.Control 5: Account Management"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG5.4",
+        "Rationale": "The \"Falcon Identity Threat Protection\" module helps enforce this by detecting \"credential abuse, lateral movement, and privilege escalation\", alerting teams when non-administrative accounts are attempting to perform privileged actions.Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The \"Falcon Spotlight\" module provides integrated vulnerability management, automating the identification and prioritization of vulnerabilities on endpoints."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG7.3",
+        "Rationale": "The \"Zero Trust Assessment\" and \"Spotlight\" modules identify \"OS settings that are out-of-date or increase risk\", providing the necessary data to drive automated patching."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG7.4",
+        "Rationale": "\"Falcon Spotlight\" identifies vulnerabilities in software, allowing teams to prioritize and automate application patching."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG7.5",
+        "Rationale": "This is the primary function of the \"Falcon Spotlight\" module, which continuously scans for vulnerabilities without needing traditional, heavy network scans."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG7.7",
+        "Rationale": "After \"Spotlight\" identifies a vulnerability, analysts can use \"Falcon Real Time Response (RTR)\" to connect directly to the endpoint and run scripts or deploy patches to remediate the finding.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG8.2",
+        "Rationale": "This is a fundamental EDR function. The Falcon agent \"continuously monitors all endpoint activity\" and \"captures over 400 raw events\" from each endpoint."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The tool provides \"forensic-level detail\", capturing process creation, network connections, file modifications, and more."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG8.8",
+        "Rationale": "Yes, the agent logs command-line activity, which is crucial for detecting script-based and fileless attacks."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All telemetry from all agents is sent to the \"Falcon Platform Cloud\", which acts as a \"central repository\" for analysis and investigation."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The platform retains this detailed event data for investigation, with \"Recall for up to 90 days\" being a standard offering."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG8.11",
+        "Rationale": "Falcon Insight automates this process by \"analyz[ing] the data in real time to automatically identify threat activity\" using AI and behavioral indicators of attack (IOAs).Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The \"Falcon Prevent\" module is a \"next-gen antivirus\" (NGAV) that protects against malware, ransomware, and other advanced attacks."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The tool is cloud-native and AI-driven, so it does not rely on traditional signatures. Its \"threat intelligence is shared instantly across all customers\", providing a modern, more effective equivalent."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.3",
+        "Rationale": "The \"Falcon Device Control\" module provides granular control over USB devices, including the ability to block \"autorun\" functionality."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.4",
+        "Rationale": "This is handled by the \"Falcon Device Control\" module in conjunction with the real-time protection of the \"Falcon Prevent\" NGAV module."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.5",
+        "Rationale": "This is a core strength. The platform uses \"exploit blocking\" and \"memory-based detection\" to stop attacks that traditional AVs would miss."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The entire platform, including all anti-malware policies and alerts, is managed from a single, cloud-based \"central console\"."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG10.7",
+        "Rationale": "This is Falcon's primary detection method. It uses \"indicators of attack (IOAs) to automatically identify attacker behavior\" rather than relying on known file signatures.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG13.1",
+        "Rationale": "This is a primary purpose of the XDR platform. It \"unifies... telemetry... into a centralized repository\" and presents correlated, \"prioritized alerts\" in a central \"Incident Workbench\"."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Falcon Insight is a \"host-based\" solution that \"continuously monitors all endpoint activity... to automatically identify threat activity\", which is the definition of a host-based IDS."
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG13.7",
+        "Rationale": "As an EDR (Endpoint Detection and Response) tool, it provides \"automated protection and remediation\". It can \"isolate machines, block processes,\" and \"revoke credentials\" to prevent an intrusion from succeeding.Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T57",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The platform is a critical tool for reviews, providing \"Endpoint timeline reconstruction\" and \"Recall for up to 90 days\". This allows investigators to determine the \"who, what, when, where, and how\" of an attack to prevent recurrence."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The Falcon Discover module provides real-time visibility into all connected devices (managed and unmanaged), detailing OS, hardware, and network information, which builds the foundation of an asset inventory."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG1.2",
+        "Rationale": "By identifying unmanaged assets, Falcon Discover allows IT and security teams to see unauthorized devices on the network and take action to remediate, quarantine, or onboard them."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG1.3",
+        "Rationale": "The Falcon platform's lightweight agent and network monitoring capabilities actively discover and identify assets across the enterprise, even those without an agent installed.CIS Control 2: Inventory and Control of Software Assets"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Falcon Discover inventories all applications and processes running across all endpoints, providing a comprehensive, real-time software inventory."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG2.3",
+        "Rationale": "The software inventory from Falcon Discover allows administrators to identify unauthorized or unwanted applications (e.g., \"grayware\") and use the platform's response actions to uninstall them."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Falcon Discover is an automated tool that continuously monitors and documents installed software on all endpoints where the Falcon agent is deployed."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG2.6",
+        "Rationale": "Falcon Prevent (NGAV) can be configured to block unauthorized libraries from loading, a key component of application allowlisting and attack prevention."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG2.7",
+        "Rationale": "Falcon Prevent provides script-blocking capabilities (e.g., for PowerShell, VBScript) that can be configured to only allow known, authorized scripts to execute, preventing malicious script-based attacks.CIS Control 3: Data Protection"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG3.6",
+        "Rationale": "While Falcon is not an encryption tool itself, Falcon Discover provides visibility into the encryption status of endpoint drives (e.g., BitLocker, FileVault), allowing teams to identify and remediate devices that are not in compliance."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG3.14",
+        "Rationale": "Falcon Insight (EDR) captures comprehensive endpoint activity, including file and data access events, which can be used to log and audit access to systems containing sensitive data.CIS Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG4.4",
+        "Rationale": "The Falcon platform includes a Firewall Management module that allows for the central creation and management of host-based firewall policies for servers."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG4.5",
+        "Rationale": "The Firewall Management module provides the same centralized policy control for host-based firewalls on all end-user devices (laptops, desktops)."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG4.6",
+        "Rationale": "Falcon Insight (EDR) monitors for and alerts on insecure management protocols (like Telnet or RDP) being used, helping to enforce secure management practices."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG4.7",
+        "Rationale": "Falcon Discover and Falcon Identity Protection provide visibility into all accounts (including local admin and service accounts) on endpoints, allowing teams to identify and manage default or orphaned accounts."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG4.8",
+        "Rationale": "The software inventory from Falcon Discover identifies all running services, enabling administrators to find and remove unnecessary services that could expand the attack surface.CIS Control 5: Account Management"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG5.1",
+        "Rationale": "Falcon Discover provides a real-time inventory of all user and local admin accounts across all managed endpoints."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG5.4",
+        "Rationale": "Falcon Identity Protection monitors for attempts at privilege escalation and credential dumping, while Falcon Insight (EDR) can detect when non-administrative accounts are used for administrative tasks (and vice-versa), helping enforce this separation."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG5.5",
+        "Rationale": "Falcon Discover and Falcon Identity Protection can identify and monitor service accounts, tracking their usage, privileges, and associated processes.CIS Control 6: Access Control Management"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG6.6",
+        "Rationale": "Falcon Identity Protection integrates with directory services (like Active Directory) to monitor authentication events, effectively providing visibility and detection capabilities for these critical systems."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG6.8",
+        "Rationale": "The detailed logging from Falcon Insight (EDR) and Falcon Identity Protection provides the necessary audit trail to review and validate that access rights are correctly applied and not being abused.CIS Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The Falcon Spotlight module is a dedicated vulnerability management tool that provides the technical foundation for this process."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG7.2",
+        "Rationale": "Falcon Spotlight provides risk-based prioritization for vulnerabilities (using its ExPRT rating), which is essential for an effective, risk-based remediation strategy."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG7.5",
+        "Rationale": "Falcon Spotlight provides continuous, \"scanless\" vulnerability assessment using the existing Falcon agent, eliminating the need for periodic network scans and providing real-time data."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG7.6",
+        "Rationale": "As long as the Falcon agent is on an externally-exposed asset, Falcon Spotlight will continuously assess it for vulnerabilities, regardless of its location."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG7.7",
+        "Rationale": "Falcon Spotlight identifies the specific patch or remediation required for each vulnerability and integrates with patch management systems to help automate and track remediation.CIS Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Falcon Insight (EDR) is fundamentally a log collection tool. Its agent \"acts like a DVR,\" capturing detailed telemetry on process execution, network connections, file access, registry changes, and more."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The EDR logs collected by Falcon Insight are highly detailed, including timestamps, usernames, source/destination IPs, full command-line arguments, and process lineage."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Falcon Insight captures all network activity from the endpoint, including DNS requests, providing rich logs for analysis."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.7",
+        "Rationale": "Endpoint network telemetry collection includes visibility into HTTP/S requests, allowing security teams to monitor web activity."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.8",
+        "Rationale": "This is a core feature of Falcon Insight, which captures full command-line arguments for all executed processes to detect fileless attacks and malicious activity."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All endpoint logs collected by the Falcon agent are streamed in real-time to the cloud-based Falcon platform, creating a centralized repository for all data."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.10",
+        "Rationale": "The Falcon platform retains detailed EDR data, typically for 30-90 days or more, depending on the subscription level, meeting this requirement."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The \"threat hunting\" capabilities within Falcon Insight are built specifically for searching, analyzing, and reviewing these centralized logs to find anomalies and potential threats.CIS Control 9: Email and Web Browser Protections"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG9.1",
+        "Rationale": "The software inventory from Falcon Discover can identify all browser and email client versions in use, allowing teams to find and update unsupported or outdated applications.CIS Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Falcon Prevent is CrowdStrike's next-generation antivirus (NGAV) solution, designed to replace traditional anti-malware software."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.2",
+        "Rationale": "As a cloud-native platform, Falcon does not rely on traditional signature updates. Its detection models are continuously updated in the cloud, and the agent's behavioral models are updated automatically without user intervention."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.3",
+        "Rationale": "The Falcon platform's Device Control module can enforce policies that block or monitor USB devices, which is the primary mechanism for preventing Autorun-based attacks."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.4",
+        "Rationale": "The Device Control module, combined with Falcon Prevent's real-time protection, automatically scans files on removable media as soon as they are accessed or written."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.5",
+        "Rationale": "Falcon Prevent includes advanced anti-exploitation features that block the techniques (e.g., ROP, memory-based attacks) used by exploits, protecting unpatched vulnerabilities."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.6",
+        "Rationale": "The entire Falcon platform is managed from a single, centralized cloud console, which controls all policies, detections, and responses for Falcon Prevent."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG10.7",
+        "Rationale": "This is the core of Falcon Prevent. It uses machine learning and Indicators of Attack (IOAs) to detect malicious behavior (e.g., a Word doc spawning PowerShell to download a file) rather than just known file signatures.CIS Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Falcon Insight (EDR) is a premier host-based intrusion detection solution, monitoring endpoint activity for Indicators of Attack (IOAs) and other suspicious behaviors."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG13.4",
+        "Rationale": "The Firewall Management module allows for granular, host-based firewall rules that can enforce network segmentation at the endpoint level, restricting traffic between subnets."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG13.6",
+        "Rationale": "Falcon Insight collects detailed network flow data (source/dest IP, port, protocol) from every endpoint, providing this visibility without network taps."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG13.7",
+        "Rationale": "Falcon Prevent (NGAV) actively blocks threats it detects, acting as a host-based intrusion prevention system (HIPS).CIS Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG17.4",
+        "Rationale": "Falcon Insight provides the core technical capabilities for modern incident response, including detection, investigation, and response (e.g., \"Real Time Response\" to remotely access and remediate a device)."
+    },
+    {
+        "ToolID": "T371",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The detailed logs, process trees, and event timelines recorded by Falcon Insight provide an immutable record of an attack, which is essential for conducting post-incident reviews and understanding the root cause."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.1",
+        "Rationale": "The tool is a comprehensive platform for managing and deploying an ongoing security awareness program. It includes a Learning Management System (LMS) to track employee progress, automate training assignments, and provide content annually or at hire."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.2",
+        "Rationale": "This is a core feature of the product. It includes a library of training episodes on phishing, smishing, and business email compromise (BEC), as well as a gamified phishing simulator to test and train employees on how to spot and report social engineering attacks."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.3",
+        "Rationale": "The platform's training library includes specific episodes dedicated to authentication, covering topics such as strong password creation, the risks of insecure password storage, and the importance of using password managers and Multi-Factor Authentication (MFA)."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.4",
+        "Rationale": "The training content includes modules on physical security and data handling, such as the importance of \"clean desk\" policies and locking devices when stepping away to prevent unauthorized access to data."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.5",
+        "Rationale": "The training addresses common causes of data exposure by teaching best practices for remote work, including the dangers of losing a portable device and the risks of using public or insecure Wi-Fi networks."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.6",
+        "Rationale": "The platform provides a simple, one-click button for employees to report suspected phishing emails. This is reinforced by training modules that teach employees to \"report suspicious activity quickly\" and how to identify a potential incident."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.7",
+        "Rationale": "While not a primary focus, the platform's training on \"reporting a suspicious event\" and \"reporting suspicious activity quickly\" covers the need for employees to notify IT personnel of any abnormal behavior or failures in automated processes, which would include missing security updates."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.8",
+        "Rationale": "The training library includes specific content for remote workers, teaching them to \"practice secure Wi-Fi connection habits\" and understand the \"unique security challenges of remote work\"."
+    },
+    {
+        "ToolID": "T514",
+        "SafeguardID": "SG14.9",
+        "Rationale": "The platform provides compliance-specific training modules for roles that handle regulated data. This includes training for PCI (payment card data), GDPR (EU resident data), and NERC CIP (utility/energy sector) compliance, qualifying as role-specific training."
+    },
+    {
+        "ToolID": "T26",
+        "SafeguardID": "SG7.1",
+        "Rationale": "A CVSS calculator is a core component of a vulnerability management process. The process defines how to assess and prioritize vulnerabilities, and the calculator is the standardized tool used to generate that assessment score."
+    },
+    {
+        "ToolID": "T26",
+        "SafeguardID": "SG7.2",
+        "Rationale": "This safeguard requires a \"risk-based remediation strategy\". A CVSS calculator is the tool used to quantify that risk. Its \"Temporal\" and \"Environmental\" metrics, in particular, allow an organization to tailor a vulnerability's base score to their specific environment, which is the very definition of a risk-based approach."
+    },
+    {
+        "ToolID": "T26",
+        "SafeguardID": "SG7.7",
+        "Rationale": "Remediation must be based on the \"remediation process,\" which, as per"
+    },
+    {
+        "ToolID": "T26",
+        "SafeguardID": "SG16.2",
+        "Rationale": "This safeguard requires a \"vulnerability tracking system that includes severity ratings\". A CVSS calculator is the tool used to generate those standardized severity ratings for reported vulnerabilities."
+    },
+    {
+        "ToolID": "T26",
+        "SafeguardID": "SG16.6",
+        "Rationale": "This is the most direct application for this control. This safeguard is the process that CVSS was designed to fulfill. A CVSS calculator provides the \"severity rating system\" needed to \"facilitate prioritizing the order in which discovered vulnerabilities are fixed\".Control 18: Penetration Testing"
+    },
+    {
+        "ToolID": "T26",
+        "SafeguardID": "SG18.3",
+        "Rationale": "This safeguard requires that remediation of findings be based on \"impact and prioritization\". Just as with automated vulnerability scans, the findings from a penetration test are vulnerabilities that must be scored. A CVSS calculator would be used to assess each finding, assign it a score, and place it within the organization's risk-based remediation queue."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG4.6",
+        "Rationale": "CyberArk's Privileged Session Manager (PSM) acts as a secure proxy or \"jump box,\" allowing administrators to access sensitive systems (like servers or network devices) without directly exposing credentials or using insecure protocols."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG4.7",
+        "Rationale": "A primary function of the tool is to discover, onboard, and take control of all default administrative accounts (e.g., \"administrator,\" \"root\") by storing their credentials in a secure vault."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG5.1",
+        "Rationale": "The tool's discovery capabilities can find privileged, administrator, and service accounts across the network, serving as a central inventory for these high-risk accounts."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG5.2",
+        "Rationale": "CyberArk automates password rotation for all managed privileged accounts, ensuring each one has a unique, complex password that human operators never need to know."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG5.4",
+        "Rationale": "This is the core principle of CyberArk. It vaults the powerful administrator accounts, forcing IT staff to use their standard, non-privileged accounts to log in to CyberArk and then \"check out\" or use a proxied admin session, thus separating admin tasks from daily use."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG5.5",
+        "Rationale": "The tool is specifically designed to discover, vault, and manage the credentials for non-human service accounts, which are a common target for attackers."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG5.6",
+        "Rationale": "CyberArk acts as the central management platform for all privileged accounts, a \"directory for privilege,\" enforcing consistent policies, access controls, and auditing."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG6.1",
+        "Rationale": "The tool provides a formal, auditable workflow for users to request access to privileged accounts or systems, often on a temporary or \"Just-in-Time\" (JIT) basis."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG6.2",
+        "Rationale": "Access can be immediately terminated from the central console. Its JIT and Zero Standing Privilege (ZSP) models mean access is automatically revoked after a session or a set time, fulfilling this requirement by default."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG6.4",
+        "Rationale": "It can be configured to enforce Multi-Factor Authentication (MFA) for any remote user (like a third-party vendor) before they are allowed to initiate a privileged session to internal resources."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG6.5",
+        "Rationale": "This is a primary use case. CyberArk integrates with MFA providers to require a second factor before any user is allowed to log in to the PAM solution or access a privileged credential."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG6.7",
+        "Rationale": "The tool provides a single, centralized point for defining, enforcing, and auditing all access control policies for privileged accounts and systems."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG6.8",
+        "Rationale": "CyberArk is built on Role-Based Access Control (RBAC), allowing the creation of roles (e.g., \"Database Admin,\" \"Network Engineer\") that define which privileged accounts and systems a user is authorized to access."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The tool generates extensive audit logs for every privileged access event, such as who checked out a password, when they used it, and what systems they accessed."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG8.5",
+        "Rationale": "CyberArk's PSM provides highly detailed logs, including session recordings (e.g., a video of an administrator's RDP session) for forensic investigation."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG8.8",
+        "Rationale": "The session recording and logging features capture all commands (e.g., in BASH or PowerShell) entered by a user during a proxied administrative session."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All privileged access logs and session recordings are centralized within CyberArk's secure vault, and can also be forwarded to a SIEM for correlation."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The Privileged Threat Analytics (PTA) component automatically analyzes privileged session logs in real-time to detect anomalous or high-risk behavior that could indicate a threat."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG12.3",
+        "Rationale": "The tool vaults and manages the administrative credentials (passwords, SSH keys) for network devices like switches, routers, and firewalls, enabling secure, proxied management."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG12.5",
+        "Rationale": "For privileged access to network devices, CyberArk can serve as the central AAA system, authenticating the user, authorizing their session, and auditing all their actions."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG12.8",
+        "Rationale": "By forcing all admin work through the PSM proxy (a \"jump server\"), CyberArk creates a logically separated, monitored, and controlled environment for administrative tasks, preventing direct admin access from insecure workstations."
+    },
+    {
+        "ToolID": "T216",
+        "SafeguardID": "SG13.7",
+        "Rationale": "The associated CyberArk Endpoint Privilege Manager (EPM) component can be deployed to enforce application control and least privilege on endpoints, actively preventing unauthorized applications from running or escalating privileges, which functions as a host-based prevention measure."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG14.1",
+        "Rationale": "The platform provides a hands-on, high-impact training module that can be a critical component of a mature security awareness and training program."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The platform's \"live-fire\" scenarios simulate a wide range of real-world attacks, which include phishing and other social engineering vectors, to train staff on recognition and response."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG14.6",
+        "Rationale": "This is a core function. It immerses analysts in a virtual SOC to practice the full incident lifecycle, from detection and analysis (recognition) to escalation (reporting)."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG14.9",
+        "Rationale": "This is the platform's primary use case. It is designed for highly specialized, role-specific training for SOC analysts, incident responders, and even \"red team\" (offensive) and \"blue team\" (defensive) professionals.Control 16: Application Software SecurityThe platform can be used to train the developers and security personnel responsible for application security."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG16.9",
+        "Rationale": "Cyberbit can be used in \"secure coding\" courses, allowing developers to experience the attacker's perspective and understand the impact of vulnerabilities they might create."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG16.13",
+        "Rationale": "The tool is used to train the skills of ethical hackers and application penetration testers in a safe, sandboxed environment that replicates real applications and networks."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG16.14",
+        "Rationale": "By running teams through full-scale crisis simulations, the platform trains them to think like an attacker and identify design-level flaws, which is the core skill of threat modeling.Control 17: Incident Response ManagementCyberbit is a tool for practicing and refining the incident response process."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG17.7",
+        "Rationale": "This is the literal function of Cyberbit Range. It is a \"cyber range\" designed to conduct routine, realistic, \"live-fire\" incident response exercises and \"crisis simulations\" to test an organization's IR plan and team."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The platform includes features for session debriefing, performance scoring, and \"lessons learned\" analysis after a simulated incident, which is the exact workflow of a post-incident review.Control 18: Penetration TestingThe platform is used to train the personnel who conduct penetration tests and to validate the defenses that are being tested."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG18.1",
+        "Rationale": "The tool provides the environment to train and certify the skills of the internal \"red team\" or \"blue team\" members who staff the penetration testing program."
+    },
+    {
+        "ToolID": "T675",
+        "SafeguardID": "SG18.4",
+        "Rationale": "The range allows an organization to \"stress-test\" its security posture and validate its defensive controls (e.g., SIEM, EDR, firewall rules) against simulated attacks in a replica of their production environment before a real penetration test."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.1",
+        "Rationale": "Cybrary provides the necessary course content and a learning management platform to build, maintain, and track a security awareness program for an entire workforce."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The platform includes training on defensive security and related topics, which are essential for teaching staff to identify phishing, pretexting, and other social engineering tactics."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.3",
+        "Rationale": "Cybrary's certification paths (like Security+ and CISSP) and foundational courses cover fundamental security concepts, including password management, credential protection, and the use of MFA."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.4",
+        "Rationale": "Courses on data privacy, risk, and compliance (such as \"US Information Privacy\" and \"Defensive Security and Cyber Risk\") directly train employees on how to properly handle, store, and destroy sensitive data."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.5",
+        "Rationale": "This is a core component of the security awareness and data privacy courses offered on the platform."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.6",
+        "Rationale": "Cybrary offers \"Defensive Security\" and \"SOC Analyst\" training, which explicitly teaches personnel how to recognize and respond to potential security incidents."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.7",
+        "Rationale": "Training on vulnerability management and general IT hygiene, included in many of the platform's certification paths, would cover the importance of patching and how to identify non-compliant assets."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.8",
+        "Rationale": "Fundamental network security training (such as CompTIA Network+ prep) and general awareness courses on the platform cover the risks of insecure Wi-Fi and data transmission."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG14.9",
+        "Rationale": "This is a primary feature of Cybrary. The platform provides \"role-aligned Career Paths\" for specialized technical roles like Penetration Tester, SOC Analyst, GRC Analyst, and IT professionals, as well as general awareness for the broader workforce.Other Supported Controls"
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG16.9",
+        "Rationale": "As part of its role-specific training, Cybrary provides the resources to train software developers in secure coding practices and application security concepts, which is the specific requirement of this safeguard."
+    },
+    {
+        "ToolID": "T617",
+        "SafeguardID": "SG18.1",
+        "Rationale": "Cybrary provides dedicated career paths and courses (e.g., \"Penetration Tester,\" \"Kali Linux\") to train the personnel who are responsible for establishing and conducting the penetration tests required by this program."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.1",
+        "Rationale": "Ninjio provides the core platform and content to build, manage, and maintain a security awareness program, including delivering training, tracking completion, and reporting on progress."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.2",
+        "Rationale": "This is a primary function of the tool. Ninjio's training episodes are often based on real-world social engineering attacks, and its NINJIO PHISH3D tool provides simulated phishing campaigns to test and train users."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.3",
+        "Rationale": "As a comprehensive awareness platform, Ninjio's content library includes training on fundamental security topics, which covers password (or passkey) composition and the importance of Multi-Factor Authentication (MFA)."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.4",
+        "Rationale": "The training content covers topics like \"data leaks\" and \"data security,\" which teaches employees how to identify sensitive data and handle it securely, including storage, transfer, and disposal."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.5",
+        "Rationale": "Ninjio's training addresses \"human error\" as a key risk, covering scenarios like accidentally sending sensitive information to the wrong recipient, which is a primary cause of unintentional data exposure."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.6",
+        "Rationale": "The platform includes a \"PHISH REPORTING\" tool and its training explicitly focuses on teaching employees how to \"recognize, respond to, and report cyber threats.\""
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.7",
+        "Rationale": "The training modules cover general cybersecurity best practices, including the importance of \"Keeping software updated\" and reporting anomalies or security failures to the IT department."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.8",
+        "Rationale": "Ninjio's content library covers a wide range of cyber threats and best practices, including the risks associated with using public or insecure Wi-Fi for business purposes."
+    },
+    {
+        "ToolID": "T28",
+        "SafeguardID": "SG14.9",
+        "Rationale": "The platform provides specific compliance tracks for regulations like HIPAA, GDPR, and PCI, which constitutes role-specific or compliance-based training for employees who handle that type of data."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Tenable's active and passive scanning capabilities discover devices (end-user devices, servers, network devices, IoT, etc.) on the network, helping to build and maintain the asset inventory by identifying hardware, network addresses, and machine names."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG1.3",
+        "Rationale": "This is a primary function of Tenable. Its Nessus scanners perform authenticated and unauthenticated active scans to discover and enumerate assets connected to the network."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG1.5",
+        "Rationale": "Tenable's platform can ingest passive network traffic data to identify assets in a non-intrusive way, fulfilling the requirement for passive discovery.Control 2: Inventory and Control of Software Assets"
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG2.1",
+        "Rationale": "During a scan, Tenable enumerates installed software, versions, and publishers on enterprise assets, which directly populates a detailed software inventory."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG2.2",
+        "Rationale": "The platform's core function is to identify vulnerabilities, which includes flagging software that is outdated, end-of-life, or no longer supported by the vendor."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Tenable's scanning process is an automated tool-based method for discovering and documenting installed software across the enterprise.Control 4: Secure Configuration of Enterprise Assets and Software"
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Tenable provides \"configuration auditing\" and \"compliance checks.\" It can scan assets against pre-built hardening benchmarks (like CIS Benchmarks or DISA STIGs) to report on misconfigurations, which is a key part of auditing a secure configuration process.Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.1",
+        "Rationale": "This is the central purpose of the Tenable platform. It is the tool used to execute the vulnerability management process."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.2",
+        "Rationale": "Tenable's risk-based prioritization (e.g., Vulnerability Priority Rating or VPR) helps organizations \"focus on the vulnerabilities and assets that matter most,\" which is the foundation of a risk-based remediation strategy."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.3",
+        "Rationale": "Tenable's scanners identify missing OS patches, providing the necessary data to patch management systems on what needs to be fixed."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Similarly, Tenable identifies unpatched applications and their vulnerabilities, feeding this information into the remediation workflow."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.5",
+        "Rationale": "This safeguard describes Tenable's primary, \"must-do\" function: running automated, credentialed scans against internal network assets."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.6",
+        "Rationale": "The platform is also designed to scan external, internet-facing assets to identify weaknesses visible from the outside."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG7.7",
+        "Rationale": "Tenable's reporting and prioritization engines are designed to drive the remediation workflow, track vulnerabilities over time, and confirm they have been fixed.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Tenable's scanners have \"malware detection\" capabilities and can identify suspicious processes or file changes during authenticated scans, providing a function that overlaps with HIDS.Control 16: Application Software Security"
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG16.12",
+        "Rationale": "Tenable includes DAST (Dynamic Application Security Testing) functionality, which actively probes and tests running web applications for vulnerabilities like SQL injection or cross-site scripting.Control 18: Penetration Testing"
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG18.1",
+        "Rationale": "While not a penetration testing tool itself, Tenable's scanners are a foundational tool used by penetration testers to perform reconnaissance and discover exploitable information, which is a key part of the program's scope."
+    },
+    {
+        "ToolID": "T30",
+        "SafeguardID": "SG18.2",
+        "Rationale": "Tenable's external scanning capabilities are used to perform the vulnerability discovery and \"reconnaissance\" phase of an external penetration test."
     }
 ]

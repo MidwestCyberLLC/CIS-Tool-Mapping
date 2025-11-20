@@ -698,10 +698,10 @@
     {
         "ID": "T423",
         "Name": "Cisco Identity Services Engine (ISE)",
-        "Description": "Cisco ISE is a network administration tool that centralizes AAA, policy enforcement, and guest access management.",
-        "URL": "https://www.google.com/search?q=https://www.cisco.com/c/en/us/products/security/identity-services-engine/index.html",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cisco Identity Services Engine (ISE) is a network access control (NAC) and security policy management solution that centralizes authentication, authorization, and device profiling to enforce zero-trust policies for all users and devices connecting to an enterprise network.",
+        "URL": "https://www.cisco.com/c/en/us/products/security/identity-services-engine/index.html",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T426",
@@ -722,18 +722,18 @@
     {
         "ID": "T342",
         "Name": "Cisco Secure Email",
-        "Description": "Offers advanced threat detection and prevention, including sandboxing and URL filtering, to protect against email-borne attacks.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/email-security.html",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cisco Secure Email is a comprehensive security solution that protects email by blocking spam, phishing, business email compromise (BEC), and malware, while also providing data loss prevention and encryption.",
+        "URL": "https://www.cisco.com/go/emailsecurity",
+        "EducationUse": true,
+        "Cost": "$$$$"
     },
     {
         "ID": "T336",
         "Name": "Cisco Secure Email Gateway",
-        "Description": "Cisco SEG offers attachment sandboxing and filtering to prevent malicious or unwanted file types from reaching users' inboxes.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/secure-email-gateway.html",
+        "Description": "A comprehensive email security solution that provides advanced threat protection to detect, block, and remediate email-based threats like malware, ransomware, phishing, and Business Email Compromise (BEC), while also offering data loss prevention (DLP) and end-to-end encryption.",
+        "URL": "https://www.cisco.com/c/en/us/products/security/email-security/index.html",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T476",
@@ -742,6 +742,14 @@
         "URL": "https://www.cisco.com/c/en/us/products/security/secure-firewall.html",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T21",
+        "Name": "Cisco Secure Network Analytics",
+        "Description": "A Network Detection and Response (NDR) solution that uses agentless flow telemetry and behavioral modeling to provide enterprise-wide visibility, detect advanced threats in real-time, and accelerate incident response.",
+        "URL": "https://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/secure-network-analytics-aag.html",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T467",
@@ -754,66 +762,74 @@
     {
         "ID": "T318",
         "Name": "Cisco Umbrella",
-        "Description": " Provides DNS-layer security with category-based filtering, threat intelligence, and secure web gateway capabilities to block malicious websites.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/umbrella.html",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cisco Umbrella is a cloud-delivered security platform that provides a primary line of defense against internet threats by blocking malicious domains at the DNS layer and can be expanded to include a secure web gateway (SWG), cloud-delivered firewall, and cloud access security broker (CASB).",
+        "URL": "https://umbrella.cisco.com/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T167",
         "Name": "Citrix Endpoint Management",
-        "Description": "Citrix Endpoint Management supports both Apple Configuration Profiles and Android Work Profiles to isolate enterprise data and applications within dedicated workspaces.",
-        "URL": "https://www.citrix.com/products/endpoint-management/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Citrix Endpoint Management is a Unified Endpoint Management (UEM) solution that provides centralized management and security for all corporate- and employee-owned endpoints (like mobile devices, laptops, and PCs) and their applications.",
+        "URL": "https://www.citrix.com/platform/citrix-endpoint-management/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T317",
         "Name": "CleanBrowsing",
-        "Description": "Offers family-friendly and content-filtering DNS services with various levels of protection.",
-        "URL": "https://cleanbrowsing.org/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "CleanBrowsing is a DNS-based content filtering service that blocks access to inappropriate and malicious content, such as adult sites, phishing, and malware, by filtering domain requests.",
+        "URL": "https://cleanbrowsing.org",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$"
     },
     {
         "ID": "T420",
         "Name": "Cloudcraft",
-        "Description": "Specifically designed for visualizing cloud infrastructure (AWS, Azure, GCP), Cloudcraft helps build and maintain accurate architectural representations.",
-        "URL": "https://cloudcraft.io/",
+        "Description": "Cloudcraft is a tool for designing and visualizing cloud architecture diagrams, primarily for AWS, Azure, and Google Cloud, which can automatically sync with live environments to create real-time, up-to-date documentation and identify security misconfigurations.",
+        "URL": "https://www.cloudcraft.co/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T208",
         "Name": "Cloudflare Access",
-        "Description": "Cloudflare Access offers zero trust access to internal applications with MFA and granular policy controls.",
-        "URL": "https://www.cloudflare.com/zero-trust/access/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cloudflare Access is a Zero Trust Network Access (ZTNA) solution that secures access to self-hosted, SaaS, and internal applications by verifying user identity and device posture for every request, replacing the need for a traditional VPN.",
+        "URL": "https://www.cloudflare.com/zero-trust/products/access/",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T151",
         "Name": "Cloudflare DNS",
-        "Description": "A public DNS service offering speed, security, and reliability that can be configured as trusted resolvers for enterprise assets.",
-        "URL": "https://www.cloudflare.com/dns/",
-        "EducationUse": false,
+        "Description": "Cloudflare DNS is a high-performance, enterprise-grade DNS service that provides secure resolution, content filtering, and protection against DNS-based attacks like DDoS and phishing.",
+        "URL": "https://www.cloudflare.com/zero-trust/gateway/",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T100",
         "Name": "Cloudflare Tunnel",
-        "Description": "Creates an outbound-only connection, encrypting traffic between your server and Cloudflareâ€™s network without opening inbound ports.",
-        "URL": "https://www.cloudflare.com/tunnel/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "A service that creates a secure, outbound-only connection between your internal services and the Cloudflare network, enabling Zero Trust access without exposing inbound firewall ports.",
+        "URL": "https://www.cloudflare.com/products/tunnel/",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T487",
         "Name": "Cloudflare Web Application Firewall (WAF)",
-        "Description": "Protects applications from common web exploits by inspecting traffic at the application layer.",
+        "Description": "A cloud-based security service that sits in front of web applications to filter, monitor, and block malicious HTTP/S traffic, protecting against a wide range of real-time attacks like SQL injection, cross-site scripting (XSS), and zero-day threats.",
         "URL": "https://www.cloudflare.com/waf/",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$, $$$$$"
+    },
+    {
+        "ID": "T23",
+        "Name": "Coalition Control",
+        "Description": "Coalition Control is an integrated cyber risk management platform that helps organizations detect, assess, and mitigate cyber risks by providing continuous attack surface monitoring, risk assessments, and prioritized remediation guidance.",
+        "URL": "https://www.coalitioninc.com/control",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$, $$, $$$, $$$$"
     },
     {
         "ID": "T696",
@@ -834,66 +850,66 @@
     {
         "ID": "T713",
         "Name": "Cobalt Strike",
-        "Description": "A commercial platform used by red teams to simulate advanced persistent threats and conduct realistic attack simulations within an organization.",
+        "Description": "Cobalt Strike is a commercial adversary simulation and red team operations platform used by security professionals to emulate the post-exploitation tactics and techniques of advanced threat actors.",
         "URL": "https://www.cobaltstrike.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$"
     },
     {
         "ID": "T635",
         "Name": "Cobalt.io",
-        "Description": "Cobalt provides a managed pentesting platform connecting you with experienced security professionals to perform comprehensive application assessments.",
-        "URL": "https://www.cobalt.io/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cobalt.io is a Pentest as a Service (PtaaS) platform that delivers on-demand penetration testing by connecting organizations with a global community of vetted security experts.",
+        "URL": "https://www.cobalt.io",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T619",
         "Name": "Codecademy",
-        "Description": "Offers interactive courses on programming fundamentals and security concepts, suitable for introductory developer training.",
-        "URL": "https://www.codecademy.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Codecademy is an online, interactive platform that offers free and paid courses on a wide variety of technical skills, including programming, data science, and cybersecurity.",
+        "URL": "https://www.codecademy.com",
+        "EducationUse": true,
+        "Cost": "$, $$, $$$"
     },
     {
         "ID": "T389",
         "Name": "Cohesity DataProtect",
-        "Description": "Cohesity provides a comprehensive data protection platform with built-in encryption and granular control over backup copies for secure recovery.",
-        "URL": "https://www.cohesity.com/products/dataprotect/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Cohesity DataProtect is an enterprise-class backup and recovery solution that unifies data protection for on-premises, cloud, and SaaS workloads onto a single platform, designed to provide cyber resilience against ransomware and other data loss events.",
+        "URL": "https://www.cohesity.com/products/dataprotect",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T93",
         "Name": "Collibra Data Intelligence Cloud",
-        "Description": "This platform offers data lineage capabilities that automatically map data flows across systems, providing a visual representation of data movement.",
+        "Description": "Collibra Data Intelligence Cloud is an integrated platform that helps organizations unlock the value of their data by automating data workflows, centralizing policies, and providing a unified view of data assets to ensure data is trusted, accessible, and compliant.",
         "URL": "https://www.collibra.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T74",
         "Name": "Commvault Data Management",
-        "Description": "Commvault offers robust data protection and retention features for diverse environments, including cloud, on-premises, and virtualized systems.",
+        "Description": "Commvault is an enterprise-grade platform that provides a unified solution for data backup, recovery, disaster recovery, and data governance across on-premises, cloud, and hybrid environments.",
         "URL": "https://www.commvault.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T371",
         "Name": "CrowdStrike Falcon",
-        "Description": "This platform uses behavioral analysis and machine learning to detect and prevent malware, even previously unknown threats.",
+        "Description": "CrowdStrike Falcon is a cloud-native cybersecurity platform that unifies next-generation antivirus (NGAV), endpoint detection and response (EDR), threat intelligence, and identity protection to stop breaches.",
         "URL": "https://www.crowdstrike.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$$$"
     },
     {
         "ID": "T38",
         "Name": "CrowdStrike Falcon Discover",
-        "Description": "This tool discovers all applications running on endpoints, enabling organizations to identify unauthorized software and manage risk.",
+        "Description": "CrowdStrike Falcon Discover is an IT hygiene solution that provides real-time, comprehensive visibility and inventory of enterprise assets, software applications, and user accounts.",
         "URL": "https://www.crowdstrike.com/products/falcon-discover/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T129",
@@ -904,20 +920,20 @@
         "Cost": "$"
     },
     {
-        "ID": "T57",
-        "Name": "CrowdStrike Falcon Insight",
-        "Description": "CrowdStrike's platform provides scripting allowlisting capabilities through its behavioral detection and prevention features, enabling granular control over script execution.",
-        "URL": "https://www.crowdstrike.com/products/falcon-insight/",
-        "EducationUse": false,
-        "Cost": "$"
+        "ID": "T25",
+        "Name": "CrowdStrike Falcon Host (Falcon Platform)",
+        "Description": "CrowdStrike Falcon is a cloud-native endpoint protection platform (EPP) that provides next-generation antivirus (NGAV), endpoint detection and response (EDR), and threat intelligence using a single, lightweight agent.",
+        "URL": "https://www.crowdstrike.com/",
+        "EducationUse": true,
+        "Cost": "$$$$"
     },
     {
-        "ID": "T514",
-        "Name": "Curricula",
-        "Description": "Curricula provides automated security awareness training with personalized learning paths, covering topics like secure data storage and transfer.",
-        "URL": "https://curricula.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "ID": "T57",
+        "Name": "CrowdStrike Falcon Insight",
+        "Description": "CrowdStrike Falcon Insight is an advanced Endpoint Detection and Response (EDR) and Extended Detection and Response (XDR) platform that provides unified visibility, real-time threat detection, incident investigation, and automated response across endpoints, cloud, and identity domains.",
+        "URL": "https://www.crowdstrike.com/en-us/resources/data-sheets/falcon-insight-xdr/",
+        "EducationUse": true,
+        "Cost": "$$$$"
     },
     {
         "ID": "T598",
@@ -928,12 +944,20 @@
         "Cost": "$"
     },
     {
-        "ID": "T216",
-        "Name": "CyberArk Privileged Access Management",
-        "Description": "This solution discovers and inventories privileged accounts, including those used for authentication and authorization, across various systems and applications.",
-        "URL": "https://www.cyberark.com/products/privileged-access-management",
+        "ID": "T26",
+        "Name": "CVSS Calculator (Common Vulnerability Scoring System Calculator)",
+        "Description": "The CVSS Calculator is a tool that implements the open framework of the Common Vulnerability Scoring System to assess the severity of security vulnerabilities and produce a numerical score (0-10) to help organizations prioritize remediation.",
+        "URL": "https://www.first.org/cvss/calculator/4-0",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T216",
+        "Name": "CyberArk Privileged Access Management",
+        "Description": "CyberArk Privileged Access Management is an enterprise-grade cybersecurity solution that secures, controls, manages, and audits all privileged (administrator, service, and machine) accounts and access across an organization's entire IT environment.",
+        "URL": "https://www.cyberark.com/",
+        "EducationUse": false,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T171",
@@ -954,18 +978,18 @@
     {
         "ID": "T675",
         "Name": "Cyberbit Range",
-        "Description": "Provides a realistic, gamified training platform to simulate cyberattacks and train incident response teams in a controlled environment.",
-        "URL": "https://cyberbit.io/",
+        "Description": "Cyberbit Range is a market-leading cyber range platform that prepares cybersecurity teams for attacks by immersing them in a hyper-realistic, simulated Security Operations Center (SOC) where they use real-world tools to respond to real-world attack scenarios.",
+        "URL": "https://www.cyberbit.com/",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$$$"
     },
     {
         "ID": "T617",
         "Name": "Cybrary",
-        "Description": "Delivers a wide range of cybersecurity training content, including developer-focused tracks on secure coding and application security.",
+        "Description": "Cybrary is an online cybersecurity and IT training platform that provides a wide range of courses, hands-on virtual labs, and guided career paths for individuals and teams.",
         "URL": "https://www.cybrary.it/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$, $$, $$$"
     },
     {
         "ID": "T468",
@@ -1582,6 +1606,14 @@
         "URL": "https://hudu.com/",
         "EducationUse": true,
         "Cost": "$$"
+    },
+    {
+        "ID": "T514",
+        "Name": "Huntress Managed Security Awareness Training",
+        "Description": "Huntress Managed Security Awareness Training is a platform that uses engaging, story-based animated episodes and gamified phishing simulations to educate a workforce on cybersecurity best practices and reduce human-related security risks.",
+        "URL": "https://www.huntress.com/platform/security-awareness-training",
+        "EducationUse": false,
+        "Cost": "$"
     },
     {
         "ID": "T443",
@@ -2398,6 +2430,14 @@
         "URL": "https://www.ninjaone.com/",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T28",
+        "Name": "Ninjio",
+        "Description": "Ninjio is a cybersecurity awareness training and human risk management platform that educates employees using engaging, animated videos based on real-world cyberattacks, and includes simulated phishing, personalized coaching, and risk scoring.",
+        "URL": "https://ninjio.com/",
+        "EducationUse": true,
+        "Cost": "$$$"
     },
     {
         "ID": "T22",
@@ -3366,6 +3406,14 @@
         "URL": "https://sysdig.com/products/secure/",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T30",
+        "Name": "Tenable (e.g., Tenable.io, Tenable.sc)",
+        "Description": "Tenable is an exposure management platform that provides comprehensive asset discovery, vulnerability scanning, configuration auditing, and risk-based prioritization to help organizations find and fix security weaknesses.",
+        "URL": "https://www.tenable.com",
+        "EducationUse": true,
+        "Cost": "$$$, $$$$, $$$$$"
     },
     {
         "ID": "T702",
