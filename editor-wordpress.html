@@ -1,163 +1,205 @@
-<!-- CIS Mapper Tool - Elementor Embed Code -->
-<div id="cis-mapper-tool-root" class="cis-mapper-wrapper">
+<!-- 1. Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- 1. Load Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- 2. Custom Styles (Scoped to #cis-mapper-app) -->
+<style>
+    /* Main Wrapper Scope - Isolation from WordPress Theme */
+    #cis-mapper-app {
+        font-family: 'Inter', sans-serif;
+        /* Ensure base styles are normalized inside this app only */
+        font-size: 16px; 
+        line-height: 1.5;
+        color: #1f2937;
+        background-color: transparent;
+        box-sizing: border-box;
+    }
+
+    /* Reset box-sizing for all children */
+    #cis-mapper-app *, #cis-mapper-app *::before, #cis-mapper-app *::after {
+        box-sizing: inherit;
+    }
+
+    /* Form Element Styles */
+    #cis-mapper-app .form-input, 
+    #cis-mapper-app .form-select, 
+    #cis-mapper-app .form-textarea {
+        border: 1px solid #D1D5DB;
+        border-radius: 0.375rem;
+        padding: 0.5rem 0.75rem;
+        width: 100%;
+        transition: all 0.2s;
+        background-color: white;
+        color: #1f2937;
+        display: block;
+        font-size: 0.875rem;
+    }
     
-    <!-- File Parsing Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    #cis-mapper-app .form-input:focus, 
+    #cis-mapper-app .form-select:focus, 
+    #cis-mapper-app .form-textarea:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        border-color: #3B82F6;
+        box-shadow: 0 0 0 2px #BFDBFE;
+    }
+    
+    #cis-mapper-app .form-input[disabled] {
+        background-color: #F3F4F6;
+        color: #6B7280;
+        cursor: not-allowed;
+    }
+    
+    /* Buttons */
+    #cis-mapper-app .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        cursor: pointer;
+        white-space: nowrap;
+        display: inline-block;
+        border: none;
+        text-decoration: none;
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+    
+    #cis-mapper-app .btn-primary { background-color: #2563EB; color: white; }
+    #cis-mapper-app .btn-primary:hover { background-color: #1D4ED8; color: white; }
+    
+    #cis-mapper-app .btn-secondary { background-color: #4B5563; color: white; }
+    #cis-mapper-app .btn-secondary:hover { background-color: #374151; color: white; }
+    
+    #cis-mapper-app .btn-green { background-color: #059669; color: white; }
+    #cis-mapper-app .btn-green:hover { background-color: #047857; color: white; }
+    
+    #cis-mapper-app .btn-red { background-color: #DC2626; color: white; }
+    #cis-mapper-app .btn-red:hover { background-color: #B91C1C; color: white; }
+    
+    /* Checkbox List */
+    #cis-mapper-app .safeguard-checkbox-list {
+        max-height: 500px;
+        overflow-y: auto;
+        border: 1px solid #D1D5DB;
+        border-radius: 0.375rem;
+        padding: 0.75rem;
+        background-color: #F9FAFB;
+    }
+    
+    #cis-mapper-app .safeguard-checkbox-item {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #E5E7EB;
+    }
+    
+    #cis-mapper-app .safeguard-checkbox-row {
+         display: flex;
+         align-items: center;
+    }
+    
+    #cis-mapper-app .safeguard-checkbox-row input {
+        margin-right: 0.75rem;
+        height: 1rem;
+        width: 1rem;
+        flex-shrink: 0;
+    }
+    
+    #cis-mapper-app .safeguard-checkbox-row label {
+        margin-bottom: 0; /* WordPress override */
+        font-weight: 400;
+        color: #374151;
+        font-size: 0.875rem;
+        cursor: pointer;
+    }
+    
+    #cis-mapper-app .safeguard-rationale-input {
+        margin-top: 0.5rem;
+        margin-left: 1.75rem;
+        font-size: 0.875rem;
+        width: 90%;
+    }
 
-    <!-- 2. Scoped Styles -->
-    <style>
-        /* Scope fonts to this container only */
-        #cis-mapper-tool-root {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* bg-gray-100 match */
-            padding: 1rem;
-            border-radius: 0.5rem;
-        }
+    /* Cost Checkboxes */
+    #cis-mapper-app .cost-checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0.5rem;
+        border: 1px solid #D1D5DB;
+        border-radius: 0.375rem;
+        background-color: white;
+    }
+    
+    #cis-mapper-app .cost-checkbox-item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    #cis-mapper-app .cost-checkbox-item span {
+        margin-left: 4px;
+    }
 
-        /* Google Fonts import */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    /* Drop Zone */
+    #cis-mapper-app #dropZone {
+        border: 2px dashed #3B82F6;
+        background-color: #EFF6FF;
+        transition: all 0.3s;
+    }
+    
+    #cis-mapper-app #dropZone.dragover {
+        background-color: #BFDBFE;
+        border-color: #1D4ED8;
+        transform: scale(1.01);
+    }
 
-        /* Renamed classes with 'cis-' prefix to avoid WP theme conflicts */
-        .cis-form-input, .cis-form-select, .cis-form-textarea {
-            border: 1px solid #D1D5DB;
-            border-radius: 0.375rem;
-            padding: 0.5rem 0.75rem;
-            width: 100%;
-            transition: all 0.2s;
-            background-color: white;
-            box-sizing: border-box; /* Fix for WP themes that change box-sizing */
-        }
-        .cis-form-input:focus, .cis-form-select:focus, .cis-form-textarea:focus {
-            outline: 2px solid transparent;
-            outline-offset: 2px;
-            border-color: #3B82F6;
-            box-shadow: 0 0 0 2px #BFDBFE;
-        }
-        .cis-form-input[disabled] {
-            background-color: #F3F4F6;
-            color: #6B7280;
-            cursor: not-allowed;
-        }
-        
-        /* Button Styles */
-        .cis-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-            white-space: nowrap;
-            display: inline-block;
-            text-decoration: none; /* WP theme override */
-            border: none; /* WP theme override */
-            line-height: 1.5;
-        }
-        .cis-btn-primary { background-color: #2563EB; color: white; }
-        .cis-btn-primary:hover { background-color: #1D4ED8; color: white; }
-        
-        .cis-btn-secondary { background-color: #4B5563; color: white; }
-        .cis-btn-secondary:hover { background-color: #374151; color: white; }
-        
-        .cis-btn-green { background-color: #059669; color: white; }
-        .cis-btn-green:hover { background-color: #047857; color: white; }
-        
-        .cis-btn-red { background-color: #DC2626; color: white; }
-        .cis-btn-red:hover { background-color: #B91C1C; color: white; }
-        
-        .cis-disabled-btn { background-color: #D1D5DB; cursor: not-allowed; }
+    /* Search Dropdown */
+    #cis-mapper-app .tool-dropdown-item:hover {
+        background-color: #EFF6FF;
+    }
+    
+    #cis-mapper-app .tool-dropdown-item {
+        cursor: pointer;
+        padding: 0.5rem;
+        border-bottom: 1px solid #F3F4F6;
+        font-size: 0.875rem;
+    }
 
-        /* Safeguard List */
-        .cis-safeguard-checkbox-list {
-            max-height: 500px;
-            overflow-y: auto;
-            border: 1px solid #D1D5DB;
-            border-radius: 0.375rem;
-            padding: 0.75rem;
-            background-color: #F9FAFB;
-        }
-        .cis-safeguard-checkbox-item {
-            display: flex;
-            flex-direction: column;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #E5E7EB;
-        }
-        .cis-safeguard-checkbox-row {
-             display: flex;
-             align-items: center;
-        }
-        .cis-safeguard-checkbox-row input {
-            margin-right: 0.75rem;
-            height: 1rem;
-            width: 1rem;
-        }
-        .cis-safeguard-checkbox-row label {
-            font-size: 0.875rem;
-            color: #374151;
-            cursor: pointer;
-            margin-bottom: 0; /* Fix for WP themes adding margins to labels */
-        }
-        .cis-safeguard-rationale-input {
-            margin-top: 0.5rem;
-            margin-left: 1.75rem;
-            font-size: 0.875rem;
-            width: 90%;
-        }
-        
-        /* Cost Checkbox Group */
-        .cis-cost-checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            padding: 0.5rem;
-            border: 1px solid #D1D5DB;
-            border-radius: 0.375rem;
-            background-color: white;
-        }
-        .cis-cost-checkbox-item {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-        .cis-cost-checkbox-item input {
-            margin-right: 0.25rem;
-            width: 1rem;
-            height: 1rem;
-        }
-        
-        /* Drop Zone */
-        #cis-dropZone {
-            border: 2px dashed #3B82F6;
-            background-color: #EFF6FF;
-            transition: all 0.3s;
-        }
-        #cis-dropZone.dragover {
-            background-color: #BFDBFE;
-            border-color: #1D4ED8;
-            transform: scale(1.01);
-        }
+    #cis-mapper-app .id-badge {
+        font-family: monospace;
+        font-weight: 700;
+        font-size: 0.75rem;
+        background-color: #E5E7EB;
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+        color: #4B5563;
+        margin-right: 0.5rem;
+    }
 
-        /* Modal */
-        #cis-conflictModal {
-            z-index: 9999; /* High z-index to sit above WP admin bar/headers */
-        }
-    </style>
+    /* Headings Override */
+    #cis-mapper-app h1, #cis-mapper-app h2, #cis-mapper-app h3 {
+        margin-top: 0;
+        color: #111827;
+    }
+</style>
 
-    <!-- 3. Main UI Structure -->
-    <!-- Added 'tw-' prefix to Tailwind classes just in case, but standard classes work if preflight is false -->
+<!-- 3. Main HTML Structure -->
+<div id="cis-mapper-app">
     <div class="container mx-auto max-w-4xl bg-white p-6 shadow-xl rounded-lg">
         <h1 class="text-3xl font-bold text-blue-800 mb-6">CIS Mapper Data Editor</h1>
 
         <!-- Conflict Modal -->
-        <div id="cis-conflictModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden flex items-center justify-center">
+        <div id="conflictModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden flex items-center justify-center" style="z-index: 9999;">
             <div class="relative p-5 border w-96 shadow-lg rounded-md bg-white">
                 <div class="mt-3 text-center">
                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100">
-                        <svg class="h-6 w-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <svg class="h-6 w-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                     </div>
                     <h3 class="text-lg leading-6 font-medium text-gray-900 mt-2">Tool Conflict Detected</h3>
                     <div class="mt-2 px-2 py-3">
@@ -169,10 +211,10 @@
                         </p>
                     </div>
                     <div class="items-center px-2 py-3">
-                        <button id="btnConflictModify" class="w-full px-4 py-2 bg-blue-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 mb-3">
+                        <button id="btnConflictModify" class="px-4 py-2 bg-blue-600 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
                             Modify Existing Tool
                         </button>
-                        <button id="btnConflictAdd" class="w-full px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                        <button id="btnConflictAdd" class="mt-3 px-4 py-2 bg-gray-200 text-gray-800 text-base font-medium rounded-md w-full shadow-sm hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">
                             No, Add as New Tool
                         </button>
                     </div>
@@ -187,18 +229,18 @@
             <div class="space-y-3">
                 <div>
                     <label for="toolsUrl" class="block text-sm font-medium text-gray-700">Tools URL (tools.json)</label>
-                    <input type="text" id="toolsUrl" class="cis-form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json">
+                    <input type="text" id="toolsUrl" class="form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json">
                 </div>
                 <div>
                     <label for="safeguardsUrl" class="block text-sm font-medium text-gray-700">Safeguards URL (safeguards.json)</label>
-                    <input type="text" id="safeguardsUrl" class="cis-form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json">
+                    <input type="text" id="safeguardsUrl" class="form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json">
                 </div>
                 <div>
                     <label for="mappingUrl" class="block text-sm font-medium text-gray-700">Mapping URL (mapping.json)</label>
-                    <input type="text" id="mappingUrl" class="cis-form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json">
+                    <input type="text" id="mappingUrl" class="form-input" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json">
                 </div>
             </div>
-            <button id="loadDataBtn" class="cis-btn cis-btn-primary mt-4">Load Data</button>
+            <button id="loadDataBtn" class="btn btn-primary mt-4">Load Data</button>
             <p id="loadStatus" class="mt-2 text-sm font-medium"></p>
         </div>
 
@@ -207,14 +249,30 @@
             <h2 class="text-xl font-semibold mb-3">2. Choose Your Action</h2>
             
             <!-- File Drop Zone -->
-            <div id="cis-dropZone" class="mb-6 p-8 rounded-lg text-center cursor-pointer bg-blue-50 border-blue-300 border-dashed border-2 hover:bg-blue-100 transition-colors">
-                <div class="mx-auto h-12 w-12 text-blue-500 mb-3">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="mx-auto"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+            <div id="dropZone" class="mb-2 p-8 rounded-lg text-center cursor-pointer bg-blue-50 border-blue-300 border-dashed border-2 hover:bg-blue-100 transition-colors">
+                <div class="mx-auto h-12 w-12 text-blue-500 mb-3 flex justify-center">
+                     <svg class="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                 </div>
                 <p class="text-lg font-medium text-blue-700">Drag & Drop AI Output File Here</p>
                 <p class="text-sm text-gray-500 mt-1">Supports .docx and .pdf. The system will detect if this is a new or existing tool.</p>
                 <input type="file" id="fileInput" class="hidden" accept=".docx,.pdf">
                 <p id="dropStatus" class="mt-2 text-sm font-medium h-5"></p>
+            </div>
+
+            <!-- Toggle Link -->
+            <div id="pasteToggleContainer" class="text-center mb-6">
+                 <button id="togglePasteBtn" class="text-blue-600 text-sm font-medium hover:text-blue-800 underline bg-transparent border-0">or paste raw text data directly</button>
+            </div>
+
+            <!-- Paste Input Area (Hidden by default) -->
+            <div id="pasteInputSection" class="hidden mb-6 p-4 border-2 border-blue-200 border-dashed rounded-lg bg-blue-50">
+                <label for="pastedText" class="block text-sm font-medium text-blue-800 mb-2">Paste AI Output / Tool Data Here:</label>
+                <textarea id="pastedText" rows="10" class="form-textarea mb-3 font-mono text-sm" placeholder="Name of Tool: ...&#10;Description: ...&#10;URL: ...&#10;..."></textarea>
+                <div class="flex space-x-3">
+                    <button id="processPasteBtn" class="btn btn-primary">Process Text</button>
+                    <button id="cancelPasteBtn" class="btn btn-secondary">Cancel</button>
+                </div>
+                <p id="pasteStatus" class="mt-2 text-sm font-medium text-red-600"></p>
             </div>
 
             <div class="relative flex py-2 items-center">
@@ -224,8 +282,8 @@
             </div>
 
             <div class="flex flex-wrap gap-4 mt-4 justify-center">
-                <button id="showAddModeBtn" class="cis-btn cis-btn-secondary">Add New Data Manually</button>
-                <button id="showModifyModeBtn" class="cis-btn cis-btn-secondary">Modify Existing Data Manually</button>
+                <button id="showAddModeBtn" class="btn btn-secondary">Add New Data Manually</button>
+                <button id="showModifyModeBtn" class="btn btn-secondary">Modify Existing Data Manually</button>
             </div>
         </div>
 
@@ -237,24 +295,24 @@
                 <form id="toolForm" class="space-y-3">
                     <div>
                         <label for="toolId" class="block text-sm font-medium text-gray-700">Tool ID (e.g., T6)</label>
-                        <input type="text" id="toolId" class="cis-form-input" required>
+                        <input type="text" id="toolId" class="form-input" required>
                     </div>
                     <div>
                         <label for="toolName" class="block text-sm font-medium text-gray-700">Tool Name</label>
-                        <input type="text" id="toolName" class="cis-form-input" required>
+                        <input type="text" id="toolName" class="form-input" required>
                     </div>
                     <div>
                         <label for="toolDesc" class="block text-sm font-medium text-gray-700">Description</label>
-                        <textarea id="toolDesc" rows="2" class="cis-form-textarea" required></textarea>
+                        <textarea id="toolDesc" rows="2" class="form-textarea" required></textarea>
                     </div>
                     <div>
                         <label for="toolUrl" class="block text-sm font-medium text-gray-700">URL</label>
-                        <input type="url" id="toolUrl" class="cis-form-input" placeholder="https://..." required>
+                        <input type="url" id="toolUrl" class="form-input" placeholder="https://..." required>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label for="toolEducationUse" class="block text-sm font-medium text-gray-700">Education Use</label>
-                            <select id="toolEducationUse" class="cis-form-select">
+                            <select id="toolEducationUse" class="form-select">
                                 <option value="false">False</option>
                                 <option value="true">True</option>
                             </select>
@@ -262,16 +320,16 @@
                         <!-- Cost Selection -->
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Cost (Select multiple)</label>
-                            <div id="toolCostContainer" class="cis-cost-checkbox-group">
-                                <label class="cis-cost-checkbox-item"><input type="checkbox" value="$"><span>$</span></label>
-                                <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$"><span>$$</span></label>
-                                <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$$"><span>$$$</span></label>
-                                <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$$$"><span>$$$$</span></label>
-                                <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$$$$"><span>$$$$$</span></label>
+                            <div id="toolCostContainer" class="cost-checkbox-group">
+                                <label class="cost-checkbox-item"><input type="checkbox" value="$"><span>$</span></label>
+                                <label class="cost-checkbox-item"><input type="checkbox" value="$$"><span>$$</span></label>
+                                <label class="cost-checkbox-item"><input type="checkbox" value="$$$"><span>$$$</span></label>
+                                <label class="cost-checkbox-item"><input type="checkbox" value="$$$$"><span>$$$$</span></label>
+                                <label class="cost-checkbox-item"><input type="checkbox" value="$$$$$"><span>$$$$$</span></label>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="cis-btn cis-btn-secondary mt-3">Add Tool</button>
+                    <button type="submit" class="btn btn-secondary mt-2">Add Tool</button>
                     <p id="toolStatus" class="mt-2 text-sm font-medium text-green-600"></p>
                 </form>
             </fieldset>
@@ -282,7 +340,7 @@
                 <form id="mappingForm" class="space-y-3">
                     <div>
                         <label for="toolSelect" class="block text-sm font-medium text-gray-700">Select Tool</label>
-                        <select id="toolSelect" class="cis-form-select" required>
+                        <select id="toolSelect" class="form-select" required>
                             <option value="" disabled selected>-- Select a Tool --</option>
                         </select>
                     </div>
@@ -290,18 +348,18 @@
                     <div>
                          <label class="block text-sm font-medium text-gray-700 mb-2">Select Safeguard(s) & Rationale</label>
                          <p class="text-sm text-gray-600 mb-2">Select safeguards that map to this tool and provide a rationale for each.</p>
-                         <div id="addSafeguardsList" class="cis-safeguard-checkbox-list" style="max-height: 300px;">
+                         <div id="addSafeguardsList" class="safeguard-checkbox-list" style="max-height: 300px;">
                              <!-- Checkboxes populated by JS -->
                          </div>
                     </div>
-                    <button type="submit" class="cis-btn cis-btn-secondary mt-3">Add Mapping(s)</button>
+                    <button type="submit" class="btn btn-secondary mt-2">Add Mapping(s)</button>
                     <p id="mappingStatus" class="mt-2 text-sm font-medium text-green-600"></p>
                 </form>
             </fieldset>
             
              <!-- New Back to Start Button for Add Mode -->
              <div class="mt-4 pt-4 border-t text-center">
-                <button id="backToStartBtn" class="cis-btn cis-btn-secondary w-full md:w-auto">Finished? Add/Modify Another</button>
+                <button id="backToStartBtn" class="btn btn-secondary w-full md:w-auto">Finished? Add/Modify Another</button>
             </div>
         </div>
 
@@ -310,11 +368,15 @@
             <fieldset class="mb-6 p-4 border rounded-lg">
                 <legend class="text-xl font-semibold mb-3 px-2">Modify Existing Tool & Mappings</legend>
                 <div class="space-y-3">
-                    <div>
-                        <label for="modifyToolSelect" class="block text-sm font-medium text-gray-700">Select Tool to Modify</label>
-                        <select id="modifyToolSelect" class="cis-form-select">
-                            <option value="" disabled selected>-- Select a Tool --</option>
-                        </select>
+                    <!-- NEW Searchable Combo Box -->
+                    <div class="relative">
+                        <label for="toolSearchInput" class="block text-sm font-medium text-gray-700 mb-1">Search Tool to Modify</label>
+                        <input type="text" id="toolSearchInput" class="form-input" placeholder="Type tool name or ID..." autocomplete="off">
+                        
+                        <!-- Dropdown Results Container -->
+                        <div id="toolDropdown" class="absolute z-20 w-full bg-white border border-gray-300 mt-1 rounded-md shadow-xl max-h-60 overflow-y-auto hidden">
+                            <!-- Dynamic Items will appear here -->
+                        </div>
                     </div>
 
                     <!-- This form appears when a tool is selected -->
@@ -323,24 +385,24 @@
                         <h3 class="text-lg font-medium text-gray-900">Tool Attributes</h3>
                         <div>
                             <label for="modifyToolId" class="block text-sm font-medium text-gray-700">Tool ID</label>
-                            <input type="text" id="modifyToolId" class="cis-form-input" disabled>
+                            <input type="text" id="modifyToolId" class="form-input" disabled>
                         </div>
                         <div>
                             <label for="modifyToolName" class="block text-sm font-medium text-gray-700">Tool Name</label>
-                            <input type="text" id="modifyToolName" class="cis-form-input" required>
+                            <input type="text" id="modifyToolName" class="form-input" required>
                         </div>
                         <div>
                             <label for="modifyToolDesc" class="block text-sm font-medium text-gray-700">Description</label>
-                            <textarea id="modifyToolDesc" rows="3" class="cis-form-textarea" required></textarea>
+                            <textarea id="modifyToolDesc" rows="3" class="form-textarea" required></textarea>
                         </div>
                         <div>
                             <label for="modifyToolUrl" class="block text-sm font-medium text-gray-700">URL</label>
-                            <input type="url" id="modifyToolUrl" class="cis-form-input" placeholder="https://..." required>
+                            <input type="url" id="modifyToolUrl" class="form-input" placeholder="https://..." required>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label for="modifyToolEducationUse" class="block text-sm font-medium text-gray-700">Education Use</label>
-                                <select id="modifyToolEducationUse" class="cis-form-select">
+                                <select id="modifyToolEducationUse" class="form-select">
                                     <option value="false">False</option>
                                     <option value="true">True</option>
                                 </select>
@@ -348,12 +410,12 @@
                             <!-- Cost Selection (Modify Mode) -->
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Cost (Select multiple)</label>
-                                <div id="modifyToolCostContainer" class="cis-cost-checkbox-group">
-                                    <label class="cis-cost-checkbox-item"><input type="checkbox" value="$"><span>$</span></label>
-                                    <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$"><span>$$</span></label>
-                                    <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$$"><span>$$$</span></label>
-                                    <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$$$"><span>$$$$</span></label>
-                                    <label class="cis-cost-checkbox-item"><input type="checkbox" value="$$$$$"><span>$$$$$</span></label>
+                                <div id="modifyToolCostContainer" class="cost-checkbox-group">
+                                    <label class="cost-checkbox-item"><input type="checkbox" value="$"><span>$</span></label>
+                                    <label class="cost-checkbox-item"><input type="checkbox" value="$$"><span>$$</span></label>
+                                    <label class="cost-checkbox-item"><input type="checkbox" value="$$$"><span>$$$</span></label>
+                                    <label class="cost-checkbox-item"><input type="checkbox" value="$$$$"><span>$$$$</span></label>
+                                    <label class="cost-checkbox-item"><input type="checkbox" value="$$$$$"><span>$$$$$</span></label>
                                 </div>
                             </div>
                         </div>
@@ -361,16 +423,16 @@
                         <!-- Mappings -->
                         <h3 class="text-lg font-medium text-gray-900 pt-2">Safeguard Mappings</h3>
                         <p class="text-sm text-gray-600">Select safeguards that map to this tool and provide a rationale for each.</p>
-                        <div id="modifySafeguardsList" class="cis-safeguard-checkbox-list">
+                        <div id="modifySafeguardsList" class="safeguard-checkbox-list">
                             <!-- Checkboxes and Rationale inputs will be populated by JS -->
                         </div>
                         
                         <!-- Actions -->
                         <div class="pt-4 flex flex-wrap gap-4 items-center">
-                            <button id="saveChangesBtn" class="cis-btn cis-btn-primary">Save Changes</button>
-                            <button id="resetWorkflowBtn" class="hidden cis-btn cis-btn-green">Add/Modify Another?</button> 
+                            <button id="saveChangesBtn" class="btn btn-primary">Save Changes</button>
+                            <button id="resetWorkflowBtn" class="hidden btn btn-green">Add/Modify Another?</button> <!-- New Button -->
                             <div class="flex-grow"></div> <!-- Spacer -->
-                            <button id="removeToolBtn" class="cis-btn cis-btn-red">Remove This Tool (Single Click)</button>
+                            <button id="removeToolBtn" class="btn btn-red">Remove This Tool (Single Click)</button>
                         </div>
                         <p id="modifyStatus" class="mt-2 text-sm font-medium"></p>
                     </div>
@@ -384,617 +446,1046 @@
             <h2 class="text-xl font-semibold mb-3">Final Step: Generate & Download Files</h2>
             <p class="text-sm text-gray-600 mb-4">When you're finished adding or modifying data, download the new JSON files. You must then upload these to GitHub, replacing the old ones.</p>
             <div class="flex space-x-4">
-                <button id="downloadToolsBtn" class="cis-btn cis-btn-green">Download tools.json</button>
-                <button id="downloadMappingBtn" class="cis-btn cis-btn-green">Download mapping.json</button>
+                <button id="downloadToolsBtn" class="btn btn-green">Download tools.json</button>
+                <button id="downloadMappingBtn" class="btn btn-green">Download mapping.json</button>
             </div>
             <p class="text-xs text-gray-500 mt-4">Note: If you only added mappings, you still may want to download `tools.json` if you added tools in this session.</p>
         </fieldset>
     </div>
+</div>
 
-    <!-- 4. Scoped JavaScript -->
-    <script>
-    (function() { // Wrap in IIFE to avoid global scope pollution in WordPress
+<!-- 4. JavaScript Logic -->
+<script>
+    (function() {
+        // Self-executing function to avoid polluting global scope excessively
         
-        // Initialize worker for PDF.js inside the wrapper
-        // Note: We use a timeout to ensure the library is loaded if network is slow
-        function initPdfWorker() {
+        function initApp() {
+            // Set worker source for PDF.js dynamically after load
             if (window.pdfjsLib) {
                 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-            } else {
-                setTimeout(initPdfWorker, 500);
             }
-        }
-        initPdfWorker();
 
-        // DOM Elements scoped to document since IDs are unique, but good practice to check existence
-        const getEl = (id) => document.getElementById(id);
+            // In-memory data stores
+            let tools = [];
+            let safeguards = [];
+            let mapping = [];
+            let currentModifyToolId = null; 
+            let sortedSafeguards = []; 
 
-        // Data Stores
-        let tools = [];
-        let safeguards = [];
-        let mapping = [];
-        let currentModifyToolId = null; 
-        let sortedSafeguards = []; 
-        let pendingFileMappings = [];
-        let tempParsedData = null;
-        let tempExistingTool = null;
+            // Temporary store for parsed mappings from file
+            let pendingFileMappings = [];
+            // Temporary store for current parsed tool data (for conflict resolution)
+            let tempParsedData = null;
+            let tempExistingTool = null;
 
-        // Element References
-        const loadDataBtn = getEl('loadDataBtn');
-        const loadStatus = getEl('loadStatus');
-        const modeSelectionSection = getEl('modeSelectionSection');
-        const showAddModeBtn = getEl('showAddModeBtn');
-        const showModifyModeBtn = getEl('showModifyModeBtn');
-        const addModeContainer = getEl('addModeContainer');
-        const modifyModeContainer = getEl('modifyModeContainer');
-        const toolForm = getEl('toolForm');
-        const toolStatus = getEl('toolStatus');
-        const toolIdInput = getEl('toolId'); 
-        const mappingForm = getEl('mappingForm');
-        const mappingStatus = getEl('mappingStatus');
-        const toolSelect = getEl('toolSelect');
-        const addSafeguardsList = getEl('addSafeguardsList');
-        const toolCostContainer = getEl('toolCostContainer');
-        const backToStartBtn = getEl('backToStartBtn');
-        const dropZone = getEl('cis-dropZone');
-        const fileInput = getEl('fileInput');
-        const dropStatus = getEl('dropStatus');
-        const conflictModal = getEl('cis-conflictModal');
-        const conflictToolName = getEl('conflictToolName');
-        const conflictToolID = getEl('conflictToolID');
-        const btnConflictModify = getEl('btnConflictModify');
-        const btnConflictAdd = getEl('btnConflictAdd');
-        const modifyToolSelect = getEl('modifyToolSelect');
-        const modifyFormContainer = getEl('modifyFormContainer');
-        const modifyToolId = getEl('modifyToolId');
-        const modifyToolName = getEl('modifyToolName');
-        const modifyToolDesc = getEl('modifyToolDesc');
-        const modifyToolUrl = getEl('modifyToolUrl');
-        const modifyToolEducationUse = getEl('modifyToolEducationUse'); 
-        const modifyToolCostContainer = getEl('modifyToolCostContainer');
-        const modifySafeguardsList = getEl('modifySafeguardsList');
-        const saveChangesBtn = getEl('saveChangesBtn');
-        const removeToolBtn = getEl('removeToolBtn');
-        const modifyStatus = getEl('modifyStatus');
-        const resetWorkflowBtn = getEl('resetWorkflowBtn');
-        const generateSection = getEl('generateSection');
-        const downloadToolsBtn = getEl('downloadToolsBtn');
-        const downloadMappingBtn = getEl('downloadMappingBtn');
+            // DOM Elements - Scoped to our app ID ideally, but ID selection is global anyway
+            const loadDataBtn = document.getElementById('loadDataBtn');
+            const loadStatus = document.getElementById('loadStatus');
+            
+            // Mode selection
+            const modeSelectionSection = document.getElementById('modeSelectionSection');
+            const showAddModeBtn = document.getElementById('showAddModeBtn');
+            const showModifyModeBtn = document.getElementById('showModifyModeBtn');
 
-        // --- Helpers ---
-        function getCostString(container) {
-            const checked = container.querySelectorAll('input[type="checkbox"]:checked');
-            return Array.from(checked).map(cb => cb.value).join(', ');
-        }
+            // Add Mode Elements
+            const addModeContainer = document.getElementById('addModeContainer');
+            const toolForm = document.getElementById('toolForm');
+            const toolStatus = document.getElementById('toolStatus');
+            const toolIdInput = document.getElementById('toolId'); 
+            const mappingForm = document.getElementById('mappingForm');
+            const mappingStatus = document.getElementById('mappingStatus');
+            const toolSelect = document.getElementById('toolSelect');
+            const addSafeguardsList = document.getElementById('addSafeguardsList');
+            const toolCostContainer = document.getElementById('toolCostContainer');
+            const backToStartBtn = document.getElementById('backToStartBtn');
 
-        function setCostSelection(container, costData) {
-            container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-                cb.checked = false;
-            });
-            if (!costData) return;
-            let values = [];
-            if (Array.isArray(costData)) {
-                values = costData; 
-            } else if (typeof costData === 'string') {
-                values = costData.split(',').map(s => s.trim());
+            // Drop Zone Elements
+            const dropZone = document.getElementById('dropZone');
+            const fileInput = document.getElementById('fileInput');
+            const dropStatus = document.getElementById('dropStatus');
+
+            // Paste Mode Elements
+            const togglePasteBtn = document.getElementById('togglePasteBtn');
+            const pasteToggleContainer = document.getElementById('pasteToggleContainer');
+            const pasteInputSection = document.getElementById('pasteInputSection');
+            const pastedText = document.getElementById('pastedText');
+            const processPasteBtn = document.getElementById('processPasteBtn');
+            const cancelPasteBtn = document.getElementById('cancelPasteBtn');
+            const pasteStatus = document.getElementById('pasteStatus');
+
+            // Modal Elements
+            const conflictModal = document.getElementById('conflictModal');
+            const conflictToolName = document.getElementById('conflictToolName');
+            const conflictToolID = document.getElementById('conflictToolID');
+            const btnConflictModify = document.getElementById('btnConflictModify');
+            const btnConflictAdd = document.getElementById('btnConflictAdd');
+
+            // Modify Mode Elements
+            const modifyModeContainer = document.getElementById('modifyModeContainer');
+            const toolSearchInput = document.getElementById('toolSearchInput');
+            const toolDropdown = document.getElementById('toolDropdown');
+
+            const modifyFormContainer = document.getElementById('modifyFormContainer');
+            const modifyToolId = document.getElementById('modifyToolId');
+            const modifyToolName = document.getElementById('modifyToolName');
+            const modifyToolDesc = document.getElementById('modifyToolDesc');
+            const modifyToolUrl = document.getElementById('modifyToolUrl');
+            const modifyToolEducationUse = document.getElementById('modifyToolEducationUse'); 
+            const modifyToolCostContainer = document.getElementById('modifyToolCostContainer');
+            const modifySafeguardsList = document.getElementById('modifySafeguardsList');
+            const saveChangesBtn = document.getElementById('saveChangesBtn');
+            const removeToolBtn = document.getElementById('removeToolBtn');
+            const modifyStatus = document.getElementById('modifyStatus');
+            const resetWorkflowBtn = document.getElementById('resetWorkflowBtn');
+
+            // Generate Section
+            const generateSection = document.getElementById('generateSection');
+            const downloadToolsBtn = document.getElementById('downloadToolsBtn');
+            const downloadMappingBtn = document.getElementById('downloadMappingBtn');
+
+            // --- Helper: Get and Set Cost Values ---
+            function getCostString(container) {
+                const checked = container.querySelectorAll('input[type="checkbox"]:checked');
+                return Array.from(checked).map(cb => cb.value).join(', ');
             }
-            container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-                if (values.includes(cb.value)) cb.checked = true;
-            });
-        }
 
-        function escapeRegExp(string) {
-            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        }
-
-        // --- Drag and Drop ---
-        if(dropZone) {
-            dropZone.addEventListener('click', () => fileInput.click());
-            dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
-            dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
-            dropZone.addEventListener('drop', (e) => {
-                e.preventDefault();
-                dropZone.classList.remove('dragover');
-                if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
-            });
-        }
-        if(fileInput) {
-            fileInput.addEventListener('change', (e) => { 
-                if (e.target.files.length) handleFile(e.target.files[0]); 
-            });
-        }
-
-        async function handleFile(file) {
-            dropStatus.textContent = `Processing ${file.name}...`;
-            dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
-
-            try {
-                let text = '';
-                if (file.type === 'application/pdf') {
-                    text = await parsePdf(file);
-                } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-                    text = await parseDocx(file);
-                } else {
-                    throw new Error('Unsupported file type. Please drop .docx or .pdf');
+            function setCostSelection(container, costData) {
+                // Reset all
+                container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    cb.checked = false;
+                });
+                
+                if (!costData) return;
+                
+                let values = [];
+                if (Array.isArray(costData)) {
+                    values = costData; 
+                } else if (typeof costData === 'string') {
+                    values = costData.split(',').map(s => s.trim());
                 }
+
+                container.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                    if (values.includes(cb.value)) cb.checked = true;
+                });
+            }
+
+            // --- Paste Logic ---
+            if(togglePasteBtn) {
+                togglePasteBtn.addEventListener('click', () => {
+                    dropZone.classList.add('hidden');
+                    pasteToggleContainer.classList.add('hidden');
+                    pasteInputSection.classList.remove('hidden');
+                    pastedText.value = '';
+                    pastedText.focus();
+                    pasteStatus.textContent = '';
+                });
+            }
+
+            if(cancelPasteBtn) {
+                cancelPasteBtn.addEventListener('click', () => {
+                     pasteInputSection.classList.add('hidden');
+                     dropZone.classList.remove('hidden');
+                     pasteToggleContainer.classList.remove('hidden');
+                     dropStatus.textContent = '';
+                     pasteStatus.textContent = '';
+                });
+            }
+
+            if(processPasteBtn) {
+                processPasteBtn.addEventListener('click', () => {
+                    const text = pastedText.value.trim();
+                    if(!text) {
+                        pasteStatus.textContent = "Please paste some text first.";
+                        return;
+                    }
+                    
+                    try {
+                        const parsedData = parseToolData(text);
+                        
+                        // Validate minimal data
+                        if (!parsedData.name) {
+                             pasteStatus.textContent = "Could not detect a Tool Name. Please ensure the text follows the standard format (Name of Tool: ...)";
+                             return;
+                        }
+                        
+                        handleParsedData(parsedData, "pasted text");
+                    } catch (err) {
+                        console.error(err);
+                        pasteStatus.textContent = "Error parsing text: " + err.message;
+                    }
+                });
+            }
+
+            // --- Drag and Drop Logic ---
+            if(dropZone) {
+                dropZone.addEventListener('click', () => fileInput.click());
                 
-                const parsedData = parseToolData(text);
+                dropZone.addEventListener('dragover', (e) => { 
+                    e.preventDefault(); 
+                    dropZone.classList.add('dragover'); 
+                });
                 
-                // Check for duplicate
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.classList.remove('dragover');
+                });
+                
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.remove('dragover');
+                    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+                });
+                
+                fileInput.addEventListener('change', (e) => { 
+                    if (e.target.files.length) handleFile(e.target.files[0]); 
+                });
+            }
+
+            async function handleFile(file) {
+                dropStatus.textContent = `Processing ${file.name}...`;
+                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
+
+                try {
+                    let text = '';
+                    if (file.type === 'application/pdf') {
+                        text = await parsePdf(file);
+                    } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                        text = await parseDocx(file);
+                    } else {
+                        throw new Error('Unsupported file type. Please drop .docx or .pdf');
+                    }
+                    
+                    const parsedData = parseToolData(text);
+                    handleParsedData(parsedData, file.name);
+                    
+                } catch (err) {
+                    console.error(err);
+                    dropStatus.textContent = `Error: ${err.message}`;
+                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-red-600';
+                }
+            }
+            
+            // --- Unified Handler for Parsed Data (File or Paste) ---
+            function handleParsedData(parsedData, sourceName) {
+                 // Check for duplicate
                 const existingTool = tools.find(t => t.Name.toLowerCase() === parsedData.name.toLowerCase());
                 
                 if (existingTool) {
+                    // Conflict: Show Modal
                     tempParsedData = parsedData;
                     tempExistingTool = existingTool;
+                    
                     conflictToolName.textContent = existingTool.Name;
                     conflictToolID.textContent = existingTool.ID;
                     conflictModal.classList.remove('hidden');
+                    
                     dropStatus.textContent = `Conflict detected for "${parsedData.name}".`;
                     dropStatus.className = 'mt-2 text-sm font-medium h-5 text-yellow-600';
+                    pasteStatus.textContent = `Conflict detected for "${parsedData.name}".`;
+                    pasteStatus.className = 'mt-2 text-sm font-medium text-yellow-600';
                 } else {
+                    // No Conflict: Switch to Add Mode and Populate
+                    
+                    // 1. Hide Selection Screen
                     modeSelectionSection.classList.add('hidden');
+                    
+                    // 2. Reset Paste UI if that was used
+                    pasteInputSection.classList.add('hidden');
+                    dropZone.classList.remove('hidden');
+                    pasteToggleContainer.classList.remove('hidden');
+                    
+                    // 3. Show Add Screen
                     addModeContainer.classList.remove('hidden');
                     generateSection.classList.remove('hidden');
-                    populateAddForm(parsedData);
-                    dropStatus.textContent = `Loaded data from ${file.name}.`;
-                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
-                }
-            } catch (err) {
-                console.error(err);
-                dropStatus.textContent = `Error: ${err.message}`;
-                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-red-600';
-            }
-        }
-
-        // File Parsing
-        async function parseDocx(file) {
-            if (!window.mammoth) throw new Error("Mammoth library not loaded");
-            const arrayBuffer = await file.arrayBuffer();
-            const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
-            return result.value; 
-        }
-
-        async function parsePdf(file) {
-            if (!window.pdfjsLib) throw new Error("PDF.js library not loaded");
-            const arrayBuffer = await file.arrayBuffer();
-            const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
-            let fullText = '';
-            for (let i = 1; i <= pdf.numPages; i++) {
-                const page = await pdf.getPage(i);
-                const textContent = await page.getTextContent();
-                const pageText = textContent.items.map(item => item.str).join(' ');
-                fullText += pageText + '\n';
-            }
-            return fullText;
-        }
-
-        function parseToolData(text) {
-            const cleanText = text.replace(/\*\*/g, '').trim(); 
-            const lines = cleanText.split('\n').map(l => l.trim()).filter(l => l);
-
-            let name = "";
-            const nameRegex = /Name of Tool:\s*(.+)/i;
-            const nameMatch = cleanText.match(nameRegex);
-            if (nameMatch) { name = nameMatch[1].trim(); } 
-            else if (lines.length > 0) { name = lines[0].trim(); }
-
-            let desc = "";
-            const descRegex = /(?:Description(?: of Tool)?|Description):\s*(.+)/i;
-            const descMatch = cleanText.match(descRegex);
-            if (descMatch) desc = descMatch[1].trim();
-
-            let url = "";
-            const urlRegex = /(?:URL(?: of Tool)?|URL).*?(https?:\/\/[^\s]+)/i;
-            const urlMatch = cleanText.match(urlRegex);
-            if (urlMatch) url = urlMatch[1].trim();
-
-            let costs = [];
-            const costLabelRegex = /(?:Relative Cost(?: of Tool)?|Relative Cost|Cost)\s*[:\-\u2013\u2014]?\s*(.+)/i;
-            const costLabelMatch = cleanText.match(costLabelRegex);
-            if (costLabelMatch) {
-                const rawCost = costLabelMatch[1];
-                const rangeRegex = /(\$+)\s*(?:[\-\u2013\u2014]|to)\s*(\$+)/i;
-                const rangeMatch = rawCost.match(rangeRegex);
-                if (rangeMatch) {
-                    const min = Math.min(rangeMatch[1].length, rangeMatch[2].length);
-                    const max = Math.max(rangeMatch[1].length, rangeMatch[2].length);
-                    for (let i = min; i <= max; i++) { costs.push('$'.repeat(i)); }
-                } else {
-                    const dollarMatches = rawCost.match(/\$+/g);
-                    if (dollarMatches) { costs = dollarMatches; }
-                }
-            }
-
-            let eduUse = false;
-            const eduLineRegex = /(?:Education|K-12).*?(Yes|No)/i;
-            const eduMatch = cleanText.match(eduLineRegex);
-            if (eduMatch && eduMatch[1].toLowerCase() === 'yes') eduUse = true;
-
-            let fileMappings = [];
-            const sectionMatch = cleanText.match(/(?:Applicable|CIS).{0,20}Safeguards/i);
-            if (sectionMatch) {
-                const safeguardsText = cleanText.substring(sectionMatch.index);
-                const sgRegex = /(?:SG|Safeguard|CIS Control|Control)\s*#?\s*(\d+\.\d+)/gi;
-                let match;
-                while ((match = sgRegex.exec(safeguardsText)) !== null) {
-                    const sgNum = match[1];
-                    const remainingText = safeguardsText.substring(match.index + match[0].length);
-                    const nextMatch = remainingText.match(/(?:SG|Safeguard|CIS Control|Control)\s*#?\s*\d+\.\d+/i);
-                    const endIndex = nextMatch ? nextMatch.index : remainingText.length;
-                    let blockText = remainingText.substring(0, endIndex).trim();
-                    let rationale = "";
-                    const dbSafeguard = safeguards.find(s => `${s.ControlNumber}.${s.SafeguardNumber}` === sgNum);
-                    const labelMatch = blockText.match(/(?:Reason|Justification|Rationale|Evidence)\s*:\s*([\s\S]+)/i);
                     
-                    if (labelMatch) {
-                        rationale = labelMatch[1].trim();
-                    } else if (dbSafeguard) {
-                        const titleRegex = new RegExp(`^\\s*[\\(\\-: ]*${escapeRegExp(dbSafeguard.Title)}[\\)\\-: ]*`, 'i');
-                        const textWithoutTitle = blockText.replace(titleRegex, '');
-                        if (textWithoutTitle.length < blockText.length) {
-                            rationale = textWithoutTitle.replace(/^[:\-\)]+\s*/, '').trim();
-                        } else {
-                            const colonIndex = blockText.indexOf(':');
-                            if (colonIndex !== -1) rationale = blockText.substring(colonIndex + 1).trim();
-                            else rationale = blockText;
+                    // 4. Populate
+                    populateAddForm(parsedData);
+                    
+                    dropStatus.textContent = `Loaded data from ${sourceName}.`;
+                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
+                    pasteStatus.textContent = '';
+                }
+            }
+
+            // Modal Actions
+            btnConflictModify.addEventListener('click', () => {
+                conflictModal.classList.add('hidden');
+                switchToModifyModeAndPopulate(tempExistingTool, tempParsedData);
+                
+                // Clear source statuses
+                dropStatus.textContent = `Switched to Modify Mode for "${tempParsedData.name}".`;
+                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
+                pasteStatus.textContent = '';
+                pasteInputSection.classList.add('hidden'); // Hide paste if active
+                dropZone.classList.remove('hidden');
+                pasteToggleContainer.classList.remove('hidden');
+            });
+
+            btnConflictAdd.addEventListener('click', () => {
+                conflictModal.classList.add('hidden');
+                
+                // Reset Paste UI elements if needed so we start clean next time
+                pasteInputSection.classList.add('hidden');
+                dropZone.classList.remove('hidden');
+                pasteToggleContainer.classList.remove('hidden');
+                
+                // Switch to Add Mode
+                modeSelectionSection.classList.add('hidden');
+                addModeContainer.classList.remove('hidden');
+                generateSection.classList.remove('hidden');
+
+                populateAddForm(tempParsedData);
+                dropStatus.textContent = `Prepared "${tempParsedData.name}" as a new tool.`;
+                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
+                pasteStatus.textContent = '';
+            });
+
+
+            async function parseDocx(file) {
+                const arrayBuffer = await file.arrayBuffer();
+                const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+                return result.value; 
+            }
+
+            async function parsePdf(file) {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
+                let fullText = '';
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(item => item.str).join(' ');
+                    fullText += pageText + '\n';
+                }
+                return fullText;
+            }
+
+            // Helper function to escape RegExp special characters
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+
+            function parseToolData(text) {
+                // Clean up text but keep newlines
+                const cleanText = text.replace(/\*\*/g, '').trim(); 
+                const lines = cleanText.split('\n').map(l => l.trim()).filter(l => l);
+
+                // 1. Name (Usually top line or "Name of Tool:")
+                let name = "";
+                const nameRegex = /Name of Tool:\s*(.+)/i;
+                const nameMatch = cleanText.match(nameRegex);
+                if (nameMatch) {
+                    name = nameMatch[1].trim();
+                } else if (lines.length > 0) {
+                    name = lines[0].trim(); 
+                }
+
+                // 2. Description
+                let desc = "";
+                const descRegex = /(?:Description(?: of Tool)?|Description):\s*(.+)/i;
+                const descMatch = cleanText.match(descRegex);
+                if (descMatch) desc = descMatch[1].trim();
+
+                // 3. URL
+                let url = "";
+                const urlRegex = /(?:URL(?: of Tool)?|URL).*?(https?:\/\/[^\s]+)/i;
+                const urlMatch = cleanText.match(urlRegex);
+                if (urlMatch) url = urlMatch[1].trim();
+
+                // 4. Cost (Parse range or exact dollar signs)
+                let costs = [];
+                // Look for the line starting with Cost/Relative Cost, then capture the value part
+                const costLabelRegex = /(?:Relative Cost(?: of Tool)?|Relative Cost|Cost)\s*[:\-\u2013\u2014]?\s*(.+)/i;
+                const costLabelMatch = cleanText.match(costLabelRegex);
+
+                if (costLabelMatch) {
+                    const rawCost = costLabelMatch[1];
+                    
+                    // Check for range pattern: "$... - $..." or "$... to $..."
+                    const rangeRegex = /(\$+)\s*(?:[\-\u2013\u2014]|to)\s*(\$+)/i;
+                    const rangeMatch = rawCost.match(rangeRegex);
+
+                    if (rangeMatch) {
+                        const startLen = rangeMatch[1].length;
+                        const endLen = rangeMatch[2].length;
+                        const min = Math.min(startLen, endLen);
+                        const max = Math.max(startLen, endLen);
+                        
+                        // Generate all intermediate dollar strings
+                        for (let i = min; i <= max; i++) {
+                            costs.push('$'.repeat(i));
                         }
                     } else {
-                        const colonIndex = blockText.indexOf(':');
-                        if (colonIndex !== -1) rationale = blockText.substring(colonIndex + 1).trim();
-                        else rationale = blockText.replace(/^[\s\-\(\)]+/, '').trim();
-                    }
-
-                    if (dbSafeguard) {
-                        fileMappings.push({ SafeguardID: dbSafeguard.ID, Rationale: rationale });
+                        // Fallback: Extract all individual dollar groups
+                        const dollarMatches = rawCost.match(/\$+/g);
+                        if (dollarMatches) {
+                            costs = dollarMatches;
+                        }
                     }
                 }
+
+                // 5. Education Use
+                let eduUse = false;
+                const eduLineRegex = /(?:Education|K-12).*?(Yes|No)/i;
+                const eduMatch = cleanText.match(eduLineRegex);
+                
+                if (eduMatch) {
+                    if (eduMatch[1].toLowerCase() === 'yes') eduUse = true;
+                }
+
+                // 6. Mappings (Robust Scan)
+                let fileMappings = [];
+                
+                // Find where the Safeguards section likely begins
+                const sectionMatch = cleanText.match(/(?:Applicable|CIS).{0,20}Safeguards/i);
+                
+                if (sectionMatch) {
+                    const startIndex = sectionMatch.index;
+                    const safeguardsText = cleanText.substring(startIndex);
+
+                    // Regex to find SG/Control numbers
+                    const sgRegex = /(?:SG|Safeguard|CIS Control|Control)\s*#?\s*(\d+\.\d+)/gi;
+                    
+                    let match;
+                    while ((match = sgRegex.exec(safeguardsText)) !== null) {
+                        const sgNum = match[1];
+                        
+                        // Capture the text following this match until the next match or end
+                        const remainingText = safeguardsText.substring(match.index + match[0].length);
+                        // Find next SG to delimit
+                        const nextMatch = remainingText.match(/(?:SG|Safeguard|CIS Control|Control)\s*#?\s*\d+\.\d+/i);
+                        const endIndex = nextMatch ? nextMatch.index : remainingText.length;
+                        
+                        let blockText = remainingText.substring(0, endIndex).trim();
+                        let rationale = "";
+
+                        const dbSafeguard = safeguards.find(s => `${s.ControlNumber}.${s.SafeguardNumber}` === sgNum);
+
+                        // 1. Look for explicit labels like "Reason:", "Justification:", "Evidence:"
+                        const labelMatch = blockText.match(/(?:Reason|Justification|Rationale|Evidence)\s*:\s*([\s\S]+)/i);
+                        
+                        if (labelMatch) {
+                            rationale = labelMatch[1].trim();
+                        } else if (dbSafeguard) {
+                            // 2. Check if text starts with the Safeguard Title, then strip it
+                            const normalize = (str) => str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                            const normBlock = normalize(blockText);
+                            const normTitle = normalize(dbSafeguard.Title);
+
+                            if (normBlock.startsWith(normTitle)) {
+                                const titleRegex = new RegExp(`^\\s*[\\(\\-: ]*${escapeRegExp(dbSafeguard.Title)}[\\)\\-: ]*`, 'i');
+                                const textWithoutTitle = blockText.replace(titleRegex, '');
+                                
+                                if (textWithoutTitle.length < blockText.length) {
+                                    rationale = textWithoutTitle.trim();
+                                    rationale = rationale.replace(/^[:\-\)]+\s*/, '').trim();
+                                } else {
+                                    const colonIndex = blockText.indexOf(':');
+                                    if (colonIndex !== -1) {
+                                        rationale = blockText.substring(colonIndex + 1).trim();
+                                    } else {
+                                        rationale = blockText;
+                                    }
+                                }
+
+                            } else {
+                            // 3. Title not present at start. Fallback to Colon logic.
+                                const colonIndex = blockText.indexOf(':');
+                                if (colonIndex !== -1) {
+                                    rationale = blockText.substring(colonIndex + 1).trim();
+                                } else {
+                                    // 4. No colon? Strip leading hyphens or parens
+                                    rationale = blockText.replace(/^[\s\-\(\)]+/, '').trim();
+                                }
+                            }
+                        } else {
+                            // Safeguard not found in DB, process blockText blindly using colon logic
+                            const colonIndex = blockText.indexOf(':');
+                            if (colonIndex !== -1) {
+                                rationale = blockText.substring(colonIndex + 1).trim();
+                            } else {
+                                rationale = blockText.replace(/^[\s\-\(\)]+/, '').trim();
+                            }
+                        }
+
+                        if (dbSafeguard) {
+                            fileMappings.push({
+                                SafeguardID: dbSafeguard.ID,
+                                Rationale: rationale
+                            });
+                        }
+                    }
+                }
+
+                return { name, desc, url, costs, eduUse, mappings: fileMappings };
             }
-            return { name, desc, url, costs, eduUse, mappings: fileMappings };
-        }
 
-        // --- UI Interaction Functions ---
-
-        function populateAddForm(data) {
-            getEl('toolName').value = data.name;
-            getEl('toolDesc').value = data.desc;
-            getEl('toolUrl').value = data.url;
-            getEl('toolEducationUse').value = data.eduUse ? 'true' : 'false';
-            setCostSelection(toolCostContainer, data.costs); 
-            pendingFileMappings = data.mappings;
-            renderSafeguardsList(addSafeguardsList, 'add', null, pendingFileMappings);
-        }
-
-        function switchToModifyModeAndPopulate(existingTool, newData) {
-            modeSelectionSection.classList.add('hidden');
-            addModeContainer.classList.add('hidden');
-            generateSection.classList.remove('hidden');
-            modifyModeContainer.classList.remove('hidden');
-            modifyToolSelect.value = existingTool.ID;
-            currentModifyToolId = existingTool.ID;
-            modifyFormContainer.classList.remove('hidden');
-            modifyToolId.value = existingTool.ID;
-            modifyToolName.value = newData.name; 
-            modifyToolDesc.value = newData.desc; 
-            modifyToolUrl.value = newData.url;   
-            modifyToolEducationUse.value = newData.eduUse ? 'true' : 'false'; 
-            setCostSelection(modifyToolCostContainer, newData.costs); 
-            renderSafeguardsList(modifySafeguardsList, 'mod', existingTool.ID, newData.mappings);
-            resetWorkflowBtn.classList.add('hidden');
-        }
-
-        function returnToStart() {
-            addModeContainer.classList.add('hidden');
-            modifyModeContainer.classList.add('hidden');
-            generateSection.classList.add('hidden');
-            modeSelectionSection.classList.remove('hidden');
-            dropStatus.textContent = '';
-            toolStatus.textContent = '';
-            mappingStatus.textContent = '';
-            modifyStatus.textContent = '';
-            toolForm.reset();
-            mappingForm.reset();
-            modifyFormContainer.classList.add('hidden');
-            currentModifyToolId = null;
-            modifyToolSelect.value = "";
-        }
-
-        btnConflictModify.addEventListener('click', () => {
-            conflictModal.classList.add('hidden');
-            switchToModifyModeAndPopulate(tempExistingTool, tempParsedData);
-            dropStatus.textContent = `Switched to Modify Mode for "${tempParsedData.name}".`;
-            dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
-        });
-
-        btnConflictAdd.addEventListener('click', () => {
-            conflictModal.classList.add('hidden');
-            modeSelectionSection.classList.add('hidden');
-            addModeContainer.classList.remove('hidden');
-            generateSection.classList.remove('hidden');
-            populateAddForm(tempParsedData);
-            dropStatus.textContent = `Prepared "${tempParsedData.name}" as a new tool.`;
-            dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
-        });
-
-        resetWorkflowBtn.addEventListener('click', returnToStart);
-        backToStartBtn.addEventListener('click', returnToStart);
-
-        // Load Data Event
-        loadDataBtn.addEventListener('click', async () => {
-            const toolsUrl = getEl('toolsUrl').value;
-            const safeguardsUrl = getEl('safeguardsUrl').value;
-            const mappingUrl = getEl('mappingUrl').value;
-            if (!toolsUrl || !safeguardsUrl || !mappingUrl) {
-                setLoadStatus('Please provide all 3 URLs.', 'red');
-                return;
+            function populateAddForm(data) {
+                document.getElementById('toolName').value = data.name;
+                document.getElementById('toolDesc').value = data.desc;
+                document.getElementById('toolUrl').value = data.url;
+                document.getElementById('toolEducationUse').value = data.eduUse ? 'true' : 'false';
+                setCostSelection(toolCostContainer, data.costs); 
+                
+                pendingFileMappings = data.mappings;
+                renderSafeguardsList(addSafeguardsList, 'add', null, pendingFileMappings);
             }
-            setLoadStatus('Loading...', 'blue');
-            try {
-                const [toolsRes, safeguardsRes, mappingRes] = await Promise.all([
-                    fetch(toolsUrl), fetch(safeguardsUrl), fetch(mappingUrl)
-                ]);
-                if (!toolsRes.ok || !safeguardsRes.ok || !mappingRes.ok) throw new Error('One or more files not found.');
-                tools = await toolsRes.json();
-                safeguards = await safeguardsRes.json();
-                mapping = await mappingRes.json();
-                sortedSafeguards = [...safeguards].sort((a, b) => a.ControlNumber - b.ControlNumber || a.SafeguardNumber - b.SafeguardNumber);
-                setLoadStatus(`Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`, 'green');
-                populateAddModeDropdowns();
-                populateModifyToolDropdown();
-                suggestNextToolId();
-                modeSelectionSection.classList.remove('hidden');
+
+            function switchToModifyModeAndPopulate(existingTool, newData) {
+                // 1. Switch Mode UI
+                modeSelectionSection.classList.add('hidden');
+                addModeContainer.classList.add('hidden');
+                generateSection.classList.remove('hidden');
+                modifyModeContainer.classList.remove('hidden');
+
+                // 2. Set the searchable input value
+                toolSearchInput.value = existingTool.Name; 
+                
+                // 3. Load Data
+                currentModifyToolId = existingTool.ID;
+                loadToolForEditing(existingTool.ID);
+                
+                // 4. Update form fields with NEW data
+                modifyToolId.value = existingTool.ID;
+                modifyToolName.value = newData.name; 
+                modifyToolDesc.value = newData.desc; 
+                modifyToolUrl.value = newData.url;   
+                modifyToolEducationUse.value = newData.eduUse ? 'true' : 'false'; 
+                setCostSelection(modifyToolCostContainer, newData.costs); 
+
+                // 5. Handle Mappings: Merge existing with new
+                renderSafeguardsList(modifySafeguardsList, 'mod', existingTool.ID, newData.mappings);
+                
+                modifyFormContainer.classList.remove('hidden');
+                // Hide the new button initially
+                resetWorkflowBtn.classList.add('hidden');
+            }
+
+            // Return to Start Logic (Shared)
+            function returnToStart() {
+                // Hide all operational containers
                 addModeContainer.classList.add('hidden');
                 modifyModeContainer.classList.add('hidden');
                 generateSection.classList.add('hidden');
+                
+                // Show Start
+                modeSelectionSection.classList.remove('hidden');
+                
+                // Ensure Paste UI is reset
+                pasteInputSection.classList.add('hidden');
+                dropZone.classList.remove('hidden');
+                pasteToggleContainer.classList.remove('hidden');
+                
+                // Clear Statuses
+                dropStatus.textContent = '';
+                toolStatus.textContent = '';
+                mappingStatus.textContent = '';
+                modifyStatus.textContent = '';
+                pasteStatus.textContent = '';
+                
+                // Clear Form Data
+                toolForm.reset();
+                mappingForm.reset();
                 modifyFormContainer.classList.add('hidden');
-            } catch (error) {
-                console.error('Failed to load data:', error);
-                setLoadStatus(`Error: ${error.message}`, 'red');
+                currentModifyToolId = null;
+                
+                // Clear Search
+                toolSearchInput.value = "";
+                toolDropdown.innerHTML = "";
+                toolDropdown.classList.add('hidden');
             }
-        });
 
-        showAddModeBtn.addEventListener('click', () => {
-            modeSelectionSection.classList.add('hidden');
-            addModeContainer.classList.remove('hidden');
-            generateSection.classList.remove('hidden');
-            modifyModeContainer.classList.add('hidden');
-        });
+            // Connect the "Back to Start" buttons
+            resetWorkflowBtn.addEventListener('click', returnToStart);
+            backToStartBtn.addEventListener('click', returnToStart);
 
-        showModifyModeBtn.addEventListener('click', () => {
-            modeSelectionSection.classList.add('hidden');
-            addModeContainer.classList.add('hidden');
-            generateSection.classList.remove('hidden');
-            modifyModeContainer.classList.remove('hidden');
-        });
 
-        function setLoadStatus(message, color) {
-            loadStatus.textContent = message;
-            loadStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
-        }
-        function setModifyStatus(message, color) {
-            modifyStatus.textContent = message;
-            modifyStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
-            setTimeout(() => { modifyStatus.textContent = ''; }, color === 'red' ? 5000 : 3000);
-        }
+            // --- 1. Load Data ---
+            loadDataBtn.addEventListener('click', async () => {
+                const toolsUrl = document.getElementById('toolsUrl').value;
+                const safeguardsUrl = document.getElementById('safeguardsUrl').value;
+                const mappingUrl = document.getElementById('mappingUrl').value;
 
-        function renderSafeguardsList(containerElement, modePrefix, toolIdForEditing = null, pendingData = []) {
-            containerElement.innerHTML = '';
-            sortedSafeguards.forEach(sg => {
-                let isChecked = false;
-                let currentRationale = '';
-                if (toolIdForEditing) {
-                     const existingMapping = mapping.find(m => m.ToolID === toolIdForEditing && m.SafeguardID === sg.ID);
-                     if (existingMapping) { isChecked = true; currentRationale = existingMapping.Rationale || ''; }
+                if (!toolsUrl || !safeguardsUrl || !mappingUrl) {
+                    setLoadStatus('Please provide all 3 URLs.', 'red');
+                    return;
                 }
-                if (pendingData.length > 0) {
-                    const pending = pendingData.find(p => p.SafeguardID === sg.ID);
-                    if (pending) { isChecked = true; if (pending.Rationale) currentRationale = pending.Rationale; }
+
+                setLoadStatus('Loading...', 'blue');
+
+                try {
+                    const [toolsRes, safeguardsRes, mappingRes] = await Promise.all([
+                        fetch(toolsUrl),
+                        fetch(safeguardsUrl),
+                        fetch(mappingUrl)
+                    ]);
+
+                    if (!toolsRes.ok || !safeguardsRes.ok || !mappingRes.ok) {
+                        throw new Error('One or more files not found. Check URLs and CORS permissions.');
+                    }
+
+                    tools = await toolsRes.json();
+                    safeguards = await safeguardsRes.json();
+                    mapping = await mappingRes.json();
+
+                    sortedSafeguards = [...safeguards].sort((a, b) => a.ControlNumber - b.ControlNumber || a.SafeguardNumber - b.SafeguardNumber);
+
+                    setLoadStatus(`Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`, 'green');
+
+                    populateAddModeDropdowns();
+                    suggestNextToolId();
+
+                    modeSelectionSection.classList.remove('hidden');
+                    addModeContainer.classList.add('hidden');
+                    modifyModeContainer.classList.add('hidden');
+                    generateSection.classList.add('hidden');
+                    modifyFormContainer.classList.add('hidden');
+
+                } catch (error) {
+                    console.error('Failed to load data:', error);
+                    setLoadStatus(`Error: ${error.message}`, 'red');
                 }
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'cis-safeguard-checkbox-item';
-                const rowDiv = document.createElement('div');
-                rowDiv.className = 'cis-safeguard-checkbox-row';
-                const uniqueId = `${modePrefix}-sg-${sg.ID}`;
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.id = uniqueId;
-                checkbox.value = sg.ID;
-                checkbox.checked = isChecked;
-                const label = document.createElement('label');
-                label.htmlFor = uniqueId;
-                label.textContent = `SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
-                rowDiv.appendChild(checkbox);
-                rowDiv.appendChild(label);
-                const rationaleInput = document.createElement('input');
-                rationaleInput.type = 'text';
-                rationaleInput.className = 'cis-form-input cis-safeguard-rationale-input';
-                rationaleInput.placeholder = 'Rationale (required if checked)';
-                rationaleInput.value = currentRationale;
-                rationaleInput.style.display = isChecked ? 'block' : 'none';
-                checkbox.addEventListener('change', (e) => {
-                    if (e.target.checked) {
-                        rationaleInput.style.display = 'block';
-                        rationaleInput.focus();
+            });
+
+            // --- 1.5. Mode Selection Listeners ---
+            showAddModeBtn.addEventListener('click', () => {
+                modeSelectionSection.classList.add('hidden');
+                addModeContainer.classList.remove('hidden');
+                generateSection.classList.remove('hidden');
+                modifyModeContainer.classList.add('hidden');
+            });
+
+            showModifyModeBtn.addEventListener('click', () => {
+                modeSelectionSection.classList.add('hidden');
+                addModeContainer.classList.add('hidden');
+                generateSection.classList.remove('hidden');
+                modifyModeContainer.classList.remove('hidden');
+            });
+
+            // --- Helper: Set Status ---
+            function setLoadStatus(message, color) {
+                loadStatus.textContent = message;
+                loadStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
+            }
+            function setModifyStatus(message, color) {
+                modifyStatus.textContent = message;
+                modifyStatus.className = `mt-2 text-sm font-medium text-${color}-600`;
+                setTimeout(() => { modifyStatus.textContent = ''; }, color === 'red' ? 5000 : 3000);
+            }
+
+            // --- SHARED: Render Safeguard List with Rationales ---
+            // Added 'pendingData' parameter to support file drag-and-drop pre-filling
+            function renderSafeguardsList(containerElement, modePrefix, toolIdForEditing = null, pendingData = []) {
+                containerElement.innerHTML = '';
+                sortedSafeguards.forEach(sg => {
+                    let isChecked = false;
+                    let currentRationale = '';
+
+                    // Check Real Mappings (Modify Mode)
+                    if (toolIdForEditing) {
+                        const existingMapping = mapping.find(m => m.ToolID === toolIdForEditing && m.SafeguardID === sg.ID);
+                        if (existingMapping) {
+                            isChecked = true;
+                            currentRationale = existingMapping.Rationale || '';
+                        }
+                    }
+                    
+                    // Check Pending Mappings (File Drop) - This takes priority for rationale if present
+                    if (pendingData.length > 0) {
+                        const pending = pendingData.find(p => p.SafeguardID === sg.ID);
+                        if (pending) {
+                            isChecked = true;
+                            // Overwrite rationale if file has one, or if we are adding fresh
+                            if (pending.Rationale) {
+                                currentRationale = pending.Rationale;
+                            }
+                        }
+                    }
+
+                    // Create elements
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'safeguard-checkbox-item';
+                    
+                    const rowDiv = document.createElement('div');
+                    rowDiv.className = 'safeguard-checkbox-row';
+
+                    const uniqueId = `${modePrefix}-sg-${sg.ID}`;
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = uniqueId;
+                    checkbox.value = sg.ID;
+                    checkbox.checked = isChecked;
+
+                    const label = document.createElement('label');
+                    label.htmlFor = uniqueId;
+                    label.textContent = `SG ${sg.ControlNumber}.${sg.SafeguardNumber}: ${sg.Title}`;
+
+                    rowDiv.appendChild(checkbox);
+                    rowDiv.appendChild(label);
+
+                    const rationaleInput = document.createElement('input');
+                    rationaleInput.type = 'text';
+                    rationaleInput.className = 'form-input safeguard-rationale-input';
+                    rationaleInput.placeholder = 'Rationale (required if checked)';
+                    rationaleInput.value = currentRationale;
+                    rationaleInput.style.display = isChecked ? 'block' : 'none';
+
+                    // Toggle visibility on check
+                    checkbox.addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                            rationaleInput.style.display = 'block';
+                            rationaleInput.focus();
+                        } else {
+                            rationaleInput.style.display = 'none';
+                            rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                        }
+                    });
+
+                    itemDiv.appendChild(rowDiv);
+                    itemDiv.appendChild(rationaleInput);
+                    containerElement.appendChild(itemDiv);
+                });
+            }
+
+
+            // --- Populate Dropdowns ---
+            function populateAddModeDropdowns() {
+                toolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool --</option>';
+                
+                tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
+                    const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
+                    toolSelect.add(option);
+                });
+
+                // Render standard list (clear pending)
+                renderSafeguardsList(addSafeguardsList, 'add');
+            }
+
+            function suggestNextToolId() {
+                const existingIds = new Set(
+                    tools.map(tool => parseInt(tool.ID.replace('T', '')))
+                        .filter(id => !isNaN(id))
+                );
+                let nextIdNum = 1;
+                while (existingIds.has(nextIdNum)) {
+                    nextIdNum++;
+                }
+                toolIdInput.value = `T${nextIdNum}`;
+            }
+
+            // --- 2. Add Tool ---
+            toolForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const id = toolIdInput.value;
+                const name = document.getElementById('toolName').value;
+                const desc = document.getElementById('toolDesc').value;
+                const url = document.getElementById('toolUrl').value;
+                const educationUse = document.getElementById('toolEducationUse').value === 'true'; 
+                const cost = getCostString(toolCostContainer);
+
+                if (tools.some(t => t.ID === id)) {
+                    toolStatus.textContent = `Error: Tool ID "${id}" already exists.`;
+                    toolStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                    return;
+                }
+
+                const newTool = { 
+                    ID: id, 
+                    Name: name, 
+                    Description: desc, 
+                    URL: url,
+                    EducationUse: educationUse,
+                    Cost: cost
+                };
+
+                tools.push(newTool);
+                toolStatus.textContent = `Added "${name}". You now have ${tools.length} tools.`;
+                toolStatus.className = 'mt-2 text-sm font-medium text-green-600';
+                
+                // Refresh dropdowns
+                populateAddModeDropdowns();
+                
+                // Auto-select the new tool in the mapping section
+                toolSelect.value = id;
+
+                // If we have pending mappings from a file drop, re-apply them to the list
+                if (pendingFileMappings.length > 0) {
+                    renderSafeguardsList(addSafeguardsList, 'add', null, pendingFileMappings);
+                    mappingStatus.textContent = "Tool added. Please review extracted mappings below and click 'Add Mapping(s)'.";
+                    mappingStatus.className = 'mt-2 text-sm font-medium text-blue-600';
+                }
+
+                // Reset Tool Form parts
+                toolForm.reset();
+                document.getElementById('toolEducationUse').value = 'false'; 
+                setCostSelection(toolCostContainer, ''); 
+                suggestNextToolId();
+                dropStatus.textContent = ''; // Clear file drop status
+            });
+
+            // --- 3. Add Mapping ---
+            mappingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const toolID = toolSelect.value;
+
+                if (!toolID) {
+                    mappingStatus.textContent = 'Please select a tool.';
+                    mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                    return;
+                }
+
+                const newMappingsToAdd = [];
+                let validationError = false;
+                let hasSelection = false;
+
+                const items = addSafeguardsList.querySelectorAll('.safeguard-checkbox-item');
+                items.forEach(item => {
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    const rationaleInput = item.querySelector('.safeguard-rationale-input');
+
+                    if (checkbox.checked) {
+                        hasSelection = true;
+                        const rationaleVal = rationaleInput.value.trim();
+                        if (!rationaleVal) {
+                            validationError = true;
+                            rationaleInput.classList.add('border-red-500', 'bg-red-50');
+                        } else {
+                            rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                            newMappingsToAdd.push({
+                                ToolID: toolID,
+                                SafeguardID: checkbox.value,
+                                Rationale: rationaleVal
+                            });
+                        }
                     } else {
-                        rationaleInput.style.display = 'none';
                         rationaleInput.classList.remove('border-red-500', 'bg-red-50');
                     }
                 });
-                itemDiv.appendChild(rowDiv);
-                itemDiv.appendChild(rationaleInput);
-                containerElement.appendChild(itemDiv);
+
+                if (!hasSelection) {
+                    mappingStatus.textContent = 'Please select at least one safeguard.';
+                    mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                    return;
+                }
+
+                if (validationError) {
+                    mappingStatus.textContent = 'Error: Rationale is required for all selected safeguards.';
+                    mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
+                    return;
+                }
+
+                let addedCount = 0;
+                let skippedCount = 0;
+
+                newMappingsToAdd.forEach(nm => {
+                    if (mapping.some(m => m.ToolID === nm.ToolID && m.SafeguardID === nm.SafeguardID)) {
+                        skippedCount++;
+                    } else {
+                        mapping.push(nm);
+                        addedCount++;
+                    }
+                });
+                
+                mappingStatus.textContent = `Added ${addedCount} new mapping(s). ${skippedCount} skipped (already existed). Total mappings: ${mapping.length}.`;
+                mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
+                
+                mappingForm.reset();
+                pendingFileMappings = []; // Clear pending
+                renderSafeguardsList(addSafeguardsList, 'add'); // Clear list
             });
-        }
 
-        function populateAddModeDropdowns() {
-            toolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool --</option>';
-            tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
-                const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
-                toolSelect.add(option);
+            // --- Modify Mode Logic: SEARCHABLE DROPDOWN ---
+
+            // Filter Dropdown on Input
+            toolSearchInput.addEventListener('input', (e) => {
+                const val = e.target.value;
+                if (val === '') {
+                    // If cleared manually, hide form
+                    modifyFormContainer.classList.add('hidden');
+                    currentModifyToolId = null;
+                }
+                filterToolDropdown(val);
             });
-            renderSafeguardsList(addSafeguardsList, 'add');
-        }
 
-        function populateModifyToolDropdown() {
-            modifyToolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool to Modify --</option>';
-            tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
-                const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
-                modifyToolSelect.add(option);
+            // Show all on Focus (if empty) or filter existing
+            toolSearchInput.addEventListener('focus', () => {
+                filterToolDropdown(toolSearchInput.value);
             });
-        }
 
-        function suggestNextToolId() {
-            const existingIds = new Set(tools.map(tool => parseInt(tool.ID.replace('T', ''))).filter(id => !isNaN(id)));
-            let nextIdNum = 1;
-            while (existingIds.has(nextIdNum)) { nextIdNum++; }
-            toolIdInput.value = `T${nextIdNum}`;
-        }
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!toolSearchInput.contains(e.target) && !toolDropdown.contains(e.target)) {
+                    toolDropdown.classList.add('hidden');
+                }
+            });
 
-        toolForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const id = toolIdInput.value;
-            const name = getEl('toolName').value;
-            const desc = getEl('toolDesc').value;
-            const url = getEl('toolUrl').value;
-            const educationUse = getEl('toolEducationUse').value === 'true'; 
-            const cost = getCostString(toolCostContainer);
-            if (tools.some(t => t.ID === id)) {
-                toolStatus.textContent = `Error: Tool ID "${id}" already exists.`;
-                toolStatus.className = 'mt-2 text-sm font-medium text-red-600';
-                return;
-            }
-            tools.push({ ID: id, Name: name, Description: desc, URL: url, EducationUse: educationUse, Cost: cost });
-            toolStatus.textContent = `Added "${name}". You now have ${tools.length} tools.`;
-            toolStatus.className = 'mt-2 text-sm font-medium text-green-600';
-            populateAddModeDropdowns();
-            populateModifyToolDropdown();
-            toolSelect.value = id;
-            if (pendingFileMappings.length > 0) {
-                renderSafeguardsList(addSafeguardsList, 'add', null, pendingFileMappings);
-                mappingStatus.textContent = "Tool added. Please review extracted mappings below and click 'Add Mapping(s)'.";
-                mappingStatus.className = 'mt-2 text-sm font-medium text-blue-600';
-            }
-            toolForm.reset();
-            getEl('toolEducationUse').value = 'false'; 
-            setCostSelection(toolCostContainer, ''); 
-            suggestNextToolId();
-            dropStatus.textContent = ''; 
-        });
+            function filterToolDropdown(query) {
+                toolDropdown.innerHTML = '';
+                const q = query.toLowerCase();
+                
+                // Filter
+                const matches = tools.filter(t => 
+                    t.Name.toLowerCase().includes(q) || 
+                    t.ID.toLowerCase().includes(q)
+                ).sort((a, b) => a.Name.localeCompare(b.Name));
 
-        mappingForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const toolID = toolSelect.value;
-            if (!toolID) {
-                mappingStatus.textContent = 'Please select a tool.';
-                mappingStatus.className = 'mt-2 text-sm font-medium text-red-600';
-                return;
+                if (matches.length === 0) {
+                    const div = document.createElement('div');
+                    div.className = 'p-2 text-gray-500 text-sm';
+                    div.textContent = 'No tools found.';
+                    toolDropdown.appendChild(div);
+                } else {
+                    matches.forEach(tool => {
+                        const div = document.createElement('div');
+                        div.className = 'tool-dropdown-item flex items-center';
+                        div.innerHTML = `<span class="id-badge">${tool.ID}</span><span>${tool.Name}</span>`;
+                        div.addEventListener('click', () => {
+                            selectToolForModify(tool.ID);
+                        });
+                        toolDropdown.appendChild(div);
+                    });
+                }
+                
+                toolDropdown.classList.remove('hidden');
             }
-            const newMappingsToAdd = [];
-            let validationError = false;
-            let hasSelection = false;
-            const items = addSafeguardsList.querySelectorAll('.cis-safeguard-checkbox-item');
-            items.forEach(item => {
-                const checkbox = item.querySelector('input[type="checkbox"]');
-                const rationaleInput = item.querySelector('.cis-safeguard-rationale-input');
-                if (checkbox.checked) {
-                    hasSelection = true;
-                    const rationaleVal = rationaleInput.value.trim();
-                    if (!rationaleVal) {
-                        validationError = true;
-                        rationaleInput.classList.add('border-red-500', 'bg-red-50');
+
+            function selectToolForModify(id) {
+                const tool = tools.find(t => t.ID === id);
+                if (!tool) return;
+                
+                // Update Input Display
+                toolSearchInput.value = tool.Name;
+                
+                // Set State
+                currentModifyToolId = id;
+                
+                // Hide Dropdown
+                toolDropdown.classList.add('hidden');
+                
+                // Load Form
+                loadToolForEditing(id);
+                modifyFormContainer.classList.remove('hidden');
+            }
+
+            function loadToolForEditing(toolId) {
+                const tool = tools.find(t => t.ID === toolId);
+                if (!tool) return;
+
+                modifyToolId.value = tool.ID;
+                modifyToolName.value = tool.Name;
+                modifyToolDesc.value = tool.Description;
+                modifyToolUrl.value = tool.URL;
+                modifyToolEducationUse.value = tool.EducationUse ? 'true' : 'false';
+                setCostSelection(modifyToolCostContainer, tool.Cost || '');
+
+                renderSafeguardsList(modifySafeguardsList, 'mod', toolId);
+            }
+
+            saveChangesBtn.addEventListener('click', () => {
+                if (!currentModifyToolId) return;
+
+                const toolIndex = tools.findIndex(t => t.ID === currentModifyToolId);
+                if (toolIndex > -1) {
+                    tools[toolIndex].Name = modifyToolName.value;
+                    tools[toolIndex].Description = modifyToolDesc.value;
+                    tools[toolIndex].URL = modifyToolUrl.value;
+                    tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; 
+                    tools[toolIndex].Cost = getCostString(modifyToolCostContainer);
+                    
+                    // Update search input in case name changed
+                    toolSearchInput.value = modifyToolName.value;
+                }
+
+                const newMappingsForTool = [];
+                let validationError = false;
+
+                const items = modifySafeguardsList.querySelectorAll('.safeguard-checkbox-item');
+                items.forEach(item => {
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    const rationaleInput = item.querySelector('.safeguard-rationale-input');
+
+                    if (checkbox.checked) {
+                        const rationaleVal = rationaleInput.value.trim();
+                        if (!rationaleVal) {
+                            validationError = true;
+                            rationaleInput.classList.add('border-red-500', 'bg-red-50');
+                        } else {
+                            rationaleInput.classList.remove('border-red-500', 'bg-red-50');
+                            newMappingsForTool.push({
+                                ToolID: currentModifyToolId,
+                                SafeguardID: checkbox.value,
+                                Rationale: rationaleVal
+                            });
+                        }
                     } else {
                         rationaleInput.classList.remove('border-red-500', 'bg-red-50');
-                        newMappingsToAdd.push({ ToolID: toolID, SafeguardID: checkbox.value, Rationale: rationaleVal });
                     }
-                } else { rationaleInput.classList.remove('border-red-500', 'bg-red-50'); }
+                });
+
+                if (validationError) {
+                    setModifyStatus('Error: Rationale is required for all selected safeguards.', 'red');
+                    return;
+                }
+
+                mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
+                mapping.push(...newMappingsForTool);
+
+                setModifyStatus('Changes saved successfully.', 'green');
+                
+                // Show the loop-back button
+                resetWorkflowBtn.classList.remove('hidden');
+
+                const selectedToolId = currentModifyToolId; 
+                populateAddModeDropdowns();
             });
-            if (!hasSelection) { mappingStatus.textContent = 'Please select at least one safeguard.'; mappingStatus.className = 'mt-2 text-sm font-medium text-red-600'; return; }
-            if (validationError) { mappingStatus.textContent = 'Error: Rationale is required for all selected safeguards.'; mappingStatus.className = 'mt-2 text-sm font-medium text-red-600'; return; }
-            let addedCount = 0, skippedCount = 0;
-            newMappingsToAdd.forEach(nm => {
-                 if (mapping.some(m => m.ToolID === nm.ToolID && m.SafeguardID === nm.SafeguardID)) skippedCount++;
-                 else { mapping.push(nm); addedCount++; }
+
+            removeToolBtn.addEventListener('click', () => {
+                if (!currentModifyToolId) return;
+                
+                const toolToRemove = tools.find(t => t.ID === currentModifyToolId);
+                if (!toolToRemove) return;
+
+                tools = tools.filter(t => t.ID !== currentModifyToolId);
+                mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
+
+                setModifyStatus(`Tool "${toolToRemove.Name}" and all its mappings have been removed.`, 'green');
+
+                currentModifyToolId = null;
+                modifyFormContainer.classList.add('hidden');
+                toolSearchInput.value = "";
+                populateAddModeDropdowns();
             });
-            mappingStatus.textContent = `Added ${addedCount} new mapping(s). ${skippedCount} skipped. Total: ${mapping.length}.`;
-            mappingStatus.className = 'mt-2 text-sm font-medium text-green-600';
-            mappingForm.reset();
-            pendingFileMappings = []; 
-            renderSafeguardsList(addSafeguardsList, 'add'); 
-        });
-
-        modifyToolSelect.addEventListener('change', (e) => {
-            currentModifyToolId = e.target.value;
-            if (currentModifyToolId) { loadToolForEditing(currentModifyToolId); modifyFormContainer.classList.remove('hidden'); }
-            else { modifyFormContainer.classList.add('hidden'); }
-        });
-
-        function loadToolForEditing(toolId) {
-            const tool = tools.find(t => t.ID === toolId);
-            if (!tool) return;
-            modifyToolId.value = tool.ID;
-            modifyToolName.value = tool.Name;
-            modifyToolDesc.value = tool.Description;
-            modifyToolUrl.value = tool.URL;
-            modifyToolEducationUse.value = tool.EducationUse ? 'true' : 'false';
-            setCostSelection(modifyToolCostContainer, tool.Cost || '');
-            renderSafeguardsList(modifySafeguardsList, 'mod', toolId);
-        }
-
-        saveChangesBtn.addEventListener('click', () => {
-            if (!currentModifyToolId) return;
-            const toolIndex = tools.findIndex(t => t.ID === currentModifyToolId);
-            if (toolIndex > -1) {
-                tools[toolIndex].Name = modifyToolName.value;
-                tools[toolIndex].Description = modifyToolDesc.value;
-                tools[toolIndex].URL = modifyToolUrl.value;
-                tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; 
-                tools[toolIndex].Cost = getCostString(modifyToolCostContainer);
+            
+            // --- 4. Generate Files ---
+            function downloadJSON(data, filename) {
+                const jsonString = JSON.stringify(data, null, 4); 
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
             }
-            const newMappingsForTool = [];
-            let validationError = false;
-            const items = modifySafeguardsList.querySelectorAll('.cis-safeguard-checkbox-item');
-            items.forEach(item => {
-                const checkbox = item.querySelector('input[type="checkbox"]');
-                const rationaleInput = item.querySelector('.cis-safeguard-rationale-input');
-                if (checkbox.checked) {
-                    const rationaleVal = rationaleInput.value.trim();
-                    if (!rationaleVal) { validationError = true; rationaleInput.classList.add('border-red-500', 'bg-red-50'); }
-                    else { rationaleInput.classList.remove('border-red-500', 'bg-red-50'); newMappingsForTool.push({ ToolID: currentModifyToolId, SafeguardID: checkbox.value, Rationale: rationaleVal }); }
-                } else { rationaleInput.classList.remove('border-red-500', 'bg-red-50'); }
+
+            downloadToolsBtn.addEventListener('click', () => {
+                downloadJSON(tools, 'tools.json');
             });
-            if (validationError) { setModifyStatus('Error: Rationale is required.', 'red'); return; }
-            mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
-            mapping.push(...newMappingsForTool);
-            setModifyStatus('Changes saved successfully.', 'green');
-            resetWorkflowBtn.classList.remove('hidden');
-        });
 
-        removeToolBtn.addEventListener('click', () => {
-            if (!currentModifyToolId) return;
-            const toolToRemove = tools.find(t => t.ID === currentModifyToolId);
-            if (!toolToRemove) return;
-            tools = tools.filter(t => t.ID !== currentModifyToolId);
-            mapping = mapping.filter(m => m.ToolID !== currentModifyToolId);
-            setModifyStatus(`Tool "${toolToRemove.Name}" removed.`, 'green');
-            currentModifyToolId = null;
-            modifyFormContainer.classList.add('hidden');
-            populateAddModeDropdowns();
-            populateModifyToolDropdown(); 
-        });
-
-        function downloadJSON(data, filename) {
-            const jsonString = JSON.stringify(data, null, 4); 
-            const blob = new Blob([jsonString], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            downloadMappingBtn.addEventListener('click', () => {
+                downloadJSON(mapping, 'mapping.json');
+            });
         }
-        downloadToolsBtn.addEventListener('click', () => { downloadJSON(tools, 'tools.json'); });
-        downloadMappingBtn.addEventListener('click', () => { downloadJSON(mapping, 'mapping.json'); });
 
-    })(); // End IIFE
-    </script>
-</div>
+        // Wait for DOM or check if ready
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initApp);
+        } else {
+            initApp();
+        }
+
+    })();
+</script>
