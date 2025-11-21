@@ -592,38 +592,6 @@
         "Cost": "$"
     },
     {
-        "ID": "T374",
-        "Name": "Carbon Black EDR (now VMware Carbon Black)",
-        "Description": "It provides real-time behavioral monitoring and threat hunting capabilities to detect and respond to advanced attacks.",
-        "URL": "https://www.vmware.com/products/carbon-black.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T473",
-        "Name": "Carbon Black EDR (VMware Carbon Black Cloud Endpoint Standard)",
-        "Description": "Provides endpoint visibility, threat detection, and response capabilities to prevent malicious activity.",
-        "URL": "https://www.vmware.com/products/carbon-black/cloud-endpoint-standard.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T370",
-        "Name": "Carbon Black Endpoint",
-        "Description": "Provides centralized visibility and control over endpoint security, including anti-malware policies and threat response actions.",
-        "URL": "https://www.broadcom.com/products/carbon-black-endpoint",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T361",
-        "Name": "Carbon Black Endpoint Standard",
-        "Description": "Carbon Black's endpoint security solution can be configured to scan removable media for threats as part of its continuous monitoring capabilities.",
-        "URL": "https://www.broadcom.com/products/security/carbon-black-endpoint",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T480",
         "Name": "Check Point Security Gateway",
         "Description": "Check Point Security Gateway is an AI-powered, next-generation firewall (NGFW) that provides consolidated, advanced threat prevention, secure remote access (VPN), and unified policy management for on-premise, cloud, and remote users.",
@@ -704,22 +672,6 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T426",
-        "Name": "Cisco ISE",
-        "Description": "Cisco Identity Services Engine provides centralized network access control using 802.1X authentication and policy enforcement for wired and wireless networks.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/identity-services-engine/index.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T481",
-        "Name": "Cisco ISE (Identity Services Engine)",
-        "Description": "Cisco ISE provides centralized network access control, including 802.1x authentication and policy enforcement for wired and wireless networks.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/ise.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T342",
         "Name": "Cisco Secure Email",
         "Description": "Cisco Secure Email is a comprehensive security solution that protects email by blocking spam, phishing, business email compromise (BEC), and malware, while also providing data loss prevention and encryption.",
@@ -736,28 +688,12 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T476",
-        "Name": "Cisco Secure Firewall (formerly Firepower)",
-        "Description": "Provides advanced threat prevention, including intrusion prevention, malware protection, and application control.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/secure-firewall.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T21",
         "Name": "Cisco Secure Network Analytics",
         "Description": "A Network Detection and Response (NDR) solution that uses agentless flow telemetry and behavioral modeling to provide enterprise-wide visibility, detect advanced threats in real-time, and accelerate incident response.",
         "URL": "https://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/secure-network-analytics-aag.html",
         "EducationUse": true,
         "Cost": "$$$$$"
-    },
-    {
-        "ID": "T467",
-        "Name": "Cisco Stealthwatch",
-        "Description": "Cisco Stealthwatch provides comprehensive network behavior analytics by collecting flow data from various sources to detect anomalies and security threats.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/stealthwatch.html",
-        "EducationUse": false,
-        "Cost": "$"
     },
     {
         "ID": "T318",
@@ -832,22 +768,6 @@
         "Cost": "$, $$, $$$, $$$$"
     },
     {
-        "ID": "T696",
-        "Name": "Coalition Strike",
-        "Description": "Coalition Strike provides managed pentesting services with experienced professionals to conduct thorough external assessments and identify vulnerabilities.",
-        "URL": "https://coalition.com/strike/",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T690",
-        "Name": "Cobalt Blue (Tenable)",
-        "Description": "Cobalt Blue is a managed pentesting service that provides ongoing assessments, reporting, and remediation support for various attack surfaces.",
-        "URL": "https://www.tenable.com/solutions/managed-pentest",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T713",
         "Name": "Cobalt Strike",
         "Description": "Cobalt Strike is a commercial adversary simulation and red team operations platform used by security professionals to emulate the post-exploitation tactics and techniques of advanced threat actors.",
@@ -912,14 +832,6 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T129",
-        "Name": "CrowdStrike Falcon Host",
-        "Description": "A cloud-delivered endpoint protection platform that includes a host firewall to prevent unauthorized network connections.",
-        "URL": "https://www.crowdstrike.com/products/falcon-host/",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T25",
         "Name": "CrowdStrike Falcon Host (Falcon Platform)",
         "Description": "CrowdStrike Falcon is a cloud-native endpoint protection platform (EPP) that provides next-generation antivirus (NGAV), endpoint detection and response (EDR), and threat intelligence using a single, lightweight agent.",
@@ -936,14 +848,6 @@
         "Cost": "$$$$"
     },
     {
-        "ID": "T598",
-        "Name": "CVSS Calculator",
-        "Description": "This online tool allows you to calculate CVSS scores based on vulnerability characteristics, providing a standardized severity rating.",
-        "URL": "https://www.first.org/cvss/calculator/3.1",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T26",
         "Name": "CVSS Calculator (Common Vulnerability Scoring System Calculator)",
         "Description": "The CVSS Calculator is a tool that implements the open framework of the Common Vulnerability Scoring System to assess the severity of security vulnerabilities and produce a numerical score (0-10) to help organizations prioritize remediation.",
@@ -958,22 +862,6 @@
         "URL": "https://www.cyberark.com/",
         "EducationUse": false,
         "Cost": "$$$$$"
-    },
-    {
-        "ID": "T171",
-        "Name": "CyberArk Privileged Access Management (PAM)",
-        "Description": "Centralizes and secures privileged accounts, including service accounts, providing visibility and control over access.",
-        "URL": "https://www.cyberark.com/product/privileged-access-management",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T185",
-        "Name": "CyberArk Privileged Access Manager",
-        "Description": "CyberArk provides a comprehensive solution to manage and control privileged accounts, including dedicated administrator accounts, with granular access controls and session monitoring.",
-        "URL": "https://www.cyberark.com/products/privileged-access-management",
-        "EducationUse": false,
-        "Cost": "$"
     },
     {
         "ID": "T675",
