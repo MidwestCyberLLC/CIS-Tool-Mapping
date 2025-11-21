@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Control Safeguard Mapper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    
+    <style>
+        /* Custom Scrollbar for a cleaner look in panels */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8; 
+        }
+
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Transition for heat map colors */
+        .safeguard-card {
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s;
+        }
+
+        /* Dropdown specific styles */
+        .dropdown-content {
+            display: none;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col font-sans text-slate-800 overflow-hidden">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white p-4 shadow-md flex-none z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                CIS Safeguard Tool Mapper
+            </h1>
+            <div class="text-sm text-slate-400">Data Source: MidwestCyberLLC GitHub</div>
+        </div>
+    </header>
+
+    <!-- Loading Overlay -->
+    <div id="loading-screen" class="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
+        <div class="loader mb-4"></div>
+        <p class="text-lg font-semibold text-slate-600">Loading Data Files...</p>
+        <p class="text-sm text-slate-400 mt-2" id="loading-status">Connecting to GitHub...</p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex overflow-hidden">
+        
+        <!-- Left Panel: Tools Selection -->
+        <aside class="w-1/3 min-w-[320px] bg-white border-r border-gray-200 flex flex-col shadow-lg z-0">
+            
+            <!-- Selected Tools Section -->
+            <div class="bg-blue-50 p-4 border-b border-blue-100 flex-none max-h-[40vh] flex flex-col">
+                <h2 class="text-sm uppercase tracking-wide text-blue-800 font-bold mb-2 flex justify-between items-center">
+                    Selected Tools
+                    <span id="selected-count" class="bg-blue-200 text-blue-800 text-xs px-2 py-0.5 rounded-full">0</span>
+                </h2>
+                <div id="selected-tools-list" class="overflow-y-auto flex-1 flex flex-wrap gap-2 content-start pr-2">
+                    <!-- Selected tools injected here -->
+                    <p class="text-sm text-gray-400 italic p-2 w-full">No tools selected.</p>
+                </div>
+            </div>
+
+            <!-- Search & Available Tools -->
+            <div class="flex-1 flex flex-col p-4 bg-gray-50 overflow-hidden">
+                <div class="mb-3 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-sm uppercase tracking-wide text-gray-600 font-bold flex items-center gap-2">
+                            Available Tools
+                            <span id="available-count" class="bg-gray-200 text-gray-600 text-xs px-2 py-0.5 rounded-full">0</span>
+                        </h2>
+                    </div>
+                    
+                    <!-- Filters -->
+                    <div class="flex gap-2 items-center">
+                        <!-- Cost Dropdown -->
+                        <div class="relative inline-block text-left flex-1">
+                            <button type="button" id="cost-dropdown-btn" class="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-3 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none">
+                                <span>Filter Cost</span>
+                                <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div id="cost-dropdown-menu" class="dropdown-content origin-top-left absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                                <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                        <input type="checkbox" value="$" class="cost-checkbox form-checkbox h-4 w-4 text-blue-600">
+                                        <span class="ml-2 text-sm text-gray-700">$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                        <input type="checkbox" value="$$" class="cost-checkbox form-checkbox h-4 w-4 text-blue-600">
+                                        <span class="ml-2 text-sm text-gray-700">$$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                        <input type="checkbox" value="$$$" class="cost-checkbox form-checkbox h-4 w-4 text-blue-600">
+                                        <span class="ml-2 text-sm text-gray-700">$$$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                        <input type="checkbox" value="$$$$" class="cost-checkbox form-checkbox h-4 w-4 text-blue-600">
+                                        <span class="ml-2 text-sm text-gray-700">$$$$</span>
+                                    </label>
+                                    <label class="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                        <input type="checkbox" value="$$$$$" class="cost-checkbox form-checkbox h-4 w-4 text-blue-600">
+                                        <span class="ml-2 text-sm text-gray-700">$$$$$</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- K-12 Checkbox -->
+                        <label class="flex items-center space-x-2 border border-gray-300 rounded-md px-3 py-2 bg-white cursor-pointer hover:bg-gray-50 shadow-sm h-[38px]">
+                            <input type="checkbox" id="k12-filter" class="form-checkbox h-4 w-4 text-blue-600 rounded">
+                            <span class="text-sm font-medium text-gray-700 whitespace-nowrap">K-12 Only</span>
+                        </label>
+                    </div>
+
+                    <div class="relative">
+                        <input type="text" id="tool-search" placeholder="Fuzzy search tools..." 
+                            class="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 absolute left-3 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <div id="available-tools-list" class="overflow-y-auto flex-1 space-y-2 pr-2">
+                    <!-- Available tools injected here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Panel: Visualization -->
+        <section class="flex-1 bg-white flex flex-col overflow-hidden relative">
+            
+            <!-- Visualization Header -->
+            <div class="flex flex-col border-b border-gray-200 bg-white shadow-sm z-10">
+                
+                <!-- Visualization Controls (Group By, Exports, Legend) -->
+                <div class="p-3 border-b border-gray-100 flex justify-between items-center bg-white">
+                    <div class="flex items-center gap-4">
+                        <span class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Group By:</span>
+                        <div class="flex bg-gray-100 p-1 rounded-lg">
+                            <button onclick="app.setView('flat')" id="btn-flat" class="view-btn px-3 py-1 text-xs rounded-md font-medium transition-colors">Numerical</button>
+                            <button onclick="app.setView('tier')" id="btn-tier" class="view-btn px-3 py-1 text-xs rounded-md font-medium transition-colors">Tier</button>
+                            <button onclick="app.setView('ig')" id="btn-ig" class="view-btn px-3 py-1 text-xs rounded-md font-medium transition-colors">IG</button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <!-- Combined Export Button -->
+                        <div class="relative inline-block text-left">
+                            <button id="export-dropdown-btn" class="filter-dropdown-trigger flex items-center gap-1 px-3 py-1 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded hover:bg-gray-50 shadow-sm transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                Export Data
+                                <svg class="-mr-1 ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                            </button>
+                            <div id="export-dropdown-menu" class="dropdown-content origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                                <div class="py-1" role="menu" aria-orientation="vertical">
+                                    <button id="opt-tool-csv" class="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-100">By Tool (CSV)</button>
+                                    <button id="opt-tool-pdf" class="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-100">By Tool (PDF)</button>
+                                    <div class="border-t border-gray-100 my-1"></div>
+                                    <button id="opt-sg-csv" class="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-100">By Safeguard (CSV)</button>
+                                    <button id="opt-sg-pdf" class="w-full text-left px-4 py-2 text-xs text-gray-700 hover:bg-gray-100">By Safeguard (PDF)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="h-4 w-px bg-gray-300 hidden md:block"></div>
+
+                        <!-- Expanded Heat Map Legend -->
+                        <div class="flex items-center gap-2 text-xs hidden md:flex">
+                            <span class="font-semibold text-gray-500 uppercase">Coverage:</span>
+                            <div class="flex items-center gap-1" title="0 Tools"><span class="w-3 h-3 border border-gray-300 bg-white block"></span> 0</div>
+                            <div class="flex items-center gap-1" title="1 Tool"><span class="w-3 h-3 bg-emerald-100 block"></span> 1</div>
+                            <div class="flex items-center gap-1" title="2 Tools"><span class="w-3 h-3 bg-emerald-300 block"></span> 2</div>
+                            <div class="flex items-center gap-1" title="3 Tools"><span class="w-3 h-3 bg-emerald-400 block"></span> 3</div>
+                            <div class="flex items-center gap-1" title="4 Tools"><span class="w-3 h-3 bg-emerald-500 block"></span> 4</div>
+                            <div class="flex items-center gap-1" title="5 Tools"><span class="w-3 h-3 bg-emerald-700 block"></span> 5</div>
+                            <div class="flex items-center gap-1" title="6+ Tools"><span class="w-3 h-3 bg-emerald-900 block"></span> 6+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters Toolbar - NOW ON BOTTOM -->
+                <div class="p-3 bg-gray-50 flex gap-3 items-center flex-wrap">
+                    
+                    <!-- New Safeguard Counter -->
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Safeguards:</span>
+                        <span id="visible-safeguards-count" class="bg-white border border-gray-200 text-gray-700 text-xs font-bold px-2 py-0.5 rounded-full">0</span>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="h-4 w-px bg-gray-300 mx-1 hidden sm:block"></div>
+
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-wide">Filters:</span>
+                    
+                    <!-- Tier Filter -->
+                    <div class="relative inline-block text-left">
+                        <button id="tier-filter-btn" class="filter-dropdown-trigger inline-flex justify-between items-center w-32 rounded border border-gray-300 shadow-sm px-3 py-1.5 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50">
+                            <span>Tier (All)</span>
+                            <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                        </button>
+                        <div id="tier-filter-menu" class="dropdown-content origin-top-left absolute left-0 mt-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 p-1">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- IG Filter -->
+                    <div class="relative inline-block text-left">
+                        <button id="ig-filter-btn" class="filter-dropdown-trigger inline-flex justify-between items-center w-32 rounded border border-gray-300 shadow-sm px-3 py-1.5 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50">
+                            <span>IG (All)</span>
+                            <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                        </button>
+                        <div id="ig-filter-menu" class="dropdown-content origin-top-left absolute left-0 mt-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 p-1">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Coverage Count Filter -->
+                    <div class="relative inline-block text-left">
+                        <button id="coverage-filter-btn" class="filter-dropdown-trigger inline-flex justify-between items-center w-40 rounded border border-gray-300 shadow-sm px-3 py-1.5 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50">
+                            <span>Map Count (All)</span>
+                            <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                        </button>
+                        <div id="coverage-filter-menu" class="dropdown-content origin-top-left absolute left-0 mt-1 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 p-1 max-h-60 overflow-y-auto">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Safeguard Search -->
+                    <div class="relative ml-auto">
+                        <input type="text" id="safeguard-search" placeholder="Search safeguards..." 
+                            class="pl-8 pr-4 py-1.5 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none shadow-sm w-48">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-gray-400 absolute left-2.5 top-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safeguards Grid -->
+            <div id="safeguards-container" class="flex-1 overflow-y-auto p-6 bg-slate-50">
+                <!-- Safeguards injected here -->
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const URLS = {
+            safeguards: 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json',
+            tools: 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json',
+            mapping: 'https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json'
+        };
+
+        class App {
+            constructor() {
+                this.state = {
+                    tools: [],
+                    safeguards: [],
+                    mappings: [],
+                    toolMap: {},
+                    safeguardMap: {},
+                    toolToSafeguards: {},
+                    selectedToolIds: new Set(),
+                    searchTerm: '',
+                    viewMode: 'flat',
+                    
+                    // Left Panel Filters
+                    filterK12: false,
+                    filterCost: new Set(),
+
+                    // Right Panel Filters
+                    filterTier: new Set(),
+                    filterIG: new Set(),
+                    filterCoverage: new Set(),
+                    safeguardSearchTerm: '' 
+                };
+
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.fetchData();
+                    this.processData();
+                    this.renderApp();
+                    this.hideLoading();
+                    this.setupEventListeners();
+                } catch (error) {
+                    console.error("Initialization Error:", error);
+                    document.getElementById('loading-status').innerText = "Error loading data. Please check console.";
+                    document.getElementById('loading-status').classList.add('text-red-500');
+                }
+            }
+
+            async fetchData() {
+                const updateStatus = (msg) => document.getElementById('loading-status').innerText = msg;
+                
+                updateStatus("Fetching Safeguards...");
+                const sgRes = await fetch(URLS.safeguards);
+                const safeguards = await sgRes.json();
+
+                updateStatus("Fetching Tools...");
+                const tRes = await fetch(URLS.tools);
+                const tools = await tRes.json();
+
+                updateStatus("Fetching Mappings...");
+                const mRes = await fetch(URLS.mapping);
+                const mappings = await mRes.json();
+
+                this.state.safeguards = safeguards;
+                this.state.tools = tools;
+                this.state.mappings = mappings;
+            }
+
+            processData() {
+                // Normalize Tool Data
+                this.state.tools.forEach(t => {
+                    const id = t.id || t.ID || t.ToolID;
+                    const name = t.name || t.Name || t.ToolName;
+                    const desc = t.description || t.Description;
+                    const educationUse = t.EducationUse === true || t.EducationUse === "true";
+                    const cost = t.Cost || "";
+
+                    this.state.toolMap[id] = { ...t, id, name, desc, educationUse, cost };
+                    this.state.toolToSafeguards[id] = [];
+                });
+
+                // Normalize Safeguard Data
+                this.state.safeguards.forEach(s => {
+                    const id = s.id || s.ID || s.SafeguardID || s.number;
+                    const title = s.title || s.Title || s.name;
+                    
+                    this.state.safeguardMap[id] = {
+                        id: id,
+                        title: title,
+                        description: s.description || s.Description,
+                        tier: String(s.TierNumber || s.tier || s.Tier || 'N/A'), 
+                        ig: String(s.IGNumber || this.determineIG(s)),
+                        raw: s
+                    };
+                });
+
+                // Process Mappings
+                this.state.mappings.forEach(m => {
+                    const tId = m.tool_id || m.ToolID || m.toolId;
+                    const sId = m.safeguard_id || m.SafeguardID || m.safeguardId;
+
+                    if (this.state.toolToSafeguards[tId]) {
+                        this.state.toolToSafeguards[tId].push(sId);
+                    }
+                });
+            }
+
+            determineIG(safeguard) {
+                if (safeguard.ig1 || safeguard.IG1) return 1;
+                if (safeguard.ig2 || safeguard.IG2) return 2;
+                if (safeguard.ig3 || safeguard.IG3) return 3;
+                return 4;
+            }
+
+            setupEventListeners() {
+                // --- Left Panel Listeners ---
+                document.getElementById('tool-search').addEventListener('input', (e) => {
+                    this.state.searchTerm = e.target.value;
+                    this.renderLeftPanel();
+                });
+
+                document.getElementById('k12-filter').addEventListener('change', (e) => {
+                    this.state.filterK12 = e.target.checked;
+                    this.renderLeftPanel();
+                });
+
+                // Cost Dropdown
+                this.setupDropdown('cost-dropdown-btn', 'cost-dropdown-menu');
+                document.querySelectorAll('.cost-checkbox').forEach(cb => {
+                    cb.addEventListener('change', (e) => {
+                        const val = e.target.value;
+                        if (e.target.checked) this.state.filterCost.add(val);
+                        else this.state.filterCost.delete(val);
+                        this.updateCostButtonText();
+                        this.renderLeftPanel();
+                    });
+                });
+
+                // --- Right Panel Listeners ---
+                // Safeguard Search
+                document.getElementById('safeguard-search').addEventListener('input', (e) => {
+                    this.state.safeguardSearchTerm = e.target.value;
+                    this.renderRightPanel();
+                });
+
+                // Setup generic dropdown toggles for Right Panel
+                this.setupDropdown('tier-filter-btn', 'tier-filter-menu');
+                this.setupDropdown('ig-filter-btn', 'ig-filter-menu');
+                this.setupDropdown('coverage-filter-btn', 'coverage-filter-menu');
+                
+                // Export Dropdown
+                this.setupDropdown('export-dropdown-btn', 'export-dropdown-menu');
+                document.getElementById('opt-tool-csv').addEventListener('click', () => this.exportByToolCSV());
+                document.getElementById('opt-tool-pdf').addEventListener('click', () => this.exportByToolPDF());
+                document.getElementById('opt-sg-csv').addEventListener('click', () => this.exportBySafeguardCSV());
+                document.getElementById('opt-sg-pdf').addEventListener('click', () => this.exportBySafeguardPDF());
+
+                // Global click listener to close dropdowns
+                window.addEventListener('click', (e) => {
+                    if (!e.target.closest('.filter-dropdown-trigger') && !e.target.closest('.dropdown-content')) {
+                        document.querySelectorAll('.dropdown-content').forEach(el => el.classList.remove('show'));
+                    }
+                });
+            }
+
+            setupDropdown(btnId, menuId) {
+                const btn = document.getElementById(btnId);
+                const menu = document.getElementById(menuId);
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    // Close others
+                    document.querySelectorAll('.dropdown-content').forEach(el => {
+                        if(el.id !== menuId) el.classList.remove('show');
+                    });
+                    menu.classList.toggle('show');
+                });
+            }
+
+            updateCostButtonText() {
+                const btnSpan = document.querySelector('#cost-dropdown-btn span');
+                const size = this.state.filterCost.size;
+                btnSpan.innerText = size === 0 ? 'Filter Cost' : `Cost (${size})`;
+            }
+
+            hideLoading() {
+                document.getElementById('loading-screen').style.display = 'none';
+            }
+
+            setView(mode) {
+                this.state.viewMode = mode;
+                this.updateViewButtons();
+                this.renderRightPanel();
+            }
+
+            updateViewButtons() {
+                const modes = ['flat', 'tier', 'ig'];
+                modes.forEach(m => {
+                    const btn = document.getElementById(`btn-${m}`);
+                    if (m === this.state.viewMode) {
+                        btn.className = "view-btn px-3 py-1 text-xs rounded-md font-medium bg-white text-blue-600 shadow-sm ring-1 ring-gray-200";
+                    } else {
+                        btn.className = "view-btn px-3 py-1 text-xs rounded-md font-medium text-gray-500 hover:text-gray-700";
+                    }
+                });
+            }
+
+            toggleTool(toolId) {
+                if (this.state.selectedToolIds.has(toolId)) {
+                    this.state.selectedToolIds.delete(toolId);
+                } else {
+                    this.state.selectedToolIds.add(toolId);
+                }
+                this.renderApp();
+            }
+
+            matchesSearch(tool) {
+                if (!this.state.searchTerm) return true;
+                const term = this.state.searchTerm.toLowerCase();
+                const text = `${tool.name} ${tool.desc}`.toLowerCase();
+                const tokens = term.split(' ').filter(t => t.length > 0);
+                return tokens.every(token => text.includes(token));
+            }
+
+            matchesFilters(tool) {
+                if (this.state.filterK12 && !tool.educationUse) return false;
+                if (this.state.filterCost.size > 0) {
+                    const toolCosts = tool.cost.split(',').map(c => c.trim());
+                    if (!toolCosts.some(c => this.state.filterCost.has(c))) return false;
+                }
+                return true;
+            }
+
+            matchesSafeguardSearch(sg) {
+                if (!this.state.safeguardSearchTerm) return true;
+                const term = this.state.safeguardSearchTerm.toLowerCase();
+                const text = `${sg.id} ${sg.title} ${sg.description}`.toLowerCase();
+                const tokens = term.split(' ').filter(t => t.length > 0);
+                return tokens.every(token => text.includes(token));
+            }
+
+            getCoverageData() {
+                const coverage = {};
+                this.state.selectedToolIds.forEach(tId => {
+                    const tool = this.state.toolMap[tId];
+                    const coveredSafeguards = this.state.toolToSafeguards[tId] || [];
+                    coveredSafeguards.forEach(sId => {
+                        if (!coverage[sId]) coverage[sId] = { count: 0, tools: [] };
+                        coverage[sId].count++;
+                        coverage[sId].tools.push(tool.name);
+                    });
+                });
+                return coverage;
+            }
+            
+            // --- Export Logic ---
+            
+            exportByToolCSV() {
+                if (this.state.selectedToolIds.size === 0) {
+                    alert("No tools selected to export.");
+                    return;
+                }
+
+                let csvContent = "Tool Name,Safeguard ID,Safeguard Title,Safeguard Description\n";
+
+                this.state.selectedToolIds.forEach(tId => {
+                    const tool = this.state.toolMap[tId];
+                    const safeguardIds = this.state.toolToSafeguards[tId] || [];
+                    
+                    safeguardIds.forEach(sId => {
+                        const sg = this.state.safeguardMap[sId];
+                        if (sg) {
+                            // Escape quotes in CSV
+                            const cleanName = `"${tool.name.replace(/"/g, '""')}"`;
+                            const cleanSgId = `"${sg.id}"`;
+                            const cleanTitle = `"${sg.title.replace(/"/g, '""')}"`;
+                            const cleanDesc = `"${(sg.description || '').replace(/"/g, '""')}"`;
+                            
+                            csvContent += `${cleanName},${cleanSgId},${cleanTitle},${cleanDesc}\n`;
+                        }
+                    });
+                });
+
+                this.downloadCSV(csvContent, `tools_export_${new Date().toISOString().split('T')[0]}.csv`);
+            }
+
+            exportBySafeguardCSV() {
+                let csvContent = "Safeguard ID,Safeguard Title,Covered By (Tools),Coverage Count\n";
+                
+                const coverageData = this.getCoverageData();
+                const allSafeguards = Object.values(this.state.safeguardMap).sort((a, b) => 
+                    a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' })
+                );
+
+                allSafeguards.forEach(sg => {
+                    const coverage = coverageData[sg.id] || { count: 0, tools: [] };
+                    
+                    const cleanId = `"${sg.id}"`;
+                    const cleanTitle = `"${sg.title.replace(/"/g, '""')}"`;
+                    const cleanTools = `"${coverage.tools.join(', ').replace(/"/g, '""')}"`;
+                    const count = coverage.count;
+
+                    csvContent += `${cleanId},${cleanTitle},${cleanTools},${count}\n`;
+                });
+
+                this.downloadCSV(csvContent, `safeguards_export_${new Date().toISOString().split('T')[0]}.csv`);
+            }
+
+            downloadCSV(csvContent, fileName) {
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement("a");
+                if (link.download !== undefined) {
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", fileName);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            }
+
+            exportByToolPDF() {
+                if (this.state.selectedToolIds.size === 0) {
+                    alert("No tools selected to export.");
+                    return;
+                }
+
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Title
+                doc.setFontSize(18);
+                doc.text("CIS Safeguard Coverage - By Tool", 14, 22);
+                doc.setFontSize(10);
+                doc.text(`Generated: ${new Date().toLocaleDateString()}`, 14, 28);
+
+                let yPos = 35;
+
+                const selectedTools = Array.from(this.state.selectedToolIds).map(id => this.state.toolMap[id]);
+
+                selectedTools.forEach((tool, index) => {
+                    // Add new page if not first and running out of space
+                    if (index > 0) {
+                         doc.addPage();
+                         yPos = 20;
+                    }
+
+                    // Tool Header
+                    doc.setFontSize(14);
+                    doc.setTextColor(0, 0, 0);
+                    doc.text(tool.name, 14, yPos);
+                    doc.setFontSize(10);
+                    doc.setTextColor(100, 100, 100);
+                    const desc = doc.splitTextToSize(tool.desc || "No description", 180);
+                    doc.text(desc, 14, yPos + 6);
+                    
+                    // Table of Safeguards for this tool
+                    const safeguardIds = this.state.toolToSafeguards[tool.id] || [];
+                    const rows = safeguardIds.map(sId => {
+                        const sg = this.state.safeguardMap[sId];
+                        return sg ? [sg.id, sg.title, sg.description] : [];
+                    }).filter(r => r.length > 0);
+
+                    if (rows.length === 0) {
+                         doc.text("No safeguards mapped directly to this tool.", 14, yPos + 15);
+                         yPos += 20;
+                    } else {
+                        doc.autoTable({
+                            startY: yPos + (desc.length * 5) + 5,
+                            head: [['ID', 'Safeguard Title', 'Description']],
+                            body: rows,
+                            theme: 'striped',
+                            headStyles: { fillColor: [41, 128, 185] },
+                            styles: { fontSize: 8, cellPadding: 2 },
+                            columnStyles: {
+                                0: { cellWidth: 25 }, // ID
+                                1: { cellWidth: 50 }, // Title
+                                2: { cellWidth: 'auto' } // Desc
+                            },
+                            margin: { top: 20 }
+                        });
+                        yPos = doc.lastAutoTable.finalY + 15;
+                    }
+                });
+
+                doc.save("CIS_Tool_Report.pdf");
+            }
+
+            exportBySafeguardPDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // Title
+                doc.setFontSize(18);
+                doc.text("CIS Safeguard Coverage - Gap Analysis", 14, 22);
+                doc.setFontSize(10);
+                doc.text(`Generated: ${new Date().toLocaleDateString()}`, 14, 28);
+
+                const coverageData = this.getCoverageData();
+                const allSafeguards = Object.values(this.state.safeguardMap).sort((a, b) => 
+                    a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' })
+                );
+
+                const rows = allSafeguards.map(sg => {
+                    const coverage = coverageData[sg.id] || { count: 0, tools: [] };
+                    const status = coverage.count > 0 ? "Covered" : "Missing";
+                    const toolList = coverage.tools.length > 0 ? coverage.tools.join(", ") : "-";
+                    return [sg.id, sg.title, status, toolList];
+                });
+
+                doc.autoTable({
+                    startY: 35,
+                    head: [['ID', 'Title', 'Status', 'Covering Tools']],
+                    body: rows,
+                    theme: 'grid',
+                    headStyles: { fillColor: [44, 62, 80] },
+                    styles: { fontSize: 8 },
+                    columnStyles: {
+                        0: { cellWidth: 20 },
+                        1: { cellWidth: 60 },
+                        2: { cellWidth: 20, fontStyle: 'bold' },
+                        3: { cellWidth: 'auto' }
+                    },
+                    didParseCell: function(data) {
+                        if (data.section === 'body' && data.column.index === 2) {
+                            if (data.cell.raw === 'Missing') {
+                                data.cell.styles.textColor = [200, 0, 0]; // Red
+                            } else {
+                                data.cell.styles.textColor = [0, 128, 0]; // Green
+                            }
+                        }
+                    }
+                });
+
+                doc.save("CIS_Gap_Analysis.pdf");
+            }
+
+            // --- Dynamic Filter Rendering ---
+            updateRightPanelFilterOptions(coverageData) {
+                const uniqueTiers = new Set(Object.values(this.state.safeguardMap).map(s => s.tier));
+                const sortedTiers = Array.from(uniqueTiers).sort((a, b) => 
+                    a.localeCompare(b, undefined, { numeric: true })
+                );
+                
+                this.renderCheckboxMenu('tier-filter-menu', sortedTiers, this.state.filterTier, (val, isChecked) => {
+                    isChecked ? this.state.filterTier.add(val) : this.state.filterTier.delete(val);
+                    document.querySelector('#tier-filter-btn span').innerText = this.state.filterTier.size > 0 ? `Tier (${this.state.filterTier.size})` : 'Tier (All)';
+                    this.renderRightPanel();
+                });
+                document.querySelector('#tier-filter-btn span').innerText = this.state.filterTier.size > 0 ? `Tier (${this.state.filterTier.size})` : 'Tier (All)';
+
+                const uniqueIGs = new Set(Object.values(this.state.safeguardMap).map(s => s.ig));
+                const sortedIGs = Array.from(uniqueIGs).sort((a, b) => 
+                    a.localeCompare(b, undefined, { numeric: true })
+                );
+
+                this.renderCheckboxMenu('ig-filter-menu', sortedIGs, this.state.filterIG, (val, isChecked) => {
+                    isChecked ? this.state.filterIG.add(val) : this.state.filterIG.delete(val);
+                    document.querySelector('#ig-filter-btn span').innerText = this.state.filterIG.size > 0 ? `IG (${this.state.filterIG.size})` : 'IG (All)';
+                    this.renderRightPanel();
+                });
+                document.querySelector('#ig-filter-btn span').innerText = this.state.filterIG.size > 0 ? `IG (${this.state.filterIG.size})` : 'IG (All)';
+
+                const uniqueCounts = new Set();
+                Object.values(this.state.safeguardMap).forEach(sg => {
+                    const c = coverageData[sg.id] ? coverageData[sg.id].count : 0;
+                    uniqueCounts.add(c);
+                });
+                
+                const countOptions = Array.from(uniqueCounts)
+                    .sort((a, b) => a - b)
+                    .map(String);
+
+                this.renderCheckboxMenu('coverage-filter-menu', countOptions, this.state.filterCoverage, (val, isChecked) => {
+                    isChecked ? this.state.filterCoverage.add(val) : this.state.filterCoverage.delete(val);
+                    document.querySelector('#coverage-filter-btn span').innerText = this.state.filterCoverage.size > 0 ? `Map Count (${this.state.filterCoverage.size})` : 'Map Count (All)';
+                    this.renderRightPanel();
+                });
+                document.querySelector('#coverage-filter-btn span').innerText = this.state.filterCoverage.size > 0 ? `Map Count (${this.state.filterCoverage.size})` : 'Map Count (All)';
+            }
+
+            renderCheckboxMenu(containerId, options, selectedSet, callback) {
+                const container = document.getElementById(containerId);
+                container.innerHTML = '';
+                options.forEach(opt => {
+                    const label = document.createElement('label');
+                    label.className = "flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer whitespace-nowrap";
+                    
+                    const input = document.createElement('input');
+                    input.type = "checkbox";
+                    input.className = "form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300";
+                    input.value = opt;
+                    if(selectedSet.has(opt)) input.checked = true;
+                    
+                    input.onchange = (e) => callback(opt, e.target.checked);
+
+                    const text = document.createElement('span');
+                    text.className = "ml-2 text-xs text-gray-700";
+                    text.innerText = opt;
+
+                    label.appendChild(input);
+                    label.appendChild(text);
+                    container.appendChild(label);
+                });
+            }
+
+            renderApp() {
+                this.renderLeftPanel();
+                this.updateViewButtons();
+                const coverageData = this.getCoverageData(); // Get data here to pass to filters
+                this.updateRightPanelFilterOptions(coverageData);
+                this.renderRightPanel();
+            }
+
+            renderLeftPanel() {
+                const selectedContainer = document.getElementById('selected-tools-list');
+                const availableContainer = document.getElementById('available-tools-list');
+                const selectedCountBadge = document.getElementById('selected-count');
+                const availableCountBadge = document.getElementById('available-count');
+
+                selectedContainer.innerHTML = '';
+                availableContainer.innerHTML = '';
+
+                const allTools = Object.values(this.state.toolMap).sort((a, b) => a.name.localeCompare(b.name));
+                const selectedTools = [];
+                const availableTools = [];
+
+                allTools.forEach(tool => {
+                    if (this.state.selectedToolIds.has(tool.id)) {
+                        selectedTools.push(tool);
+                    } else {
+                        if (this.matchesSearch(tool) && this.matchesFilters(tool)) {
+                            availableTools.push(tool);
+                        }
+                    }
+                });
+
+                selectedCountBadge.innerText = selectedTools.length;
+                availableCountBadge.innerText = availableTools.length;
+
+                if (selectedTools.length === 0) {
+                    selectedContainer.innerHTML = '<p class="text-sm text-gray-400 italic p-2 w-full">No tools selected.</p>';
+                } else {
+                    selectedTools.forEach(tool => selectedContainer.appendChild(this.createToolCard(tool, true)));
+                }
+
+                if (availableTools.length === 0) {
+                    availableContainer.innerHTML = '<p class="text-sm text-gray-400 italic p-2">No matching tools found.</p>';
+                } else {
+                    availableTools.forEach(tool => availableContainer.appendChild(this.createToolCard(tool, false)));
+                }
+            }
+
+            createToolCard(tool, isSelected) {
+                const div = document.createElement('div');
+                if (isSelected) {
+                    div.className = "inline-flex items-center bg-white border border-blue-300 text-blue-900 px-2 py-1 rounded shadow-sm cursor-pointer hover:bg-red-50 hover:border-red-300 group transition-all h-min";
+                    div.onclick = () => this.toggleTool(tool.id);
+                    div.innerHTML = `
+                        <span class="font-semibold text-xs mr-1 select-none whitespace-nowrap">${tool.name}</span>
+                        <div class="text-gray-400 group-hover:text-red-500 transition-colors flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                        </div>`;
+                } else {
+                    div.className = "bg-white border border-gray-200 p-3 rounded hover:shadow-md cursor-pointer hover:border-blue-300 transition-all";
+                    div.onclick = () => this.toggleTool(tool.id);
+                    let costBadges = '';
+                    if (tool.cost) {
+                        costBadges = tool.cost.split(',').map(c => `<span class="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded border border-gray-200 whitespace-nowrap">${c.trim()}</span>`).join('');
+                    }
+                    const k12Badge = tool.educationUse ? `<span class="text-xs bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded border border-purple-100 whitespace-nowrap">K-12</span>` : '';
+                    div.innerHTML = `
+                        <div class="flex justify-between items-start"><div class="w-full"><div class="flex flex-wrap items-center gap-1 mb-1"><h3 class="font-semibold text-gray-700 mr-1">${tool.name}</h3>${costBadges}${k12Badge}</div><p class="text-xs text-gray-500 line-clamp-2">${tool.desc || 'No description available.'}</p></div><div class="text-gray-300 ml-2 flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg></div></div>`;
+                }
+                return div;
+            }
+
+            renderRightPanel() {
+                const container = document.getElementById('safeguards-container');
+                container.innerHTML = '';
+
+                const coverageData = this.getCoverageData();
+                let safeguardsToRender = Object.values(this.state.safeguardMap);
+
+                // --- Apply Right Panel Filters ---
+                // 1. Tier
+                if (this.state.filterTier.size > 0) {
+                    safeguardsToRender = safeguardsToRender.filter(s => this.state.filterTier.has(s.tier));
+                }
+                // 2. IG
+                if (this.state.filterIG.size > 0) {
+                    safeguardsToRender = safeguardsToRender.filter(s => this.state.filterIG.has(s.ig));
+                }
+                // 3. Coverage Count
+                if (this.state.filterCoverage.size > 0) {
+                    safeguardsToRender = safeguardsToRender.filter(s => {
+                        const count = (coverageData[s.id] || { count: 0 }).count;
+                        return this.state.filterCoverage.has(String(count));
+                    });
+                }
+                // 4. Search Term (Fuzzy)
+                safeguardsToRender = safeguardsToRender.filter(s => this.matchesSafeguardSearch(s));
+
+                // UPDATE COUNTER
+                document.getElementById('visible-safeguards-count').innerText = safeguardsToRender.length;
+
+                // Sort
+                const sortedSafeguards = safeguardsToRender.sort((a, b) => {
+                    return a.id.localeCompare(b.id, undefined, { numeric: true, sensitivity: 'base' });
+                });
+
+                if (this.state.viewMode === 'flat') {
+                    const grid = document.createElement('div');
+                    grid.className = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3";
+                    sortedSafeguards.forEach(sg => {
+                        const data = coverageData[sg.id] || { count: 0, tools: [] };
+                        grid.appendChild(this.createSafeguardCard(sg, data.count, data.tools));
+                    });
+                    container.appendChild(grid);
+                } else if (this.state.viewMode === 'tier' || this.state.viewMode === 'ig') {
+                    const groups = {};
+                    sortedSafeguards.forEach(sg => {
+                        let key = 'Other';
+                        if (this.state.viewMode === 'tier') key = sg.tier || 'Other';
+                        if (this.state.viewMode === 'ig') key = sg.ig ? `IG ${sg.ig}` : 'Other';
+                        if (!groups[key]) groups[key] = [];
+                        groups[key].push(sg);
+                    });
+
+                    const sortedKeys = Object.keys(groups).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+                    sortedKeys.forEach(key => {
+                        const section = document.createElement('div');
+                        section.className = "mb-8";
+                        const header = document.createElement('h3');
+                        header.className = "text-lg font-bold text-gray-700 mb-3 border-b pb-1";
+                        header.innerText = this.state.viewMode === 'tier' ? `Tier: ${key}` : key;
+                        section.appendChild(header);
+                        const grid = document.createElement('div');
+                        grid.className = "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3";
+                        groups[key].forEach(sg => {
+                            const data = coverageData[sg.id] || { count: 0, tools: [] };
+                            grid.appendChild(this.createSafeguardCard(sg, data.count, data.tools));
+                        });
+                        section.appendChild(grid);
+                        container.appendChild(section);
+                    });
+                }
+            }
+
+            createSafeguardCard(sg, count, contributingTools = []) {
+                const div = document.createElement('div');
+                
+                // Expanded Heat Map Logic (6 colors + white)
+                let bgClass = "bg-white border-gray-200 text-gray-600"; // 0
+                
+                if (count === 1) {
+                    bgClass = "bg-emerald-100 border-emerald-200 text-emerald-900";
+                } else if (count === 2) {
+                    bgClass = "bg-emerald-300 border-emerald-400 text-emerald-900";
+                } else if (count === 3) {
+                    bgClass = "bg-emerald-400 border-emerald-500 text-white"; // Text turns white for better contrast
+                } else if (count === 4) {
+                    bgClass = "bg-emerald-500 border-emerald-600 text-white";
+                } else if (count === 5) {
+                    bgClass = "bg-emerald-700 border-emerald-800 text-white";
+                } else if (count >= 6) {
+                    bgClass = "bg-emerald-900 border-emerald-950 text-white shadow-md transform scale-105";
+                }
+
+                div.className = `safeguard-card border rounded-lg p-3 flex flex-col justify-between h-28 relative ${bgClass} hover:shadow-lg cursor-default`;
+                const displayId = sg.id.replace(/^SG\s?/i, '');
+
+                div.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-mono font-bold text-lg">${displayId}</span>
+                            ${count > 0 ? `<span class="bg-black bg-opacity-20 px-1.5 rounded text-xs font-bold">${count}</span>` : ''}
+                        </div>
+                        <p class="text-xs leading-tight line-clamp-3 font-medium" title="${sg.title}">${sg.title}</p>
+                    </div>
+                `;
+
+                let tooltipText = `${displayId}: ${sg.title}\n\n${sg.description}\n\nTools Covering: ${count}`;
+                if (contributingTools.length > 0) {
+                    const sortedTools = [...contributingTools].sort();
+                    tooltipText += `\n\nSelected Tools:\n- ${sortedTools.join('\n- ')}`;
+                }
+                div.title = tooltipText;
+                return div;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.app = new App();
+        });
+    </script>
+</body>
+</html>
