@@ -1,0 +1,990 @@
+<!-- 1. Dependencies -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- 2. Custom CSS (Scoped & Reset) -->
+<style>
+    /* Main Wrapper Scope - High Specificity */
+    #cis-tool-wrapper {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9fafb;
+        color: #1f2937;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+    }
+
+    /* Reset all children to border-box */
+    #cis-tool-wrapper *, 
+    #cis-tool-wrapper *::before, 
+    #cis-tool-wrapper *::after {
+        box-sizing: border-box !important;
+        border-style: solid; 
+        border-width: 0; 
+    }
+
+    /* Force hidden utility to work despite WP themes */
+    #cis-tool-wrapper .hidden {
+        display: none !important;
+    }
+
+    /* Typography Resets */
+    #cis-tool-wrapper h1, 
+    #cis-tool-wrapper h2, 
+    #cis-tool-wrapper h3, 
+    #cis-tool-wrapper h4 {
+        margin: 0 0 0.5rem 0;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #111827;
+    }
+    
+    #cis-tool-wrapper p {
+        margin: 0 0 0.5rem 0;
+    }
+
+    #cis-tool-wrapper table {
+        border-collapse: collapse;
+        width: 100%;
+        text-indent: 0;
+        border-color: #e5e7eb;
+    }
+    
+    /* Form Elements */
+    #cis-tool-wrapper input[type="text"], 
+    #cis-tool-wrapper select {
+        appearance: none;
+        background-color: #fff;
+        border-width: 1px;
+        border-color: #d1d5db;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        border-radius: 0.375rem;
+        display: block;
+        width: 100%;
+        color: #374151;
+        margin: 0;
+    }
+    
+    #cis-tool-wrapper input[type="text"]:focus, 
+    #cis-tool-wrapper select:focus {
+        outline: 2px solid transparent;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+
+    #cis-tool-wrapper button {
+        cursor: pointer;
+    }
+
+    /* Component Styles */
+    #cis-tool-wrapper .drop-zone {
+        border-width: 2px;
+        border-style: dashed;
+        border-color: #cbd5e1;
+        transition: all 0.3s ease;
+    }
+    #cis-tool-wrapper .drop-zone.dragover {
+        border-color: #3b82f6;
+        background-color: #eff6ff;
+    }
+    
+    #cis-tool-wrapper .accordion-content {
+        transition: max-height 0.3s ease-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+    #cis-tool-wrapper .accordion-content.expanded {
+        max-height: 2000px;
+    }
+    
+    /* Tabs */
+    #cis-tool-wrapper .tab-btn {
+        background: none;
+        border: none;
+        border-bottom-width: 2px;
+        border-bottom-color: transparent;
+        color: #6b7280;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+    #cis-tool-wrapper .tab-btn.active {
+        border-bottom-color: #2563eb;
+        color: #1e40af;
+        background-color: #eff6ff;
+    }
+    #cis-tool-wrapper .tab-btn:hover:not(.active) {
+        color: #374151;
+        background-color: #f9fafb;
+    }
+
+    /* Custom Filters */
+    #cis-tool-wrapper .filter-dropdown {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    #cis-tool-wrapper .filter-btn {
+        border-width: 1px;
+        border-color: #d1d5db;
+        background-color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        color: #374151;
+    }
+    #cis-tool-wrapper .arrow-icon {
+        transition: transform 0.2s ease-in-out;
+    }
+    #cis-tool-wrapper .arrow-icon.rotate-180 {
+        transform: rotate(180deg);
+    }
+
+    /* Scrollbar */
+    #cis-tool-wrapper .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    #cis-tool-wrapper .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+    #cis-tool-wrapper .custom-scrollbar::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+
+    /* Utility */
+    #cis-tool-wrapper .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    #cis-tool-wrapper .whitespace-normal { white-space: normal; }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    #cis-tool-wrapper .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+</style>
+
+<!-- 3. Main Application Container -->
+<div id="cis-tool-wrapper">
+
+    <!-- STAGE 1: Configuration Loading -->
+    <div id="config-section" class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 max-w-3xl mx-auto fade-in">
+        <div class="mb-6 border-b border-gray-100 pb-4">
+            <h2 class="text-lg font-semibold text-gray-900">1. Load Configuration Files</h2>
+            <p class="text-sm text-gray-500 mt-1">Please specify the locations of the required JSON definition files.</p>
+        </div>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Mapping File (mapping.json)</label>
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">URL</span>
+                    <input type="text" id="url-mapping" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/mapping.json">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Safeguards File (safeguards.json)</label>
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">URL</span>
+                    <input type="text" id="url-safeguards" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/safeguards.json">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tools File (tools.json)</label>
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">URL</span>
+                    <input type="text" id="url-tools" value="https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/refs/heads/main/tools.json">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 flex justify-end">
+            <button id="btn-load-config" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-6 rounded-lg transition-colors flex items-center border-0 cursor-pointer">
+                <span>Load Configuration</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+
+        <div id="config-status" class="mt-4 hidden" style="display: none;"></div>
+    </div>
+
+    <!-- STAGE 2: File Upload (Hidden Initially via inline style) -->
+    <div id="upload-section" class="hidden bg-white rounded-xl shadow-sm border border-gray-200 p-8 max-w-3xl mx-auto fade-in" style="display: none;">
+        <div class="mb-6 border-b border-gray-100 pb-4 flex justify-between items-center">
+            <div>
+                <h2 class="text-lg font-semibold text-gray-900">2. Upload Assessment Data</h2>
+                <p class="text-sm text-gray-500 mt-1">Upload the completed XLSX Excel file.</p>
+            </div>
+            <button id="btn-reset-app" class="text-sm text-gray-500 hover:text-red-600 underline bg-transparent border-0 cursor-pointer">Reset</button>
+        </div>
+
+        <div id="drop-area" class="drop-zone rounded-xl p-12 text-center cursor-pointer">
+            <input type="file" id="file-input" class="hidden" accept=".xlsx, .xls" style="display: none;">
+            <div class="pointer-events-none">
+                <i class="fas fa-file-excel text-green-500 text-5xl mb-4"></i>
+                <p class="text-lg font-medium text-gray-700">Drag & Drop your Excel file here</p>
+                <p class="text-sm text-gray-500 mt-2">or click to browse</p>
+            </div>
+        </div>
+        
+        <div id="processing-indicator" class="hidden mt-6 text-center" style="display: none;">
+            <i class="fas fa-circle-notch fa-spin text-blue-600 text-2xl"></i>
+            <p class="text-sm text-gray-600 mt-2">Processing Summary Tab...</p>
+        </div>
+        
+        <div id="error-message" class="hidden mt-4 p-4 bg-red-50 text-red-700 rounded-lg border border-red-200 text-sm" style="display: none;"></div>
+    </div>
+
+    <!-- STAGE 3: Results (Hidden Initially via inline style) -->
+    <div id="results-section" class="hidden fade-in" style="display: none;">
+        
+        <!-- Results Header -->
+        <div class="flex justify-between items-center mb-6 flex-wrap gap-4">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-900">Analysis Dashboard</h2>
+                <p class="text-gray-500">Review assessment scores and recommended tooling</p>
+            </div>
+            <div class="flex space-x-3">
+                <button id="btn-upload-diff" class="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 text-sm font-medium cursor-pointer">
+                    Upload Different File
+                </button>
+                <button id="btn-export-csv" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm border-0 cursor-pointer">
+                    <i class="fas fa-download mr-2"></i>Export CSV
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="flex space-x-1 mb-6 border-b border-gray-200">
+            <button id="btn-tab-analysis" class="tab-btn active">
+                <i class="fas fa-table mr-2"></i> Safeguard Analysis
+            </button>
+            <button id="btn-tab-tools" class="tab-btn">
+                <i class="fas fa-tools mr-2"></i> Suggested Tools
+            </button>
+        </div>
+
+        <!-- TAB 1: Analysis Results -->
+        <div id="tab-analysis" class="tab-content">
+            <div class="bg-white rounded-xl rounded-tl-none shadow-sm border border-gray-200 overflow-hidden mb-8">
+                <div class="p-4 bg-blue-50 border-b border-blue-100 text-sm text-blue-800">
+                    <i class="fas fa-info-circle mr-2"></i> Sorted by <strong>Calculated Score</strong> (Ascending). Lowest scores indicate highest priority.
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard ID</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Safeguard Description</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Tier (JSON)</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Assess. Score (XLSX)</th>
+                                <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-blue-50">Calculated Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: Suggested Tools -->
+        <div id="tab-tools" class="tab-content hidden" style="display: none;">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div class="mb-6 border-b border-gray-100 pb-4">
+                    <h3 class="text-lg font-medium text-gray-900">Impact-Based Tool Recommendations</h3>
+                    <p class="text-sm text-gray-500 mt-1">
+                        Sorted by <strong>Lowest Average Tool Score</strong>. Tools with a lower average score address the safeguards you are struggling with the most.
+                    </p>
+                </div>
+
+                <!-- Tools Filters -->
+                <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6 flex flex-wrap gap-4 items-center relative z-10">
+                    <div class="text-sm font-medium text-gray-700"><i class="fas fa-filter mr-1"></i> Tool Filters:</div>
+                    
+                    <!-- K-12 Dropdown -->
+                    <div class="relative inline-block text-left">
+                        <button type="button" class="filter-btn w-48 focus:ring-2 focus:ring-blue-500" id="btn-filter-k12">
+                            <span>K-12 Education</span>
+                            <i class="fas fa-chevron-down ml-2 arrow-icon text-gray-400"></i>
+                        </button>
+                        <div id="dropdown-k12" class="hidden absolute mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 filter-dropdown z-20" style="display: none;">
+                            <div class="py-1" role="menu" aria-orientation="vertical">
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-k12" value="true">
+                                    <span class="ml-3 text-sm text-gray-700">K-12 Friendly</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cost Dropdown -->
+                    <div class="relative inline-block text-left">
+                        <button type="button" class="filter-btn w-48 focus:ring-2 focus:ring-blue-500" id="btn-filter-cost">
+                            <span>Relative Cost</span>
+                            <i class="fas fa-chevron-down ml-2 arrow-icon text-gray-400"></i>
+                        </button>
+                        <div id="dropdown-cost" class="hidden absolute mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 filter-dropdown z-20" style="display: none;">
+                            <div class="py-1" role="menu" aria-orientation="vertical">
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$">
+                                    <span class="ml-3 text-sm text-gray-700">$</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$">
+                                    <span class="ml-3 text-sm text-gray-700">$$</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$$">
+                                    <span class="ml-3 text-sm text-gray-700">$$$</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$$$">
+                                    <span class="ml-3 text-sm text-gray-700">$$$$</span>
+                                </label>
+                                <label class="flex items-center px-4 py-2 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500 checkbox-cost" value="$$$$$">
+                                    <span class="ml-3 text-sm text-gray-700">$$$$$</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ml-auto text-xs text-gray-500">
+                        <span id="tools-filter-count">0</span> tools displayed
+                    </div>
+                </div>
+                
+                <div id="tools-list" class="space-y-4">
+                    <!-- Collapsible Tool Cards Injected Here -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- 4. Application Logic -->
+<script>
+(function() {
+    // Global Data Storage
+    let loadedConfig = { mapping: null, safeguards: null, tools: null };
+    let currentRankedTools = []; 
+    let safeguardToToolsMap = new Map();
+    let toolDetailsMap = new Map();
+
+    // DOM Elements
+    const wrapper = document.getElementById('cis-tool-wrapper');
+    
+    // Helper to control display safely
+    function showEl(el) {
+        if(!el) return;
+        el.style.display = 'block';
+        el.classList.remove('hidden');
+    }
+    function hideEl(el) {
+        if(!el) return;
+        el.style.display = 'none';
+        el.classList.add('hidden');
+    }
+
+    // Initialize - Force sections to hide on script run
+    hideEl(wrapper.querySelector('#upload-section'));
+    hideEl(wrapper.querySelector('#results-section'));
+    hideEl(wrapper.querySelector('#config-status'));
+    hideEl(wrapper.querySelector('#processing-indicator'));
+    hideEl(wrapper.querySelector('#error-message'));
+
+    // --- Event Listeners Setup ---
+    
+    window.addEventListener('click', function(e) {
+        if (!e.target.closest('.relative.inline-block')) {
+            wrapper.querySelectorAll('.filter-dropdown').forEach(d => hideEl(d));
+            wrapper.querySelectorAll('.arrow-icon').forEach(i => i.classList.remove('rotate-180'));
+        }
+    });
+
+    function toggleFilter(id) {
+        const dropdown = wrapper.querySelector('#' + id);
+        if(!dropdown) return;
+        
+        // Close others
+        wrapper.querySelectorAll('.filter-dropdown').forEach(d => { 
+            if (d.id !== id) hideEl(d); 
+        });
+        wrapper.querySelectorAll('.arrow-icon').forEach(i => i.classList.remove('rotate-180'));
+
+        const btn = dropdown.previousElementSibling;
+        const icon = btn.querySelector('.arrow-icon');
+
+        // Check computed style or inline style
+        const isHidden = dropdown.style.display === 'none' || getComputedStyle(dropdown).display === 'none';
+
+        if (isHidden) {
+            showEl(dropdown);
+            if(icon) icon.classList.add('rotate-180');
+        } else {
+            hideEl(dropdown);
+            if(icon) icon.classList.remove('rotate-180');
+        }
+    }
+
+    wrapper.querySelector('#btn-filter-k12').addEventListener('click', () => toggleFilter('dropdown-k12'));
+    wrapper.querySelector('#btn-filter-cost').addEventListener('click', () => toggleFilter('dropdown-cost'));
+
+    wrapper.querySelectorAll('.checkbox-k12, .checkbox-cost').forEach(cb => {
+        cb.addEventListener('change', applyToolFilters);
+    });
+
+    wrapper.querySelector('#btn-tab-analysis').addEventListener('click', () => switchTab('tab-analysis'));
+    wrapper.querySelector('#btn-tab-tools').addEventListener('click', () => switchTab('tab-tools'));
+
+    function switchTab(tabId) {
+        wrapper.querySelectorAll('.tab-content').forEach(el => hideEl(el));
+        wrapper.querySelectorAll('.tab-btn').forEach(el => {
+            el.classList.remove('active', 'bg-blue-50', 'border-b-2', 'border-blue-600', 'text-blue-800');
+        });
+        
+        showEl(wrapper.querySelector('#' + tabId));
+        wrapper.querySelector('#btn-' + tabId).classList.add('active');
+    }
+
+    const loadConfigBtn = wrapper.querySelector('#btn-load-config');
+    const configStatus = wrapper.querySelector('#config-status');
+
+    loadConfigBtn.addEventListener('click', async () => {
+        loadConfigBtn.disabled = true;
+        loadConfigBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i> Loading...';
+        showEl(configStatus);
+        configStatus.innerHTML = '';
+
+        const urls = {
+            mapping: wrapper.querySelector('#url-mapping').value,
+            safeguards: wrapper.querySelector('#url-safeguards').value,
+            tools: wrapper.querySelector('#url-tools').value
+        };
+
+        try {
+            const fetchJson = async (url) => {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            };
+
+            const [mappingRes, safeguardsRes, toolsRes] = await Promise.all([
+                fetchJson(urls.mapping),
+                fetchJson(urls.safeguards),
+                fetchJson(urls.tools)
+            ]);
+
+            loadedConfig.mapping = mappingRes;
+            loadedConfig.safeguards = safeguardsRes;
+            loadedConfig.tools = toolsRes;
+            
+            processConfigurationMaps();
+
+            showSuccess("Configuration loaded successfully.");
+            setTimeout(() => {
+                hideEl(wrapper.querySelector('#config-section'));
+                showEl(wrapper.querySelector('#upload-section'));
+            }, 1000);
+
+        } catch (error) {
+            showError(configStatus, "Failed to load files. " + error.message);
+            loadConfigBtn.disabled = false;
+            loadConfigBtn.innerHTML = 'Load Configuration <i class="fas fa-arrow-right ml-2"></i>';
+        }
+    });
+
+    function processConfigurationMaps() {
+        safeguardToToolsMap = new Map();
+        if (loadedConfig.mapping && Array.isArray(loadedConfig.mapping)) {
+            loadedConfig.mapping.forEach(mapItem => {
+                let sgId = mapItem.SafeguardID || mapItem.safeguardID || mapItem.Safeguard;
+                let toolId = mapItem.ToolID || mapItem.toolID || mapItem.Tool;
+                if (sgId && toolId) {
+                    let rawId = String(sgId).trim();
+                    if (rawId.toUpperCase().startsWith("SG")) rawId = rawId.replace(/^SG/i, '');
+                    if (!safeguardToToolsMap.has(rawId)) { safeguardToToolsMap.set(rawId, []); }
+                    safeguardToToolsMap.get(rawId).push(toolId);
+                }
+            });
+        }
+        toolDetailsMap = new Map();
+        if (loadedConfig.tools && Array.isArray(loadedConfig.tools)) {
+            loadedConfig.tools.forEach(t => {
+                let tId = t.ID || t.id;
+                if (tId) toolDetailsMap.set(tId, t);
+            });
+        }
+    }
+
+    function showSuccess(msg) {
+        configStatus.innerHTML = `<div class="p-3 bg-green-50 text-green-700 rounded border border-green-200 flex items-center"><i class="fas fa-check-circle mr-2"></i> ${msg}</div>`;
+    }
+
+    function showError(container, msg) {
+        showEl(container);
+        container.innerHTML = `<div class="p-3 bg-red-50 text-red-700 rounded border border-red-200 flex items-center"><i class="fas fa-exclamation-circle mr-2"></i> ${msg}</div>`;
+    }
+
+    const dropArea = wrapper.querySelector('#drop-area');
+    const fileInput = wrapper.querySelector('#file-input');
+
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, (e) => { e.preventDefault(); e.stopPropagation(); }, false);
+    });
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.add('dragover'), false);
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, () => dropArea.classList.remove('dragover'), false);
+    });
+    dropArea.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files.length > 0) processFile(files[0]);
+    }, false);
+    dropArea.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', (e) => {
+        if(e.target.files[0]) processFile(e.target.files[0]);
+    });
+
+    wrapper.querySelector('#btn-reset-app').addEventListener('click', resetApp);
+    wrapper.querySelector('#btn-upload-diff').addEventListener('click', () => fileInput.click());
+    wrapper.querySelector('#btn-export-csv').addEventListener('click', exportTableToCSV);
+
+    function processFile(file) {
+        const reader = new FileReader();
+        const indicator = wrapper.querySelector('#processing-indicator');
+        const errorMessage = wrapper.querySelector('#error-message');
+        
+        showEl(indicator);
+        hideEl(errorMessage);
+
+        reader.onload = function(e) {
+            try {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {type: 'array'});
+                if (!workbook.Sheets['Summary']) throw new Error("Excel file missing 'Summary' tab.");
+                const summarySheet = workbook.Sheets['Summary'];
+                const rows = XLSX.utils.sheet_to_json(summarySheet, { header: 'A', blankrows: false });
+
+                const results = [];
+                let safeguardsMetaMap = new Map();
+                
+                if (loadedConfig.safeguards) {
+                    const list = Array.isArray(loadedConfig.safeguards) ? loadedConfig.safeguards : Object.values(loadedConfig.safeguards);
+                    let idKey = null;
+                    if (list.length > 0) {
+                        const sample = list[0];
+                        idKey = Object.keys(sample).find(k => k === 'ID' || k === 'id') || Object.keys(sample).find(k => k.toLowerCase().includes('id'));
+                    }
+                    list.forEach(sg => {
+                        if (sg && idKey && sg[idKey]) {
+                            let rawId = String(sg[idKey]).trim();
+                            if (rawId.toUpperCase().startsWith("SG")) rawId = rawId.replace(/^SG/i, '');
+                            safeguardsMetaMap.set(rawId, sg);
+                        }
+                    });
+                }
+                
+                const validIdRegex = /^\d+\.\d+$/;
+                const extractTier = (obj) => {
+                    if (!obj) return 0;
+                    let candidates = [obj.TierNumber, obj.Tier, obj.tier, obj.tierNumber, obj.ImplementationGroup, obj.IG, obj.Group];
+                    if (candidates.every(c => c === undefined)) {
+                        const fuzzyKey = Object.keys(obj).find(k => {
+                            const lower = k.toLowerCase();
+                            return lower.includes('tier') || lower.includes('implementation') || lower === 'ig';
+                        });
+                        if (fuzzyKey) candidates.push(obj[fuzzyKey]);
+                    }
+                    for (let val of candidates) {
+                        if (val !== undefined && val !== null && val !== "") {
+                            if (typeof val === 'number') return val;
+                            const strVal = String(val);
+                            const match = strVal.match(/(\d+)/); 
+                            if (match) return parseFloat(match[0]);
+                        }
+                    }
+                    return 0;
+                };
+                const extractIG = (obj) => {
+                    if (obj.IGNumber !== undefined && obj.IGNumber !== null) {
+                        const val = String(obj.IGNumber).trim();
+                        if (val.toUpperCase().startsWith("IG")) return val.toUpperCase();
+                        return "IG" + val;
+                    }
+                    if (obj.IG1 === true || obj.IG1 === "true") return "IG1";
+                    if (obj.ImplementationGroup) return "IG" + obj.ImplementationGroup;
+                    if (obj.IG) return "IG" + obj.IG;
+                    if (obj['Implementation Groups']) return "IG" + obj['Implementation Groups'];
+                    return "N/A";
+                };
+
+                rows.forEach((row, index) => {
+                    const cellA = row['A'];
+                    const cellD = row['D']; 
+                    if (!cellA) return;
+                    const idStr = String(cellA).trim();
+                    if (validIdRegex.test(idStr)) {
+                        let scoreVal = parseFloat(cellD);
+                        if (isNaN(scoreVal)) scoreVal = 0;
+                        const safeguardData = safeguardsMetaMap.get(idStr);
+                        let tierNum = 0;
+                        let igStr = "N/A";
+                        let sgDescription = row['B'] || "Unknown"; 
+                        if (safeguardData) {
+                            tierNum = extractTier(safeguardData);
+                            igStr = extractIG(safeguardData);
+                            if(safeguardData.Title) sgDescription = safeguardData.Title;
+                            else if(safeguardData.Description) sgDescription = safeguardData.Description;
+                        }
+                        results.push({
+                            id: idStr,
+                            description: sgDescription,
+                            tier: tierNum,
+                            ig: igStr,
+                            assessmentScore: scoreVal,
+                            calculatedScore: tierNum * scoreVal,
+                            foundInJson: !!safeguardData
+                        });
+                    }
+                });
+
+                results.sort((a, b) => a.calculatedScore - b.calculatedScore);
+                renderResults(results);
+                generateToolRecommendations(results);
+
+            } catch (err) {
+                console.error(err);
+                errorMessage.textContent = err.message;
+                showEl(errorMessage);
+                hideEl(indicator);
+            }
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function getScoreBar(score) {
+        let colorClass = 'bg-gray-200';
+        let widthPercent = score * 100;
+        if (score >= 0.99) colorClass = 'bg-green-500';
+        else if (score >= 0.74) colorClass = 'bg-yellow-400';
+        else if (score >= 0.49) colorClass = 'bg-orange-500';
+        else if (score > 0) colorClass = 'bg-red-500';
+        else colorClass = 'bg-gray-300';
+
+        return `
+            <div class="flex items-center w-full">
+                <div class="flex-grow bg-gray-200 rounded-full h-2.5 mr-2">
+                    <div class="${colorClass} h-2.5 rounded-full" style="width: ${widthPercent}%"></div>
+                </div>
+                <span class="text-xs font-medium text-gray-600 w-8 text-right">${score.toFixed(2)}</span>
+            </div>
+        `;
+    }
+
+    function createResultRow(row) {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-gray-50 transition-colors border-b border-gray-100';
+        const scoreClass = row.calculatedScore > 0 ? 'text-gray-900 font-medium' : 'text-gray-400';
+        const jsonStatus = row.foundInJson 
+            ? `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">${row.tier}</span>`
+            : `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Not Found</span>`;
+
+        tr.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${row.id}</td>
+            <td class="px-6 py-4 text-sm text-gray-500 max-w-md truncate" title="${row.description}">${row.description}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500">${jsonStatus}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-center text-sm text-gray-500 w-48">${getScoreBar(row.assessmentScore)}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-center text-sm ${scoreClass} bg-blue-50/50">${row.calculatedScore.toFixed(2)}</td>
+        `;
+        return tr;
+    }
+
+    function toggleZeroRows() {
+        const rows = wrapper.querySelectorAll('.zero-score-row');
+        if (rows.length === 0) return;
+        rows.forEach(row => {
+            if(row.style.display === 'none' || row.classList.contains('hidden')){
+               showEl(row);
+            } else {
+               hideEl(row);
+            }
+        });
+        const toggleRow = wrapper.querySelector('#results-body tr.cursor-pointer');
+        if(toggleRow){
+             const icon = toggleRow.querySelector('i.fas');
+             if(icon) {
+                 icon.classList.toggle('fa-chevron-right');
+                 icon.classList.toggle('fa-chevron-down');
+             }
+        }
+    }
+
+    function renderResults(data) {
+        const tbody = wrapper.querySelector('#results-body');
+        tbody.innerHTML = '';
+        if (data.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-4 text-center text-gray-500">No data loaded yet.</td></tr>`;
+            return;
+        }
+        const nonZeroScores = data.filter(r => r.calculatedScore > 0);
+        const zeroScores = data.filter(r => r.calculatedScore === 0);
+
+        nonZeroScores.forEach(row => tbody.appendChild(createResultRow(row)));
+
+        if (zeroScores.length > 0) {
+            const toggleRow = document.createElement('tr');
+            toggleRow.className = 'bg-gray-100 cursor-pointer hover:bg-gray-200 transition-colors no-export';
+            toggleRow.onclick = toggleZeroRows;
+            toggleRow.innerHTML = `
+                <td colspan="5" class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    <div class="flex items-center select-none">
+                        <i class="fas fa-chevron-right mr-2 transition-transform duration-200"></i>
+                        <span>${zeroScores.length} Safeguards with 0 Calculated Score (Click to Expand)</span>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(toggleRow);
+            zeroScores.forEach(row => {
+                const tr = createResultRow(row);
+                tr.classList.add('zero-score-row', 'hidden', 'bg-gray-50', 'opacity-75'); 
+                tr.style.display = 'none'; // Ensure hidden initially
+                tbody.appendChild(tr);
+            });
+        }
+        hideEl(wrapper.querySelector('#processing-indicator'));
+        hideEl(wrapper.querySelector('#upload-section'));
+        showEl(wrapper.querySelector('#results-section'));
+    }
+
+    // --- Tool Recommendations ---
+
+    function generateToolRecommendations(allResults) {
+        const sgLookup = new Map();
+        allResults.forEach(r => sgLookup.set(r.id, r));
+        const toolStats = new Map(); 
+
+        if (loadedConfig.tools) {
+            loadedConfig.tools.forEach(tool => {
+                const tId = tool.ID || tool.id;
+                if (!tId) return;
+                // K12 using EducationUse boolean
+                const isK12 = tool.EducationUse === true;
+                const costVal = tool.Relative_Cost || tool.relative_cost || tool.Cost || tool.Price;
+                toolStats.set(tId, {
+                    id: tId,
+                    name: tool.Name || tool.name || "Unknown Tool",
+                    desc: tool.Description || tool.description || "",
+                    k12: isK12,
+                    cost: costVal,
+                    totalCalculatedScore: 0,
+                    safeguards: []
+                });
+            });
+        }
+
+        if (loadedConfig.mapping) {
+            loadedConfig.mapping.forEach(mapItem => {
+                let sgId = String(mapItem.SafeguardID || mapItem.Safeguard || "").trim();
+                if (sgId.toUpperCase().startsWith("SG")) sgId = sgId.replace(/^SG/i, '');
+                let toolId = mapItem.ToolID || mapItem.Tool;
+                if (toolStats.has(toolId) && sgLookup.has(sgId)) {
+                    const sgData = sgLookup.get(sgId);
+                    const stats = toolStats.get(toolId);
+                    if (sgData.calculatedScore > 0) {
+                        stats.safeguards.push(sgData);
+                        stats.totalCalculatedScore += sgData.calculatedScore;
+                    }
+                }
+            });
+        }
+
+        const rankedTools = [];
+        toolStats.forEach(stats => {
+            if (stats.safeguards.length > 0) {
+                stats.averageScore = stats.totalCalculatedScore / stats.safeguards.length;
+                if (stats.averageScore > 0) {
+                    rankedTools.push(stats);
+                }
+            }
+        });
+
+        rankedTools.sort((a, b) => a.averageScore - b.averageScore);
+        currentRankedTools = rankedTools;
+        applyToolFilters(); 
+    }
+
+    function applyToolFilters() {
+        const k12Checked = Array.from(wrapper.querySelectorAll('.checkbox-k12:checked')).map(cb => cb.value);
+        const costChecked = Array.from(wrapper.querySelectorAll('.checkbox-cost:checked')).map(cb => cb.value);
+
+        const filteredTools = currentRankedTools.filter(tool => {
+            let matchK12 = true;
+            if (k12Checked.length > 0) matchK12 = tool.k12;
+
+            let matchCost = true;
+            if (costChecked.length > 0) {
+                const cStr = String(tool.cost || "");
+                const toolCosts = cStr.split(',').map(s => s.trim());
+                matchCost = costChecked.some(checkedVal => toolCosts.includes(checkedVal));
+            }
+            return matchK12 && matchCost;
+        });
+
+        renderToolsTab(filteredTools);
+    }
+
+    window.toggleDescriptionInsideWidget = function(el) {
+        el.classList.toggle('truncate');
+        el.classList.toggle('whitespace-normal');
+    };
+    
+    window.toggleAccordionInsideWidget = function(id, headerElement) {
+        const content = wrapper.querySelector('#' + id);
+        const icon = headerElement.querySelector('.fa-chevron-down');
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            icon.classList.remove('rotate-180');
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.classList.add('rotate-180');
+        }
+    };
+
+    function renderToolsTab(tools) {
+        const container = wrapper.querySelector('#tools-list');
+        const countSpan = wrapper.querySelector('#tools-filter-count');
+        container.innerHTML = '';
+        countSpan.textContent = tools.length;
+
+        if (tools.length === 0) {
+            container.innerHTML = `<div class="text-center text-gray-500 py-8">No mapped tools found matching the criteria.</div>`;
+            return;
+        }
+
+        tools.forEach((tool, index) => {
+            const card = document.createElement('div');
+            card.className = 'border border-gray-200 rounded-lg bg-white overflow-hidden';
+            const uniqueId = `tool-item-${index}`;
+
+            let k12Badge = '';
+            if (tool.k12) {
+                k12Badge = `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-bold border border-blue-200 ml-2 flex items-center" title="K-12 Education Friendly"><i class="fas fa-graduation-cap mr-1"></i>K-12</span>`;
+            }
+
+            let costBadgesHtml = '';
+            if (tool.cost) {
+                const rawCostStr = String(tool.cost).trim();
+                const costParts = rawCostStr.split(',').map(s => s.trim()).filter(s => s.length > 0);
+                costBadgesHtml = costParts.map(part => {
+                    let costColor = 'bg-gray-100 text-gray-600 border-gray-200';
+                    if (part === '$' || part === '1') costColor = 'bg-green-100 text-green-800 border-green-200';
+                    else if (part === '$$' || part === '2') costColor = 'bg-yellow-100 text-yellow-800 border-yellow-200';
+                    else if (part === '$$$' || part === '3' || part.length >= 3) costColor = 'bg-red-100 text-red-800 border-red-200';
+                    return `<span class="${costColor} border text-xs px-2 py-1 rounded-full font-mono font-bold ml-1" title="Relative Cost">${part}</span>`;
+                }).join('');
+            }
+            
+            const sgRows = tool.safeguards.map(sg => `
+                <tr class="border-b border-gray-50 hover:bg-gray-50">
+                    <td class="px-4 py-2 text-xs font-mono text-gray-500 w-24 whitespace-nowrap">
+                        <span class="bg-gray-100 px-2 py-1 rounded text-gray-700 font-bold mr-1">${sg.ig}</span>
+                        <span class="bg-blue-50 px-2 py-1 rounded text-blue-700 font-bold">${sg.tier}</span>
+                    </td>
+                    <td class="px-4 py-2 text-sm font-bold text-gray-900 w-16 text-center">${sg.id}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600">${sg.description}</td>
+                    <td class="px-4 py-2 text-sm text-gray-500 w-32">${getScoreBar(sg.assessmentScore)}</td>
+                    <td class="px-4 py-2 text-sm font-bold text-right ${sg.calculatedScore === 0 ? 'text-gray-400' : 'text-blue-600'}">${sg.calculatedScore.toFixed(2)}</td>
+                </tr>
+            `).join('');
+
+            card.innerHTML = `
+                <div class="p-4 cursor-pointer hover:bg-gray-50 transition-colors flex justify-between items-center" onclick="window.toggleAccordionInsideWidget('${uniqueId}', this)">
+                    <div class="flex-1">
+                        <div class="flex items-center mb-1">
+                            <h4 class="text-lg font-bold text-gray-900 mr-2">${tool.name}</h4>
+                            ${k12Badge}
+                            <div class="flex items-center ml-2">${costBadgesHtml}</div>
+                        </div>
+                        <div class="flex items-start text-sm text-gray-500 mt-1">
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-0.5 rounded-full font-medium mr-2 flex-shrink-0">${tool.safeguards.length} Safeguards</span>
+                            <span class="truncate max-w-xl cursor-pointer hover:text-gray-700" onclick="event.stopPropagation(); window.toggleDescriptionInsideWidget(this);" title="Click to expand description">${tool.desc || "No description available."}</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end ml-4">
+                        <div class="text-xs text-gray-500 uppercase font-semibold">Avg Score</div>
+                        <div class="text-xl font-bold ${tool.averageScore < 0.5 ? 'text-red-600' : 'text-gray-800'}">${tool.averageScore.toFixed(2)}</div>
+                    </div>
+                    <div class="ml-4 text-gray-400">
+                        <i class="fas fa-chevron-down transition-transform duration-300 transform"></i>
+                    </div>
+                </div>
+                <div id="${uniqueId}" class="accordion-content bg-gray-50 border-t border-gray-100">
+                    <div class="p-4">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">IG / Tier</th>
+                                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-32">Assess.</th>
+                                    <th class="px-4 py-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Calc.</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">${sgRows}</tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function resetApp() {
+        hideEl(uploadSection);
+        hideEl(resultsSection);
+        showEl(configSection);
+        fileInput.value = '';
+        switchTab('tab-analysis');
+        loadConfigBtn.disabled = false;
+        loadConfigBtn.innerHTML = 'Load Configuration <i class="fas fa-arrow-right ml-2"></i>';
+        hideEl(configStatus);
+    }
+
+    function exportTableToCSV() {
+        const rows = wrapper.querySelectorAll("#results-body tr:not(.no-export)");
+        if (rows.length === 0) return;
+        let csvContent = "Safeguard ID,Safeguard Description,Tier,Assessment Score,Calculated Score\n";
+        const dataRows = Array.from(rows).map(row => {
+            const cells = Array.from(row.querySelectorAll("th, td"));
+            return cells.map((cell, i) => {
+                let text = cell.innerText.trim();
+                text = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/"/g, '""');
+                return `"${text}"`;
+            }).join(",");
+        }).join("\n");
+        csvContent += dataRows;
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", "cis_score_analysis.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+})();
+</script>

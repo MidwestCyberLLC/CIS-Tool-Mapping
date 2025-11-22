@@ -135,6 +135,30 @@
         #conflictModal {
             z-index: 50;
         }
+
+        /* Searchable Dropdown Styles */
+        .tool-dropdown-item:hover {
+            background-color: #EFF6FF; /* blue-50 */
+        }
+        .tool-dropdown-item {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-bottom: 1px solid #F3F4F6;
+            font-size: 0.875rem;
+        }
+        .tool-dropdown-item:last-child {
+            border-bottom: none;
+        }
+        .id-badge {
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 0.75rem;
+            background-color: #E5E7EB;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            color: #4B5563;
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 p-4 md:p-8">
@@ -197,7 +221,7 @@
             <h2 class="text-xl font-semibold mb-3">2. Choose Your Action</h2>
             
             <!-- File Drop Zone -->
-            <div id="dropZone" class="mb-6 p-8 rounded-lg text-center cursor-pointer bg-blue-50 border-blue-300 border-dashed border-2 hover:bg-blue-100 transition-colors">
+            <div id="dropZone" class="mb-2 p-8 rounded-lg text-center cursor-pointer bg-blue-50 border-blue-300 border-dashed border-2 hover:bg-blue-100 transition-colors">
                 <div class="mx-auto h-12 w-12 text-blue-500 mb-3">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
                 </div>
@@ -205,6 +229,22 @@
                 <p class="text-sm text-gray-500 mt-1">Supports .docx and .pdf. The system will detect if this is a new or existing tool.</p>
                 <input type="file" id="fileInput" class="hidden" accept=".docx,.pdf">
                 <p id="dropStatus" class="mt-2 text-sm font-medium h-5"></p>
+            </div>
+
+            <!-- Toggle Link -->
+            <div id="pasteToggleContainer" class="text-center mb-6">
+                 <button id="togglePasteBtn" class="text-blue-600 text-sm font-medium hover:text-blue-800 underline">or paste raw text data directly</button>
+            </div>
+
+            <!-- Paste Input Area (Hidden by default) -->
+            <div id="pasteInputSection" class="hidden mb-6 p-4 border-2 border-blue-200 border-dashed rounded-lg bg-blue-50">
+                <label for="pastedText" class="block text-sm font-medium text-blue-800 mb-2">Paste AI Output / Tool Data Here:</label>
+                <textarea id="pastedText" rows="10" class="form-textarea mb-3 font-mono text-sm" placeholder="Name of Tool: ...&#10;Description: ...&#10;URL: ...&#10;..."></textarea>
+                <div class="flex space-x-3">
+                    <button id="processPasteBtn" class="btn btn-primary">Process Text</button>
+                    <button id="cancelPasteBtn" class="btn btn-secondary">Cancel</button>
+                </div>
+                <p id="pasteStatus" class="mt-2 text-sm font-medium text-red-600"></p>
             </div>
 
             <div class="relative flex py-2 items-center">
@@ -300,11 +340,15 @@
             <fieldset class="mb-6 p-4 border rounded-lg">
                 <legend class="text-xl font-semibold mb-3 px-2">Modify Existing Tool & Mappings</legend>
                 <div class="space-y-3">
-                    <div>
-                        <label for="modifyToolSelect" class="block text-sm font-medium text-gray-700">Select Tool to Modify</label>
-                        <select id="modifyToolSelect" class="form-select">
-                            <option value="" disabled selected>-- Select a Tool --</option>
-                        </select>
+                    <!-- NEW Searchable Combo Box -->
+                    <div class="relative">
+                        <label for="toolSearchInput" class="block text-sm font-medium text-gray-700 mb-1">Search Tool to Modify</label>
+                        <input type="text" id="toolSearchInput" class="form-input" placeholder="Type tool name or ID..." autocomplete="off">
+                        
+                        <!-- Dropdown Results Container -->
+                        <div id="toolDropdown" class="absolute z-20 w-full bg-white border border-gray-300 mt-1 rounded-md shadow-xl max-h-60 overflow-y-auto hidden">
+                            <!-- Dynamic Items will appear here -->
+                        </div>
                     </div>
 
                     <!-- This form appears when a tool is selected -->
@@ -404,11 +448,8 @@
         const showAddModeBtn = document.getElementById('showAddModeBtn');
         const showModifyModeBtn = document.getElementById('showModifyModeBtn');
 
-        // Mode containers
-        const addModeContainer = document.getElementById('addModeContainer');
-        const modifyModeContainer = document.getElementById('modifyModeContainer');
-        
         // Add Mode Elements
+        const addModeContainer = document.getElementById('addModeContainer');
         const toolForm = document.getElementById('toolForm');
         const toolStatus = document.getElementById('toolStatus');
         const toolIdInput = document.getElementById('toolId'); 
@@ -424,6 +465,15 @@
         const fileInput = document.getElementById('fileInput');
         const dropStatus = document.getElementById('dropStatus');
 
+        // Paste Mode Elements
+        const togglePasteBtn = document.getElementById('togglePasteBtn');
+        const pasteToggleContainer = document.getElementById('pasteToggleContainer');
+        const pasteInputSection = document.getElementById('pasteInputSection');
+        const pastedText = document.getElementById('pastedText');
+        const processPasteBtn = document.getElementById('processPasteBtn');
+        const cancelPasteBtn = document.getElementById('cancelPasteBtn');
+        const pasteStatus = document.getElementById('pasteStatus');
+
         // Modal Elements
         const conflictModal = document.getElementById('conflictModal');
         const conflictToolName = document.getElementById('conflictToolName');
@@ -432,7 +482,11 @@
         const btnConflictAdd = document.getElementById('btnConflictAdd');
 
         // Modify Mode Elements
-        const modifyToolSelect = document.getElementById('modifyToolSelect');
+        const modifyModeContainer = document.getElementById('modifyModeContainer');
+        // Removed: modifyToolSelect (replaced by custom dropdown)
+        const toolSearchInput = document.getElementById('toolSearchInput');
+        const toolDropdown = document.getElementById('toolDropdown');
+
         const modifyFormContainer = document.getElementById('modifyFormContainer');
         const modifyToolId = document.getElementById('modifyToolId');
         const modifyToolName = document.getElementById('modifyToolName');
@@ -477,6 +531,47 @@
             });
         }
 
+        // --- Paste Logic ---
+        togglePasteBtn.addEventListener('click', () => {
+            dropZone.classList.add('hidden');
+            pasteToggleContainer.classList.add('hidden');
+            pasteInputSection.classList.remove('hidden');
+            pastedText.value = '';
+            pastedText.focus();
+            pasteStatus.textContent = '';
+        });
+
+        cancelPasteBtn.addEventListener('click', () => {
+             pasteInputSection.classList.add('hidden');
+             dropZone.classList.remove('hidden');
+             pasteToggleContainer.classList.remove('hidden');
+             dropStatus.textContent = '';
+             pasteStatus.textContent = '';
+        });
+
+        processPasteBtn.addEventListener('click', () => {
+            const text = pastedText.value.trim();
+            if(!text) {
+                pasteStatus.textContent = "Please paste some text first.";
+                return;
+            }
+            
+            try {
+                const parsedData = parseToolData(text);
+                
+                // Validate minimal data
+                if (!parsedData.name) {
+                     pasteStatus.textContent = "Could not detect a Tool Name. Please ensure the text follows the standard format (Name of Tool: ...)";
+                     return;
+                }
+                
+                handleParsedData(parsedData, "pasted text");
+            } catch (err) {
+                console.error(err);
+                pasteStatus.textContent = "Error parsing text: " + err.message;
+            }
+        });
+
         // --- Drag and Drop Logic ---
         dropZone.addEventListener('click', () => fileInput.click());
         
@@ -514,33 +609,7 @@
                 }
                 
                 const parsedData = parseToolData(text);
-                
-                // Check for duplicate
-                const existingTool = tools.find(t => t.Name.toLowerCase() === parsedData.name.toLowerCase());
-                
-                if (existingTool) {
-                    // Conflict: Show Modal
-                    tempParsedData = parsedData;
-                    tempExistingTool = existingTool;
-                    
-                    conflictToolName.textContent = existingTool.Name;
-                    conflictToolID.textContent = existingTool.ID;
-                    conflictModal.classList.remove('hidden');
-                    
-                    dropStatus.textContent = `Conflict detected for "${parsedData.name}".`;
-                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-yellow-600';
-                } else {
-                    // No Conflict: Switch to Add Mode and Populate
-                    // 1. Hide Selection Screen
-                    modeSelectionSection.classList.add('hidden');
-                    // 2. Show Add Screen
-                    addModeContainer.classList.remove('hidden');
-                    generateSection.classList.remove('hidden');
-                    // 3. Populate
-                    populateAddForm(parsedData);
-                    dropStatus.textContent = `Loaded data from ${file.name}.`;
-                    dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
-                }
+                handleParsedData(parsedData, file.name);
                 
             } catch (err) {
                 console.error(err);
@@ -548,17 +617,70 @@
                 dropStatus.className = 'mt-2 text-sm font-medium h-5 text-red-600';
             }
         }
+        
+        // --- Unified Handler for Parsed Data (File or Paste) ---
+        function handleParsedData(parsedData, sourceName) {
+             // Check for duplicate
+            const existingTool = tools.find(t => t.Name.toLowerCase() === parsedData.name.toLowerCase());
+            
+            if (existingTool) {
+                // Conflict: Show Modal
+                tempParsedData = parsedData;
+                tempExistingTool = existingTool;
+                
+                conflictToolName.textContent = existingTool.Name;
+                conflictToolID.textContent = existingTool.ID;
+                conflictModal.classList.remove('hidden');
+                
+                dropStatus.textContent = `Conflict detected for "${parsedData.name}".`;
+                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-yellow-600';
+                pasteStatus.textContent = `Conflict detected for "${parsedData.name}".`;
+                pasteStatus.className = 'mt-2 text-sm font-medium text-yellow-600';
+            } else {
+                // No Conflict: Switch to Add Mode and Populate
+                
+                // 1. Hide Selection Screen
+                modeSelectionSection.classList.add('hidden');
+                
+                // 2. Reset Paste UI if that was used
+                pasteInputSection.classList.add('hidden');
+                dropZone.classList.remove('hidden');
+                pasteToggleContainer.classList.remove('hidden');
+                
+                // 3. Show Add Screen
+                addModeContainer.classList.remove('hidden');
+                generateSection.classList.remove('hidden');
+                
+                // 4. Populate
+                populateAddForm(parsedData);
+                
+                dropStatus.textContent = `Loaded data from ${sourceName}.`;
+                dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
+                pasteStatus.textContent = '';
+            }
+        }
 
         // Modal Actions
         btnConflictModify.addEventListener('click', () => {
             conflictModal.classList.add('hidden');
             switchToModifyModeAndPopulate(tempExistingTool, tempParsedData);
+            
+            // Clear source statuses
             dropStatus.textContent = `Switched to Modify Mode for "${tempParsedData.name}".`;
             dropStatus.className = 'mt-2 text-sm font-medium h-5 text-blue-600';
+            pasteStatus.textContent = '';
+            pasteInputSection.classList.add('hidden'); // Hide paste if active
+            dropZone.classList.remove('hidden');
+            pasteToggleContainer.classList.remove('hidden');
         });
 
         btnConflictAdd.addEventListener('click', () => {
             conflictModal.classList.add('hidden');
+            
+            // Reset Paste UI elements if needed so we start clean next time
+            pasteInputSection.classList.add('hidden');
+            dropZone.classList.remove('hidden');
+            pasteToggleContainer.classList.remove('hidden');
             
             // Switch to Add Mode
             modeSelectionSection.classList.add('hidden');
@@ -568,6 +690,7 @@
             populateAddForm(tempParsedData);
             dropStatus.textContent = `Prepared "${tempParsedData.name}" as a new tool.`;
             dropStatus.className = 'mt-2 text-sm font-medium h-5 text-green-600';
+            pasteStatus.textContent = '';
         });
 
 
@@ -784,13 +907,16 @@
             generateSection.classList.remove('hidden');
             modifyModeContainer.classList.remove('hidden');
 
-            // 2. Select the tool in the dropdown
-            modifyToolSelect.value = existingTool.ID;
-            currentModifyToolId = existingTool.ID;
+            // 2. Set the searchable input value
+            toolSearchInput.value = existingTool.Name; 
             
-            // 3. Show the form
-            modifyFormContainer.classList.remove('hidden');
-
+            // 3. Load Data
+            currentModifyToolId = existingTool.ID;
+            loadToolForEditing(existingTool.ID);
+            
+            // 4. Update form fields with NEW data (overwrite what loadToolForEditing put there)
+            // Because we want to show the user what the file contains vs existing
+            // Actually, typically "Modify" means we load existing, but here the user dragged a file to update it.
             modifyToolId.value = existingTool.ID;
             modifyToolName.value = newData.name; 
             modifyToolDesc.value = newData.desc; 
@@ -801,8 +927,9 @@
             // 5. Handle Mappings: Merge existing with new
             renderSafeguardsList(modifySafeguardsList, 'mod', existingTool.ID, newData.mappings);
             
+            modifyFormContainer.classList.remove('hidden');
             // Hide the new button initially
-             resetWorkflowBtn.classList.add('hidden');
+            resetWorkflowBtn.classList.add('hidden');
         }
 
         // Return to Start Logic (Shared)
@@ -815,18 +942,28 @@
             // Show Start
             modeSelectionSection.classList.remove('hidden');
             
+            // Ensure Paste UI is reset
+            pasteInputSection.classList.add('hidden');
+            dropZone.classList.remove('hidden');
+            pasteToggleContainer.classList.remove('hidden');
+            
             // Clear Statuses
             dropStatus.textContent = '';
             toolStatus.textContent = '';
             mappingStatus.textContent = '';
             modifyStatus.textContent = '';
+            pasteStatus.textContent = '';
             
             // Clear Form Data
             toolForm.reset();
             mappingForm.reset();
             modifyFormContainer.classList.add('hidden');
             currentModifyToolId = null;
-            modifyToolSelect.value = "";
+            
+            // Clear Search
+            toolSearchInput.value = "";
+            toolDropdown.innerHTML = "";
+            toolDropdown.classList.add('hidden');
         }
 
         // Connect the "Back to Start" buttons
@@ -867,7 +1004,7 @@
                 setLoadStatus(`Successfully loaded ${tools.length} tools, ${safeguards.length} safeguards, and ${mapping.length} mappings.`, 'green');
 
                 populateAddModeDropdowns();
-                populateModifyToolDropdown();
+                // populateModifyToolDropdown(); // Removed, now handled dynamically
                 suggestNextToolId();
 
                 modeSelectionSection.classList.remove('hidden');
@@ -997,13 +1134,7 @@
             renderSafeguardsList(addSafeguardsList, 'add');
         }
 
-        function populateModifyToolDropdown() {
-            modifyToolSelect.innerHTML = '<option value="" disabled selected>-- Select a Tool to Modify --</option>';
-            tools.sort((a, b) => a.Name.localeCompare(b.Name)).forEach(tool => {
-                const option = new Option(`${tool.ID}: ${tool.Name}`, tool.ID);
-                modifyToolSelect.add(option);
-            });
-        }
+        // Removed: populateModifyToolDropdown (Logic moved to dynamic search)
 
         function suggestNextToolId() {
             const existingIds = new Set(
@@ -1048,7 +1179,7 @@
             
             // Refresh dropdowns
             populateAddModeDropdowns();
-            populateModifyToolDropdown();
+            // populateModifyToolDropdown(); // removed
             
             // Auto-select the new tool in the mapping section
             toolSelect.value = id;
@@ -1140,17 +1271,81 @@
             renderSafeguardsList(addSafeguardsList, 'add'); // Clear list
         });
 
-        // --- Modify Mode Logic ---
+        // --- Modify Mode Logic: SEARCHABLE DROPDOWN ---
 
-        modifyToolSelect.addEventListener('change', (e) => {
-            currentModifyToolId = e.target.value;
-            if (currentModifyToolId) {
-                loadToolForEditing(currentModifyToolId);
-                modifyFormContainer.classList.remove('hidden');
-            } else {
+        // Filter Dropdown on Input
+        toolSearchInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            if (val === '') {
+                // If cleared manually, hide form
                 modifyFormContainer.classList.add('hidden');
+                currentModifyToolId = null;
+            }
+            filterToolDropdown(val);
+        });
+
+        // Show all on Focus (if empty) or filter existing
+        toolSearchInput.addEventListener('focus', () => {
+            filterToolDropdown(toolSearchInput.value);
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!toolSearchInput.contains(e.target) && !toolDropdown.contains(e.target)) {
+                toolDropdown.classList.add('hidden');
             }
         });
+
+        function filterToolDropdown(query) {
+            toolDropdown.innerHTML = '';
+            const q = query.toLowerCase();
+            
+            // Filter
+            const matches = tools.filter(t => 
+                t.Name.toLowerCase().includes(q) || 
+                t.ID.toLowerCase().includes(q)
+            ).sort((a, b) => a.Name.localeCompare(b.Name));
+
+            if (matches.length === 0) {
+                const div = document.createElement('div');
+                div.className = 'p-2 text-gray-500 text-sm';
+                div.textContent = 'No tools found.';
+                toolDropdown.appendChild(div);
+            } else {
+                matches.forEach(tool => {
+                    const div = document.createElement('div');
+                    div.className = 'tool-dropdown-item flex items-center';
+                    
+                    // Highlight matching part? (Optional, simplified here)
+                    div.innerHTML = `<span class="id-badge">${tool.ID}</span><span>${tool.Name}</span>`;
+                    
+                    div.addEventListener('click', () => {
+                        selectToolForModify(tool.ID);
+                    });
+                    toolDropdown.appendChild(div);
+                });
+            }
+            
+            toolDropdown.classList.remove('hidden');
+        }
+
+        function selectToolForModify(id) {
+            const tool = tools.find(t => t.ID === id);
+            if (!tool) return;
+            
+            // Update Input Display
+            toolSearchInput.value = tool.Name;
+            
+            // Set State
+            currentModifyToolId = id;
+            
+            // Hide Dropdown
+            toolDropdown.classList.add('hidden');
+            
+            // Load Form
+            loadToolForEditing(id);
+            modifyFormContainer.classList.remove('hidden');
+        }
 
         function loadToolForEditing(toolId) {
             const tool = tools.find(t => t.ID === toolId);
@@ -1176,6 +1371,9 @@
                 tools[toolIndex].URL = modifyToolUrl.value;
                 tools[toolIndex].EducationUse = modifyToolEducationUse.value === 'true'; 
                 tools[toolIndex].Cost = getCostString(modifyToolCostContainer);
+                
+                // Update search input in case name changed
+                toolSearchInput.value = modifyToolName.value;
             }
 
             const newMappingsForTool = [];
@@ -1219,10 +1417,9 @@
 
             const selectedToolId = currentModifyToolId; 
             populateAddModeDropdowns();
-            populateModifyToolDropdown();
-            modifyToolSelect.value = selectedToolId;
-            // Don't reload, keeping form open to show success, just update dropdowns
-            // loadToolForEditing(selectedToolId); 
+            // populateModifyToolDropdown(); // removed
+            
+            // Keep form open
         });
 
         removeToolBtn.addEventListener('click', () => {
@@ -1238,8 +1435,8 @@
 
             currentModifyToolId = null;
             modifyFormContainer.classList.add('hidden');
+            toolSearchInput.value = "";
             populateAddModeDropdowns();
-            populateModifyToolDropdown(); 
         });
         
         // --- 4. Generate Files ---

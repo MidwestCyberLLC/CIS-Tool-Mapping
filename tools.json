@@ -40,6 +40,14 @@
         "Cost": "$$, $$$, $$$$"
     },
     {
+        "ID": "T35",
+        "Name": "Action1",
+        "Description": "Action1 is a cloud-native autonomous endpoint management platform that provides automated patch management, software deployment, IT asset inventory, and remote desktop access for managing distributed endpoints without a VPN.",
+        "URL": "https://www.action1.com/",
+        "EducationUse": true,
+        "Cost": "$"
+    },
+    {
         "ID": "T13",
         "Name": "Akamai",
         "Description": "Akamai is a global cloud services and cybersecurity company that provides a massively distributed edge platform to secure and deliver digital experiences, protecting websites, APIs, and internal infrastructure from DDoS attacks, web application exploits, and malicious lateral movement.",
@@ -586,42 +594,18 @@
     {
         "ID": "T448",
         "Name": "Carbon Black EDR",
-        "Description": "Carbon Black provides endpoint detection and response (EDR) capabilities, including behavioral analysis and threat hunting to identify malicious activity.",
-        "URL": "https://www.paloaltonetworks.com/products/carbon-black/edr",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Carbon Black EDR is a cloud-native endpoint detection and response solution that continuously records and stores comprehensive endpoint activity data to enable real-time threat hunting, incident response, and behavioral analytics.",
+        "URL": "https://www.broadcom.com/products/carbon-black/threat-detection-and-response/endpoint-detection-and-response",
+        "EducationUse": true,
+        "Cost": "$$$$"
     },
     {
-        "ID": "T374",
-        "Name": "Carbon Black EDR (now VMware Carbon Black)",
-        "Description": "It provides real-time behavioral monitoring and threat hunting capabilities to detect and respond to advanced attacks.",
-        "URL": "https://www.vmware.com/products/carbon-black.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T473",
-        "Name": "Carbon Black EDR (VMware Carbon Black Cloud Endpoint Standard)",
-        "Description": "Provides endpoint visibility, threat detection, and response capabilities to prevent malicious activity.",
-        "URL": "https://www.vmware.com/products/carbon-black/cloud-endpoint-standard.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T370",
-        "Name": "Carbon Black Endpoint",
-        "Description": "Provides centralized visibility and control over endpoint security, including anti-malware policies and threat response actions.",
-        "URL": "https://www.broadcom.com/products/carbon-black-endpoint",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T361",
+        "ID": "T36",
         "Name": "Carbon Black Endpoint Standard",
-        "Description": "Carbon Black's endpoint security solution can be configured to scan removable media for threats as part of its continuous monitoring capabilities.",
-        "URL": "https://www.broadcom.com/products/security/carbon-black-endpoint",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Carbon Black Endpoint Standard is a cloud-native Endpoint Protection Platform (EPP) and Endpoint Detection and Response (EDR) solution that consolidates prevention, detection, visibility, and response into a single lightweight agent to stop malware and non-malware attacks.",
+        "URL": "https://www.carbonblack.com/products/endpoint-standard/",
+        "EducationUse": true,
+        "Cost": "$, $$$"
     },
     {
         "ID": "T480",
@@ -704,22 +688,6 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T426",
-        "Name": "Cisco ISE",
-        "Description": "Cisco Identity Services Engine provides centralized network access control using 802.1X authentication and policy enforcement for wired and wireless networks.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/identity-services-engine/index.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T481",
-        "Name": "Cisco ISE (Identity Services Engine)",
-        "Description": "Cisco ISE provides centralized network access control, including 802.1x authentication and policy enforcement for wired and wireless networks.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/ise.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T342",
         "Name": "Cisco Secure Email",
         "Description": "Cisco Secure Email is a comprehensive security solution that protects email by blocking spam, phishing, business email compromise (BEC), and malware, while also providing data loss prevention and encryption.",
@@ -736,28 +704,12 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T476",
-        "Name": "Cisco Secure Firewall (formerly Firepower)",
-        "Description": "Provides advanced threat prevention, including intrusion prevention, malware protection, and application control.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/secure-firewall.html",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T21",
         "Name": "Cisco Secure Network Analytics",
         "Description": "A Network Detection and Response (NDR) solution that uses agentless flow telemetry and behavioral modeling to provide enterprise-wide visibility, detect advanced threats in real-time, and accelerate incident response.",
         "URL": "https://www.cisco.com/c/en/us/products/collateral/security/stealthwatch/secure-network-analytics-aag.html",
         "EducationUse": true,
         "Cost": "$$$$$"
-    },
-    {
-        "ID": "T467",
-        "Name": "Cisco Stealthwatch",
-        "Description": "Cisco Stealthwatch provides comprehensive network behavior analytics by collecting flow data from various sources to detect anomalies and security threats.",
-        "URL": "https://www.cisco.com/c/en/us/products/security/stealthwatch.html",
-        "EducationUse": false,
-        "Cost": "$"
     },
     {
         "ID": "T318",
@@ -832,22 +784,6 @@
         "Cost": "$, $$, $$$, $$$$"
     },
     {
-        "ID": "T696",
-        "Name": "Coalition Strike",
-        "Description": "Coalition Strike provides managed pentesting services with experienced professionals to conduct thorough external assessments and identify vulnerabilities.",
-        "URL": "https://coalition.com/strike/",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T690",
-        "Name": "Cobalt Blue (Tenable)",
-        "Description": "Cobalt Blue is a managed pentesting service that provides ongoing assessments, reporting, and remediation support for various attack surfaces.",
-        "URL": "https://www.tenable.com/solutions/managed-pentest",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T713",
         "Name": "Cobalt Strike",
         "Description": "Cobalt Strike is a commercial adversary simulation and red team operations platform used by security professionals to emulate the post-exploitation tactics and techniques of advanced threat actors.",
@@ -912,14 +848,6 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T129",
-        "Name": "CrowdStrike Falcon Host",
-        "Description": "A cloud-delivered endpoint protection platform that includes a host firewall to prevent unauthorized network connections.",
-        "URL": "https://www.crowdstrike.com/products/falcon-host/",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T25",
         "Name": "CrowdStrike Falcon Host (Falcon Platform)",
         "Description": "CrowdStrike Falcon is a cloud-native endpoint protection platform (EPP) that provides next-generation antivirus (NGAV), endpoint detection and response (EDR), and threat intelligence using a single, lightweight agent.",
@@ -934,14 +862,6 @@
         "URL": "https://www.crowdstrike.com/en-us/resources/data-sheets/falcon-insight-xdr/",
         "EducationUse": true,
         "Cost": "$$$$"
-    },
-    {
-        "ID": "T598",
-        "Name": "CVSS Calculator",
-        "Description": "This online tool allows you to calculate CVSS scores based on vulnerability characteristics, providing a standardized severity rating.",
-        "URL": "https://www.first.org/cvss/calculator/3.1",
-        "EducationUse": false,
-        "Cost": "$"
     },
     {
         "ID": "T26",
@@ -960,22 +880,6 @@
         "Cost": "$$$$$"
     },
     {
-        "ID": "T171",
-        "Name": "CyberArk Privileged Access Management (PAM)",
-        "Description": "Centralizes and secures privileged accounts, including service accounts, providing visibility and control over access.",
-        "URL": "https://www.cyberark.com/product/privileged-access-management",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
-        "ID": "T185",
-        "Name": "CyberArk Privileged Access Manager",
-        "Description": "CyberArk provides a comprehensive solution to manage and control privileged accounts, including dedicated administrator accounts, with granular access controls and session monitoring.",
-        "URL": "https://www.cyberark.com/products/privileged-access-management",
-        "EducationUse": false,
-        "Cost": "$"
-    },
-    {
         "ID": "T675",
         "Name": "Cyberbit Range",
         "Description": "Cyberbit Range is a market-leading cyber range platform that prepares cybersecurity teams for attacks by immersing them in a hyper-realistic, simulated Security Operations Center (SOC) where they use real-world tools to respond to real-world attack scenarios.",
@@ -990,6 +894,14 @@
         "URL": "https://www.cybrary.it/",
         "EducationUse": true,
         "Cost": "$, $$, $$$"
+    },
+    {
+        "ID": "T37",
+        "Name": "Darktrace Network Traffic Analysis",
+        "Description": "Darktrace Network (formerly Enterprise Immune System) is a self-learning Network Detection and Response (NDR) platform that utilizes unsupervised machine learning to establish a \"pattern of life\" for every user and device, detecting and autonomously responding to anomalies, insider threats, and zero-day attacks in real-time.",
+        "URL": "https://www.darktrace.com/products/network",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T468",
@@ -1010,10 +922,10 @@
     {
         "ID": "T280",
         "Name": "Datadog",
-        "Description": "Provides monitoring and analytics for cloud-scale applications, offering log management capabilities to capture and analyze URL request audit trails.",
-        "URL": "https://www.datadoghq.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Datadog is a cloud-scale observability and security platform that aggregates metrics, traces, and logs from servers, databases, and applications to provide unified monitoring, security posture management, and automated threat detection.",
+        "URL": "https://www.datadoghq.com",
+        "EducationUse": true,
+        "Cost": "$$$, $$$$, $$$$$"
     },
     {
         "ID": "T276",
@@ -1025,50 +937,50 @@
     },
     {
         "ID": "T595",
-        "Name": "Dependabot (GitHub)",
-        "Description": "Automatically checks for outdated or vulnerable dependencies within your GitHub repositories and creates pull requests to update them.",
-        "URL": "https://github.com/features/dependabot",
-        "EducationUse": false,
+        "Name": "Dependabot",
+        "Description": "Dependabot is an automated software composition analysis (SCA) tool integrated into GitHub that detects outdated or insecure dependencies (libraries/packages) in code repositories and automatically opens pull requests to update them to secure versions.",
+        "URL": "https://github.com/dependabot",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
         "ID": "T116",
         "Name": "Digital Guardian",
-        "Description": "Digital Guardian provides a data security platform that focuse",
-        "URL": "https://digitalguardian.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "Description": "Digital Guardian (by Fortra) is a unified data protection platform that combines Data Loss Prevention (DLP) with Endpoint Detection and Response (EDR) to discover, classify, and protect sensitive data across endpoints, networks, and cloud applications.",
+        "URL": "https://www.digitalguardian.com/",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T329",
         "Name": "Dmarcian",
-        "Description": "Offers a platform for DMARC implementation, analysis, and enforcement with guided configuration and expert support.",
+        "Description": "Dmarcian is a SaaS-based platform that processes DMARC reports to visualize email authentication data, helping organizations accurately configure SPF and DKIM records to block domain spoofing and phishing attacks.",
         "URL": "https://dmarcian.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$$"
     },
     {
         "ID": "T614",
-        "Name": "Docker Containers (with Orchestration)",
-        "Description": "Containerize applications and deploy them across distinct Docker hosts or Kubernetes clusters to create logically separated production and development environments.",
+        "Name": "Docker Containers (With Orchestration)",
+        "Description": "Docker is a platform that uses OS-level virtualization to deliver software in packages called \"containers,\" which are isolated from one another and bundle their own software, libraries, and configuration files; orchestration (via tools like Kubernetes or Docker Swarm) automates the deployment, scaling, and management of these containerized applications.",
         "URL": "https://www.docker.com/",
-        "EducationUse": false,
-        "Cost": "$"
+        "EducationUse": true,
+        "Cost": "$, $$, $$$, $$$$, $$$$$"
     },
     {
         "ID": "T557",
         "Name": "Drata",
-        "Description": "Automates SOC 2 compliance and continuous monitoring, providing standardized assessment reports for service providers to review.",
-        "URL": "https://www.drata.com/",
+        "Description": "Drata is a Governance, Risk, and Compliance (GRC) automation platform that continuously monitors a company's security posture by integrating with their technology stack (cloud providers, identity providers, HR systems) to collect evidence for frameworks like SOC 2, ISO 27001, and HIPAA.",
+        "URL": "https://drata.com",
         "EducationUse": false,
-        "Cost": "$"
+        "Cost": "$$$"
     },
     {
         "ID": "T91",
-        "Name": "draw.io (Diagrams.net)",
-        "Description": "A free, open-source diagramming application that supports data flow diagrams and can be integrated with various storage platforms.",
-        "URL": "https://www.diagrams.net/",
-        "EducationUse": false,
+        "Name": "Draw.io (Diagrams.net)",
+        "Description": "A free, cross-platform, open-source diagramming software used to create flowcharts, network diagrams, and data flow models that integrates directly with Google Drive and Microsoft OneDrive.",
+        "URL": "https://www.drawio.com/",
+        "EducationUse": true,
         "Cost": "$"
     },
     {
@@ -3502,6 +3414,14 @@
         "URL": "https://www.upguard.com/",
         "EducationUse": false,
         "Cost": "$"
+    },
+    {
+        "ID": "T44",
+        "Name": "Varonis Data Advantage",
+        "Description": "Varonis Data Advantage is a Data Security Posture Management (DSPM) and Data Access Governance (DAG) solution that automatically scans hybrid IT environments to map data, visualize permissions, classify sensitive content, and detect behavioral anomalies.",
+        "URL": "https://www.varonis.com/products/datadvantage",
+        "EducationUse": true,
+        "Cost": "$$$$$"
     },
     {
         "ID": "T86",

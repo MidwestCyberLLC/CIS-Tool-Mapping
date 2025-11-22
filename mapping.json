@@ -8,70 +8,6 @@
         "ToolID": "T198"
     },
     {
-        "SafeguardID": "SG13.2",
-        "ToolID": "T448"
-    },
-    {
-        "SafeguardID": "SG10.7",
-        "ToolID": "T374"
-    },
-    {
-        "SafeguardID": "SG13.7",
-        "ToolID": "T473"
-    },
-    {
-        "SafeguardID": "SG10.6",
-        "ToolID": "T370"
-    },
-    {
-        "SafeguardID": "SG10.4",
-        "ToolID": "T361"
-    },
-    {
-        "SafeguardID": "SG12.6",
-        "ToolID": "T426"
-    },
-    {
-        "SafeguardID": "SG13.9",
-        "ToolID": "T481"
-    },
-    {
-        "SafeguardID": "SG13.8",
-        "ToolID": "T476"
-    },
-    {
-        "SafeguardID": "SG13.6",
-        "ToolID": "T467"
-    },
-    {
-        "SafeguardID": "SG18.2",
-        "ToolID": "T696"
-    },
-    {
-        "SafeguardID": "SG18.1",
-        "ToolID": "T690"
-    },
-    {
-        "SafeguardID": "SG4.4",
-        "ToolID": "T129"
-    },
-    {
-        "SafeguardID": "SG16.6",
-        "ToolID": "T598"
-    },
-    {
-        "SafeguardID": "SG5.1",
-        "ToolID": "T171"
-    },
-    {
-        "SafeguardID": "SG6.8",
-        "ToolID": "T171"
-    },
-    {
-        "SafeguardID": "SG5.4",
-        "ToolID": "T185"
-    },
-    {
         "SafeguardID": "SG13.6",
         "ToolID": "T468"
     },
@@ -80,44 +16,8 @@
         "ToolID": "T63"
     },
     {
-        "SafeguardID": "SG8.7",
-        "ToolID": "T280"
-    },
-    {
         "SafeguardID": "SG8.6",
         "ToolID": "T276"
-    },
-    {
-        "SafeguardID": "SG16.5",
-        "ToolID": "T595"
-    },
-    {
-        "SafeguardID": "SG3.13",
-        "ToolID": "T116"
-    },
-    {
-        "SafeguardID": "SG3.13",
-        "ToolID": "T116"
-    },
-    {
-        "SafeguardID": "SG9.5",
-        "ToolID": "T329"
-    },
-    {
-        "SafeguardID": "SG16.8",
-        "ToolID": "T614"
-    },
-    {
-        "SafeguardID": "SG15.5",
-        "ToolID": "T557"
-    },
-    {
-        "SafeguardID": "SG12.4",
-        "ToolID": "T91"
-    },
-    {
-        "SafeguardID": "SG3.8",
-        "ToolID": "T91"
     },
     {
         "SafeguardID": "SG11.1",
@@ -13027,5 +12927,960 @@
         "ToolID": "T27",
         "SafeguardID": "SG13.10",
         "Rationale": "The platform's CASB and SWG features operate at Layer 7, allowing for the inspection and filtering of specific application actions (e.g., \"allow login to Gmail but block file upload\")."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Action1 automatically discovers and creates a real-time inventory of all managed endpoints (workstations and servers), collecting hardware details, network information, and system status."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The platform provides visibility into all connected endpoints and includes features to remotely isolate compromised or unauthorized devices from the network to address security risks."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Action1 automatically scans endpoints to build and maintain a comprehensive, real-time inventory of all installed applications and software versions across the enterprise."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG2.2",
+        "Rationale": "The tool's vulnerability assessment capabilities identify outdated operating systems and third-party applications that are no longer supported or require security updates."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Administrators can use Action1 to remotely uninstall unauthorized or unwanted software applications from endpoints at scale using built-in software removal tasks or custom scripts."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Action1 is specifically designed as an automated tool to continuously discover, inventory, and report on the software installed on enterprise assets."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG3.5",
+        "Rationale": "The platform includes remote wipe capabilities, allowing administrators to securely erase data from lost, stolen, or decommissioned portable devices."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Action1 allows IT teams to create and deploy custom scripts (PowerShell, CMD) to enforce secure configuration baselines (e.g., registry changes, disabling protocols) across all managed endpoints."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG4.6",
+        "Rationale": "The platform enables the secure, remote management of assets via a cloud console protected by MFA and SSO, replacing the need for insecure management protocols."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG4.8",
+        "Rationale": "Through its scripting and automation engine, Action1 can be used to identify and stop or disable unnecessary services running on endpoints to reduce the attack surface."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG4.11",
+        "Rationale": "Action1 provides the capability to remotely wipe enterprise data from managed laptops and endpoints in the event of loss or theft."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG7.1",
+        "Rationale": "The platform serves as the technical foundation for this process, providing continuous, automated detection and assessment of vulnerabilities across the fleet."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG7.2",
+        "Rationale": "Action1 streamlines the remediation process by allowing administrators to prioritize vulnerabilities based on severity and automate the deployment of fixes."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG7.3",
+        "Rationale": "This is a core function of Action1, which automates the scanning and deployment of OS updates and patches for Windows, macOS, and Linux systems."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG7.4",
+        "Rationale": "Action1 specializes in third-party patch management, automatically updating a wide library of common applications (e.g., Adobe, Chrome, Zoom) to remediate vulnerabilities."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG7.5",
+        "Rationale": "The Action1 agent performs continuous, real-time vulnerability assessments on endpoints (internal assets) to identify missing patches and configuration risks."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The platform is designed to close the loop on vulnerability management by directly applying the necessary patches or configuration changes to remediate detected issues."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Action1 generates comprehensive audit trails of all administrative actions taken within the console, such as patch deployments, script executions, and remote access sessions."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Action1 can be used to automate the deployment and installation of antivirus or EDR agents to endpoints that are found to be missing them."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG10.2",
+        "Rationale": "Through scripting and software management, Action1 can enforce configurations that ensure anti-malware software is set to update automatically or trigger force-updates."
+    },
+    {
+        "ToolID": "T35",
+        "SafeguardID": "SG10.5",
+        "Rationale": "Administrators can use Action1's scripting capabilities to verify and enable native OS security features, such as Windows Defender Exploit Guard or BitLocker, across the fleet."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The Carbon Black sensor provides a detailed, real-time inventory of all endpoints (Windows, macOS, Linux) where it is installed, including machine names and OS details."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG1.2",
+        "Rationale": "The tool allows administrators to quarantine or isolate unauthorized or compromised devices from the network immediately upon detection."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Carbon Black EDR continuously records every binary and application execution on an endpoint, creating a comprehensive inventory of installed and running software."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Security teams can use the solution to ban specific file hashes, effectively blocking unauthorized software from executing on enterprise assets."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The system logs file modification and access events, allowing teams to audit who is accessing sensitive data files (e.g., tracking access to cardholder data)."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG4.8",
+        "Rationale": "The \"Live Response\" capability allows administrators to remotely connect to endpoints to kill processes and disable services that are deemed unnecessary or malicious."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG7.7",
+        "Rationale": "Through its \"Audit and Remediation\" features, the tool can identify vulnerabilities in real-time and support remediation efforts by providing deep visibility into the state of the endpoint."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Carbon Black EDR's core function is the continuous collection and recording of endpoint activity logs, regardless of whether an alert is triggered."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The tool captures highly detailed forensic data, including process trees, file modifications, registry changes, and network connections, which are essential for forensic investigations."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG8.8",
+        "Rationale": "It specifically records command-line executions (e.g., PowerShell, BASH) to detect malicious scripts and \"living-off-the-land\" attacks."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All endpoint data is centralized in the Carbon Black Cloud console for aggregated analysis and retention."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG10.1",
+        "Rationale": "The solution serves as a Next-Generation Antivirus (NGAV) replacement, providing prevention capabilities alongside EDR."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG10.2",
+        "Rationale": "As a cloud-native solution, it leverages real-time threat intelligence and updates without requiring heavy, manual signature downloads."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG10.4",
+        "Rationale": "Policies can be configured to block or scan USB devices and prevent the execution of malicious files from removable media."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG10.6",
+        "Rationale": "All policies, detection rules, and response actions are managed through a single central cloud console."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The tool utilizes behavioral analytics to detect non-malware attacks and abusive patterns (e.g., ransomware behavior) rather than relying solely on static signatures."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The agent acts as a host-based IDS by monitoring system activity for signs of intrusion and malicious behavior."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG13.7",
+        "Rationale": "It includes prevention capabilities that can automatically block attacks and stop malicious processes in real-time."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG17.4",
+        "Rationale": "Carbon Black EDR is designed specifically to support the IR process, providing the tools necessary for detection, containment, and remediation."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG17.8",
+        "Rationale": "The \"roll back the tape\" feature allows teams to replay attacks and review historical data to understand the root cause and improve future defenses."
+    },
+    {
+        "ToolID": "T448",
+        "SafeguardID": "SG18.4",
+        "Rationale": "The tool is often used during red team exercises and penetration tests to validate that defenses can detect and block simulated attacks."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG1.1",
+        "Rationale": "The Carbon Black sensor automatically collects and reports detailed metadata for every endpoint it is installed on, including hostnames, IP addresses, OS versions, and last check-in times."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG1.2",
+        "Rationale": "Administrators can identify unauthorized devices attempting to access the network if the agent is mandated; devices missing the agent can be flagged via integration with other network tools, and the tool itself can isolate non-compliant assets.Control 2: Inventory and Control of Software Assets"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The solution maintains a real-time inventory of all binaries and applications executed on an endpoint, creating a detailed record of installed software."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG2.2",
+        "Rationale": "By identifying exact versions of running applications, IT teams can correlate this data with vendor support lifecycles to identify unsupported software."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG2.3",
+        "Rationale": "Administrators can ban specific file hashes or certificates, effectively removing or blocking unauthorized software from executing.Control 7: Continuous Vulnerability Management"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG7.5",
+        "Rationale": "Carbon Black Endpoint Standard (often in conjunction with the \"Audit and Remediation\" or \"Workload\" feature set) assesses endpoints for known vulnerabilities in the OS and installed applications.Control 8: Audit Log Management"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The sensor continuously records endpoint activity and forwards this telemetry to the Carbon Black Cloud."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG8.5",
+        "Rationale": "It captures granular details including process creation, file modifications, registry changes, and network connections, which are essential for forensic investigations."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG8.8",
+        "Rationale": "The tool specifically records command-line arguments (e.g., PowerShell scripts, flags passed to executables), satisfying this specific requirement."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All endpoint logs are centralized in the Carbon Black Cloud console for analysis and retention.Control 10: Malware Defenses"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG10.1",
+        "Rationale": "This is the core function of the tool; it serves as the primary Next-Generation Antivirus (NGAV) for the enterprise."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG10.2",
+        "Rationale": "The cloud-native nature ensures the agent is always using the latest threat intelligence and behavioral models without manual signature updates."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG10.4",
+        "Rationale": "The agent scans files accessed from removable media (USB drives) upon read/write attempts."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG10.5",
+        "Rationale": "It utilizes behavioral analytics to detect and block exploitation techniques (e.g., memory scraping, buffer overflows) rather than just relying on file signatures."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG10.6",
+        "Rationale": "Policies, exclusions, and updates are managed entirely through the central Carbon Black Cloud console."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG10.7",
+        "Rationale": "The \"Streaming Prevention\" technology analyzes the behavior of processes over time (not just at the point of execution) to stop ransomware and fileless attacks.Control 13: Network Monitoring and Defense"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The sensor acts as a Host-based IDS by monitoring system calls and network connections for suspicious patterns indicative of an intrusion."
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG13.7",
+        "Rationale": "It can actively block malicious network connections and process behaviors, functioning as a Host-based IPS.Control 17: Incident Response Management"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG17.9",
+        "Rationale": "The console allows administrators to define policy rules and severity thresholds that trigger alerts (e.g., differentiating between a \"known malware\" block and a \"suspect behavior\" warning).Control 18: Penetration Testing"
+    },
+    {
+        "ToolID": "T36",
+        "SafeguardID": "SG18.4",
+        "Rationale": "During penetration tests, Carbon Black logs and alerts are used to validate that the security team can detect and respond to the simulated attacks, verifying the effectiveness of the defenses."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG1.2",
+        "Rationale": "Darktrace continuously monitors the network (both physical and wireless) and instantly flags devices that deviate from the established baseline or appear on the network for the first time, allowing administrators to identify and address unauthorized hardware immediately."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG1.5",
+        "Rationale": "The tool operates by connecting to a SPAN port or network tap, passively ingesting and analyzing copies of network traffic to identify and profile every device communicating on the wire without requiring active scanning agents."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Darktrace monitors internal and external data flows, utilizing AI to detect anomalous data transfers (exfiltration) that differ from normal user behavior, such as a user uploading large amounts of data to a cloud storage site they rarely visit."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG8.6",
+        "Rationale": "By analyzing raw network traffic, Darktrace extracts, records, and analyzes DNS queries to identify \"low and slow\" attacks, DGA (Domain Generation Algorithms), or command-and-control signaling."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG8.7",
+        "Rationale": "The system inspects HTTP/HTTPS traffic (often using JA3 signatures or decryption where configured) to log and analyze URL requests, identifying connections to malicious domains or phishing sites."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The \"Cyber AI Analyst\" feature correlates disparate weak signals and anomalies across the network into single, high-fidelity security incidents, effectively acting as a centralized alerting engine for network-based threats."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG13.3",
+        "Rationale": "This is the primary function of the tool; it functions as a next-generation NIDS by using behavioral analysis (rather than just signatures) to detect intrusion attempts, lateral movement, and ransomware activity within the network."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG13.6",
+        "Rationale": "Darktrace records deep metadata regarding network traffic flows (connections, volume, time, protocol) for forensic analysis and historical review, fulfilling the requirement to collect flow logs."
+    },
+    {
+        "ToolID": "T37",
+        "SafeguardID": "SG13.8",
+        "Rationale": "When the \"Antigena\" (or Darktrace RESPOND) feature is enabled, the tool acts as a NIPS by autonomously taking action to block specific malicious connections or quarantine devices in real-time without human intervention."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Datadog Agents automatically collect and report detailed metadata (hostname, IP, OS, hardware info) for every host they are installed on, maintaining a dynamic, real-time inventory."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG1.3",
+        "Rationale": "Datadog integrates with cloud providers (AWS, Azure, GCP) and vSphere to actively discover and list all compute instances, even those without agents installed."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG1.5",
+        "Rationale": "Datadog Network Performance Monitoring (NPM) passively analyzes network traffic to identify communicating endpoints, potentially revealing unmanaged assets."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The Datadog Agent collects lists of running processes and installed packages/libraries on monitored hosts, creating a searchable live inventory of software."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Datadog automates the collection of software inventories across the entire fleet via the agent, replacing manual checks."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG3.14",
+        "Rationale": "Datadog Log Management ingests application and database logs which can be configured to record access to sensitive data, indexing them for search and audit."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Strong Fit: Datadog's Cloud Security Management (CSM) module continually scans infrastructure against CIS Benchmarks to verify secure configurations are maintained."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG4.8",
+        "Rationale": "Uninstall or Disable Unnecessary ServicesDatadog Process Monitoring allows administrators to query and alert on running services across the fleet to identify and verify the removal of unnecessary services."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG4.9",
+        "Rationale": "Configure Trusted DNS ServersDatadog NPM can monitor DNS traffic to verify that requests are being routed to approved/trusted internal or external DNS resolvers."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG5.1",
+        "Rationale": "Through CloudTrail/AzureAD integrations, Datadog monitors IAM user lists and detects unused or dormant accounts in cloud environments.Implementation Group 2 (IG2) - Effective Cyber DefenseIDTitleReason for Selection"
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG5.5",
+        "Rationale": "The Cloud Security module inventories cloud service accounts (principals) and visualizes their permissions and activity."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG7.5",
+        "Rationale": "Datadog Cloud Security Vulnerability Management automatically scans hosts and containers for known CVEs without requiring a separate heavy scanner."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG7.6",
+        "Rationale": "Perform Automated Vulnerability Scans of Externally-Exposed AssetsContinuous scanning of cloud-facing infrastructure (load balancers, public IPs) identifies vulnerabilities in externally exposed assets."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG7.7",
+        "Rationale": "While it does not patch the system, Datadog tracks the remediation status of vulnerabilities and provides \"remediation guides\" for developers."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.4",
+        "Rationale": "Datadog monitors system clock offsets (NTP drift) on all hosts and alerts if a server's time desynchronizes from the standard."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The platform is designed to ingest detailed JSON-formatted logs containing source, user, timestamp, and event data for forensic analysis."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.6",
+        "Rationale": "Datadog NPM and DNS monitoring integrations collect and analyze DNS query performance and resolution data."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.7",
+        "Rationale": "Datadog APM (Application Performance Monitoring) captures full URL traces and HTTP headers for applications, effectively auditing URL requests."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.9",
+        "Rationale": "Primary Function: Datadog acts as the centralized repository for logs from servers, clouds, network devices, and applications, fulfilling the core requirement of this safeguard."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.11",
+        "Rationale": "Automated \"Monitors\" and \"Detection Rules\" review logs in real-time for anomalies, replacing manual review with automated alerting."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG8.12",
+        "Rationale": "Datadog has native integrations to collect logs from SaaS providers (e.g., Microsoft 365, Google Workspace, Okta, Slack)."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG9.3",
+        "Rationale": "While it doesn't filter (block), Datadog monitors outbound connection requests, allowing admins to audit if assets are connecting to malicious or unapproved URLs."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG12.4",
+        "Rationale": "Key Feature: Datadog \"Service Map\" and \"Network Map\" automatically generate and maintain real-time visual architecture diagrams based on actual traffic flow."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG12.8",
+        "Rationale": "Establish and Maintain Dedicated Computing Resources for Admin WorkDatadog allows for the identification of admin jump boxes/bastion hosts and can alert if administrative logins occur from non-dedicated resources."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG13.1",
+        "Rationale": "Datadog Cloud SIEM centralizes alerts from all connected sources (logs, security tools, cloud providers) into a single dashboard for analysis."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Datadog Cloud Workload Security (CWS) uses an agent to detect threats in real-time at the kernel level (e.g., shell execution, file modification), acting as a HIDS."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG13.3",
+        "Rationale": "Network Performance Monitoring and Cloud SIEM analyze traffic patterns to detect network-based threats and anomalies."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG13.6",
+        "Rationale": "Datadog NPM collects and visualizes network flow data (source/dest/port/volume) similar to NetFlow/VPC Flow Logs."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG13.7",
+        "Rationale": "In specific configurations (Application Security Management), Datadog can actively block malicious IP requests or attack patterns at the agent level."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG16.1",
+        "Rationale": "Datadog CI/CD Visibility tools allow security and performance testing to be integrated directly into the development pipeline."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG16.4",
+        "Rationale": "Datadog Software Composition Analysis (SCA) maintains a \"Bill of Materials\" (SBOM) for applications, listing all open-source libraries and their risks."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG16.5",
+        "Rationale": "SCA alerts developers immediately if a third-party library being used is outdated or contains a known vulnerability."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG16.7",
+        "Rationale": "Use Standard Hardening Configuration TemplatesDatadog monitors Kubernetes and Docker environments to ensure they adhere to hardening templates and standards.Implementation Group 3 (IG3) - Advanced CybersecurityIDTitleReason for Selection"
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG16.12",
+        "Rationale": "Datadog Static Analysis and Continuous Profiler analyze code during the build and runtime to verify secure coding practices and performance."
+    },
+    {
+        "ToolID": "T280",
+        "SafeguardID": "SG16.13",
+        "Rationale": "While it does not perform the test, Datadog is essential during pen-testing to capture logs and traces of the attack, validating that the monitoring system detects the intrusion."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG3.1",
+        "Rationale": "Varonis provides the technical framework and reporting necessary to maintain a documented data management process by identifying data owners and aging data."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG3.2",
+        "Rationale": "The tool's primary function is to scan network/cloud assets and build a comprehensive inventory of all unstructured and structured data, identifying where sensitive data resides."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Varonis visualizes \"broken\" Access Control Lists (ACLs) and provides a bi-directional view of permissions (who can access what) to help admins enforce least privilege."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG3.7",
+        "Rationale": "The tool includes a classification engine that scans file content to automatically tag and classify data based on sensitivity (e.g., PII, HIPAA, FERPA)."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Varonis acts as a host-based data protection tool by identifying sensitive data exposure and alerting on or blocking attempts to move or exfiltrate that data."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The tool creates a detailed audit trail of every file touch (open, create, modify, delete), specifically highlighting access to data classified as sensitive."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG5.1",
+        "Rationale": "By integrating with Active Directory and other directory services, Varonis maintains a visible inventory of user and service accounts and their associated data access rights."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG5.3",
+        "Rationale": "Varonis identifies \"stale\" users and groups that have not been active for a set period, enabling administrators to disable these dormant accounts."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG5.5",
+        "Rationale": "The tool can identify and categorize service accounts based on behavioral analysis and directory attributes, distinguishing them from human user accounts."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Varonis models permissions and usage to help organizations define roles and simulate changes to access rights before enforcing them, ensuring RBAC maintenance."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The tool utilizes collectors to aggregate access logs from file servers, email, and directory services, ensuring logging is enabled and collected centrally."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG8.5",
+        "Rationale": "Varonis enriches standard logs with high-fidelity details, including the user, file path, device, and data sensitivity context, which is critical for forensic investigation."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG8.11",
+        "Rationale": "The platform provides dashboards and automated reports that allow security teams to review access logs and anomalies on a frequent (daily/weekly) basis."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG13.1",
+        "Rationale": "Varonis acts as a centralized alerting engine for data-centric events, correlating logs from multiple sources to trigger alerts on potential threats."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG13.2",
+        "Rationale": "Through its User Entity Behavior Analytics (UEBA), Varonis detects intrusion attempts, such as ransomware behavior or abnormal access patterns, directly on the file servers (hosts)."
+    },
+    {
+        "ToolID": "T44",
+        "SafeguardID": "SG16.2",
+        "Rationale": "While primarily for data, Varonis can identify overexposed data due to misconfigurations (soft vulnerabilities) in SaaS applications (like Salesforce or M365), aiding in the remediation process."
+    },
+    {
+        "ToolID": "T595",
+        "SafeguardID": "SG2.4",
+        "Rationale": "Dependabot automatically scans repository manifest files (like package.json or pom.xml) to build a \"Dependency Graph.\" This serves as an automated inventory tool for the software libraries and components used within the organization's applications, satisfying the requirement to automate the discovery of installed software assets (specifically development assets)."
+    },
+    {
+        "ToolID": "T595",
+        "SafeguardID": "SG7.7",
+        "Rationale": "The core function of Dependabot is not just detection but remediation. By automatically generating pull requests that upgrade vulnerable dependencies to patched versions, it directly facilitates the remediation of detected vulnerabilities on a continuous basis (exceeding the monthly requirement)."
+    },
+    {
+        "ToolID": "T595",
+        "SafeguardID": "SG16.2",
+        "Rationale": "Dependabot provides the technical mechanism to support this process. It offers a standardized workflow (intake of vulnerability data via the GitHub Advisory Database, assignment via alerts, and remediation via Pull Requests) that allows development teams to accept and address software vulnerabilities efficiently."
+    },
+    {
+        "ToolID": "T595",
+        "SafeguardID": "SG16.4",
+        "Rationale": "This is the most direct mapping for the tool. Dependabot creates and maintains a \"Bill of Materials\" (BOM) for applications by tracking all third-party components (dependencies). It continuously evaluates this list to identify risks, directly satisfying the requirement to manage an inventory of third-party components."
+    },
+    {
+        "ToolID": "T595",
+        "SafeguardID": "SG16.5",
+        "Rationale": "Dependabot enforces this safeguard by alerting developers when a component is outdated or contains known vulnerabilities (CVEs) and providing the specific path to update the component to a trusted, secure version."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Digital Guardian utilizes an agent installed on endpoints (Windows, macOS, Linux), which reports hardware details, machine names, and network status back to a central console, effectively maintaining a live inventory of assets where the agent is deployed."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The Digital Guardian agent monitors all processes and applications running on the endpoint to enforce policies, effectively creating an inventory of active software and versions."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG2.4",
+        "Rationale": "The agent continuously scans and reports on the application environment to the management console, automating the documentation of installed software."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG3.2",
+        "Rationale": "This is a core function of the tool; it scans endpoints, network shares, and cloud repositories to discover, classify, and tag sensitive data (PII, PHI, IP)."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG3.3",
+        "Rationale": "Digital Guardian enforces granular access policies, allowing administrators to define exactly which users or applications can open, edit, or move specific types of sensitive data."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG3.6",
+        "Rationale": "The tool can enforce encryption policies, often integrating with OS-native tools (like BitLocker) or triggering encryption when sensitive data is moved to removable media."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG3.9",
+        "Rationale": "Digital Guardian can automatically encrypt sensitive files when they are copied to USB drives or other removable storage devices."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG3.13",
+        "Rationale": "Digital Guardian is a dedicated DLP solution designed specifically to identify, monitor, and block the unauthorized transmission of sensitive data across the enterprise."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG3.14",
+        "Rationale": "The platform logs every interaction with classified data, including who accessed it, when, and what operation was performed (copy, print, upload)."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG4.11",
+        "Rationale": "Administrators can utilize the agent to restrict access or delete sensitive data from devices that are compromised or no longer authorized."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG8.2",
+        "Rationale": "The management console collects comprehensive logs of user activity, system events, and data movement from all deployed agents."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG8.5",
+        "Rationale": "The tool provides forensic-level logging details, including the specific user, timestamp, source application, and destination for data-related events."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG8.9",
+        "Rationale": "All agent logs are aggregated into the Analytics & Reporting Cloud (ARC) or on-premise management console for centralized analysis."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG10.1",
+        "Rationale": "Digital Guardian includes \"Advanced Threat Protection\" capabilities that function as an EDR, detecting and blocking malicious processes and malware on the endpoint."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG10.3",
+        "Rationale": "The agent can control device behavior and block the automatic execution of files from external drives as part of its peripheral control policies."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG10.4",
+        "Rationale": "The tool scans files attempting to move from removable media to the endpoint to detect threats before they execute."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG10.7",
+        "Rationale": "Digital Guardian uses behavioral threat detection to identify suspicious activities (like ransomware encryption behaviors) rather than relying solely on signatures."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG13.1",
+        "Rationale": "The ARC (Analytics & Reporting Cloud) serves as a centralized hub for alerting on both data security and threat (malware) events."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG13.2",
+        "Rationale": "The endpoint agent monitors system calls and process injection techniques, effectively acting as a Host-based Intrusion Detection System (HIDS)."
+    },
+    {
+        "ToolID": "T116",
+        "SafeguardID": "SG13.7",
+        "Rationale": "Beyond detection, the agent can actively block malicious processes or unauthorized data egress, fulfilling the prevention (HIPS) requirement."
+    },
+    {
+        "ToolID": "T329",
+        "SafeguardID": "SG3.8",
+        "Rationale": "By visualizing where email is originating and where it is being delivered, Dmarcian helps document the flow of communication data for the enterprise. It specifically maps out which third-party providers (Service Providers) are handling the district's data (email) and transmitting it externally.["
+    },
+    {
+        "ToolID": "T329",
+        "SafeguardID": "SG9.1",
+        "Rationale": "While Dmarcian does not control the client software, its reporting data can help identify outdated or insecure mail agents (such as old on-premise printers or legacy servers) that are attempting to send mail using older, potentially unsupported protocols or configurations that fail modern authentication checks."
+    },
+    {
+        "ToolID": "T329",
+        "SafeguardID": "SG9.5",
+        "Rationale": "This is the primary function of the tool. Dmarcian processes XML reports to help administrators move their DMARC policy from \"None\" (monitoring) to \"Reject\" (enforcement), directly satisfying the requirement to implement DMARC, SPF, and DKIM standards to lower the chance of spoofed emails.["
+    },
+    {
+        "ToolID": "T329",
+        "SafeguardID": "SG13.1",
+        "Rationale": "Dmarcian acts as a centralized collector for email authentication logs (DMARC RUA/RUF reports). It ingests these logs from receivers worldwide (Google, Yahoo, Microsoft) and alerts administrators to security events, such as spikes in spoofing attempts or authentication failures for legitimate mail streams.["
+    },
+    {
+        "ToolID": "T329",
+        "SafeguardID": "SG15.1",
+        "Rationale": "Dmarcian provides a \"Source Viewer\" that identifies every server sending email on behalf of the district's domain. This often reveals \"Shadow IT\" or forgotten vendors (e.g., a rogue MailChimp account or an old grading software), helping the district build and verify their inventory of third-party service providers.["
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Orchestration tools maintain a real-time, dynamic inventory of all \"live\" assets (containers/pods) running across the infrastructure, including their network addresses and host nodes."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG2.1",
+        "Rationale": "The Container Registry (e.g., Docker Hub, Artifactory) acts as the definitive inventory for all authorized software (images) allowed to run in the environment."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG2.5",
+        "Rationale": "Orchestration platforms can be configured to only pull and run container images from specific, trusted registries (allowlisting), effectively blocking unauthorized software from executing."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG3.12",
+        "Rationale": "Containers provide logical isolation, allowing applications processing sensitive student data to run on the same physical hardware as public applications while remaining cryptographically and operationally segmented."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Docker utilizes \"Infrastructure as Code\" (Dockerfiles, YAML manifests), meaning the entire configuration of the asset is documented, version-controlled, and reproducible, satisfying the requirement for a documented process."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG4.8",
+        "Rationale": "The \"microservices\" architecture promoted by Docker encourages building containers with only the dependencies required for that specific app (e.g., using \"distroless\" images), inherently removing unnecessary services."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG5.5",
+        "Rationale": "Orchestration relies heavily on service accounts (e.g., Kubernetes ServiceAccounts) to allow containers to talk to the API server; these are explicitly defined and inventoried within the cluster configuration."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG6.8",
+        "Rationale": "Orchestration platforms utilize robust RBAC (Role-Based Access Control) to define exactly which users or service accounts can deploy, delete, or view containers within specific namespaces."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG8.2",
+        "Rationale": "Docker drivers are designed to capture stdout and stderr (standard output/error) streams from all running applications automatically, centralizing log collection at the node level."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG11.4",
+        "Rationale": "Container images stored in a registry serve as an \"isolated instance\" of the application state; if a production node fails, the service can be recovered immediately by redeploying the immutable image on a new node."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG12.2",
+        "Rationale": "Orchestration utilizes \"Overlay Networks\" that create a separate, virtual network architecture for applications, decoupling them from the physical network and allowing for granular security design."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG13.4",
+        "Rationale": "Orchestration platforms support \"Network Policies\" which act as internal firewalls, allowing administrators to explicitly deny traffic between different containers (e.g., preventing the web server from talking to the backup server) unless allowlisted."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG16.7",
+        "Rationale": "Docker allows the use of \"Base Images\" (templates). IT teams can create a hardened, secure base image and force all student or staff applications to build from that template, ensuring inherited security settings."
+    },
+    {
+        "ToolID": "T614",
+        "SafeguardID": "SG16.8",
+        "Rationale": "Orchestration uses \"Namespaces\" or \"Clusters\" to logically or physically separate development environments (e.g., student sandboxes) from production environments (e.g., the gradebook database)."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG1.1",
+        "Rationale": "Drata integrates directly with cloud providers (AWS, Azure, GCP) and Mobile Device Management (MDM) tools to automatically generate and maintain a live, up-to-date inventory of physical and virtual assets."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG1.2",
+        "Rationale": "Through its continuous monitoring agent and cloud integrations, Drata flags assets that are not properly configured or enrolled in the company's MDM, allowing administrators to identify and address unauthorized devices."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG2.1",
+        "Rationale": "Drata pulls installed application data from connected MDM solutions (like Jamf, Kandji, or Intune) to create an inventory of software installed on employee endpoints."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG3.1",
+        "Rationale": "Drata provides policy templates and a policy management module that forces the documentation and acceptance of data management and handling procedures across the organization."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG3.6",
+        "Rationale": "The Drata agent continuously checks end-user devices to verify that disk encryption (e.g., BitLocker, FileVault) is enabled and functioning, flagging non-compliant devices immediately."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG4.1",
+        "Rationale": "Drata monitors the configuration settings of cloud infrastructure and endpoints against established security benchmarks (like CIS Benchmarks), acting as a continuous verification tool for secure configurations."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG4.3",
+        "Rationale": "The Drata agent verifies that screen lock settings on employee workstations meet the company's policy (e.g., locking after 15 minutes of inactivity) and reports non-compliance."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG5.1",
+        "Rationale": "By integrating with Identity Providers (IdPs) such as Okta, Google Workspace, or Azure AD, Drata automatically populates and updates a personnel and account inventory, linking accounts to specific employees."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG5.3",
+        "Rationale": "Drata monitors system access and flags accounts that belong to off-boarded employees or have been inactive for a set period, ensuring they are removed or disabled in accordance with policy."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG6.3",
+        "Rationale": "Drata connects to the organization's Identity Provider to continuously verify that Multi-Factor Authentication (MFA) is enforced for all users and flags any accounts where MFA is disabled."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG7.1",
+        "Rationale": "Drata serves as a central repository for vulnerability management policies and tracks the existence and schedule of vulnerability scanning processes."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG7.7",
+        "Rationale": "Drata integrates with vulnerability scanners (like Tenable or AWS Inspector) to import findings and track the remediation timeline, ensuring vulnerabilities are fixed within the Service Level Agreement (SLA) defined in the company policy."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG14.1",
+        "Rationale": "Drata includes a native security awareness training module that assigns training to employees upon hire and annually, tracking completion rates and quiz scores to ensure compliance."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG14.2",
+        "Rationale": "The training content provided within the Drata platform specifically covers social engineering, phishing, and standard security hygiene, satisfying the training delivery requirement."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG15.1",
+        "Rationale": "Drata features a dedicated \"Vendor Risk Management\" module that allows the organization to build and maintain a detailed inventory of third-party vendors and service providers."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG15.2",
+        "Rationale": "The platform manages the lifecycle of vendor relationships, including the storage of vendor contracts, security reviews, and the enforcement of the organization's vendor management policy."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG15.5",
+        "Rationale": "Drata's vendor module allows users to upload and review vendor security documentation (such as SOC 2 reports or security questionnaires) to perform and document risk assessments."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG16.1",
+        "Rationale": "Drata integrates with Version Control Systems (like GitHub or GitLab) to verify that secure development practices, such as branch protection rules and peer review requirements, are actively enforced."
+    },
+    {
+        "ToolID": "T557",
+        "SafeguardID": "SG17.1",
+        "Rationale": "Drata's policy management system ensures that an Incident Response policy exists and that specific roles and responsibilities for incident handling are assigned and acknowledged by the workforce."
+    },
+    {
+        "ToolID": "T91",
+        "SafeguardID": "SG3.8",
+        "Rationale": "Draw.io features specific Data Flow Diagram (DFD) shape libraries and templates, allowing organizations to visually map and document how sensitive data moves through the enterprise as required by this safeguard."
+    },
+    {
+        "ToolID": "T91",
+        "SafeguardID": "SG12.2",
+        "Rationale": "This tool is used to design and visualize network segmentation and architecture, helping to ensure the network is designed with security principles like least privilege before implementation."
+    },
+    {
+        "ToolID": "T91",
+        "SafeguardID": "SG12.4",
+        "Rationale": "Draw.io is a primary tool for creating and updating high-level physical and logical network diagrams, which is the explicit requirement of this safeguard to ensure documentation exists for the system environment."
+    },
+    {
+        "ToolID": "T91",
+        "SafeguardID": "SG16.10",
+        "Rationale": "Developers use this tool to map application architecture and boundaries, ensuring that secure design principles (like minimizing attack surface) are planned and visualized during the design phase."
+    },
+    {
+        "ToolID": "T91",
+        "SafeguardID": "SG16.14",
+        "Rationale": "The tool supports the creation of DFDs and attack trees, which are the foundational artifacts used during threat modeling sessions to identify design flaws before code is written."
+    },
+    {
+        "ToolID": "T91",
+        "SafeguardID": "SG17.4",
+        "Rationale": "Draw.io is used to create visual \"playbooks\" and call-tree flowcharts that document the specific steps and roles required during an incident response, ensuring the process is understood by the workforce."
     }
 ]
