@@ -70,13 +70,14 @@
         const Trash2 = ({ className }) => <IconWrapper className={className}><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></IconWrapper>;
         const MessageSquare = ({ className }) => <IconWrapper className={className}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></IconWrapper>;
         const BookOpen = ({ className }) => <IconWrapper className={className}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></IconWrapper>;
+        const ListChecks = ({ className }) => <IconWrapper className={className}><path d="M10 6h11" /><path d="M10 12h11" /><path d="M10 18h11" /><path d="M3 6h1" /><path d="M3 12h1" /><path d="M3 18h1" /></IconWrapper>;
 
         // --- Helper Functions ---
 
         const generatePlaceholders = (startId, count, tierPrefix) => {
             return Array.from({ length: count }, (_, i) => ({
                 id: `${tierPrefix}.${startId + i}`,
-                title: `Control ${tierPrefix}.${startId + i} (Placeholder)`,
+                title: `Safeguard ${tierPrefix}.${startId + i} (Placeholder)`,
                 actionPlan: "Specific control details not yet loaded. Use 'Fetch Official Mapping' to populate this data.",
                 levels: {
                     1: "Initial implementation details not available.",
@@ -88,7 +89,8 @@
                 evidence: {
                     notes: "",
                     attachments: []
-                }
+                },
+                rubricDescription: null // Changed to null to detect if missing
             }));
         };
 
@@ -109,7 +111,8 @@
                             4: "Comprehensive, up-to-date inventory exists and is reviewed bi-annually or more frequently. Records include network address, hardware address, machine name, owner, and department." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(2, 14, 1)
                 ]
@@ -127,7 +130,8 @@
                             4: "A comprehensive process exists to identify and address unauthorized assets weekly. The organization documents their efforts, removes or quarantines assets, and regularly monitors and reports on their remediation activities." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "6.3",
@@ -135,7 +139,8 @@
                         actionPlan: "Require all externally-exposed enterprise or third-party applications to enforce Multi-Factor Authentication (MFA).",
                         levels: { 1: "None", 2: "Some", 3: "Most", 4: "All" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "17.2",
@@ -148,7 +153,8 @@
                             4: "Comprehensive contact information exists for all relevant parties to report security incidents. Contact data is regularly verified annually." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 8, 2)
                 ]
@@ -166,7 +172,8 @@
                             4: "Regular monthly reviews (or more frequently) ensure unauthorized software is either removed from use or has a documented exception." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "3.2",
@@ -179,7 +186,8 @@
                             4: "Complete inventory, updated annually." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "14.6",
@@ -187,12 +195,13 @@
                         actionPlan: "Train workforce members to be able to recognize a potential incident and be able to report such an incident.",
                         levels: { 
                             1: "There is no formal training program in place to educate workforce members on recognizing and reporting security incidents.", 
-                            2: "Workforce members receive basic training on what constitutes a security incident and how to report them. However, no specific procedures are outlined.", 
+                            2: "Workforce members receive basic training on what constitutes a security incident, including types of incidents (e.g., unauthorized access) and how to report them. However, no specific procedures are outlined.", 
                             3: "A standardized incident reporting process is established. Basic training on the process is provided, but incident response procedures are not detailed.", 
                             4: "All workforce members participate in comprehensive security awareness training, including recognition of potential incidents and procedures for reporting them." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                      ...generatePlaceholders(4, 13, 3)
                 ]
@@ -210,7 +219,8 @@
                             4: "Regular reviews (monthly or more frequently) ensure that all enterprise assets have only currently supported software designated as authorized." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "3.3",
@@ -218,7 +228,8 @@
                         actionPlan: "Configure data access control lists (ACLs) based on a user’s need to know.",
                         levels: { 1: "None", 2: "Basic", 3: "Most", 4: "Comprehensive" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "17.1",
@@ -231,7 +242,8 @@
                             4: "A dedicated team of two or more personnel has been established to manage the enterprise's incident handling process." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 12, 4)
                 ]
@@ -249,7 +261,8 @@
                             4: "A comprehensive and regularly updated data classification scheme exists, with clear guidelines, labels, and procedures for ensuring confidentiality and integrity." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(2, 24, 5)
                 ]
@@ -267,7 +280,8 @@
                             4: "All aspects of application allowlisting are met, including continuous monitoring and updates." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "3.11",
@@ -275,7 +289,8 @@
                         actionPlan: "Encrypt sensitive data at rest on servers, applications, and databases.",
                         levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Complete" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "18.3",
@@ -288,7 +303,8 @@
                             4: "All penetration test findings are thoroughly assessed, prioritized, and remediated according to the documented process." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 22, 6)
                 ]
@@ -306,7 +322,8 @@
                             4: "The organization has implemented a comprehensive active discovery tool that identifies all connected assets on their network in real-time." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "1.4",
@@ -314,7 +331,8 @@
                         actionPlan: "Use Dynamic Host Configuration Protocol (DHCP) logging on all DHCP servers.",
                         levels: { 1: "None", 2: "Enabled", 3: "Reviewed", 4: "Automatic" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                      {
                         id: "17.8",
@@ -327,7 +345,8 @@
                             4: "Post-incident reviews are thorough, complete, and timely, with lessons learned applied to prevent future incidents." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 21, 7)
                 ]
@@ -345,7 +364,8 @@
                             4: "A comprehensive DLP solution is deployed to identify and protect all sensitive data stored, processed, or transmitted through enterprise assets." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "4.12",
@@ -353,7 +373,8 @@
                         actionPlan: "Ensure that enterprise workspaces on mobile end-user devices are separated from personal workspaces.",
                         levels: { 1: "None", 2: "Partial", 3: "Most", 4: "Complete" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "15.6",
@@ -366,7 +387,8 @@
                             4: "The enterprise has developed a comprehensive service provider management policy and implements a robust monitoring system." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 4, 8)
                 ]
@@ -384,7 +406,8 @@
                             4: "Dedicated computing resources are both physically and logically separated from the enterprise's primary network." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "13.7",
@@ -392,7 +415,8 @@
                         actionPlan: "Deploy a host-based intrusion prevention solution on enterprise assets.",
                         levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Full" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "18.5",
@@ -405,7 +429,8 @@
                             4: "Regular internal penetration tests are conducted at least quarterly to ensure ongoing program security posture." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 4, 9)
                 ]
@@ -423,7 +448,8 @@
                             4: "A passive asset discovery tool is continuously monitored, and scans are conducted frequently (e.g., daily)." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                      {
                         id: "2.7",
@@ -431,7 +457,8 @@
                         actionPlan: "Use technical controls to ensure that only authorized scripts are allowed to execute.",
                         levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Complete" },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     {
                         id: "18.4",
@@ -444,7 +471,8 @@
                             4: "The organization has a formal process in place to validate security measures after each penetration test." 
                         },
                         selectedLevel: null,
-                        evidence: { notes: "", attachments: [] }
+                        evidence: { notes: "", attachments: [] },
+                        rubricDescription: null
                     },
                     ...generatePlaceholders(4, 5, 10)
                 ]
@@ -452,6 +480,8 @@
         ];
 
         const MAP_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/safeguards.json";
+        const ASSESSMENT_TYPES_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/assessmentType.json";
+        const RUBRIC_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/rubric.json";
 
         // --- Components ---
 
@@ -542,7 +572,7 @@
                 <div className="bg-white rounded-xl shadow-sm border overflow-hidden p-6 transition-all hover:shadow-md">
                     <div className="flex justify-between items-start mb-4">
                         <div>
-                            <span className="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded font-bold mb-2">Control {control.id}</span>
+                            <span className="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded font-bold mb-2">Safeguard {control.id}</span>
                             <h3 className="text-lg font-bold text-gray-900">{control.title}</h3>
                         </div>
                     </div>
@@ -558,7 +588,7 @@
                             className="text-xs flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-medium transition-colors"
                         >
                             <BookOpen className="w-3 h-3" /> 
-                            {isRubricOpen ? "Hide Implementation Rubric" : "View Implementation Rubric"}
+                            {isRubricOpen ? "Hide Rubric Description" : "Rubric Description"}
                             <ChevronDown className={`w-3 h-3 transition-transform ${isRubricOpen ? 'rotate-180' : ''}`} />
                         </button>
 
@@ -640,6 +670,8 @@
             const [data, setData] = useState(INITIAL_DATA);
             const [notification, setNotification] = useState(null);
             const [loading, setLoading] = useState(false);
+            const [assessmentTypes, setAssessmentTypes] = useState([]);
+            const [selectedTypeID, setSelectedTypeID] = useState(""); // Stores the numeric TypeID
 
             // Load from LocalStorage on Mount
             useEffect(() => {
@@ -661,6 +693,15 @@
                         console.error("Error loading data", e);
                     }
                 }
+                
+                // Fetch assessment types
+                fetch(ASSESSMENT_TYPES_URL)
+                    .then(res => res.json())
+                    .then(types => {
+                        if (Array.isArray(types)) setAssessmentTypes(types);
+                        else if (types.types) setAssessmentTypes(types.types);
+                    })
+                    .catch(err => console.error("Failed to load assessment types", err));
             }, []);
 
             // Save to LocalStorage on Change
@@ -673,6 +714,67 @@
                     }
                 }
             }, [data]);
+
+            const handleTypeChange = async (e) => {
+                const newTypeID = e.target.value;
+                setSelectedTypeID(newTypeID);
+
+                if (!newTypeID) return;
+
+                setLoading(true);
+                try {
+                    const res = await fetch(RUBRIC_URL);
+                    const rubrics = await res.json();
+                    
+                    // Update rubrics in data based on selected type
+                    const updatedData = data.map(tier => ({
+                        ...tier,
+                        controls: tier.controls.map(control => {
+                            // Find matching rubric entries for this control
+                            const matchingRubricEntries = rubrics.filter(r => {
+                                const rSafeguardID = (r.SafeguardID || "").toString().replace(/^SG/i, '');
+                                const controlId = (control.id || "").toString().replace(/^SG/i, '');
+                                const rTypeID = (r.TypeID || "").toString();
+                                const targetTypeID = newTypeID.toString();
+                                return rSafeguardID === controlId && rTypeID === targetTypeID;
+                            });
+
+                            if (matchingRubricEntries.length > 0) {
+                                // Create a new levels object based on found entries
+                                // We look for an entry where "Level" matches 1, 2, 3, or 4
+                                const newLevels = { ...control.levels };
+                                
+                                matchingRubricEntries.forEach(entry => {
+                                    // Extract the number from "Level 1", "Level 2", etc.
+                                    const levelStr = entry.Level ? entry.Level.toString() : "";
+                                    const match = levelStr.match(/(\d+)/);
+                                    
+                                    if (match) {
+                                        const levelNum = parseInt(match[0]);
+                                        if (levelNum >= 1 && levelNum <= 4) {
+                                            newLevels[levelNum] = entry.Description;
+                                        }
+                                    }
+                                });
+
+                                return {
+                                    ...control,
+                                    levels: newLevels
+                                };
+                            }
+                            return control;
+                        })
+                    }));
+                    
+                    setData(updatedData);
+                    showNotify(`Rubrics loaded for Assessment Type ID: ${newTypeID}`);
+                } catch (err) {
+                    console.error("Failed to load rubrics", err);
+                    showNotify("Failed to load rubrics for selected type", true);
+                } finally {
+                    setLoading(false);
+                }
+            };
 
             const updateControl = (tierIndex, controlIndex, updates) => {
                 const newData = [...data];
@@ -701,10 +803,15 @@
             };
 
             const downloadData = () => {
-                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+                const exportObj = {
+                    assessmentTypeID: selectedTypeID,
+                    timestamp: new Date().toISOString(),
+                    data: data
+                };
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
                 const downloadAnchorNode = document.createElement('a');
                 downloadAnchorNode.setAttribute("href", dataStr);
-                downloadAnchorNode.setAttribute("download", "cis_assessment_backup.json");
+                downloadAnchorNode.setAttribute("download", `cis_assessment_backup.json`);
                 document.body.appendChild(downloadAnchorNode);
                 downloadAnchorNode.click();
                 downloadAnchorNode.remove();
@@ -717,8 +824,11 @@
                 fileReader.onload = e => {
                     try {
                         const parsed = JSON.parse(e.target.result);
-                        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].controls) {
-                            const normalized = parsed.map(tier => ({
+                        // Handle both old array format and new object format
+                        let controlsData = Array.isArray(parsed) ? parsed : parsed.data;
+                        
+                        if (controlsData && controlsData.length > 0 && controlsData[0].controls) {
+                            const normalized = controlsData.map(tier => ({
                                 ...tier,
                                 controls: tier.controls.map(c => ({
                                     ...c,
@@ -726,6 +836,7 @@
                                 }))
                             }));
                             setData(normalized);
+                            if (parsed.assessmentTypeID) setSelectedTypeID(parsed.assessmentTypeID);
                             showNotify("Assessment loaded successfully!");
                         } else {
                             showNotify("Invalid assessment backup file.", true);
@@ -868,6 +979,20 @@
                         </div>
                     </div>
                     <nav className="flex-1 p-4 space-y-1">
+                        <div className="px-4 pb-4">
+                            <label className="block text-xs font-medium text-gray-500 mb-1">Assessment Type</label>
+                            <select 
+                                value={selectedTypeID} 
+                                onChange={handleTypeChange}
+                                className="w-full p-2 bg-white border rounded text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+                            >
+                                <option value="">Select Type...</option>
+                                {assessmentTypes.map((type, i) => (
+                                    <option key={i} value={type.TypeID}>{type.Type}</option>
+                                ))}
+                            </select>
+                        </div>
+
                         <button onClick={() => setView('intro')} className={`sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'intro' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
                             <Info className="w-4 h-4" /> Introduction
                         </button>
@@ -927,6 +1052,13 @@
                                 <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" />
                                 <div>
                                     <strong>Latest Framework Data:</strong> Click the <span className="font-bold text-indigo-700">Fetch Official Mapping</span> button in the sidebar to automatically download and populate the latest Controls, Titles, and Descriptions directly from the MidwestCyberLLC GitHub repository.
+                                </div>
+                            </div>
+
+                            <div className="bg-green-50 p-4 rounded-lg border border-green-100 my-4 text-sm text-green-800 flex items-start gap-3">
+                                <ListChecks className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                                <div>
+                                    <strong>Custom Rubrics:</strong> Select your <span className="font-bold">Assessment Type</span> from the sidebar dropdown to load specific grading criteria for each control level.
                                 </div>
                             </div>
 
