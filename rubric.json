@@ -1,25 +1,25 @@
 [
     {
         "SafeguardID": "SG1.1",
-        "Level": "1",
+        "Level": "Level 1",
         "Description": "No comprehensive inventory of enterprise assets exists, including end-user devices, network devices, non-computing/IoT devices, and servers.",
         "TypeID": "1"
     },
     {
         "SafeguardID": "SG1.1",
-        "Level": "2",
+        "Level": "Level 2",
         "Description": "An incomplete inventory is maintained, with some assets listed but lacking essential details such as hardware address or department ownership. Review and update process is not regularly conducted.",
         "TypeID": "1"
     },
     {
         "SafeguardID": "SG1.1",
-        "Level": "3",
+        "Level": "Level 3",
         "Description": "A basic inventory of enterprise assets exists, including the required fields (network address, hardware address, machine name, etc.). However, review and update frequency may be infrequent, leading to outdated information.",
         "TypeID": "1"
     },    
     {
         "SafeguardID": "SG1.1",
-        "Level": "4",
+        "Level": "Level 4",
         "Description": "An accurate, detailed, and regularly reviewed inventory of all enterprise assets is maintained, including mobile devices supported by MDM tools. All assets are accounted for, and the inventory is updated at least bi-annually or more frequently.",
         "TypeID": "1"
     }
