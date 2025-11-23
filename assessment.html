@@ -61,6 +61,7 @@
         const Download = ({ className }) => <IconWrapper className={className}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></IconWrapper>;
         const ChevronRight = ({ className }) => <IconWrapper className={className}><path d="m9 18 6-6-6-6" /></IconWrapper>;
         const ChevronDown = ({ className }) => <IconWrapper className={className}><path d="m6 9 6 6 6-6" /></IconWrapper>;
+        const ChevronUp = ({ className }) => <IconWrapper className={className}><path d="m18 15-6-6-6 6" /></IconWrapper>;
         const CheckCircle2 = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></IconWrapper>;
         const Info = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></IconWrapper>;
         const FileJson = ({ className }) => <IconWrapper className={className}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="M10 12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1" /><path d="M14 12a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1" /></IconWrapper>;
@@ -71,6 +72,11 @@
         const MessageSquare = ({ className }) => <IconWrapper className={className}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></IconWrapper>;
         const BookOpen = ({ className }) => <IconWrapper className={className}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></IconWrapper>;
         const ListChecks = ({ className }) => <IconWrapper className={className}><path d="M10 6h11" /><path d="M10 12h11" /><path d="M10 18h11" /><path d="M3 6h1" /><path d="M3 12h1" /><path d="M3 18h1" /></IconWrapper>;
+        const MapPin = ({ className }) => <IconWrapper className={className}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></IconWrapper>;
+        const User = ({ className }) => <IconWrapper className={className}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></IconWrapper>;
+        const Calendar = ({ className }) => <IconWrapper className={className}><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></IconWrapper>;
+        const Building = ({ className }) => <IconWrapper className={className}><rect x="4" y="2" width="16" height="20" rx="2" ry="2" /><line x1="9" y1="22" x2="9" y2="12" /><line x1="15" y1="12" x2="15" y2="22" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="17" x2="20" y2="17" /></IconWrapper>;
+        const HelpCircle = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></IconWrapper>;
 
         // --- Helper Functions ---
 
@@ -90,8 +96,25 @@
                     notes: "",
                     attachments: []
                 },
-                rubricDescription: null // Changed to null to detect if missing
+                rubricDescription: null 
             }));
+        };
+
+        const calculateTierScore = (tier) => {
+            let score = 0;
+            let answered = 0;
+            let nas = 0;
+            
+            tier.controls.forEach(c => {
+                const val = c.selectedLevel;
+                if (val === 'N/A') {
+                    nas++;
+                } else if (val) {
+                    score += (parseInt(val) * 0.25);
+                    answered++;
+                }
+            });
+            return { score, answered, nas };
         };
 
         // Evidence helper to limit file size (500KB limit for browser storage safety)
@@ -664,6 +687,741 @@
             );
         };
 
+        const Sidebar = ({ view, setView, loading, handleUrlFetch, selectedTypeID, handleTypeChange, isMapLoaded, assessmentTypes, data, downloadData, handleMappingUpload, handleFileUpload }) => {
+            const areTiersDisabled = !isMapLoaded || !selectedTypeID;
+
+            return (
+                <div className="w-64 bg-white border-r h-screen fixed overflow-y-auto flex flex-col shadow-lg z-10">
+                    <div className="p-6 border-b flex items-center gap-3">
+                        <Shield className="w-8 h-8 text-indigo-600" />
+                        <div>
+                            <h1 className="font-bold text-gray-800">NCNE / CIS</h1>
+                            <p className="text-xs text-gray-500">Assessment Tool</p>
+                        </div>
+                    </div>
+                    <nav className="flex-1 p-4 flex flex-col space-y-1">
+                        
+                        <div className="px-4 pb-4">
+                            <button onClick={handleUrlFetch} disabled={loading} className="w-full flex items-center justify-center p-2 bg-indigo-600 border border-indigo-700 rounded text-xs text-white hover:bg-indigo-700 transition gap-2 shadow-sm">
+                                {loading ? <div className="spinner"></div> : <Globe className="w-4 h-4" />}
+                                Fetch Official Mapping
+                            </button>
+                        </div>
+
+                        <div className="px-4 pb-4">
+                            <label className="block text-xs font-medium text-gray-500 mb-1">Assessment Type</label>
+                            <select 
+                                value={selectedTypeID} 
+                                onChange={handleTypeChange}
+                                disabled={!isMapLoaded}
+                                className={`w-full p-2 bg-white border rounded text-sm focus:ring-2 focus:ring-indigo-500 outline-none ${!isMapLoaded ? 'opacity-50 cursor-not-allowed bg-gray-100' : ''}`}
+                            >
+                                <option value="">Select Type...</option>
+                                {assessmentTypes.map((type, i) => (
+                                    <option key={i} value={type.TypeID}>{type.Type}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <button onClick={() => setView('intro')} className={`sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'intro' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
+                            <Info className="w-4 h-4" /> Introduction
+                        </button>
+
+                        <button onClick={() => setView('info')} className={`sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'info' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
+                            <Building className="w-4 h-4" /> Assessment Information
+                        </button>
+                        
+                        <button 
+                            onClick={() => !areTiersDisabled && setView('score')} 
+                            disabled={areTiersDisabled}
+                            className={`sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'score' ? 'active' : ''} ${areTiersDisabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}`}
+                        >
+                            <LayoutDashboard className="w-4 h-4" /> Score & Dashboard
+                        </button>
+
+                        <div className="pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider px-4">Tiers</div>
+                        {data.map((tier, idx) => (
+                            <button 
+                                key={tier.id} 
+                                onClick={() => !areTiersDisabled && setView(`tier-${idx}`)} 
+                                disabled={areTiersDisabled}
+                                className={`sidebar-item w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium ${view === `tier-${idx}` ? 'active' : ''} ${areTiersDisabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}`}
+                            >
+                                <span className="flex items-center gap-2">
+                                    <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{tier.id}</span>
+                                    {tier.name}
+                                </span>
+                                {calculateTierScore(tier).score > 0 && <CheckCircle2 className="w-3 h-3 text-green-500"/>}
+                            </button>
+                        ))}
+                        <button onClick={() => setView('summary')} className={`sidebar-item mt-4 w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'summary' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
+                            <FileText className="w-4 h-4" /> Full Summary
+                        </button>
+
+                        <button onClick={() => setView('about')} className={`sidebar-item mt-auto w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'about' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
+                            <HelpCircle className="w-4 h-4" /> About
+                        </button>
+                    </nav>
+                    <div className="p-4 border-t bg-gray-50">
+                        <div className="space-y-2">
+                            <label className="flex items-center justify-center p-2 bg-indigo-50 border border-indigo-200 rounded text-xs text-indigo-700 hover:bg-indigo-100 transition cursor-pointer gap-2">
+                                <FileJson className="w-4 h-4" /> Upload Map File
+                                <input type="file" className="hidden" accept=".json" onChange={handleMappingUpload}/>
+                            </label>
+
+                            <div className="grid grid-cols-2 gap-2 mt-2">
+                                <button onClick={downloadData} className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition">
+                                    <Download className="w-4 h-4 mb-1" /> Save
+                                </button>
+                                <label className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition cursor-pointer">
+                                    <Upload className="w-4 h-4 mb-1" /> Load
+                                    <input type="file" className="hidden" accept=".json" onChange={handleFileUpload}/>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const AboutView = () => (
+            <div className="max-w-4xl mx-auto space-y-6">
+                <div className="bg-white p-8 rounded-xl shadow-sm border">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">About the Organization</h2>
+                    
+                    {/* Logos */}
+                    <div className="flex justify-center gap-8 mb-10">
+                        <div className="w-32 h-32 bg-gray-50 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-200 p-2">
+                            <img src="https://placehold.co/128x128?text=Logo+1" alt="Organization Logo 1" className="max-w-full max-h-full object-contain" />
+                        </div>
+                        <div className="w-32 h-32 bg-gray-50 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-200 p-2">
+                            <img src="https://placehold.co/128x128?text=Logo+2" alt="Organization Logo 2" className="max-w-full max-h-full object-contain" />
+                        </div>
+                        <div className="w-32 h-32 bg-gray-50 rounded-xl flex items-center justify-center border-2 border-dashed border-gray-200 p-2">
+                            <img src="https://placehold.co/128x128?text=Logo+3" alt="Organization Logo 3" className="max-w-full max-h-full object-contain" />
+                        </div>
+                    </div>
+
+                    <div className="prose max-w-none text-gray-600 space-y-6">
+                        <div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Mission Statement</h3>
+                            <p className="leading-relaxed">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </p>
+                        </div>
+                        
+                        <hr className="border-gray-100" />
+
+                        <div>
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Support & Contact</h3>
+                            <p className="leading-relaxed">
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                            </p>
+                        </div>
+
+                        <hr className="border-gray-100" />
+                        
+                        <div className="flex justify-between items-end pt-4 text-sm text-gray-400">
+                            <div>
+                                <p>Tool Version: 1.0.5</p>
+                                <p>Last Updated: November 2025</p>
+                            </div>
+                            <div className="text-right">
+                                <p>&copy; 2025 NCNE / CIS Assessment Tool</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const IntroductionView = ({ setView }) => (
+            <div className="w-[75%] mx-auto space-y-6">
+                <div className="bg-white p-8 rounded-xl shadow-sm border">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Welcome to the CIS Controls Assessment</h2>
+                    <div className="prose text-gray-600 space-y-4">
+                        <p>The CIS Critical Security Controls (CIS Controls) are a prioritized set of Safeguards to mitigate the most prevalent cyber attacks against systems and networks. They are mapped to and referenced by multiple legal, regulatory, and policy frameworks.  Given the number of publicly available cybersecurity frameworks, the Nebraska Cybersecurity Network for Education (NCNE) is currently recommending schools and small organizations use an adapted variation of the CIS Controls.  These adaptations are outlined in this document.</p>
+                        <p>The CIS Controls is natively broken into 3 sets of controls, known as Implementation Group 1 (IG1) with 57 total controls, Implementation Group 2 (IG2) with 131 total controls and Implementation Group 3 (IG3) with all 153 controls. The controls are logically grouped with the more foundational, and arguably easier, controls to implement are positioned in IG1.  IG2 adds more mid-level controls, and IG3 adds the final set of more difficult controls.</p>
+                        
+                        <h3 className="text-lg font-semibold text-gray-800 pt-2">How it works</h3>
+                        <p>The NCNE adaptation of the CIS Controls is merely to further segment the controls within IG1, IG2 and IG3 into smaller groups, called tiers.  There are a total of 10 tiers, organized so that Tier 4 is the equivalent of IG1, Tier 7 is the equivalent of IG2 and Tier 10 is the equivalent of IG3.  The controls contained in each Tier are designed to be grouped so that implementation of each control is more similar than different.</p>
+                        <p>On the Score tab will be a summary of the calculated scores from each of the Tiers.  Multiple score calculations will be provided to help to paint a picture of level and quality of the controls implemented.  Each control is scored on a 4-level grading system.  Points are awarded based on the level identified, with:
+                        <br />
+                        <ul className="list-disc pl-5 ml-4">
+                            <li>0.25 points for Level 1</li>
+                            <li>0.50 points for Level 2</li>
+                            <li>0.75 points for Level 3</li>
+                            <li>1.00 points for Level 4</li>
+                        </ul></p>
+                        <p> Controls marked as Not Applicable (N/A) do not contribute to the score, but are tracked separately to provide context on the total number of controls assessed.  Each Tier will also provide a breakdown of the number of controls at each level, as well as those marked N/A or unassigned.</p>
+                        <p>The goal of this score is to be a snapshot in time.  It should provide guidance on what controls should be implemented, roughly in which order, and details on how to implement each control.  Reassessing your organization at a later time in the future should easily be able to show the positive progress you are taking to make your organization more secure.</p>
+                        
+                        <div className="bg-blue-50 p-4 rounded-lg border border-blue-100 my-4 text-sm text-blue-800 flex items-start gap-3">
+                            <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                            <div>
+                                <strong>Latest Framework Data:</strong> Click the <span className="font-bold text-indigo-700">Fetch Official Mapping</span> button in the sidebar to automatically download and populate the latest Controls, Titles, and Descriptions directly from the MidwestCyberLLC GitHub repository.
+                            </div>
+                        </div>
+
+                        <div className="bg-green-50 p-4 rounded-lg border border-green-100 my-4 text-sm text-green-800 flex items-start gap-3">
+                            <ListChecks className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                            <div>
+                                <strong>Custom Rubrics:</strong> Select your <span className="font-bold">Assessment Type</span> from the sidebar dropdown to load specific grading criteria for each control level.
+                            </div>
+                        </div>
+
+                        <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-100 my-4">
+                            <h4 className="font-semibold text-indigo-900 mb-2">Scoring System</h4>
+                            <ul className="space-y-2 text-sm text-indigo-800">
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 1</span> Initial (0.25 points)</li>
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 2</span> Partial (0.50 points)</li>
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 3</span> Majority (0.75 points)</li>
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 4</span> Complete (1.00 points)</li>
+                            </ul>
+                        </div>
+                        
+                        <div className="mt-8 border-t pt-6">
+                            <h3 className="text-lg font-bold text-gray-900 mb-4">Getting Started</h3>
+                            <div className="space-y-4">
+                                <div className="flex gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">1</div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900">Load Framework Data</h4>
+                                        <p className="text-sm text-gray-600">Click <span className="font-medium text-indigo-600">Fetch Official Mapping</span> in the sidebar (top left) to download the latest controls, or use the "Upload Map File" option at the bottom if you have a custom map.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">2</div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900">Select Assessment Type</h4>
+                                        <p className="text-sm text-gray-600">Choose your organization's specific assessment type from the dropdown menu in the sidebar to ensure the correct grading rubrics are loaded.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">3</div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900">Begin Assessment</h4>
+                                        <p className="text-sm text-gray-600">Navigate to <strong>Tier 1</strong> in the sidebar menu to start evaluating your safeguards. Proceed through the tiers sequentially.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const ScoreView = ({ aggregates, data, setView }) => (
+            <div className="max-w-6xl mx-auto space-y-6">
+                {/* Top Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                    <div className="bg-white p-6 rounded-xl shadow-sm border border-purple-100 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-4 opacity-10">
+                            <Shield className="w-16 h-16 text-purple-600" />
+                        </div>
+                        <div className="text-sm text-gray-500 font-medium">Current Rank</div>
+                        <div className="text-3xl font-bold text-purple-600 mt-2">Tier {aggregates.tierRank}</div>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl shadow-sm border">
+                        <div className="text-sm text-gray-500 font-medium">Total Score</div>
+                        <div className="text-3xl font-bold text-indigo-600 mt-2">{aggregates.totalScore.toFixed(2)} <span className="text-gray-400 text-lg">/ {aggregates.totalMax}</span></div>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl shadow-sm border">
+                        <div className="text-sm text-gray-500 font-medium">Compliance</div>
+                        <div className="text-3xl font-bold text-green-600 mt-2">{aggregates.totalMax > 0 ? ((aggregates.totalScore / aggregates.totalMax) * 100).toFixed(1) : 0}%</div>
+                    </div>
+                        <div className="bg-white p-6 rounded-xl shadow-sm border">
+                        <div className="text-sm text-gray-500 font-medium">Controls Assessed</div>
+                        <div className="text-3xl font-bold text-blue-600 mt-2">{153 - aggregates.counts.unassigned} <span className="text-gray-400 text-lg">/ 153</span></div>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl shadow-sm border">
+                        <div className="text-sm text-gray-500 font-medium">Not Applicable</div>
+                        <div className="text-3xl font-bold text-gray-600 mt-2">{aggregates.counts.na}</div>
+                    </div>
+                </div>
+
+                {/* Breakdown Chart */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border">
+                    <h3 className="font-bold text-gray-800 mb-4">Implementation Levels</h3>
+                    <div className="flex h-6 rounded-full overflow-hidden bg-gray-100">
+                        <div style={{width: `${(aggregates.counts[4]/153)*100}%`}} className="bg-green-500" title="Complete"></div>
+                        <div style={{width: `${(aggregates.counts[3]/153)*100}%`}} className="bg-blue-500" title="Majority"></div>
+                        <div style={{width: `${(aggregates.counts[2]/153)*100}%`}} className="bg-yellow-500" title="Partial"></div>
+                        <div style={{width: `${(aggregates.counts[1]/153)*100}%`}} className="bg-red-500" title="Initial"></div>
+                    </div>
+                    <div className="flex justify-between mt-4 text-sm text-gray-600">
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-green-500"></div> Complete ({aggregates.counts[4]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-blue-500"></div> Majority ({aggregates.counts[3]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-yellow-500"></div> Partial ({aggregates.counts[2]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-red-500"></div> Initial ({aggregates.counts[1]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-gray-200"></div> Unscored ({aggregates.counts.unassigned})</div>
+                    </div>
+                </div>
+
+                {/* Detailed Tier Table */}
+                <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
+                    <table className="w-full text-left border-collapse">
+                        <thead>
+                            <tr className="bg-gray-50 border-b text-sm text-gray-500">
+                                <th className="px-6 py-4 font-semibold">Tier</th>
+                                <th className="px-6 py-4 font-semibold">Progress</th>
+                                <th className="px-6 py-4 font-semibold">Score</th>
+                                <th className="px-6 py-4 font-semibold text-right">Max</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((tier, i) => {
+                                const stats = calculateTierScore(tier);
+                                const percent = (stats.score / tier.maxScore) * 100;
+                                return (
+                                    <tr key={tier.id} onClick={() => setView(`tier-${i}`)} className="border-b last:border-0 hover:bg-gray-50 cursor-pointer transition">
+                                        <td className="px-6 py-4">
+                                            <div className="font-semibold text-gray-900">{tier.name}</div>
+                                            <div className="text-xs text-gray-500">{tier.description}</div>
+                                        </td>
+                                        <td className="px-6 py-4 w-1/3">
+                                            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div className="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style={{ width: `${percent}%` }}></div>
+                                            </div>
+                                            <div className="text-xs text-gray-500 mt-1">{percent.toFixed(0)}%</div>
+                                        </td>
+                                        <td className="px-6 py-4 font-mono text-gray-700">{stats.score.toFixed(2)}</td>
+                                        <td className="px-6 py-4 font-mono text-gray-400 text-right">{tier.maxScore}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        );
+
+        const TierView = ({ tierIndex, data, updateControl, showNotify, setView }) => {
+            const tier = data[tierIndex];
+            const stats = calculateTierScore(tier);
+            
+            return (
+                <div className="max-w-4xl mx-auto pb-20">
+                    {/* Header */}
+                    <div className="flex items-end justify-between mb-6 border-b pb-4">
+                        <div>
+                            <h2 className="text-3xl font-bold text-gray-900">{tier.name}</h2>
+                            <p className="text-gray-500">{tier.description}</p>
+                        </div>
+                        <div className="text-right">
+                            <div className="text-2xl font-bold text-indigo-600">{stats.score} <span className="text-gray-400 text-lg">/ {tier.maxScore}</span></div>
+                            <div className="text-sm text-gray-500">Current Score</div>
+                        </div>
+                    </div>
+
+                    {/* Controls List */}
+                    <div className="space-y-6">
+                        {tier.controls.map((control, cIdx) => (
+                            <ControlCard 
+                                key={control.id}
+                                control={control}
+                                tierIndex={tierIndex}
+                                cIdx={cIdx}
+                                updateControl={updateControl}
+                                showNotify={showNotify}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Navigation Footer */}
+                    <div className="flex justify-between mt-8">
+                        <button 
+                            onClick={() => setView(tierIndex > 0 ? `tier-${tierIndex - 1}` : 'intro')}
+                            className="px-6 py-3 bg-white border rounded-lg hover:bg-gray-50 text-gray-700"
+                        >
+                            Previous
+                        </button>
+                        <button 
+                            onClick={() => setView(tierIndex < 9 ? `tier-${tierIndex + 1}` : 'summary')}
+                            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 shadow-md flex items-center gap-2"
+                        >
+                            {tierIndex < 9 ? 'Next Tier' : 'Finish & View Summary'} <ChevronRight className="w-4 h-4"/>
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        const SummaryView = ({ data, downloadData, sortConfig, setSortConfig }) => {
+
+            const handleSort = (key) => {
+                let direction = 'asc';
+                if (sortConfig.key === key && sortConfig.direction === 'asc') {
+                    direction = 'desc';
+                }
+                setSortConfig({ key, direction });
+            };
+
+            const sortedData = useMemo(() => {
+                // Flatten the data structure for the table
+                let flat = data.flatMap((tier) => 
+                    tier.controls.map((c) => ({
+                        ...c,
+                        tierNum: tier.id, 
+                        tierName: tier.name
+                    }))
+                );
+
+                // Sort comparison function
+                const compareIds = (a, b) => {
+                    const partsA = a.toString().split('.').map(Number);
+                    const partsB = b.toString().split('.').map(Number);
+                    
+                    for (let i = 0; i < Math.max(partsA.length, partsB.length); i++) {
+                        const valA = partsA[i] || 0;
+                        const valB = partsB[i] || 0;
+                        if (valA !== valB) return valA - valB;
+                    }
+                    return 0;
+                };
+
+                flat.sort((a, b) => {
+                    let comparison = 0;
+                    
+                    // Primary Sorting
+                    switch(sortConfig.key) {
+                        case 'tier':
+                            comparison = a.tierNum - b.tierNum;
+                            break;
+                        case 'id':
+                            comparison = compareIds(a.id, b.id);
+                            break;
+                        case 'title':
+                            comparison = a.title.localeCompare(b.title);
+                            break;
+                        case 'status':
+                            // Sort by score value: null -> N/A -> 1 -> 2 -> 3 -> 4
+                            const getLevelVal = (l) => {
+                                if (l === 'N/A') return -1;
+                                if (!l) return -2;
+                                    return parseInt(l);
+                            };
+                            comparison = getLevelVal(a.selectedLevel) - getLevelVal(b.selectedLevel);
+                            break;
+                        case 'evidence':
+                            // Sort by boolean: has notes or attachments
+                            const hasEvA = (a.evidence?.notes || a.evidence?.attachments?.length) ? 1 : 0;
+                            const hasEvB = (b.evidence?.notes || b.evidence?.attachments?.length) ? 1 : 0;
+                            comparison = hasEvA - hasEvB;
+                            break;
+                        case 'points':
+                            const getPoints = (l) => (l && l !== 'N/A' ? l * 0.25 : 0);
+                            comparison = getPoints(a.selectedLevel) - getPoints(b.selectedLevel);
+                            break;
+                        default:
+                            comparison = 0;
+                    }
+
+                    // Apply Sort Direction
+                    if (sortConfig.direction === 'desc') {
+                        comparison *= -1;
+                    }
+
+                    // Secondary Sort (Safeguard) - Always Ascending unless it is the primary key
+                    if (comparison === 0 && sortConfig.key !== 'id') {
+                        return compareIds(a.id, b.id);
+                    }
+
+                    return comparison;
+                });
+
+                return flat;
+            }, [data, sortConfig]);
+
+            const SortHeader = ({ label, sKey, align = "left" }) => (
+                <th 
+                    className={`px-4 py-3 cursor-pointer hover:bg-gray-100 transition select-none ${align === 'right' ? 'text-right' : 'text-left'}`}
+                    onClick={() => handleSort(sKey)}
+                >
+                    <div className={`flex items-center gap-1 ${align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                        {label}
+                        <span className="text-gray-400 flex flex-col items-center justify-center h-4 w-4">
+                            {sortConfig.key === sKey ? (
+                                sortConfig.direction === 'asc' ? <ChevronUp className="w-3 h-3 text-indigo-600" /> : <ChevronDown className="w-3 h-3 text-indigo-600" />
+                            ) : (
+                                <div className="flex flex-col opacity-30 group-hover:opacity-100">
+                                    <ChevronUp className="w-2 h-2" />
+                                    <ChevronDown className="w-2 h-2 -mt-1" />
+                                </div>
+                            )}
+                        </span>
+                    </div>
+                </th>
+            );
+
+            return (
+                <div className="max-w-6xl mx-auto">
+                    <div className="bg-white rounded-xl shadow-lg border overflow-hidden">
+                        <div className="p-6 border-b flex justify-between items-center bg-gray-50">
+                            <h2 className="text-2xl font-bold text-gray-800">Complete Assessment Summary</h2>
+                            <button onClick={downloadData} className="text-sm bg-white border px-3 py-1.5 rounded text-gray-600 hover:text-indigo-600">Download Report</button>
+                        </div>
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-sm text-left">
+                                <thead className="bg-gray-50 text-gray-500 font-medium border-b">
+                                    <tr>
+                                        <SortHeader label="Tier" sKey="tier" />
+                                        <SortHeader label="Safeguard" sKey="id" />
+                                        <SortHeader label="Control Title" sKey="title" />
+                                        <SortHeader label="Status" sKey="status" />
+                                        <SortHeader label="Evidence" sKey="evidence" />
+                                        <SortHeader label="Points" sKey="points" align="right" />
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y">
+                                    {sortedData.map((c) => (
+                                        <tr key={`${c.tierNum}-${c.id}`} className="hover:bg-gray-50">
+                                            <td className="px-4 py-3 font-medium text-gray-700">{c.tierName}</td>
+                                            <td className="px-4 py-3 font-mono text-gray-500 font-bold">{c.id}</td>
+                                            <td className="px-4 py-3 text-gray-800">{c.title}</td>
+                                            <td className="px-4 py-3">
+                                                {!c.selectedLevel ? <span className="text-gray-400 italic">Not Scored</span> :
+                                                    c.selectedLevel === 'N/A' ? <span className="px-2 py-1 rounded bg-gray-100 text-gray-600 text-xs font-bold">N/A</span> :
+                                                    c.selectedLevel == 4 ? <span className="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold">Complete</span> :
+                                                    c.selectedLevel == 3 ? <span className="px-2 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Majority</span> :
+                                                    c.selectedLevel == 2 ? <span className="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs font-bold">Partial</span> :
+                                                    <span className="px-2 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">Initial</span>}
+                                            </td>
+                                            <td className="px-4 py-3 text-gray-500">
+                                                {c.evidence && c.evidence.notes && <MessageSquare className="w-4 h-4 inline-block mr-2" />}
+                                                {c.evidence && c.evidence.attachments && c.evidence.attachments.length > 0 && <Paperclip className="w-4 h-4 inline-block" />}
+                                            </td>
+                                            <td className="px-4 py-3 text-right font-mono">
+                                                {c.selectedLevel && c.selectedLevel !== 'N/A' ? (c.selectedLevel * 0.25).toFixed(2) : '-'}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const AssessmentInfoView = ({ meta, updateMeta }) => {
+            const handleEndAssessment = () => {
+                updateMeta('endDate', new Date().toLocaleDateString());
+            };
+
+            // Basic helper to encode address for google maps embed iframe
+            const mapSrc = meta.address 
+                ? `https://maps.google.com/maps?q=${encodeURIComponent(meta.address)}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+                : "";
+
+            return (
+                <div className="max-w-4xl mx-auto space-y-6">
+                    <div className="bg-white p-8 rounded-xl shadow-sm border">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <Building className="w-6 h-6 text-indigo-600" /> Assessment Information
+                        </h2>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div className="col-span-2">
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Organization Name</label>
+                                <input 
+                                    type="text" 
+                                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
+                                    value={meta.orgName}
+                                    onChange={(e) => updateMeta('orgName', e.target.value)}
+                                    placeholder="Enter Organization Name..."
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Assessment Start Date</label>
+                                <div className="w-full p-2 bg-gray-100 border rounded-md text-gray-700 flex items-center gap-2">
+                                    <Calendar className="w-4 h-4 text-gray-500" />
+                                    {meta.startDate}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Assessment End Date</label>
+                                <div className="flex gap-2">
+                                    <div className="flex-1 p-2 bg-gray-100 border rounded-md text-gray-700 flex items-center gap-2 min-h-[42px]">
+                                        <Calendar className="w-4 h-4 text-gray-500" />
+                                        {meta.endDate || "Not Ended"}
+                                    </div>
+                                    <button 
+                                        onClick={handleEndAssessment}
+                                        className="px-4 py-2 bg-red-600 text-white rounded-md text-sm hover:bg-red-700 transition whitespace-nowrap"
+                                    >
+                                        End Assessment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="border-t pt-6 mb-6">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                                <MapPin className="w-5 h-5 text-gray-500" /> Organization Details
+                            </h3>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Physical Address</label>
+                                    <textarea 
+                                        className="w-full p-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none mb-4"
+                                        rows="3"
+                                        value={meta.address}
+                                        onChange={(e) => updateMeta('address', e.target.value)}
+                                        placeholder="1234 Main St, City, State, Zip"
+                                    ></textarea>
+                                    
+                                    {meta.address && (
+                                        <div className="w-full h-48 bg-gray-100 rounded-lg overflow-hidden border">
+                                            <iframe 
+                                                width="100%" 
+                                                height="100%" 
+                                                src={mapSrc} 
+                                                frameBorder="0" 
+                                                scrolling="no" 
+                                                marginHeight="0" 
+                                                marginWidth="0"
+                                            ></iframe>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="space-y-4">
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Authorizing Individual (CIO/CISO)</label>
+                                        <input 
+                                            type="text" placeholder="Name" 
+                                            className="w-full p-2 border rounded-md mb-2 text-sm"
+                                            value={meta.authorizer.name}
+                                            onChange={(e) => updateMeta('authorizer', { ...meta.authorizer, name: e.target.value })}
+                                        />
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <input 
+                                                type="text" placeholder="Phone" 
+                                                className="w-full p-2 border rounded-md text-sm"
+                                                value={meta.authorizer.phone}
+                                                onChange={(e) => updateMeta('authorizer', { ...meta.authorizer, phone: e.target.value })}
+                                            />
+                                            <input 
+                                                type="text" placeholder="Email" 
+                                                className="w-full p-2 border rounded-md text-sm"
+                                                value={meta.authorizer.email}
+                                                onChange={(e) => updateMeta('authorizer', { ...meta.authorizer, email: e.target.value })}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-xs font-bold text-gray-500 uppercase mb-2">Primary Point of Contact</label>
+                                        <input 
+                                            type="text" placeholder="Name" 
+                                            className="w-full p-2 border rounded-md mb-2 text-sm"
+                                            value={meta.poc.name}
+                                            onChange={(e) => updateMeta('poc', { ...meta.poc, name: e.target.value })}
+                                        />
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <input 
+                                                type="text" placeholder="Phone" 
+                                                className="w-full p-2 border rounded-md text-sm"
+                                                value={meta.poc.phone}
+                                                onChange={(e) => updateMeta('poc', { ...meta.poc, phone: e.target.value })}
+                                            />
+                                            <input 
+                                                type="text" placeholder="Email" 
+                                                className="w-full p-2 border rounded-md text-sm"
+                                                value={meta.poc.email}
+                                                onChange={(e) => updateMeta('poc', { ...meta.poc, email: e.target.value })}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="mt-4">
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Company Notes</label>
+                                <textarea 
+                                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
+                                    rows="2"
+                                    value={meta.orgNotes}
+                                    onChange={(e) => updateMeta('orgNotes', e.target.value)}
+                                    placeholder="Brief description or notes about the company..."
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <div className="border-t pt-6">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                                <User className="w-5 h-5 text-gray-500" /> Assessor Details
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Assessor Name</label>
+                                    <input 
+                                        type="text" 
+                                        className="w-full p-2 border rounded-md"
+                                        value={meta.assessor.name}
+                                        onChange={(e) => updateMeta('assessor', { ...meta.assessor, name: e.target.value })}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Assessor Company</label>
+                                    <input 
+                                        type="text" 
+                                        className="w-full p-2 border rounded-md"
+                                        value={meta.assessor.company}
+                                        onChange={(e) => updateMeta('assessor', { ...meta.assessor, company: e.target.value })}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                                    <input 
+                                        type="text" 
+                                        className="w-full p-2 border rounded-md"
+                                        value={meta.assessor.phone || ""}
+                                        onChange={(e) => updateMeta('assessor', { ...meta.assessor, phone: e.target.value })}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input 
+                                        type="text" 
+                                        className="w-full p-2 border rounded-md"
+                                        value={meta.assessor.email || ""}
+                                        onChange={(e) => updateMeta('assessor', { ...meta.assessor, email: e.target.value })}
+                                    />
+                                </div>
+                                <div className="md:col-span-2">
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                                    <input 
+                                        type="text" 
+                                        className="w-full p-2 border rounded-md"
+                                        value={meta.assessor.website || ""}
+                                        onChange={(e) => updateMeta('assessor', { ...meta.assessor, website: e.target.value })}
+                                        placeholder="https://"
+                                    />
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Assessment Notes</label>
+                                <textarea 
+                                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-indigo-500 outline-none"
+                                    rows="4"
+                                    value={meta.assessmentNotes}
+                                    onChange={(e) => updateMeta('assessmentNotes', e.target.value)}
+                                    placeholder="General notes regarding the assessment execution..."
+                                ></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            );
+        };
+
         // --- Main Component ---
         const App = () => {
             const [view, setView] = useState('intro'); 
@@ -672,6 +1430,22 @@
             const [loading, setLoading] = useState(false);
             const [assessmentTypes, setAssessmentTypes] = useState([]);
             const [selectedTypeID, setSelectedTypeID] = useState(""); // Stores the numeric TypeID
+            const [isMapLoaded, setIsMapLoaded] = useState(false);
+            // Lifted state for sorting configuration
+            const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'asc' });
+
+            // New State for Assessment Meta Information
+            const [assessmentMeta, setAssessmentMeta] = useState({
+                orgName: "",
+                startDate: new Date().toLocaleDateString(),
+                endDate: "",
+                address: "",
+                authorizer: { name: "", phone: "", email: "" },
+                poc: { name: "", phone: "", email: "" },
+                orgNotes: "",
+                assessor: { name: "", company: "", phone: "", email: "", website: "" },
+                assessmentNotes: ""
+            });
 
             // Load from LocalStorage on Mount
             useEffect(() => {
@@ -679,8 +1453,16 @@
                 if (savedData) {
                     try {
                         const parsed = JSON.parse(savedData);
-                        if(parsed && Array.isArray(parsed) && parsed.length === 10) {
-                            const normalized = parsed.map(tier => ({
+                        
+                        // Load Control Data
+                        let controlsData = parsed;
+                        // Handle new format where data is nested
+                        if (!Array.isArray(parsed) && parsed.data) {
+                            controlsData = parsed.data;
+                        }
+
+                        if(controlsData && Array.isArray(controlsData) && controlsData.length === 10) {
+                            const normalized = controlsData.map(tier => ({
                                 ...tier,
                                 controls: tier.controls.map(c => ({
                                     ...c,
@@ -688,7 +1470,24 @@
                                 }))
                             }));
                             setData(normalized);
+                            setIsMapLoaded(true);
                         }
+
+                        // Load Assessment Meta if it exists
+                        if (parsed.assessmentMeta) {
+                            setAssessmentMeta(parsed.assessmentMeta);
+                        }
+
+                        // Load Type ID
+                        if (parsed.assessmentTypeID) {
+                            setSelectedTypeID(parsed.assessmentTypeID);
+                        }
+
+                        // Load Sort Config
+                        if (parsed.sortConfig) {
+                            setSortConfig(parsed.sortConfig);
+                        }
+
                     } catch (e) {
                         console.error("Error loading data", e);
                     }
@@ -707,13 +1506,26 @@
             // Save to LocalStorage on Change
             useEffect(() => {
                 try {
-                    localStorage.setItem('cis_assessment_data', JSON.stringify(data));
+                    const storageObj = {
+                        data: data,
+                        assessmentMeta: assessmentMeta,
+                        assessmentTypeID: selectedTypeID,
+                        sortConfig: sortConfig
+                    };
+                    localStorage.setItem('cis_assessment_data', JSON.stringify(storageObj));
                 } catch (e) {
                     if (e.name === 'QuotaExceededError') {
                         showNotify("Storage Quota Exceeded! Remove some large attachments.", true);
                     }
                 }
-            }, [data]);
+            }, [data, assessmentMeta, selectedTypeID, sortConfig]);
+
+            const updateAssessmentMeta = (field, value) => {
+                setAssessmentMeta(prev => ({
+                    ...prev,
+                    [field]: value
+                }));
+            };
 
             const handleTypeChange = async (e) => {
                 const newTypeID = e.target.value;
@@ -785,28 +1597,13 @@
                 setData(newData);
             };
 
-            const calculateTierScore = (tier) => {
-                let score = 0;
-                let answered = 0;
-                let nas = 0;
-                
-                tier.controls.forEach(c => {
-                    const val = c.selectedLevel;
-                    if (val === 'N/A') {
-                        nas++;
-                    } else if (val) {
-                        score += (parseInt(val) * 0.25);
-                        answered++;
-                    }
-                });
-                return { score, answered, nas };
-            };
-
             const downloadData = () => {
                 const exportObj = {
                     assessmentTypeID: selectedTypeID,
                     timestamp: new Date().toISOString(),
-                    data: data
+                    assessmentMeta: assessmentMeta,
+                    data: data,
+                    sortConfig: sortConfig
                 };
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
                 const downloadAnchorNode = document.createElement('a');
@@ -837,6 +1634,10 @@
                             }));
                             setData(normalized);
                             if (parsed.assessmentTypeID) setSelectedTypeID(parsed.assessmentTypeID);
+                            if (parsed.assessmentMeta) setAssessmentMeta(parsed.assessmentMeta);
+                            if (parsed.sortConfig) setSortConfig(parsed.sortConfig);
+                            
+                            setIsMapLoaded(true);
                             showNotify("Assessment loaded successfully!");
                         } else {
                             showNotify("Invalid assessment backup file.", true);
@@ -907,6 +1708,7 @@
                         });
                     });
                     setData(newStructure);
+                    setIsMapLoaded(true);
                     showNotify(`Successfully populated ${totalControls} controls!`);
                 } else {
                     showNotify("No valid controls found (TierNumber 1-10 missing in JSON).", true);
@@ -952,7 +1754,11 @@
                 let totalMax = 0;
                 let counts = { 1: 0, 2: 0, 3: 0, 4: 0, na: 0, unassigned: 0 };
                 
-                data.forEach(tier => {
+                // Tier Ranking Logic
+                let tierRank = 0;
+                let sequenceBroken = false;
+
+                data.forEach((tier, index) => {
                     const stats = calculateTierScore(tier);
                     totalScore += stats.score;
                     totalMax += tier.maxScore;
@@ -962,314 +1768,57 @@
                         else if (c.selectedLevel) counts[c.selectedLevel]++;
                         else counts.unassigned++;
                     });
+
+                    // Check for Tier Ranking advancement
+                    // Rule: All controls in this tier must be Level 4 or N/A
+                    // AND all previous tiers must have been passed (handled by sequenceBroken)
+                    if (!sequenceBroken) {
+                        // Check if safeguards exist and are all valid (4 or N/A)
+                        if (tier.controls && tier.controls.length > 0) {
+                            const isTierComplete = tier.controls.every(c => c.selectedLevel == 4 || c.selectedLevel === 'N/A');
+                            if (isTierComplete) {
+                                tierRank = index + 1; // Promote to this Tier (index 0 is Tier 1)
+                            } else {
+                                sequenceBroken = true; // Stop advancing
+                            }
+                        } else {
+                            // If a tier has no controls, we assume it's passed, but in this context 
+                            // we usually expect controls. If empty, we allow advancement.
+                            tierRank = index + 1;
+                        }
+                    }
                 });
 
-                return { totalScore, totalMax, counts };
+                return { totalScore, totalMax, counts, tierRank };
             }, [data]);
-
-            // --- Render Components ---
-
-            const Sidebar = () => (
-                <div className="w-64 bg-white border-r h-screen fixed overflow-y-auto flex flex-col shadow-lg z-10">
-                    <div className="p-6 border-b flex items-center gap-3">
-                        <Shield className="w-8 h-8 text-indigo-600" />
-                        <div>
-                            <h1 className="font-bold text-gray-800">NCNE / CIS</h1>
-                            <p className="text-xs text-gray-500">Assessment Tool</p>
-                        </div>
-                    </div>
-                    <nav className="flex-1 p-4 space-y-1">
-                        <div className="px-4 pb-4">
-                            <label className="block text-xs font-medium text-gray-500 mb-1">Assessment Type</label>
-                            <select 
-                                value={selectedTypeID} 
-                                onChange={handleTypeChange}
-                                className="w-full p-2 bg-white border rounded text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
-                            >
-                                <option value="">Select Type...</option>
-                                {assessmentTypes.map((type, i) => (
-                                    <option key={i} value={type.TypeID}>{type.Type}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <button onClick={() => setView('intro')} className={`sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'intro' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
-                            <Info className="w-4 h-4" /> Introduction
-                        </button>
-                        <button onClick={() => setView('score')} className={`sidebar-item w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'score' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
-                            <LayoutDashboard className="w-4 h-4" /> Score & Dashboard
-                        </button>
-                        <div className="pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider px-4">Tiers</div>
-                        {data.map((tier, idx) => (
-                            <button key={tier.id} onClick={() => setView(`tier-${idx}`)} className={`sidebar-item w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium ${view === `tier-${idx}` ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
-                                <span className="flex items-center gap-2">
-                                    <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{tier.id}</span>
-                                    {tier.name}
-                                </span>
-                                {calculateTierScore(tier).score > 0 && <CheckCircle2 className="w-3 h-3 text-green-500"/>}
-                            </button>
-                        ))}
-                         <button onClick={() => setView('summary')} className={`sidebar-item mt-4 w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'summary' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
-                            <FileText className="w-4 h-4" /> Full Summary
-                        </button>
-                    </nav>
-                    <div className="p-4 border-t bg-gray-50">
-                        <div className="space-y-2">
-                             <button onClick={handleUrlFetch} disabled={loading} className="w-full flex items-center justify-center p-2 bg-indigo-600 border border-indigo-700 rounded text-xs text-white hover:bg-indigo-700 transition gap-2 shadow-sm">
-                                {loading ? <div className="spinner"></div> : <Globe className="w-4 h-4" />}
-                                Fetch Official Mapping
-                            </button>
-                             <label className="flex items-center justify-center p-2 bg-indigo-50 border border-indigo-200 rounded text-xs text-indigo-700 hover:bg-indigo-100 transition cursor-pointer gap-2">
-                                <FileJson className="w-4 h-4" /> Upload Map File
-                                <input type="file" className="hidden" accept=".json" onChange={handleMappingUpload}/>
-                            </label>
-
-                            <div className="grid grid-cols-2 gap-2 mt-2">
-                                <button onClick={downloadData} className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition">
-                                    <Download className="w-4 h-4 mb-1" /> Save
-                                </button>
-                                <label className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition cursor-pointer">
-                                    <Upload className="w-4 h-4 mb-1" /> Load
-                                    <input type="file" className="hidden" accept=".json" onChange={handleFileUpload}/>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            );
-
-            const IntroductionView = () => (
-                <div className="max-w-4xl mx-auto space-y-6">
-                    <div className="bg-white p-8 rounded-xl shadow-sm border">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Welcome to the CIS Controls Assessment</h2>
-                        <div className="prose text-gray-600 space-y-4">
-                            <p>The CIS Critical Security Controls (CIS Controls) are a prioritized set of Safeguards to mitigate the most prevalent cyber attacks against systems and networks. This tool helps you assess your implementation of these controls using the NCNE adaptation.</p>
-                            
-                            <h3 className="text-lg font-semibold text-gray-800 pt-2">How it works</h3>
-                            <p>The controls are broken into <strong>10 Tiers</strong>. Tier 4 is equivalent to Implementation Group 1 (IG1), Tier 7 to IG2, and Tier 10 to IG3.</p>
-                            
-                            <div className="bg-blue-50 p-4 rounded-lg border border-blue-100 my-4 text-sm text-blue-800 flex items-start gap-3">
-                                <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <strong>Latest Framework Data:</strong> Click the <span className="font-bold text-indigo-700">Fetch Official Mapping</span> button in the sidebar to automatically download and populate the latest Controls, Titles, and Descriptions directly from the MidwestCyberLLC GitHub repository.
-                                </div>
-                            </div>
-
-                            <div className="bg-green-50 p-4 rounded-lg border border-green-100 my-4 text-sm text-green-800 flex items-start gap-3">
-                                <ListChecks className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                                <div>
-                                    <strong>Custom Rubrics:</strong> Select your <span className="font-bold">Assessment Type</span> from the sidebar dropdown to load specific grading criteria for each control level.
-                                </div>
-                            </div>
-
-                            <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-100 my-4">
-                                <h4 className="font-semibold text-indigo-900 mb-2">Scoring System</h4>
-                                <ul className="space-y-2 text-sm text-indigo-800">
-                                    <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 1</span> Initial (0.25 points)</li>
-                                    <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 2</span> Partial (0.50 points)</li>
-                                    <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 3</span> Majority (0.75 points)</li>
-                                    <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 4</span> Complete (1.00 points)</li>
-                                </ul>
-                            </div>
-                            
-                            <button onClick={() => setView('tier-0')} className="mt-8 bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition flex items-center gap-2">
-                                Start Assessment <ChevronRight className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            );
-
-            const ScoreView = () => (
-                <div className="max-w-5xl mx-auto space-y-6">
-                    {/* Top Stats */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <div className="bg-white p-6 rounded-xl shadow-sm border">
-                            <div className="text-sm text-gray-500 font-medium">Total Score</div>
-                            <div className="text-3xl font-bold text-indigo-600 mt-2">{aggregates.totalScore.toFixed(2)} <span className="text-gray-400 text-lg">/ {aggregates.totalMax}</span></div>
-                        </div>
-                        <div className="bg-white p-6 rounded-xl shadow-sm border">
-                            <div className="text-sm text-gray-500 font-medium">Compliance</div>
-                            <div className="text-3xl font-bold text-green-600 mt-2">{((aggregates.totalScore / aggregates.totalMax) * 100).toFixed(1)}%</div>
-                        </div>
-                         <div className="bg-white p-6 rounded-xl shadow-sm border">
-                            <div className="text-sm text-gray-500 font-medium">Controls Assessed</div>
-                            <div className="text-3xl font-bold text-blue-600 mt-2">{153 - aggregates.counts.unassigned} <span className="text-gray-400 text-lg">/ 153</span></div>
-                        </div>
-                        <div className="bg-white p-6 rounded-xl shadow-sm border">
-                            <div className="text-sm text-gray-500 font-medium">Not Applicable</div>
-                            <div className="text-3xl font-bold text-gray-600 mt-2">{aggregates.counts.na}</div>
-                        </div>
-                    </div>
-
-                    {/* Breakdown Chart */}
-                    <div className="bg-white p-6 rounded-xl shadow-sm border">
-                        <h3 className="font-bold text-gray-800 mb-4">Implementation Levels</h3>
-                        <div className="flex h-6 rounded-full overflow-hidden bg-gray-100">
-                            <div style={{width: `${(aggregates.counts[4]/153)*100}%`}} className="bg-green-500" title="Complete"></div>
-                            <div style={{width: `${(aggregates.counts[3]/153)*100}%`}} className="bg-blue-500" title="Majority"></div>
-                            <div style={{width: `${(aggregates.counts[2]/153)*100}%`}} className="bg-yellow-500" title="Partial"></div>
-                            <div style={{width: `${(aggregates.counts[1]/153)*100}%`}} className="bg-red-500" title="Initial"></div>
-                        </div>
-                        <div className="flex justify-between mt-4 text-sm text-gray-600">
-                             <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-green-500"></div> Complete ({aggregates.counts[4]})</div>
-                             <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-blue-500"></div> Majority ({aggregates.counts[3]})</div>
-                             <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-yellow-500"></div> Partial ({aggregates.counts[2]})</div>
-                             <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-red-500"></div> Initial ({aggregates.counts[1]})</div>
-                             <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-gray-200"></div> Unscored ({aggregates.counts.unassigned})</div>
-                        </div>
-                    </div>
-
-                    {/* Detailed Tier Table */}
-                    <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-                        <table className="w-full text-left border-collapse">
-                            <thead>
-                                <tr className="bg-gray-50 border-b text-sm text-gray-500">
-                                    <th className="px-6 py-4 font-semibold">Tier</th>
-                                    <th className="px-6 py-4 font-semibold">Progress</th>
-                                    <th className="px-6 py-4 font-semibold">Score</th>
-                                    <th className="px-6 py-4 font-semibold text-right">Max</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.map((tier, i) => {
-                                    const stats = calculateTierScore(tier);
-                                    const percent = (stats.score / tier.maxScore) * 100;
-                                    return (
-                                        <tr key={tier.id} onClick={() => setView(`tier-${i}`)} className="border-b last:border-0 hover:bg-gray-50 cursor-pointer transition">
-                                            <td className="px-6 py-4">
-                                                <div className="font-semibold text-gray-900">{tier.name}</div>
-                                                <div className="text-xs text-gray-500">{tier.description}</div>
-                                            </td>
-                                            <td className="px-6 py-4 w-1/3">
-                                                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                                                    <div className="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style={{ width: `${percent}%` }}></div>
-                                                </div>
-                                                <div className="text-xs text-gray-500 mt-1">{percent.toFixed(0)}%</div>
-                                            </td>
-                                            <td className="px-6 py-4 font-mono text-gray-700">{stats.score.toFixed(2)}</td>
-                                            <td className="px-6 py-4 font-mono text-gray-400 text-right">{tier.maxScore}</td>
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            );
-
-            const TierView = ({ tierIndex }) => {
-                const tier = data[tierIndex];
-                const stats = calculateTierScore(tier);
-                
-                return (
-                    <div className="max-w-4xl mx-auto pb-20">
-                        {/* Header */}
-                        <div className="flex items-end justify-between mb-6 border-b pb-4">
-                            <div>
-                                <h2 className="text-3xl font-bold text-gray-900">{tier.name}</h2>
-                                <p className="text-gray-500">{tier.description}</p>
-                            </div>
-                            <div className="text-right">
-                                <div className="text-2xl font-bold text-indigo-600">{stats.score} <span className="text-gray-400 text-lg">/ {tier.maxScore}</span></div>
-                                <div className="text-sm text-gray-500">Current Score</div>
-                            </div>
-                        </div>
-
-                        {/* Controls List */}
-                        <div className="space-y-6">
-                            {tier.controls.map((control, cIdx) => (
-                                <ControlCard 
-                                    key={control.id}
-                                    control={control}
-                                    tierIndex={tierIndex}
-                                    cIdx={cIdx}
-                                    updateControl={updateControl}
-                                    showNotify={showNotify}
-                                />
-                            ))}
-                        </div>
-
-                        {/* Navigation Footer */}
-                        <div className="flex justify-between mt-8">
-                            <button 
-                                onClick={() => setView(tierIndex > 0 ? `tier-${tierIndex - 1}` : 'intro')}
-                                className="px-6 py-3 bg-white border rounded-lg hover:bg-gray-50 text-gray-700"
-                            >
-                                Previous
-                            </button>
-                            <button 
-                                onClick={() => setView(tierIndex < 9 ? `tier-${tierIndex + 1}` : 'summary')}
-                                className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 shadow-md flex items-center gap-2"
-                            >
-                                {tierIndex < 9 ? 'Next Tier' : 'Finish & View Summary'} <ChevronRight className="w-4 h-4"/>
-                            </button>
-                        </div>
-                    </div>
-                );
-            };
-
-            const SummaryView = () => (
-                <div className="max-w-6xl mx-auto">
-                    <div className="bg-white rounded-xl shadow-lg border overflow-hidden">
-                        <div className="p-6 border-b flex justify-between items-center bg-gray-50">
-                            <h2 className="text-2xl font-bold text-gray-800">Complete Assessment Summary</h2>
-                            <button onClick={downloadData} className="text-sm bg-white border px-3 py-1.5 rounded text-gray-600 hover:text-indigo-600">Download Report</button>
-                        </div>
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-sm text-left">
-                                <thead className="bg-gray-50 text-gray-500 font-medium border-b">
-                                    <tr>
-                                        <th className="px-4 py-3">ID</th>
-                                        <th className="px-4 py-3">Control Title</th>
-                                        <th className="px-4 py-3">Status</th>
-                                        <th className="px-4 py-3">Evidence</th>
-                                        <th className="px-4 py-3 text-right">Points</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y">
-                                    {data.flatMap((tier) => 
-                                        tier.controls.map((c) => (
-                                            <tr key={c.id} className="hover:bg-gray-50">
-                                                <td className="px-4 py-3 font-mono text-gray-500">{c.id}</td>
-                                                <td className="px-4 py-3 text-gray-800">{c.title}</td>
-                                                <td className="px-4 py-3">
-                                                    {!c.selectedLevel ? <span className="text-gray-400 italic">Not Scored</span> :
-                                                     c.selectedLevel === 'N/A' ? <span className="px-2 py-1 rounded bg-gray-100 text-gray-600 text-xs font-bold">N/A</span> :
-                                                     c.selectedLevel == 4 ? <span className="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold">Complete</span> :
-                                                     c.selectedLevel == 3 ? <span className="px-2 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Majority</span> :
-                                                     c.selectedLevel == 2 ? <span className="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs font-bold">Partial</span> :
-                                                     <span className="px-2 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">Initial</span>}
-                                                </td>
-                                                <td className="px-4 py-3 text-gray-500">
-                                                    {c.evidence && c.evidence.notes && <MessageSquare className="w-4 h-4 inline-block mr-2" />}
-                                                    {c.evidence && c.evidence.attachments && c.evidence.attachments.length > 0 && <Paperclip className="w-4 h-4 inline-block" />}
-                                                </td>
-                                                <td className="px-4 py-3 text-right font-mono">
-                                                    {c.selectedLevel && c.selectedLevel !== 'N/A' ? (c.selectedLevel * 0.25).toFixed(2) : '-'}
-                                                </td>
-                                            </tr>
-                                        ))
-                                    )}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            );
 
             // --- Main Render Switch ---
             const renderContent = () => {
-                if (view === 'intro') return <IntroductionView />;
-                if (view === 'score') return <ScoreView />;
-                if (view === 'summary') return <SummaryView />;
-                if (view.startsWith('tier-')) return <TierView tierIndex={parseInt(view.split('-')[1])} />;
-                return <IntroductionView />;
+                if (view === 'intro') return <IntroductionView setView={setView} />;
+                if (view === 'info') return <AssessmentInfoView meta={assessmentMeta} updateMeta={updateAssessmentMeta} />;
+                if (view === 'score') return <ScoreView aggregates={aggregates} data={data} setView={setView} />;
+                if (view === 'summary') return <SummaryView data={data} downloadData={downloadData} sortConfig={sortConfig} setSortConfig={setSortConfig} />;
+                if (view === 'about') return <AboutView />;
+                if (view.startsWith('tier-')) return <TierView tierIndex={parseInt(view.split('-')[1])} data={data} updateControl={updateControl} showNotify={showNotify} setView={setView} />;
+                return <IntroductionView setView={setView} />;
             };
 
             return (
                 <div className="flex min-h-screen">
-                    <Sidebar />
+                    <Sidebar 
+                        view={view} 
+                        setView={setView} 
+                        loading={loading}
+                        handleUrlFetch={handleUrlFetch}
+                        selectedTypeID={selectedTypeID}
+                        handleTypeChange={handleTypeChange}
+                        isMapLoaded={isMapLoaded}
+                        assessmentTypes={assessmentTypes}
+                        data={data}
+                        downloadData={downloadData}
+                        handleMappingUpload={handleMappingUpload}
+                        handleFileUpload={handleFileUpload}
+                    />
                     <main className="flex-1 ml-64 p-8 overflow-y-auto h-screen">
                         {renderContent()}
                     </main>
