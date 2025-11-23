@@ -1,0 +1,1299 @@
+<!-- 
+    CIS CONTROLS ASSESSMENT TOOL - ELEMENTOR EMBED VERSION 
+    Instructions: Copy and paste this entire block into an Elementor "HTML" widget.
+-->
+
+<!-- Load Dependencies -->
+<!-- Tailwind CSS (Configured to not break WP Themes) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    indigo: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' }
+                }
+            }
+        }
+    }
+</script>
+
+<!-- React & Babel -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- Scoped CSS for the App Container Only -->
+<style>
+    /* Scope resets to only affect our specific container */
+    #cis-assessment-tool-root {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        position: relative;
+        /* Ensure standard box sizing within our app */
+        box-sizing: border-box;
+    }
+    #cis-assessment-tool-root *, 
+    #cis-assessment-tool-root *::before, 
+    #cis-assessment-tool-root *::after {
+        box-sizing: border-box;
+    }
+    
+    /* Animation */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+    
+    /* Spinner */
+    .cis-spinner { border: 3px solid rgba(79, 70, 229, 0.3); border-radius: 50%; border-top: 3px solid #4f46e5; width: 16px; height: 16px; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* Custom Scrollbar for the app only */
+    #cis-assessment-tool-root ::-webkit-scrollbar { width: 8px; }
+    #cis-assessment-tool-root ::-webkit-scrollbar-track { background: #f1f1f1; }
+    #cis-assessment-tool-root ::-webkit-scrollbar-thumb { background: #c7c7c7; border-radius: 4px; }
+    #cis-assessment-tool-root ::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+</style>
+
+<!-- App Container -->
+<div id="cis-assessment-tool-root">Loading Assessment Tool...</div>
+
+<!-- React Application Logic -->
+<script type="text/babel">
+    const { useState, useEffect, useMemo, useRef } = React;
+
+    // --- Inline Icons ---
+    const IconWrapper = ({ children, className }) => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+            {children}
+        </svg>
+    );
+
+    const Shield = ({ className }) => <IconWrapper className={className}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /></IconWrapper>;
+    const LayoutDashboard = ({ className }) => <IconWrapper className={className}><rect width="7" height="9" x="3" y="3" rx="1" /><rect width="7" height="5" x="14" y="3" rx="1" /><rect width="7" height="9" x="14" y="12" rx="1" /><rect width="7" height="5" x="3" y="16" rx="1" /></IconWrapper>;
+    const FileText = ({ className }) => <IconWrapper className={className}><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /></IconWrapper>;
+    const Settings = ({ className }) => <IconWrapper className={className}><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.09a2 2 0 0 1-1-1.74v-.47a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle cx="12" cy="12" r="3" /></IconWrapper>;
+    const Upload = ({ className }) => <IconWrapper className={className}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" x2="12" y1="3" y2="15" /></IconWrapper>;
+    const Download = ({ className }) => <IconWrapper className={className}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></IconWrapper>;
+    const ChevronRight = ({ className }) => <IconWrapper className={className}><path d="m9 18 6-6-6-6" /></IconWrapper>;
+    const ChevronDown = ({ className }) => <IconWrapper className={className}><path d="m6 9 6 6 6-6" /></IconWrapper>;
+    const CheckCircle2 = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></IconWrapper>;
+    const Info = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></IconWrapper>;
+    const FileJson = ({ className }) => <IconWrapper className={className}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="M10 12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1" /><path d="M14 12a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1" /></IconWrapper>;
+    const Globe = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><line x1="2" x2="22" y1="12" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></IconWrapper>;
+    const Paperclip = ({ className }) => <IconWrapper className={className}><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" /></IconWrapper>;
+    const Image = ({ className }) => <IconWrapper className={className}><rect width="18" height="18" x="3" y="3" rx="2" ry="2" /><circle cx="9" cy="9" r="2" /><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" /></IconWrapper>;
+    const Trash2 = ({ className }) => <IconWrapper className={className}><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" x2="10" y1="11" y2="17" /><line x1="14" x2="14" y1="11" y2="17" /></IconWrapper>;
+    const MessageSquare = ({ className }) => <IconWrapper className={className}><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></IconWrapper>;
+    const BookOpen = ({ className }) => <IconWrapper className={className}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></IconWrapper>;
+    const ListChecks = ({ className }) => <IconWrapper className={className}><path d="M10 6h11" /><path d="M10 12h11" /><path d="M10 18h11" /><path d="M3 6h1" /><path d="M3 12h1" /><path d="M3 18h1" /></IconWrapper>;
+
+    // --- Helper Functions ---
+
+    const generatePlaceholders = (startId, count, tierPrefix) => {
+        return Array.from({ length: count }, (_, i) => ({
+            id: `${tierPrefix}.${startId + i}`,
+            title: `Safeguard ${tierPrefix}.${startId + i} (Placeholder)`,
+            actionPlan: "Specific control details not yet loaded. Use 'Fetch Official Mapping' to populate this data.",
+            levels: {
+                1: "Initial implementation details not available.",
+                2: "Partial implementation details not available.",
+                3: "Majority implementation details not available.",
+                4: "Complete implementation details not available."
+            },
+            selectedLevel: null,
+            evidence: {
+                notes: "",
+                attachments: []
+            },
+            rubricDescription: null
+        }));
+    };
+
+    const FILE_SIZE_LIMIT = 500 * 1024;
+
+    const INITIAL_DATA = [
+        {
+            id: 1, name: "Tier 1", description: "Foundational Controls (Subset of IG1)", maxScore: 15, controls: [
+                {
+                    id: "1.1",
+                    title: "Establish and Maintain Detailed Enterprise Asset Inventory",
+                    actionPlan: "Establish and maintain an accurate, detailed, and up-to-date inventory of all enterprise assets with the potential to store or process data.",
+                    levels: { 
+                        1: "No comprehensive inventory of enterprise assets exists, including end-user devices, network devices, non-computing/IoT devices, and servers.", 
+                        2: "An incomplete inventory is maintained, with some assets listed but lacking essential details such as hardware address or department ownership. Review and update process is not regularly conducted.", 
+                        3: "Inventory exists but the update process is not regular or thorough. Some assets may be missing or details outdated.", 
+                        4: "Comprehensive, up-to-date inventory exists and is reviewed bi-annually or more frequently. Records include network address, hardware address, machine name, owner, and department." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(2, 14, 1)
+            ]
+        },
+        {
+            id: 2, name: "Tier 2", description: "Foundational Controls (IG1/IG2)", maxScore: 11, controls: [
+                {
+                    id: "1.2",
+                    title: "Address Unauthorized Assets",
+                    actionPlan: "Ensure that a process exists to address unauthorized assets on a weekly basis.",
+                    levels: { 
+                        1: "No process exists to address unauthorized assets on a weekly basis. There is no documentation or evidence of efforts to identify and mitigate risks posed by these assets.", 
+                        2: "The organization has some awareness of unauthorized assets, but lacks a consistent process to address them. Procedures exist, but are not followed or implemented consistently.", 
+                        3: "Unauthorized assets remain active on the network due to inconsistent remediation efforts. Some measures are taken, but documentation and enforcement are lacking.", 
+                        4: "A comprehensive process exists to identify and address unauthorized assets weekly. The organization documents their efforts, removes or quarantines assets, and regularly monitors and reports on their remediation activities." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "6.3",
+                    title: "Require MFA for Externally-Exposed Applications",
+                    actionPlan: "Require all externally-exposed enterprise or third-party applications to enforce Multi-Factor Authentication (MFA).",
+                    levels: { 1: "None", 2: "Some", 3: "Most", 4: "All" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "17.2",
+                    title: "Establish and Maintain Contact Information for Reporting Security Incidents",
+                    actionPlan: "Establish and maintain contact information for parties that need to be informed of security incidents.",
+                    levels: { 
+                        1: "No contact information exists for reporting security incidents to relevant parties.", 
+                        2: "Some contact information is established for reporting security incidents, but it is incomplete, outdated, or not thoroughly verified.", 
+                        3: "Contact information is updated periodically, but only basic changes are made. Verification of contacts is infrequent.", 
+                        4: "Comprehensive contact information exists for all relevant parties to report security incidents. Contact data is regularly verified annually." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 8, 2)
+            ]
+        },
+        {
+            id: 3, name: "Tier 3", description: "Foundational Controls", maxScore: 16, controls: [
+                {
+                    id: "2.3",
+                    title: "Address Unauthorized Software",
+                    actionPlan: "Ensure that unauthorized software is either removed from use on enterprise assets or receives a documented exception.",
+                    levels: { 
+                        1: "The organization has no process in place to address unauthorized software usage, leaving it vulnerable to potential threats.", 
+                        2: "Unauthorized software is removed from use on enterprise assets, but there are no documented exceptions for its removal.", 
+                        3: "Unauthorized software is removed from use or receives a documented exception for continued access. However, this process lacks regular review.", 
+                        4: "Regular monthly reviews (or more frequently) ensure unauthorized software is either removed from use or has a documented exception." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "3.2",
+                    title: "Establish and Maintain a Data Inventory",
+                    actionPlan: "Establish and maintain a data inventory based on the enterprise’s data management process.",
+                    levels: { 
+                        1: "The organization does not have a data inventory or a process in place.", 
+                        2: "Partial inventory exists but is incomplete.", 
+                        3: "Inventory exists but updates are lacking.", 
+                        4: "Complete inventory, updated annually." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "14.6",
+                    title: "Train Workforce Members on Recognizing and Reporting Security Incidents",
+                    actionPlan: "Train workforce members to be able to recognize a potential incident and be able to report such an incident.",
+                    levels: { 
+                        1: "There is no formal training program in place to educate workforce members on recognizing and reporting security incidents.", 
+                        2: "Workforce members receive basic training on what constitutes a security incident, including types of incidents (e.g., unauthorized access) and how to report them. However, no specific procedures are outlined.", 
+                        3: "A standardized incident reporting process is established. Basic training on the process is provided, but incident response procedures are not detailed.", 
+                        4: "All workforce members participate in comprehensive security awareness training, including recognition of potential incidents and procedures for reporting them." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                    ...generatePlaceholders(4, 13, 3)
+            ]
+        },
+        {
+            id: 4, name: "Tier 4", description: "Equivalent to IG1 Completion", maxScore: 15, controls: [
+                {
+                    id: "2.2",
+                    title: "Ensure Authorized Software is Currently Supported",
+                    actionPlan: "Ensure that only currently supported software is designated as authorized in the software inventory.",
+                    levels: { 
+                        1: "No process exists for ensuring authorized software is currently supported on enterprise assets.", 
+                        2: "A manual review of the software inventory occurs quarterly, but exceptions for unsupported software are not documented or approved.", 
+                        3: "Currently supported software is designated as authorized, and exceptions for unsupported software are documented. However, documentation may be incomplete.", 
+                        4: "Regular reviews (monthly or more frequently) ensure that all enterprise assets have only currently supported software designated as authorized." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "3.3",
+                    title: "Configure Data Access Control Lists",
+                    actionPlan: "Configure data access control lists (ACLs) based on a user’s need to know.",
+                    levels: { 1: "None", 2: "Basic", 3: "Most", 4: "Comprehensive" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "17.1",
+                    title: "Designate Personnel to Manage Incident Handling",
+                    actionPlan: "Designate one or more personnel to manage incident handling.",
+                    levels: { 
+                        1: "No designated personnel exist to manage incident handling.", 
+                        2: "A single person has been designated to manage the enterprise's incident handling process, but there are no backups.", 
+                        3: "Two personnel have been designated to manage the enterprise's incident handling process, including at least one backup.", 
+                        4: "A dedicated team of two or more personnel has been established to manage the enterprise's incident handling process." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 12, 4)
+            ]
+        },
+        {
+            id: 5, name: "Tier 5", description: "Mid-level Controls (IG2)", maxScore: 25, controls: [
+                    {
+                    id: "3.7",
+                    title: "Establish and Maintain a Data Classification Scheme",
+                    actionPlan: "Establish and maintain an overall data classification scheme for the enterprise.",
+                    levels: { 
+                        1: "No data classification scheme exists.", 
+                        2: "A basic data classification scheme has been established using labels such as 'Sensitive' and 'Confidential.' However, the scheme is not reviewed or updated regularly.", 
+                        3: "An organized data classification scheme has been implemented, with clear labels. The scheme is reviewed annually, but changes are not always reflected promptly.", 
+                        4: "A comprehensive and regularly updated data classification scheme exists, with clear guidelines, labels, and procedures for ensuring confidentiality and integrity." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(2, 24, 5)
+            ]
+        },
+        {
+            id: 6, name: "Tier 6", description: "Mid-level Controls (IG2)", maxScore: 25, controls: [
+                    {
+                    id: "2.5",
+                    title: "Allowlist Authorized Software",
+                    actionPlan: "Use technical controls, such as application allowlisting, to ensure that only authorized software can execute or be accessed.",
+                    levels: { 
+                        1: "No technical controls in place, such as allowlisting, to restrict unauthorized software access.", 
+                        2: "Basic application allowlisting implemented, but only for a limited subset of approved applications.", 
+                        3: "Comprehensive application allowlisting is in place, covering all authorized software. Reviewed every two years.", 
+                        4: "All aspects of application allowlisting are met, including continuous monitoring and updates." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "3.11",
+                    title: "Encrypt Sensitive Data At Rest",
+                    actionPlan: "Encrypt sensitive data at rest on servers, applications, and databases.",
+                    levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Complete" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "18.3",
+                    title: "Remediate Penetration Test Findings",
+                    actionPlan: "Remediate penetration test findings based on the enterprise’s documented vulnerability remediation process.",
+                    levels: { 
+                        1: "No documented vulnerability remediation process is in place.", 
+                        2: "A basic remediation process exists, but it lacks detail or specific guidance on timelines and levels of effort.", 
+                        3: "The documented vulnerability remediation process is comprehensive, but findings are not prioritized or addressed within a reasonable timeline.", 
+                        4: "All penetration test findings are thoroughly assessed, prioritized, and remediated according to the documented process." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 22, 6)
+            ]
+        },
+        {
+            id: 7, name: "Tier 7", description: "Equivalent to IG2 Completion", maxScore: 24, controls: [
+                {
+                    id: "1.3",
+                    title: "Utilize an Active Discovery Tool",
+                    actionPlan: "Utilize an active discovery tool to identify assets connected to the enterprise’s network.",
+                    levels: { 
+                        1: "The organization does not utilize any active discovery tools.", 
+                        2: "The organization has implemented an active discovery tool that identifies some, but not all, connected assets.", 
+                        3: "The organization utilizes an active discovery tool that identifies the vast majority of connected assets. The tool executes nightly or more frequently.", 
+                        4: "The organization has implemented a comprehensive active discovery tool that identifies all connected assets on their network in real-time." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "1.4",
+                    title: "Use DHCP Logging to Update Asset Inventory",
+                    actionPlan: "Use Dynamic Host Configuration Protocol (DHCP) logging on all DHCP servers.",
+                    levels: { 1: "None", 2: "Enabled", 3: "Reviewed", 4: "Automatic" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                    {
+                    id: "17.8",
+                    title: "Conduct Post-Incident Reviews",
+                    actionPlan: "Conduct post-incident reviews to prevent incident recurrence.",
+                    levels: { 
+                        1: "No post-incident review process exists, and no lessons are learned from past incidents.", 
+                        2: "Some post-incident reviews occur, but details are not documented or shared with relevant parties.", 
+                        3: "Regular post-incident reviews are conducted, and basic incident data is documented. However, no follow-up action is taken.", 
+                        4: "Post-incident reviews are thorough, complete, and timely, with lessons learned applied to prevent future incidents." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 21, 7)
+            ]
+        },
+            {
+            id: 8, name: "Tier 8", description: "Advanced Controls (IG3)", maxScore: 7, controls: [
+                {
+                    id: "3.13",
+                    title: "Deploy a Data Loss Prevention Solution",
+                    actionPlan: "Implement an automated tool, such as a host-based Data Loss Prevention (DLP) tool.",
+                    levels: { 
+                        1: "No DLP solution is deployed, and data loss prevention processes do not exist.", 
+                        2: "A basic DLP tool is deployed, but it only scans on-premises assets.", 
+                        3: "An automated DLP tool is implemented to scan all enterprise assets. However, the solution does not update the inventory regularly.", 
+                        4: "A comprehensive DLP solution is deployed to identify and protect all sensitive data stored, processed, or transmitted through enterprise assets." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "4.12",
+                    title: "Separate Enterprise Workspaces on Mobile End-User Devices",
+                    actionPlan: "Ensure that enterprise workspaces on mobile end-user devices are separated from personal workspaces.",
+                    levels: { 1: "None", 2: "Partial", 3: "Most", 4: "Complete" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "15.6",
+                    title: "Monitor Service Providers",
+                    actionPlan: "Monitor service providers consistent with the enterprise’s service provider management policy.",
+                    levels: { 
+                        1: "No process exists to monitor service providers.", 
+                        2: "A basic monitoring system is in place, but it only includes periodic reassessment of service provider compliance reports.", 
+                        3: "The organization has implemented a standardized monitoring process that includes regular assessments of service provider compliance.", 
+                        4: "The enterprise has developed a comprehensive service provider management policy and implements a robust monitoring system." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 4, 8)
+            ]
+        },
+        {
+            id: 9, name: "Tier 9", description: "Advanced Controls (IG3)", maxScore: 7, controls: [
+                {
+                    id: "12.8",
+                    title: "Dedicated Computing Resources for Admin Work",
+                    actionPlan: "Establish and maintain dedicated computing resources for all administrative tasks.",
+                    levels: { 
+                        1: "There is no dedicated computing resource for administrative work.", 
+                        2: "Administrative resources are physically separated from the enterprise's primary network but internet access is allowed.", 
+                        3: "Administrative resources are logically separated from the enterprise's primary network using firewalls and access controls.", 
+                        4: "Dedicated computing resources are both physically and logically separated from the enterprise's primary network." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "13.7",
+                    title: "Deploy a Host-Based Intrusion Prevention Solution",
+                    actionPlan: "Deploy a host-based intrusion prevention solution on enterprise assets.",
+                    levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Full" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "18.5",
+                    title: "Perform Periodic Internal Penetration Tests",
+                    actionPlan: "Perform periodic internal penetration tests based on program requirements.",
+                    levels: { 
+                        1: "No periodic internal penetration tests are performed.", 
+                        2: "Internal penetration tests are conducted annually, but only as required by program management.", 
+                        3: "Periodic internal penetration tests are performed two or three times annually, using a standardized framework.", 
+                        4: "Regular internal penetration tests are conducted at least quarterly to ensure ongoing program security posture." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 4, 9)
+            ]
+        },
+        {
+            id: 10, name: "Tier 10", description: "Equivalent to IG3 Completion", maxScore: 8, controls: [
+                {
+                    id: "1.5",
+                    title: "Use a Passive Asset Discovery Tool",
+                    actionPlan: "Use a passive discovery tool to identify assets connected to the enterprise’s network.",
+                    levels: { 
+                        1: "No passive asset discovery tool is used.", 
+                        2: "A passive asset discovery tool is used, but scans are not conducted regularly.", 
+                        3: "Passive asset discovery tools are used to identify and update the enterprise's asset inventory on a weekly basis.", 
+                        4: "A passive asset discovery tool is continuously monitored, and scans are conducted frequently (e.g., daily)." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                    {
+                    id: "2.7",
+                    title: "Allowlist Authorized Scripts",
+                    actionPlan: "Use technical controls to ensure that only authorized scripts are allowed to execute.",
+                    levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Complete" },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                {
+                    id: "18.4",
+                    title: "Validate Security Measures",
+                    actionPlan: "Validate security measures after each penetration test.",
+                    levels: { 
+                        1: "The organization has no formal process in place to validate security measures after each penetration test.", 
+                        2: "After each penetration test, the organization reviews the results but no modifications are made.", 
+                        3: "Following each penetration test, the organization validates security measures against known threats and modifies rulesets.", 
+                        4: "The organization has a formal process in place to validate security measures after each penetration test." 
+                    },
+                    selectedLevel: null,
+                    evidence: { notes: "", attachments: [] },
+                    rubricDescription: null
+                },
+                ...generatePlaceholders(4, 5, 10)
+            ]
+        }
+    ];
+
+    const MAP_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/safeguards.json";
+    const ASSESSMENT_TYPES_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/assessmentType.json";
+    const RUBRIC_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/rubric.json";
+
+    // --- Components ---
+
+    const EvidenceSection = ({ evidence = { notes: "", attachments: [] }, onChange, showNotify }) => {
+        const fileInputRef = useRef(null);
+        const imageInputRef = useRef(null);
+
+        const handleFileRead = (e, type) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (file.size > FILE_SIZE_LIMIT) {
+                showNotify("File too large. Max size is 500KB to ensure data saves correctly.", true);
+                e.target.value = "";
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const newAttachment = {
+                    id: Date.now(),
+                    name: file.name,
+                    type: type === 'image' ? 'image' : 'file',
+                    data: ev.target.result
+                };
+                const updatedAttachments = [...(evidence.attachments || []), newAttachment];
+                onChange({ ...evidence, attachments: updatedAttachments });
+            };
+            reader.readAsDataURL(file);
+            e.target.value = ""; 
+        };
+
+        const removeAttachment = (id) => {
+            const updatedAttachments = evidence.attachments.filter(a => a.id !== id);
+            onChange({ ...evidence, attachments: updatedAttachments });
+        };
+
+        return (
+            <div className="mt-6 bg-gray-50 rounded-lg p-4 border border-gray-200 animate-fade-in">
+                <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                    <Paperclip className="w-4 h-4" /> Evidence & Documentation
+                </h4>
+                <div className="mb-4">
+                    <label className="block text-xs font-medium text-gray-500 mb-1 uppercase">Notes / Comments</label>
+                    <textarea 
+                        className="w-full p-2 border rounded-md text-sm focus:ring-2 focus:ring-indigo-500 outline-none bg-white text-gray-800" 
+                        rows="2"
+                        placeholder="Add implementation details, gaps, or justification..."
+                        value={evidence.notes || ""}
+                        onChange={(e) => onChange({ ...evidence, notes: e.target.value })}
+                    ></textarea>
+                </div>
+                <div className="flex gap-3 mb-4">
+                    <button onClick={() => imageInputRef.current.click()} className="flex items-center gap-2 px-3 py-1.5 bg-white border rounded text-xs text-gray-700 hover:bg-gray-50 cursor-pointer">
+                        <Image className="w-3 h-3" /> Add Picture
+                    </button>
+                    <input type="file" accept="image/*" ref={imageInputRef} className="hidden" onChange={(e) => handleFileRead(e, 'image')} />
+                    <button onClick={() => fileInputRef.current.click()} className="flex items-center gap-2 px-3 py-1.5 bg-white border rounded text-xs text-gray-700 hover:bg-gray-50 cursor-pointer">
+                        <FileText className="w-3 h-3" /> Attach File
+                    </button>
+                        <input type="file" ref={fileInputRef} className="hidden" onChange={(e) => handleFileRead(e, 'file')} />
+                </div>
+                {evidence.attachments && evidence.attachments.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {evidence.attachments.map(att => (
+                            <div key={att.id} className="flex items-center justify-between p-2 bg-white border rounded shadow-sm text-sm">
+                                <div className="flex items-center gap-2 overflow-hidden">
+                                    {att.type === 'image' ? (
+                                        <img src={att.data} alt="preview" className="w-8 h-8 object-cover rounded bg-gray-100" />
+                                    ) : (
+                                        <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded text-gray-500"><FileText className="w-4 h-4" /></div>
+                                    )}
+                                    <span className="truncate max-w-[150px]" title={att.name}>{att.name}</span>
+                                </div>
+                                <button onClick={() => removeAttachment(att.id)} className="text-red-400 hover:text-red-600 p-1"><Trash2 className="w-4 h-4" /></button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        );
+    };
+
+    const ControlCard = ({ control, tierIndex, cIdx, updateControl, showNotify }) => {
+        const [isRubricOpen, setIsRubricOpen] = useState(false);
+
+        return (
+            <div className="bg-white rounded-xl shadow-sm border overflow-hidden p-6 transition-all hover:shadow-md">
+                <div className="flex justify-between items-start mb-4">
+                    <div>
+                        <span className="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded font-bold mb-2">Safeguard {control.id}</span>
+                        <h3 className="text-lg font-bold text-gray-900">{control.title}</h3>
+                    </div>
+                </div>
+                
+                <div className="bg-gray-50 p-4 rounded-lg mb-6 border border-gray-100">
+                    <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-1 flex items-center gap-2">
+                        <Settings className="w-4 h-4" /> Description
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-3">{control.actionPlan}</p>
+                    
+                    <button 
+                        onClick={() => setIsRubricOpen(!isRubricOpen)}
+                        className="text-xs flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-medium transition-colors cursor-pointer"
+                    >
+                        <BookOpen className="w-3 h-3" /> 
+                        {isRubricOpen ? "Hide Rubric Description" : "Rubric Description"}
+                        <ChevronDown className={`w-3 h-3 transition-transform ${isRubricOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {isRubricOpen && (
+                        <div className="mt-4 grid grid-cols-1 gap-3 pt-3 border-t border-gray-200 animate-fade-in">
+                            <div className="text-xs">
+                                <span className="font-bold text-red-600 block mb-1">Level 1 (Initial)</span>
+                                <span className="text-gray-600">{control.levels[1]}</span>
+                            </div>
+                            <div className="text-xs">
+                                <span className="font-bold text-yellow-600 block mb-1">Level 2 (Partial)</span>
+                                <span className="text-gray-600">{control.levels[2]}</span>
+                            </div>
+                            <div className="text-xs">
+                                <span className="font-bold text-blue-600 block mb-1">Level 3 (Majority)</span>
+                                <span className="text-gray-600">{control.levels[3]}</span>
+                            </div>
+                            <div className="text-xs">
+                                <span className="font-bold text-green-600 block mb-1">Level 4 (Complete)</span>
+                                <span className="text-gray-600">{control.levels[4]}</span>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                <div className="space-y-3">
+                    <div className="text-xs font-semibold text-gray-400 uppercase">Self Score</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                        {[1, 2, 3, 4, 'N/A'].map((level) => {
+                            const val = level === 'N/A' ? 'N/A' : level;
+                            const isSelected = control.selectedLevel == val;
+                            let label = level === 'N/A' ? 'N/A' : `Level ${level}`;
+                            let points = level === 'N/A' ? '' : `(${level * 0.25} pts)`;
+                            let activeClass = "";
+                            if (isSelected) {
+                                if(level === 1) activeClass = "bg-red-500 border-red-500 text-white";
+                                else if(level === 2) activeClass = "bg-orange-500 border-orange-500 text-white";
+                                else if(level === 3) activeClass = "bg-blue-500 border-blue-500 text-white";
+                                else if(level === 4) activeClass = "bg-green-500 border-green-500 text-white";
+                                else activeClass = "bg-gray-500 border-gray-500 text-white";
+                            } else {
+                                activeClass = "bg-white text-gray-600 hover:border-indigo-300";
+                            }
+
+                            return (
+                                <button
+                                    key={level}
+                                    onClick={() => updateControl(tierIndex, cIdx, { selectedLevel: val })}
+                                    className={`flex flex-col items-center justify-center p-3 rounded-lg border transition-all cursor-pointer ${activeClass}`}
+                                >
+                                    <span className="font-bold">{label}</span>
+                                    <span className="text-xs opacity-80">{points}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {control.selectedLevel && control.selectedLevel !== 'N/A' && (
+                    <div className="mt-4 pt-4 border-t text-sm text-gray-600 animate-fade-in">
+                        <span className="font-semibold text-gray-800">Current Level Definition:</span> {control.levels[control.selectedLevel]}
+                    </div>
+                )}
+
+                {control.selectedLevel && (
+                    <EvidenceSection 
+                        evidence={control.evidence || { notes: "", attachments: [] }}
+                        onChange={(newEvidence) => updateControl(tierIndex, cIdx, { evidence: newEvidence })}
+                        showNotify={showNotify}
+                    />
+                )}
+            </div>
+        );
+    };
+
+    // --- Main Component ---
+    const App = () => {
+        const [view, setView] = useState('intro'); 
+        const [data, setData] = useState(INITIAL_DATA);
+        const [notification, setNotification] = useState(null);
+        const [loading, setLoading] = useState(false);
+        const [assessmentTypes, setAssessmentTypes] = useState([]);
+        const [selectedTypeID, setSelectedTypeID] = useState(""); // Stores the numeric TypeID
+
+        // Load from LocalStorage on Mount
+        useEffect(() => {
+            const savedData = localStorage.getItem('cis_assessment_data');
+            if (savedData) {
+                try {
+                    const parsed = JSON.parse(savedData);
+                    if(parsed && Array.isArray(parsed) && parsed.length === 10) {
+                        const normalized = parsed.map(tier => ({
+                            ...tier,
+                            controls: tier.controls.map(c => ({
+                                ...c,
+                                evidence: c.evidence || { notes: "", attachments: [] }
+                            }))
+                        }));
+                        setData(normalized);
+                    }
+                } catch (e) {
+                    console.error("Error loading data", e);
+                }
+            }
+            
+            // Fetch assessment types
+            fetch(ASSESSMENT_TYPES_URL)
+                .then(res => res.json())
+                .then(types => {
+                    if (Array.isArray(types)) setAssessmentTypes(types);
+                    else if (types.types) setAssessmentTypes(types.types);
+                })
+                .catch(err => console.error("Failed to load assessment types", err));
+        }, []);
+
+        // Save to LocalStorage on Change
+        useEffect(() => {
+            try {
+                localStorage.setItem('cis_assessment_data', JSON.stringify(data));
+            } catch (e) {
+                if (e.name === 'QuotaExceededError') {
+                    showNotify("Storage Quota Exceeded! Remove some large attachments.", true);
+                }
+            }
+        }, [data]);
+
+        const handleTypeChange = async (e) => {
+            const newTypeID = e.target.value;
+            setSelectedTypeID(newTypeID);
+
+            if (!newTypeID) return;
+
+            setLoading(true);
+            try {
+                const res = await fetch(RUBRIC_URL);
+                const rubrics = await res.json();
+                
+                // Update rubrics in data based on selected type
+                const updatedData = data.map(tier => ({
+                    ...tier,
+                    controls: tier.controls.map(control => {
+                        // Find matching rubric entries for this control
+                        const matchingRubricEntries = rubrics.filter(r => {
+                            const rSafeguardID = (r.SafeguardID || "").toString().replace(/^SG/i, '');
+                            const controlId = (control.id || "").toString().replace(/^SG/i, '');
+                            const rTypeID = (r.TypeID || "").toString();
+                            const targetTypeID = newTypeID.toString();
+                            return rSafeguardID === controlId && rTypeID === targetTypeID;
+                        });
+
+                        if (matchingRubricEntries.length > 0) {
+                            const newLevels = { ...control.levels };
+                            matchingRubricEntries.forEach(entry => {
+                                const levelStr = entry.Level ? entry.Level.toString() : "";
+                                const match = levelStr.match(/(\d+)/);
+                                if (match) {
+                                    const levelNum = parseInt(match[0]);
+                                    if (levelNum >= 1 && levelNum <= 4) {
+                                        newLevels[levelNum] = entry.Description;
+                                    }
+                                }
+                            });
+                            return { ...control, levels: newLevels };
+                        }
+                        return control;
+                    })
+                }));
+                
+                setData(updatedData);
+                showNotify(`Rubrics loaded for Assessment Type ID: ${newTypeID}`);
+            } catch (err) {
+                console.error("Failed to load rubrics", err);
+                showNotify("Failed to load rubrics for selected type", true);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        const updateControl = (tierIndex, controlIndex, updates) => {
+            const newData = [...data];
+            newData[tierIndex].controls[controlIndex] = {
+                ...newData[tierIndex].controls[controlIndex],
+                ...updates
+            };
+            setData(newData);
+        };
+
+        const calculateTierScore = (tier) => {
+            let score = 0;
+            let answered = 0;
+            let nas = 0;
+            
+            tier.controls.forEach(c => {
+                const val = c.selectedLevel;
+                if (val === 'N/A') {
+                    nas++;
+                } else if (val) {
+                    score += (parseInt(val) * 0.25);
+                    answered++;
+                }
+            });
+            return { score, answered, nas };
+        };
+
+        const downloadData = () => {
+            const exportObj = {
+                assessmentTypeID: selectedTypeID,
+                timestamp: new Date().toISOString(),
+                data: data
+            };
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", `cis_assessment_backup.json`);
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+            showNotify("Assessment saved to file!");
+        };
+
+        const handleFileUpload = (event) => {
+            const fileReader = new FileReader();
+            fileReader.readAsText(event.target.files[0], "UTF-8");
+            fileReader.onload = e => {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    let controlsData = Array.isArray(parsed) ? parsed : parsed.data;
+                    
+                    if (controlsData && controlsData.length > 0 && controlsData[0].controls) {
+                        const normalized = controlsData.map(tier => ({
+                            ...tier,
+                            controls: tier.controls.map(c => ({
+                                ...c,
+                                evidence: c.evidence || { notes: "", attachments: [] }
+                            }))
+                        }));
+                        setData(normalized);
+                        if (parsed.assessmentTypeID) setSelectedTypeID(parsed.assessmentTypeID);
+                        showNotify("Assessment loaded successfully!");
+                    } else {
+                        showNotify("Invalid assessment backup file.", true);
+                    }
+                } catch (err) {
+                    showNotify("Error parsing file.", true);
+                }
+            };
+        };
+
+        const processMappingData = (jsonInput) => {
+            let items = [];
+            if (Array.isArray(jsonInput)) {
+                items = jsonInput;
+            } else if (jsonInput && typeof jsonInput === 'object') {
+                const key = Object.keys(jsonInput).find(k => Array.isArray(jsonInput[k]));
+                if (key) items = jsonInput[key];
+            }
+
+            if (!items.length) {
+                showNotify("JSON valid, but no array of controls found.", true);
+                return;
+            }
+
+            const newStructure = INITIAL_DATA.map(t => ({...t, controls: []}));
+            let matchCount = 0;
+            
+            items.forEach(item => {
+                const getVal = (k) => item[Object.keys(item).find(key => key.toLowerCase() === k.toLowerCase())];
+                
+                let tierNum = getVal('TierNumber');
+                if (!tierNum) tierNum = getVal('tier');
+                
+                let rawId = getVal('ID'); 
+                if (!rawId) rawId = getVal('safeguard');
+
+                let title = getVal('Title') || getVal('name');
+                let description = getVal('Description') || getVal('desc') || getVal('Action Plan');
+                
+                if (tierNum && rawId) {
+                    const tierInt = parseInt(tierNum);
+                    const cleanId = rawId.toString().replace(/^SG/i, '');
+
+                    if (!isNaN(tierInt) && tierInt >= 1 && tierInt <= 10) {
+                        newStructure[tierInt - 1].controls.push({
+                            id: cleanId,
+                            title: title || "Title Unavailable",
+                            actionPlan: description || "Description Unavailable",
+                            levels: { 1: "Initial", 2: "Partial", 3: "Majority", 4: "Complete" },
+                            selectedLevel: null,
+                            evidence: { notes: "", attachments: [] }
+                        });
+                        matchCount++;
+                    }
+                }
+            });
+
+            const totalControls = newStructure.reduce((acc, t) => acc + t.controls.length, 0);
+            
+            if (totalControls > 0) {
+                newStructure.forEach(t => {
+                    t.controls.sort((a, b) => {
+                        if (!a.id || !b.id) return 0;
+                        const aParts = a.id.toString().split('.').map(Number);
+                        const bParts = b.id.toString().split('.').map(Number);
+                        if(aParts[0] !== bParts[0]) return aParts[0] - bParts[0];
+                        return aParts[1] - bParts[1];
+                    });
+                });
+                setData(newStructure);
+                showNotify(`Successfully populated ${totalControls} controls!`);
+            } else {
+                showNotify("No valid controls found (TierNumber 1-10 missing in JSON).", true);
+            }
+        };
+
+        const handleUrlFetch = async () => {
+            setLoading(true);
+            try {
+                const response = await fetch(MAP_URL);
+                if (!response.ok) throw new Error("Network response was not ok");
+                const jsonMap = await response.json();
+                processMappingData(jsonMap);
+            } catch (error) {
+                console.error("Fetch error:", error);
+                showNotify("Failed to fetch from GitHub. Please check network/URL.", true);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        const handleMappingUpload = (event) => {
+            const fileReader = new FileReader();
+            fileReader.readAsText(event.target.files[0], "UTF-8");
+            fileReader.onload = e => {
+                try {
+                    const jsonMap = JSON.parse(e.target.result);
+                    processMappingData(jsonMap);
+                } catch (err) {
+                    showNotify("Error parsing mapping file.", true);
+                }
+            };
+        };
+
+        const showNotify = (msg, isError = false) => {
+            setNotification({ msg, isError });
+            setTimeout(() => setNotification(null), 3000);
+        };
+
+        // Calculate Aggregates
+        const aggregates = useMemo(() => {
+            let totalScore = 0;
+            let totalMax = 0;
+            let counts = { 1: 0, 2: 0, 3: 0, 4: 0, na: 0, unassigned: 0 };
+            
+            data.forEach(tier => {
+                const stats = calculateTierScore(tier);
+                totalScore += stats.score;
+                totalMax += tier.maxScore;
+                
+                tier.controls.forEach(c => {
+                    if (c.selectedLevel === 'N/A') counts.na++;
+                    else if (c.selectedLevel) counts[c.selectedLevel]++;
+                    else counts.unassigned++;
+                });
+            });
+
+            return { totalScore, totalMax, counts };
+        }, [data]);
+
+        // --- Render Components ---
+
+        const Sidebar = () => (
+            <div className="w-full md:w-64 bg-white border-r border-gray-200 flex flex-col shadow-sm z-10 flex-shrink-0">
+                <div className="p-6 border-b flex items-center gap-3">
+                    <Shield className="w-8 h-8 text-indigo-600" />
+                    <div>
+                        <h1 className="font-bold text-gray-800 text-base">NCNE / CIS</h1>
+                        <p className="text-xs text-gray-500">Assessment Tool</p>
+                    </div>
+                </div>
+                <div className="flex-1 overflow-y-auto">
+                <nav className="p-4 space-y-1">
+                    <div className="px-4 pb-4">
+                        <label className="block text-xs font-medium text-gray-500 mb-1">Assessment Type</label>
+                        <select 
+                            value={selectedTypeID} 
+                            onChange={handleTypeChange}
+                            className="w-full p-2 bg-white border rounded text-sm focus:ring-2 focus:ring-indigo-500 outline-none text-gray-700"
+                        >
+                            <option value="">Select Type...</option>
+                            {assessmentTypes.map((type, i) => (
+                                <option key={i} value={type.TypeID}>{type.Type}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <button onClick={() => setView('intro')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-left transition-colors cursor-pointer ${view === 'intro' ? 'bg-indigo-50 text-indigo-700 border-r-4 border-indigo-700' : 'text-gray-600 hover:bg-gray-50'}`}>
+                        <Info className="w-4 h-4" /> Introduction
+                    </button>
+                    <button onClick={() => setView('score')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-left transition-colors cursor-pointer ${view === 'score' ? 'bg-indigo-50 text-indigo-700 border-r-4 border-indigo-700' : 'text-gray-600 hover:bg-gray-50'}`}>
+                        <LayoutDashboard className="w-4 h-4" /> Score & Dashboard
+                    </button>
+                    <div className="pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider px-4">Tiers</div>
+                    {data.map((tier, idx) => (
+                        <button key={tier.id} onClick={() => setView(`tier-${idx}`)} className={`w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium text-left transition-colors cursor-pointer ${view === `tier-${idx}` ? 'bg-indigo-50 text-indigo-700 border-r-4 border-indigo-700' : 'text-gray-600 hover:bg-gray-50'}`}>
+                            <span className="flex items-center gap-2">
+                                <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{tier.id}</span>
+                                {tier.name}
+                            </span>
+                            {calculateTierScore(tier).score > 0 && <CheckCircle2 className="w-3 h-3 text-green-500"/>}
+                        </button>
+                    ))}
+                        <button onClick={() => setView('summary')} className={`mt-4 w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-left transition-colors cursor-pointer ${view === 'summary' ? 'bg-indigo-50 text-indigo-700 border-r-4 border-indigo-700' : 'text-gray-600 hover:bg-gray-50'}`}>
+                        <FileText className="w-4 h-4" /> Full Summary
+                    </button>
+                </nav>
+                <div className="p-4 border-t bg-gray-50">
+                    <div className="space-y-2">
+                            <button onClick={handleUrlFetch} disabled={loading} className="w-full flex items-center justify-center p-2 bg-indigo-600 border border-indigo-700 rounded text-xs text-white hover:bg-indigo-700 transition gap-2 shadow-sm cursor-pointer">
+                            {loading ? <div className="cis-spinner"></div> : <Globe className="w-4 h-4" />}
+                            Fetch Official Mapping
+                        </button>
+                            <label className="flex items-center justify-center p-2 bg-indigo-50 border border-indigo-200 rounded text-xs text-indigo-700 hover:bg-indigo-100 transition cursor-pointer gap-2">
+                            <FileJson className="w-4 h-4" /> Upload Map File
+                            <input type="file" className="hidden" accept=".json" onChange={handleMappingUpload}/>
+                        </label>
+
+                        <div className="grid grid-cols-2 gap-2 mt-2">
+                            <button onClick={downloadData} className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition cursor-pointer">
+                                <Download className="w-4 h-4 mb-1" /> Save
+                            </button>
+                            <label className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition cursor-pointer">
+                                <Upload className="w-4 h-4 mb-1" /> Load
+                                <input type="file" className="hidden" accept=".json" onChange={handleFileUpload}/>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        );
+
+        const IntroductionView = () => (
+            <div className="max-w-4xl mx-auto space-y-6">
+                <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Welcome to the CIS Controls Assessment</h2>
+                    <div className="prose text-gray-600 space-y-4">
+                        <p>The CIS Critical Security Controls (CIS Controls) are a prioritized set of Safeguards to mitigate the most prevalent cyber attacks against systems and networks. This tool helps you assess your implementation of these controls using the NCNE adaptation.</p>
+                        
+                        <h3 className="text-lg font-semibold text-gray-800 pt-2">How it works</h3>
+                        <p>The controls are broken into <strong>10 Tiers</strong>. Tier 4 is equivalent to Implementation Group 1 (IG1), Tier 7 to IG2, and Tier 10 to IG3.</p>
+                        
+                        <div className="bg-blue-50 p-4 rounded-lg border border-blue-100 my-4 text-sm text-blue-800 flex items-start gap-3">
+                            <Globe className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                            <div>
+                                <strong>Latest Framework Data:</strong> Click the <span className="font-bold text-indigo-700">Fetch Official Mapping</span> button in the sidebar to automatically download and populate the latest Controls, Titles, and Descriptions directly from the MidwestCyberLLC GitHub repository.
+                            </div>
+                        </div>
+
+                        <div className="bg-green-50 p-4 rounded-lg border border-green-100 my-4 text-sm text-green-800 flex items-start gap-3">
+                            <ListChecks className="w-5 h-5 mt-0.5 flex-shrink-0" />
+                            <div>
+                                <strong>Custom Rubrics:</strong> Select your <span className="font-bold">Assessment Type</span> from the sidebar dropdown to load specific grading criteria for each control level.
+                            </div>
+                        </div>
+
+                        <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-100 my-4">
+                            <h4 className="font-semibold text-indigo-900 mb-2">Scoring System</h4>
+                            <ul className="space-y-2 text-sm text-indigo-800">
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 1</span> Initial (0.25 points)</li>
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 2</span> Partial (0.50 points)</li>
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 3</span> Majority (0.75 points)</li>
+                                <li className="flex items-center gap-2"><span className="font-bold bg-white px-2 py-0.5 rounded border border-indigo-200">Level 4</span> Complete (1.00 points)</li>
+                            </ul>
+                        </div>
+                        
+                        <button onClick={() => setView('tier-0')} className="mt-8 bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition flex items-center gap-2 cursor-pointer">
+                            Start Assessment <ChevronRight className="w-4 h-4" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const ScoreView = () => (
+            <div className="max-w-5xl mx-auto space-y-6">
+                {/* Top Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <div className="text-sm text-gray-500 font-medium">Total Score</div>
+                        <div className="text-3xl font-bold text-indigo-600 mt-2">{aggregates.totalScore.toFixed(2)} <span className="text-gray-400 text-lg">/ {aggregates.totalMax}</span></div>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <div className="text-sm text-gray-500 font-medium">Compliance</div>
+                        <div className="text-3xl font-bold text-green-600 mt-2">{((aggregates.totalScore / aggregates.totalMax) * 100).toFixed(1)}%</div>
+                    </div>
+                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <div className="text-sm text-gray-500 font-medium">Controls Assessed</div>
+                        <div className="text-3xl font-bold text-blue-600 mt-2">{153 - aggregates.counts.unassigned} <span className="text-gray-400 text-lg">/ 153</span></div>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <div className="text-sm text-gray-500 font-medium">Not Applicable</div>
+                        <div className="text-3xl font-bold text-gray-600 mt-2">{aggregates.counts.na}</div>
+                    </div>
+                </div>
+
+                {/* Breakdown Chart */}
+                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h3 className="font-bold text-gray-800 mb-4">Implementation Levels</h3>
+                    <div className="flex h-6 rounded-full overflow-hidden bg-gray-100">
+                        <div style={{width: `${(aggregates.counts[4]/153)*100}%`}} className="bg-green-500" title="Complete"></div>
+                        <div style={{width: `${(aggregates.counts[3]/153)*100}%`}} className="bg-blue-500" title="Majority"></div>
+                        <div style={{width: `${(aggregates.counts[2]/153)*100}%`}} className="bg-yellow-500" title="Partial"></div>
+                        <div style={{width: `${(aggregates.counts[1]/153)*100}%`}} className="bg-red-500" title="Initial"></div>
+                    </div>
+                    <div className="flex justify-between mt-4 text-sm text-gray-600 flex-wrap gap-2">
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-green-500"></div> Complete ({aggregates.counts[4]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-blue-500"></div> Majority ({aggregates.counts[3]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-yellow-500"></div> Partial ({aggregates.counts[2]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-red-500"></div> Initial ({aggregates.counts[1]})</div>
+                            <div className="flex items-center gap-2"><div className="w-3 h-3 rounded-full bg-gray-200"></div> Unscored ({aggregates.counts.unassigned})</div>
+                    </div>
+                </div>
+
+                {/* Detailed Tier Table */}
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div className="overflow-x-auto">
+                    <table className="w-full text-left border-collapse">
+                        <thead>
+                            <tr className="bg-gray-50 border-b text-sm text-gray-500">
+                                <th className="px-6 py-4 font-semibold">Tier</th>
+                                <th className="px-6 py-4 font-semibold">Progress</th>
+                                <th className="px-6 py-4 font-semibold">Score</th>
+                                <th className="px-6 py-4 font-semibold text-right">Max</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((tier, i) => {
+                                const stats = calculateTierScore(tier);
+                                const percent = (stats.score / tier.maxScore) * 100;
+                                return (
+                                    <tr key={tier.id} onClick={() => setView(`tier-${i}`)} className="border-b last:border-0 hover:bg-gray-50 cursor-pointer transition">
+                                        <td className="px-6 py-4">
+                                            <div className="font-semibold text-gray-900">{tier.name}</div>
+                                            <div className="text-xs text-gray-500">{tier.description}</div>
+                                        </td>
+                                        <td className="px-6 py-4 w-1/3">
+                                            <div className="w-full bg-gray-200 rounded-full h-2.5">
+                                                <div className="bg-indigo-600 h-2.5 rounded-full transition-all duration-500" style={{ width: `${percent}%` }}></div>
+                                            </div>
+                                            <div className="text-xs text-gray-500 mt-1">{percent.toFixed(0)}%</div>
+                                        </td>
+                                        <td className="px-6 py-4 font-mono text-gray-700">{stats.score.toFixed(2)}</td>
+                                        <td className="px-6 py-4 font-mono text-gray-400 text-right">{tier.maxScore}</td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        );
+
+        const TierView = ({ tierIndex }) => {
+            const tier = data[tierIndex];
+            const stats = calculateTierScore(tier);
+            
+            return (
+                <div className="max-w-4xl mx-auto pb-20">
+                    {/* Header */}
+                    <div className="flex items-end justify-between mb-6 border-b border-gray-200 pb-4">
+                        <div>
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{tier.name}</h2>
+                            <p className="text-gray-500 text-sm md:text-base">{tier.description}</p>
+                        </div>
+                        <div className="text-right">
+                            <div className="text-2xl font-bold text-indigo-600">{stats.score} <span className="text-gray-400 text-lg">/ {tier.maxScore}</span></div>
+                            <div className="text-sm text-gray-500">Current Score</div>
+                        </div>
+                    </div>
+
+                    {/* Controls List */}
+                    <div className="space-y-6">
+                        {tier.controls.map((control, cIdx) => (
+                            <ControlCard 
+                                key={control.id}
+                                control={control}
+                                tierIndex={tierIndex}
+                                cIdx={cIdx}
+                                updateControl={updateControl}
+                                showNotify={showNotify}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Navigation Footer */}
+                    <div className="flex justify-between mt-8">
+                        <button 
+                            onClick={() => setView(tierIndex > 0 ? `tier-${tierIndex - 1}` : 'intro')}
+                            className="px-6 py-3 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700 cursor-pointer"
+                        >
+                            Previous
+                        </button>
+                        <button 
+                            onClick={() => setView(tierIndex < 9 ? `tier-${tierIndex + 1}` : 'summary')}
+                            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 shadow-md flex items-center gap-2 cursor-pointer"
+                        >
+                            {tierIndex < 9 ? 'Next Tier' : 'Finish & View Summary'} <ChevronRight className="w-4 h-4"/>
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        const SummaryView = () => (
+            <div className="max-w-6xl mx-auto">
+                <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                    <div className="p-6 border-b flex justify-between items-center bg-gray-50">
+                        <h2 className="text-xl md:text-2xl font-bold text-gray-800">Complete Assessment Summary</h2>
+                        <button onClick={downloadData} className="text-sm bg-white border px-3 py-1.5 rounded text-gray-600 hover:text-indigo-600 cursor-pointer">Download Report</button>
+                    </div>
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-sm text-left">
+                            <thead className="bg-gray-50 text-gray-500 font-medium border-b">
+                                <tr>
+                                    <th className="px-4 py-3">ID</th>
+                                    <th className="px-4 py-3">Control Title</th>
+                                    <th className="px-4 py-3">Status</th>
+                                    <th className="px-4 py-3">Evidence</th>
+                                    <th className="px-4 py-3 text-right">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100">
+                                {data.flatMap((tier) => 
+                                    tier.controls.map((c) => (
+                                        <tr key={c.id} className="hover:bg-gray-50">
+                                            <td className="px-4 py-3 font-mono text-gray-500">{c.id}</td>
+                                            <td className="px-4 py-3 text-gray-800">{c.title}</td>
+                                            <td className="px-4 py-3">
+                                                {!c.selectedLevel ? <span className="text-gray-400 italic">Not Scored</span> :
+                                                    c.selectedLevel === 'N/A' ? <span className="px-2 py-1 rounded bg-gray-100 text-gray-600 text-xs font-bold">N/A</span> :
+                                                    c.selectedLevel == 4 ? <span className="px-2 py-1 rounded bg-green-100 text-green-700 text-xs font-bold">Complete</span> :
+                                                    c.selectedLevel == 3 ? <span className="px-2 py-1 rounded bg-blue-100 text-blue-700 text-xs font-bold">Majority</span> :
+                                                    c.selectedLevel == 2 ? <span className="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs font-bold">Partial</span> :
+                                                    <span className="px-2 py-1 rounded bg-red-100 text-red-700 text-xs font-bold">Initial</span>}
+                                            </td>
+                                            <td className="px-4 py-3 text-gray-500">
+                                                {c.evidence && c.evidence.notes && <MessageSquare className="w-4 h-4 inline-block mr-2" />}
+                                                {c.evidence && c.evidence.attachments && c.evidence.attachments.length > 0 && <Paperclip className="w-4 h-4 inline-block" />}
+                                            </td>
+                                            <td className="px-4 py-3 text-right font-mono">
+                                                {c.selectedLevel && c.selectedLevel !== 'N/A' ? (c.selectedLevel * 0.25).toFixed(2) : '-'}
+                                            </td>
+                                        </tr>
+                                    ))
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        );
+
+        // --- Main Render Switch ---
+        const renderContent = () => {
+            if (view === 'intro') return <IntroductionView />;
+            if (view === 'score') return <ScoreView />;
+            if (view === 'summary') return <SummaryView />;
+            if (view.startsWith('tier-')) return <TierView tierIndex={parseInt(view.split('-')[1])} />;
+            return <IntroductionView />;
+        };
+
+        return (
+            <div className="flex flex-col md:flex-row min-h-[600px] bg-gray-50 h-full">
+                <Sidebar />
+                <main className="flex-1 p-4 md:p-8 overflow-y-auto h-full">
+                    {renderContent()}
+                </main>
+                
+                {notification && (
+                    <div className={`fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white font-medium animate-bounce z-50 ${notification.isError ? 'bg-red-600' : 'bg-green-600'}`}>
+                        {notification.msg}
+                    </div>
+                )}
+            </div>
+        );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('cis-assessment-tool-root'));
+    root.render(<App />);
+</script>
