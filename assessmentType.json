@@ -1,0 +1,12 @@
+[
+    {
+        "TypeID": "1",
+        "Type": "K-12",
+        "Description": "Rubric descriptions for K-12 specific assessments"
+    },
+    {
+        "TypeID": "2",
+        "Type": "Higher Education",
+        "Description": "Rubric descriptions for Higher Education specific assessments"
+    }
+]
