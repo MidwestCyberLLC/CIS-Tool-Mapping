@@ -15,6 +15,10 @@
     <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+    <!-- jsPDF & AutoTable for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+
     <style>
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f3f4f6; }
         .sidebar-item.active { background-color: #e0e7ff; color: #3730a3; border-right: 4px solid #3730a3; }
@@ -45,6 +49,7 @@
 
     <script type="text/babel">
         const { useState, useEffect, useMemo, useRef } = React;
+        const { jsPDF } = window.jspdf;
 
         // --- Inline Icons ---
         const IconWrapper = ({ children, className }) => (
@@ -77,6 +82,7 @@
         const Calendar = ({ className }) => <IconWrapper className={className}><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></IconWrapper>;
         const Building = ({ className }) => <IconWrapper className={className}><rect x="4" y="2" width="16" height="20" rx="2" ry="2" /><line x1="9" y1="22" x2="9" y2="12" /><line x1="15" y1="12" x2="15" y2="22" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="17" x2="20" y2="17" /></IconWrapper>;
         const HelpCircle = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><path d="M12 17h.01" /></IconWrapper>;
+        const Clock = ({ className }) => <IconWrapper className={className}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></IconWrapper>;
 
         // --- Helper Functions ---
 
@@ -117,6 +123,38 @@
             return { score, answered, nas };
         };
 
+        const calculateAggregates = (data) => {
+            let totalScore = 0;
+            let totalMax = 0;
+            let counts = { 1: 0, 2: 0, 3: 0, 4: 0, na: 0, unassigned: 0 };
+            let tierRank = 0;
+            let sequenceBroken = false;
+
+            data.forEach((tier, index) => {
+                const stats = calculateTierScore(tier);
+                totalScore += stats.score;
+                totalMax += tier.maxScore;
+                
+                tier.controls.forEach(c => {
+                    if (c.selectedLevel === 'N/A') counts.na++;
+                    else if (c.selectedLevel) counts[c.selectedLevel]++;
+                    else counts.unassigned++;
+                });
+
+                if (!sequenceBroken) {
+                    if (tier.controls && tier.controls.length > 0) {
+                        const isTierComplete = tier.controls.every(c => c.selectedLevel == 4 || c.selectedLevel === 'N/A');
+                        if (isTierComplete) tierRank = index + 1;
+                        else sequenceBroken = true;
+                    } else {
+                        tierRank = index + 1;
+                    }
+                }
+            });
+
+            return { totalScore, totalMax, counts, tierRank };
+        };
+
         // Evidence helper to limit file size (500KB limit for browser storage safety)
         const FILE_SIZE_LIMIT = 500 * 1024;
 
@@ -140,371 +178,473 @@
                     ...generatePlaceholders(2, 14, 1)
                 ]
             },
-            {
-                id: 2, name: "Tier 2", description: "Foundational Controls (IG1/IG2)", maxScore: 11, controls: [
-                    {
-                        id: "1.2",
-                        title: "Address Unauthorized Assets",
-                        actionPlan: "Ensure that a process exists to address unauthorized assets on a weekly basis.",
-                        levels: { 
-                            1: "No process exists to address unauthorized assets on a weekly basis. There is no documentation or evidence of efforts to identify and mitigate risks posed by these assets.", 
-                            2: "The organization has some awareness of unauthorized assets, but lacks a consistent process to address them. Procedures exist, but are not followed or implemented consistently.", 
-                            3: "Unauthorized assets remain active on the network due to inconsistent remediation efforts. Some measures are taken, but documentation and enforcement are lacking.", 
-                            4: "A comprehensive process exists to identify and address unauthorized assets weekly. The organization documents their efforts, removes or quarantines assets, and regularly monitors and reports on their remediation activities." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "6.3",
-                        title: "Require MFA for Externally-Exposed Applications",
-                        actionPlan: "Require all externally-exposed enterprise or third-party applications to enforce Multi-Factor Authentication (MFA).",
-                        levels: { 1: "None", 2: "Some", 3: "Most", 4: "All" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "17.2",
-                        title: "Establish and Maintain Contact Information for Reporting Security Incidents",
-                        actionPlan: "Establish and maintain contact information for parties that need to be informed of security incidents.",
-                        levels: { 
-                            1: "No contact information exists for reporting security incidents to relevant parties.", 
-                            2: "Some contact information is established for reporting security incidents, but it is incomplete, outdated, or not thoroughly verified.", 
-                            3: "Contact information is updated periodically, but only basic changes are made. Verification of contacts is infrequent.", 
-                            4: "Comprehensive contact information exists for all relevant parties to report security incidents. Contact data is regularly verified annually." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 8, 2)
-                ]
-            },
-            {
-                id: 3, name: "Tier 3", description: "Foundational Controls", maxScore: 16, controls: [
-                    {
-                        id: "2.3",
-                        title: "Address Unauthorized Software",
-                        actionPlan: "Ensure that unauthorized software is either removed from use on enterprise assets or receives a documented exception.",
-                        levels: { 
-                            1: "The organization has no process in place to address unauthorized software usage, leaving it vulnerable to potential threats.", 
-                            2: "Unauthorized software is removed from use on enterprise assets, but there are no documented exceptions for its removal.", 
-                            3: "Unauthorized software is removed from use or receives a documented exception for continued access. However, this process lacks regular review.", 
-                            4: "Regular monthly reviews (or more frequently) ensure unauthorized software is either removed from use or has a documented exception." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "3.2",
-                        title: "Establish and Maintain a Data Inventory",
-                        actionPlan: "Establish and maintain a data inventory based on the enterprise’s data management process.",
-                        levels: { 
-                            1: "The organization does not have a data inventory or a process in place.", 
-                            2: "Partial inventory exists but is incomplete.", 
-                            3: "Inventory exists but updates are lacking.", 
-                            4: "Complete inventory, updated annually." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "14.6",
-                        title: "Train Workforce Members on Recognizing and Reporting Security Incidents",
-                        actionPlan: "Train workforce members to be able to recognize a potential incident and be able to report such an incident.",
-                        levels: { 
-                            1: "There is no formal training program in place to educate workforce members on recognizing and reporting security incidents.", 
-                            2: "Workforce members receive basic training on what constitutes a security incident, including types of incidents (e.g., unauthorized access) and how to report them. However, no specific procedures are outlined.", 
-                            3: "A standardized incident reporting process is established. Basic training on the process is provided, but incident response procedures are not detailed.", 
-                            4: "All workforce members participate in comprehensive security awareness training, including recognition of potential incidents and procedures for reporting them." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                     ...generatePlaceholders(4, 13, 3)
-                ]
-            },
-            {
-                id: 4, name: "Tier 4", description: "Equivalent to IG1 Completion", maxScore: 15, controls: [
-                    {
-                        id: "2.2",
-                        title: "Ensure Authorized Software is Currently Supported",
-                        actionPlan: "Ensure that only currently supported software is designated as authorized in the software inventory.",
-                        levels: { 
-                            1: "No process exists for ensuring authorized software is currently supported on enterprise assets.", 
-                            2: "A manual review of the software inventory occurs quarterly, but exceptions for unsupported software are not documented or approved.", 
-                            3: "Currently supported software is designated as authorized, and exceptions for unsupported software are documented. However, documentation may be incomplete.", 
-                            4: "Regular reviews (monthly or more frequently) ensure that all enterprise assets have only currently supported software designated as authorized." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "3.3",
-                        title: "Configure Data Access Control Lists",
-                        actionPlan: "Configure data access control lists (ACLs) based on a user’s need to know.",
-                        levels: { 1: "None", 2: "Basic", 3: "Most", 4: "Comprehensive" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "17.1",
-                        title: "Designate Personnel to Manage Incident Handling",
-                        actionPlan: "Designate one or more personnel to manage incident handling.",
-                        levels: { 
-                            1: "No designated personnel exist to manage incident handling.", 
-                            2: "A single person has been designated to manage the enterprise's incident handling process, but there are no backups.", 
-                            3: "Two personnel have been designated to manage the enterprise's incident handling process, including at least one backup.", 
-                            4: "A dedicated team of two or more personnel has been established to manage the enterprise's incident handling process." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 12, 4)
-                ]
-            },
-            {
-                id: 5, name: "Tier 5", description: "Mid-level Controls (IG2)", maxScore: 25, controls: [
-                     {
-                        id: "3.7",
-                        title: "Establish and Maintain a Data Classification Scheme",
-                        actionPlan: "Establish and maintain an overall data classification scheme for the enterprise.",
-                        levels: { 
-                            1: "No data classification scheme exists.", 
-                            2: "A basic data classification scheme has been established using labels such as 'Sensitive' and 'Confidential.' However, the scheme is not reviewed or updated regularly.", 
-                            3: "An organized data classification scheme has been implemented, with clear labels. The scheme is reviewed annually, but changes are not always reflected promptly.", 
-                            4: "A comprehensive and regularly updated data classification scheme exists, with clear guidelines, labels, and procedures for ensuring confidentiality and integrity." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(2, 24, 5)
-                ]
-            },
-            {
-                id: 6, name: "Tier 6", description: "Mid-level Controls (IG2)", maxScore: 25, controls: [
-                     {
-                        id: "2.5",
-                        title: "Allowlist Authorized Software",
-                        actionPlan: "Use technical controls, such as application allowlisting, to ensure that only authorized software can execute or be accessed.",
-                        levels: { 
-                            1: "No technical controls in place, such as allowlisting, to restrict unauthorized software access.", 
-                            2: "Basic application allowlisting implemented, but only for a limited subset of approved applications.", 
-                            3: "Comprehensive application allowlisting is in place, covering all authorized software. Reviewed every two years.", 
-                            4: "All aspects of application allowlisting are met, including continuous monitoring and updates." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "3.11",
-                        title: "Encrypt Sensitive Data At Rest",
-                        actionPlan: "Encrypt sensitive data at rest on servers, applications, and databases.",
-                        levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Complete" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "18.3",
-                        title: "Remediate Penetration Test Findings",
-                        actionPlan: "Remediate penetration test findings based on the enterprise’s documented vulnerability remediation process.",
-                        levels: { 
-                            1: "No documented vulnerability remediation process is in place.", 
-                            2: "A basic remediation process exists, but it lacks detail or specific guidance on timelines and levels of effort.", 
-                            3: "The documented vulnerability remediation process is comprehensive, but findings are not prioritized or addressed within a reasonable timeline.", 
-                            4: "All penetration test findings are thoroughly assessed, prioritized, and remediated according to the documented process." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 22, 6)
-                ]
-            },
-            {
-                id: 7, name: "Tier 7", description: "Equivalent to IG2 Completion", maxScore: 24, controls: [
-                    {
-                        id: "1.3",
-                        title: "Utilize an Active Discovery Tool",
-                        actionPlan: "Utilize an active discovery tool to identify assets connected to the enterprise’s network.",
-                        levels: { 
-                            1: "The organization does not utilize any active discovery tools.", 
-                            2: "The organization has implemented an active discovery tool that identifies some, but not all, connected assets.", 
-                            3: "The organization utilizes an active discovery tool that identifies the vast majority of connected assets. The tool executes nightly or more frequently.", 
-                            4: "The organization has implemented a comprehensive active discovery tool that identifies all connected assets on their network in real-time." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "1.4",
-                        title: "Use DHCP Logging to Update Asset Inventory",
-                        actionPlan: "Use Dynamic Host Configuration Protocol (DHCP) logging on all DHCP servers.",
-                        levels: { 1: "None", 2: "Enabled", 3: "Reviewed", 4: "Automatic" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                     {
-                        id: "17.8",
-                        title: "Conduct Post-Incident Reviews",
-                        actionPlan: "Conduct post-incident reviews to prevent incident recurrence.",
-                        levels: { 
-                            1: "No post-incident review process exists, and no lessons are learned from past incidents.", 
-                            2: "Some post-incident reviews occur, but details are not documented or shared with relevant parties.", 
-                            3: "Regular post-incident reviews are conducted, and basic incident data is documented. However, no follow-up action is taken.", 
-                            4: "Post-incident reviews are thorough, complete, and timely, with lessons learned applied to prevent future incidents." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 21, 7)
-                ]
-            },
-             {
-                id: 8, name: "Tier 8", description: "Advanced Controls (IG3)", maxScore: 7, controls: [
-                    {
-                        id: "3.13",
-                        title: "Deploy a Data Loss Prevention Solution",
-                        actionPlan: "Implement an automated tool, such as a host-based Data Loss Prevention (DLP) tool.",
-                        levels: { 
-                            1: "No DLP solution is deployed, and data loss prevention processes do not exist.", 
-                            2: "A basic DLP tool is deployed, but it only scans on-premises assets.", 
-                            3: "An automated DLP tool is implemented to scan all enterprise assets. However, the solution does not update the inventory regularly.", 
-                            4: "A comprehensive DLP solution is deployed to identify and protect all sensitive data stored, processed, or transmitted through enterprise assets." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "4.12",
-                        title: "Separate Enterprise Workspaces on Mobile End-User Devices",
-                        actionPlan: "Ensure that enterprise workspaces on mobile end-user devices are separated from personal workspaces.",
-                        levels: { 1: "None", 2: "Partial", 3: "Most", 4: "Complete" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "15.6",
-                        title: "Monitor Service Providers",
-                        actionPlan: "Monitor service providers consistent with the enterprise’s service provider management policy.",
-                        levels: { 
-                            1: "No process exists to monitor service providers.", 
-                            2: "A basic monitoring system is in place, but it only includes periodic reassessment of service provider compliance reports.", 
-                            3: "The organization has implemented a standardized monitoring process that includes regular assessments of service provider compliance.", 
-                            4: "The enterprise has developed a comprehensive service provider management policy and implements a robust monitoring system." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 4, 8)
-                ]
-            },
-            {
-                id: 9, name: "Tier 9", description: "Advanced Controls (IG3)", maxScore: 7, controls: [
-                    {
-                        id: "12.8",
-                        title: "Dedicated Computing Resources for Admin Work",
-                        actionPlan: "Establish and maintain dedicated computing resources for all administrative tasks.",
-                        levels: { 
-                            1: "There is no dedicated computing resource for administrative work.", 
-                            2: "Administrative resources are physically separated from the enterprise's primary network but internet access is allowed.", 
-                            3: "Administrative resources are logically separated from the enterprise's primary network using firewalls and access controls.", 
-                            4: "Dedicated computing resources are both physically and logically separated from the enterprise's primary network." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "13.7",
-                        title: "Deploy a Host-Based Intrusion Prevention Solution",
-                        actionPlan: "Deploy a host-based intrusion prevention solution on enterprise assets.",
-                        levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Full" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "18.5",
-                        title: "Perform Periodic Internal Penetration Tests",
-                        actionPlan: "Perform periodic internal penetration tests based on program requirements.",
-                        levels: { 
-                            1: "No periodic internal penetration tests are performed.", 
-                            2: "Internal penetration tests are conducted annually, but only as required by program management.", 
-                            3: "Periodic internal penetration tests are performed two or three times annually, using a standardized framework.", 
-                            4: "Regular internal penetration tests are conducted at least quarterly to ensure ongoing program security posture." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 4, 9)
-                ]
-            },
-            {
-                id: 10, name: "Tier 10", description: "Equivalent to IG3 Completion", maxScore: 8, controls: [
-                    {
-                        id: "1.5",
-                        title: "Use a Passive Asset Discovery Tool",
-                        actionPlan: "Use a passive discovery tool to identify assets connected to the enterprise’s network.",
-                        levels: { 
-                            1: "No passive asset discovery tool is used.", 
-                            2: "A passive asset discovery tool is used, but scans are not conducted regularly.", 
-                            3: "Passive asset discovery tools are used to identify and update the enterprise's asset inventory on a weekly basis.", 
-                            4: "A passive asset discovery tool is continuously monitored, and scans are conducted frequently (e.g., daily)." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                     {
-                        id: "2.7",
-                        title: "Allowlist Authorized Scripts",
-                        actionPlan: "Use technical controls to ensure that only authorized scripts are allowed to execute.",
-                        levels: { 1: "None", 2: "Partial", 3: "Majority", 4: "Complete" },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    {
-                        id: "18.4",
-                        title: "Validate Security Measures",
-                        actionPlan: "Validate security measures after each penetration test.",
-                        levels: { 
-                            1: "The organization has no formal process in place to validate security measures after each penetration test.", 
-                            2: "After each penetration test, the organization reviews the results but no modifications are made.", 
-                            3: "Following each penetration test, the organization validates security measures against known threats and modifies rulesets.", 
-                            4: "The organization has a formal process in place to validate security measures after each penetration test." 
-                        },
-                        selectedLevel: null,
-                        evidence: { notes: "", attachments: [] },
-                        rubricDescription: null
-                    },
-                    ...generatePlaceholders(4, 5, 10)
-                ]
-            }
+            { id: 2, name: "Tier 2", description: "Foundational Controls (IG1/IG2)", maxScore: 11, controls: generatePlaceholders(1, 11, 2) },
+            { id: 3, name: "Tier 3", description: "Foundational Controls", maxScore: 16, controls: generatePlaceholders(1, 16, 3) },
+            { id: 4, name: "Tier 4", description: "Equivalent to IG1 Completion", maxScore: 15, controls: generatePlaceholders(1, 15, 4) },
+            { id: 5, name: "Tier 5", description: "Mid-level Controls (IG2)", maxScore: 25, controls: generatePlaceholders(1, 25, 5) },
+            { id: 6, name: "Tier 6", description: "Mid-level Controls (IG2)", maxScore: 25, controls: generatePlaceholders(1, 25, 6) },
+            { id: 7, name: "Tier 7", description: "Equivalent to IG2 Completion", maxScore: 24, controls: generatePlaceholders(1, 24, 7) },
+            { id: 8, name: "Tier 8", description: "Advanced Controls (IG3)", maxScore: 7, controls: generatePlaceholders(1, 7, 8) },
+            { id: 9, name: "Tier 9", description: "Advanced Controls (IG3)", maxScore: 7, controls: generatePlaceholders(1, 7, 9) },
+            { id: 10, name: "Tier 10", description: "Equivalent to IG3 Completion", maxScore: 8, controls: generatePlaceholders(1, 8, 10) }
         ];
 
         const MAP_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/safeguards.json";
         const ASSESSMENT_TYPES_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/assessmentType.json";
         const RUBRIC_URL = "https://raw.githubusercontent.com/MidwestCyberLLC/CIS-Tool-Mapping/main/rubric.json";
+
+        // --- PDF Generation Functions ---
+
+        const generatePDFHeader = (doc, meta, title) => {
+            const orgName = meta.orgName || "Organization Name";
+            const dateStr = new Date().toLocaleDateString();
+            
+            doc.setFillColor(79, 70, 229); // Indigo 600
+            doc.rect(0, 0, 210, 25, 'F');
+            
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(18);
+            doc.text(title, 14, 16);
+            
+            doc.setFontSize(10);
+            doc.text(`${orgName} | ${dateStr}`, 196, 16, { align: 'right' });
+            
+            doc.setTextColor(0, 0, 0);
+            return 35; // Returns Y start position for content
+        };
+
+        const generateCoverPage = (doc, meta, title) => {
+            const pageWidth = doc.internal.pageSize.width;
+            const margin = 14;
+            let yPos = 20;
+
+            // Header Background
+            doc.setFillColor(79, 70, 229); // Indigo 600
+            doc.rect(0, 0, pageWidth, 40, 'F');
+            
+            // Title
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(24);
+            doc.setFont(undefined, 'bold');
+            doc.text(title, margin, 25);
+            
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'normal');
+            doc.text(`Generated: ${new Date().toLocaleDateString()}`, margin, 35);
+
+            yPos = 55;
+            doc.setTextColor(0, 0, 0);
+
+            // Organization Info
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            doc.text("Organization Information", margin, yPos);
+            yPos += 10;
+            
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text(`Name: ${meta.orgName || 'N/A'}`, margin, yPos);
+            yPos += 6;
+            doc.text(`Address:`, margin, yPos);
+            const addressLines = doc.splitTextToSize(meta.address || 'N/A', 100);
+            doc.text(addressLines, margin + 20, yPos);
+            yPos += (addressLines.length * 5) + 5;
+
+            // Dates
+            doc.text(`Start Date: ${meta.startDate || 'N/A'}`, margin, yPos);
+            doc.text(`End Date: ${meta.endDate || 'In Progress'}`, margin + 80, yPos);
+            yPos += 15;
+
+            // Personnel Grid
+            const col1 = margin;
+            const col2 = margin + 90;
+
+            // Authorizer
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text("Authorizing Official", col1, yPos);
+            doc.text("Point of Contact", col2, yPos);
+            yPos += 6;
+
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text(meta.authorizer.name || '-', col1, yPos);
+            doc.text(meta.poc.name || '-', col2, yPos);
+            yPos += 5;
+            doc.text(meta.authorizer.email || '-', col1, yPos);
+            doc.text(meta.poc.email || '-', col2, yPos);
+            yPos += 5;
+            doc.text(meta.authorizer.phone || '-', col1, yPos);
+            doc.text(meta.poc.phone || '-', col2, yPos);
+            
+            yPos += 15;
+
+            // Assessor
+            doc.setFontSize(12);
+            doc.setFont(undefined, 'bold');
+            doc.text("Assessor Information", col1, yPos);
+            yPos += 6;
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.text(`Name: ${meta.assessor.name || '-'}`, col1, yPos);
+            yPos += 5;
+            doc.text(`Company: ${meta.assessor.company || '-'}`, col1, yPos);
+            yPos += 5;
+            doc.text(`Contact: ${meta.assessor.email || '-'} / ${meta.assessor.phone || '-'}`, col1, yPos);
+
+            yPos += 15;
+
+            // Notes
+            if (meta.orgNotes) {
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text("Organization Notes", margin, yPos);
+                yPos += 6;
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'normal');
+                const notes = doc.splitTextToSize(meta.orgNotes, pageWidth - (margin * 2));
+                doc.text(notes, margin, yPos);
+                yPos += (notes.length * 5) + 10;
+            }
+
+            if (meta.assessmentNotes) {
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'bold');
+                doc.text("Assessment Notes", margin, yPos);
+                yPos += 6;
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'normal');
+                const notes = doc.splitTextToSize(meta.assessmentNotes, pageWidth - (margin * 2));
+                doc.text(notes, margin, yPos);
+            }
+
+            // Page Break
+            doc.addPage();
+            
+            // Return standard header Y start for subsequent pages
+            return generatePDFHeader(doc, meta, title, true); 
+        }
+
+        const generateExecutiveReport = (data, meta, aggregates) => {
+            const doc = new jsPDF();
+            // Generate Cover Page first
+            let yPos = generateCoverPage(doc, meta, "Executive Summary Report");
+
+            // 1. High Level Stats
+            doc.setFontSize(14);
+            doc.text("Assessment Overview", 14, yPos);
+            yPos += 10;
+
+            const compliance = aggregates.totalMax > 0 ? ((aggregates.totalScore / aggregates.totalMax) * 100).toFixed(1) : 0;
+            const stats = [
+                { label: "Current Rank", value: `Tier ${aggregates.tierRank}` },
+                { label: "Total Score", value: `${aggregates.totalScore.toFixed(2)} / ${aggregates.totalMax}` },
+                { label: "Compliance", value: `${compliance}%` },
+                { label: "Assessed", value: `${153 - aggregates.counts.unassigned} / 153` }
+            ];
+
+            let xPos = 14;
+            stats.forEach(stat => {
+                doc.setFillColor(243, 244, 246);
+                doc.roundedRect(xPos, yPos, 40, 25, 2, 2, 'F');
+                doc.setFontSize(8);
+                doc.setTextColor(107, 114, 128);
+                doc.text(stat.label, xPos + 20, yPos + 8, { align: 'center' });
+                doc.setFontSize(12);
+                doc.setTextColor(17, 24, 39);
+                doc.setFont(undefined, 'bold');
+                doc.text(stat.value, xPos + 20, yPos + 18, { align: 'center' });
+                doc.setFont(undefined, 'normal');
+                xPos += 45;
+            });
+
+            yPos += 35;
+
+            // 2. Implementation Visual Chart
+            doc.setFontSize(14);
+            doc.text("Implementation Breakdown", 14, yPos);
+            yPos += 10;
+
+            // Draw Bar
+            const totalWidth = 180;
+            const h = 10;
+            const c = aggregates.counts;
+            const total = 153;
+            
+            const w4 = (c[4] / total) * totalWidth;
+            const w3 = (c[3] / total) * totalWidth;
+            const w2 = (c[2] / total) * totalWidth;
+            const w1 = (c[1] / total) * totalWidth;
+            // const wNa = (c.na / total) * totalWidth; // Not showing NA in bar usually, or make it gray
+            
+            let currentX = 14;
+            
+            // Level 4 - Green
+            if(w4 > 0) { doc.setFillColor(34, 197, 94); doc.rect(currentX, yPos, w4, h, 'F'); currentX += w4; }
+            // Level 3 - Blue
+            if(w3 > 0) { doc.setFillColor(59, 130, 246); doc.rect(currentX, yPos, w3, h, 'F'); currentX += w3; }
+            // Level 2 - Yellow
+            if(w2 > 0) { doc.setFillColor(234, 179, 8); doc.rect(currentX, yPos, w2, h, 'F'); currentX += w2; }
+            // Level 1 - Red
+            if(w1 > 0) { doc.setFillColor(239, 68, 68); doc.rect(currentX, yPos, w1, h, 'F'); currentX += w1; }
+            // Remainder - Gray
+            if(currentX < (14 + totalWidth)) { doc.setFillColor(229, 231, 235); doc.rect(currentX, yPos, (14 + totalWidth) - currentX, h, 'F'); }
+
+            yPos += 15;
+            
+            // Legend
+            doc.setFontSize(9);
+            const legendItems = [
+                { color: [34, 197, 94], label: `Complete (${c[4]})` },
+                { color: [59, 130, 246], label: `Majority (${c[3]})` },
+                { color: [234, 179, 8], label: `Partial (${c[2]})` },
+                { color: [239, 68, 68], label: `Initial (${c[1]})` },
+                { color: [229, 231, 235], label: `Unscored/NA (${c.unassigned + c.na})` }
+            ];
+            
+            let legX = 14;
+            legendItems.forEach(item => {
+                doc.setFillColor(...item.color);
+                doc.circle(legX, yPos, 1.5, 'F');
+                doc.setTextColor(50, 50, 50);
+                doc.text(item.label, legX + 4, yPos + 1);
+                legX += 35;
+            });
+
+            yPos += 20;
+
+            // 3. Tier Table
+            doc.setFontSize(14);
+            doc.setTextColor(0,0,0);
+            doc.text("Tier Progress Summary", 14, yPos);
+            yPos += 5;
+
+            const tableBody = data.map(tier => {
+                const s = calculateTierScore(tier);
+                const pct = ((s.score / tier.maxScore) * 100).toFixed(0) + '%';
+                return [tier.name, tier.description, pct, s.score.toFixed(2), tier.maxScore];
+            });
+
+            doc.autoTable({
+                startY: yPos,
+                head: [['Tier', 'Description', 'Progress', 'Score', 'Max']],
+                body: tableBody,
+                headStyles: { fillColor: [79, 70, 229] },
+                theme: 'striped'
+            });
+
+            doc.save(`Executive_Report_${meta.orgName.replace(/\s+/g, '_')}.pdf`);
+        };
+
+        const generateDetailedReport = (data, meta, aggregates) => {
+            const doc = new jsPDF();
+            // Generate Cover Page first
+            let yPos = generateCoverPage(doc, meta, "Detailed Assessment Report");
+
+            // Executive summary info at top
+            doc.setFontSize(10);
+            doc.text(`Total Score: ${aggregates.totalScore.toFixed(2)} / ${aggregates.totalMax}`, 14, yPos);
+            doc.text(`Controls Assessed: ${153 - aggregates.counts.unassigned} / 153`, 100, yPos);
+            yPos += 10;
+
+            // Flatten data
+            let rows = [];
+            data.forEach(tier => {
+                // Tier Header Row (simulated by a row with colSpan logic in autotable or just distinct rows)
+                // AutoTable doesn't support easy mid-table headers well without specific hooks, 
+                // so we will add a row that looks like a header.
+                rows.push({
+                    id: tier.name,
+                    title: tier.description, 
+                    level: '',
+                    evidence: '',
+                    isTierHeader: true
+                });
+
+                tier.controls.forEach(c => {
+                    let levelText = "Unscored";
+                    if (c.selectedLevel === 'N/A') levelText = "N/A";
+                    else if (c.selectedLevel) levelText = `Level ${c.selectedLevel}`;
+
+                    // Prepare Evidence Text
+                    let evidenceText = c.evidence.notes || "";
+                    let hasAttachments = c.evidence.attachments && c.evidence.attachments.length > 0;
+                    
+                    rows.push({
+                        id: c.id,
+                        title: c.title,
+                        level: levelText,
+                        evidence: evidenceText, // Text part
+                        attachments: c.evidence.attachments || [],
+                        isTierHeader: false
+                    });
+                });
+            });
+
+            doc.autoTable({
+                startY: yPos,
+                head: [['ID', 'Control Title', 'Level', 'Evidence & Notes']],
+                body: rows.map(r => {
+                    if (r.isTierHeader) return [r.id.toUpperCase(), r.title, '', ''];
+                    return [r.id, r.title, r.level, r.evidence];
+                }),
+                didParseCell: function(data) {
+                    const row = rows[data.row.index];
+                    if (row && row.isTierHeader) {
+                        data.cell.styles.fillColor = [224, 231, 255]; // Light Indigo
+                        data.cell.styles.fontStyle = 'bold';
+                        data.cell.styles.textColor = [0, 0, 0];
+                        if (data.column.index === 0) {
+                            data.cell.colSpan = 4;
+                        }
+                    }
+                },
+                didDrawCell: function(data) {
+                    // Check for images in Evidence column (index 3)
+                    if (data.column.index === 3 && data.cell.section === 'body') {
+                        const row = rows[data.row.index];
+                        if (row && !row.isTierHeader && row.attachments && row.attachments.length > 0) {
+                            let imgX = data.cell.x + 2;
+                            let imgY = data.cell.y + data.cell.height - (row.attachments.length * 8) - 2; 
+                            
+                            // If there is text, the image needs to go after it. 
+                            // AutoTable calculates height based on text. We might need to handle this manually 
+                            // but drawing over text is bad.
+                            // Strategy: Draw text normally (auto), then images.
+                            
+                            // Actually, let's just draw filenames and small thumbnails below text
+                            // We rely on cell padding/height. 
+                        }
+                    }
+                },
+                // Custom Cell Content for attachments
+                bodyStyles: { minCellHeight: 15 },
+                columnStyles: {
+                    0: { cellWidth: 25 }, // ID
+                    1: { cellWidth: 60 }, // Title
+                    2: { cellWidth: 25 }, // Level
+                    3: { cellWidth: 'auto' } // Evidence
+                },
+                willDrawCell: function(data) {
+                    if (data.column.index === 3 && data.cell.section === 'body') {
+                         const row = rows[data.row.index];
+                         if(row && !row.isTierHeader && row.attachments && row.attachments.length > 0) {
+                             // Extend the text to include file names so auto-table calculates height
+                             let fileNames = row.attachments.map(a => `[File] ${a.name}`).join('\n');
+                             // We don't want to actually print this text if we draw thumbnails, but for "File" types we do.
+                             // For now, let's append file info to the text content in data.cell.text
+                             // Note: data.cell.text is an array of strings
+                             
+                             // This is tricky inside the hook. 
+                             // Better strategy: Pre-process the body text before passing to autoTable
+                         }
+                    }
+                },
+                didDrawCell: (data) => {
+                     if (data.column.index === 3 && data.cell.section === 'body') {
+                        const row = rows[data.row.index];
+                        if(row && !row.isTierHeader && row.attachments && row.attachments.length > 0) {
+                            let cursorY = data.cell.y + 2;
+                            // Move cursor past text
+                            const textHeight = doc.getTextDimensions(data.cell.text).h; 
+                            // approximate text usage. 
+                            
+                            // We will draw attachments at the bottom of the cell
+                            // Autotable doesn't easily expand for images drawn manually.
+                            // Simplified approach: Draw thumbnails in the right margin of the cell or below if space?
+                            // Best approach for this constraints: 
+                            // Iterate attachments. If image -> draw thumbnail. If file -> text.
+                            
+                            let attY = data.cell.y + data.cell.height - 10;
+                            let attX = data.cell.x + 2;
+
+                            row.attachments.forEach(att => {
+                                if (att.type === 'image') {
+                                    try {
+                                        // Draw Thumbnail (8x8mm)
+                                        doc.addImage(att.data, 'JPEG', attX, attY, 8, 8);
+                                        attX += 10;
+                                    } catch(e) { /* ignore invalid image data */ }
+                                } 
+                            });
+                        }
+                     }
+                }
+            });
+            
+            // To ensure space for images, we need to pre-process the text passed to autotable
+            // Re-map rows logic slightly to include newlines for attachment space
+            const processedBody = rows.map(r => {
+                if(r.isTierHeader) return [r.id.toUpperCase(), r.title, '', ''];
+                
+                let text = r.evidence;
+                let filesText = "";
+                
+                if(r.attachments && r.attachments.length > 0) {
+                    // Add newlines to make space for thumbnails at bottom
+                    // text += "\n\n\n"; 
+                    
+                    r.attachments.forEach(att => {
+                        if(att.type !== 'image') {
+                            filesText += `\n📎 ${att.name}`;
+                        } else {
+                            // Just add spacing for image
+                            text += "\n\n\n"; 
+                        }
+                    });
+                }
+                return [r.id, r.title, r.level, text + filesText];
+            });
+            
+            // Rerun with processed body for correct spacing
+            doc.lastAutoTable.finalY = yPos; // reset
+             doc.autoTable({
+                startY: yPos,
+                head: [['ID', 'Control Title', 'Level', 'Evidence & Notes']],
+                body: processedBody,
+                didParseCell: function(data) {
+                    const row = rows[data.row.index];
+                    if (row && row.isTierHeader) {
+                        data.cell.styles.fillColor = [224, 231, 255]; 
+                        data.cell.styles.fontStyle = 'bold';
+                        data.cell.styles.textColor = [0, 0, 0];
+                        if (data.column.index === 0) { data.cell.colSpan = 4; }
+                    }
+                },
+                didDrawCell: function(data) {
+                    if (data.column.index === 3 && data.cell.section === 'body') {
+                        const row = rows[data.row.index];
+                        if (row && !row.isTierHeader && row.attachments) {
+                            const images = row.attachments.filter(a => a.type === 'image');
+                            if(images.length > 0) {
+                                let imgX = data.cell.x + 2;
+                                // Draw at bottom of cell
+                                let imgY = data.cell.y + data.cell.height - 12; 
+                                
+                                images.forEach(img => {
+                                    try {
+                                        doc.addImage(img.data, 'JPEG', imgX, imgY, 10, 10);
+                                        doc.setDrawColor(200);
+                                        doc.rect(imgX, imgY, 10, 10); // border
+                                        imgX += 12;
+                                    } catch(e){}
+                                });
+                            }
+                        }
+                    }
+                },
+                columnStyles: {
+                    0: { cellWidth: 20 },
+                    1: { cellWidth: 70 },
+                    2: { cellWidth: 25 },
+                    3: { cellWidth: 'auto' }
+                },
+                styles: { overflow: 'linebreak', cellPadding: 3 }
+            });
+
+            doc.save(`Detailed_Report_${meta.orgName.replace(/\s+/g, '_')}.pdf`);
+        };
+
 
         // --- Components ---
 
@@ -740,20 +880,28 @@
                         </button>
 
                         <div className="pt-4 pb-2 text-xs font-semibold text-gray-400 uppercase tracking-wider px-4">Tiers</div>
-                        {data.map((tier, idx) => (
-                            <button 
-                                key={tier.id} 
-                                onClick={() => !areTiersDisabled && setView(`tier-${idx}`)} 
-                                disabled={areTiersDisabled}
-                                className={`sidebar-item w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium ${view === `tier-${idx}` ? 'active' : ''} ${areTiersDisabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}`}
-                            >
-                                <span className="flex items-center gap-2">
-                                    <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{tier.id}</span>
-                                    {tier.name}
-                                </span>
-                                {calculateTierScore(tier).score > 0 && <CheckCircle2 className="w-3 h-3 text-green-500"/>}
-                            </button>
-                        ))}
+                        {data.map((tier, idx) => {
+                            const total = tier.controls.length;
+                            const entered = tier.controls.filter(c => c.selectedLevel).length; // Includes 'N/A' if selectedLevel is set to it
+                            const isComplete = total > 0 && entered === total;
+                            const isPartial = entered > 0 && entered < total;
+                            
+                            return (
+                                <button 
+                                    key={tier.id} 
+                                    onClick={() => !areTiersDisabled && setView(`tier-${idx}`)} 
+                                    disabled={areTiersDisabled}
+                                    className={`sidebar-item w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium ${view === `tier-${idx}` ? 'active' : ''} ${areTiersDisabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-600 hover:bg-gray-50'}`}
+                                >
+                                    <span className="flex items-center gap-2">
+                                        <span className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500">{tier.id}</span>
+                                        {tier.name}
+                                    </span>
+                                    {isComplete && <CheckCircle2 className="w-4 h-4 text-green-500"/>}
+                                    {isPartial && <Clock className="w-4 h-4 text-orange-400"/>}
+                                </button>
+                            );
+                        })}
                         <button onClick={() => setView('summary')} className={`sidebar-item mt-4 w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium ${view === 'summary' ? 'active' : 'text-gray-600 hover:bg-gray-50'}`}>
                             <FileText className="w-4 h-4" /> Full Summary
                         </button>
@@ -771,7 +919,7 @@
 
                             <div className="grid grid-cols-2 gap-2 mt-2">
                                 <button onClick={downloadData} className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition">
-                                    <Download className="w-4 h-4 mb-1" /> Save
+                                    <Download className="w-4 h-4 mb-1" /> Backup
                                 </button>
                                 <label className="flex flex-col items-center justify-center p-2 bg-white border rounded text-xs text-gray-600 hover:bg-gray-50 transition cursor-pointer">
                                     <Upload className="w-4 h-4 mb-1" /> Load
@@ -1054,7 +1202,32 @@
             );
         };
 
-        const SummaryView = ({ data, downloadData, sortConfig, setSortConfig }) => {
+        const SummaryView = ({ data, downloadData, sortConfig, setSortConfig, assessmentMeta }) => {
+            const [showDownloadMenu, setShowDownloadMenu] = useState(false);
+            const menuRef = useRef(null);
+
+            useEffect(() => {
+                const handleClickOutside = (event) => {
+                    if (menuRef.current && !menuRef.current.contains(event.target)) {
+                        setShowDownloadMenu(false);
+                    }
+                };
+                document.addEventListener('mousedown', handleClickOutside);
+                return () => document.removeEventListener('mousedown', handleClickOutside);
+            }, []);
+
+            const aggregates = useMemo(() => calculateAggregates(data), [data]);
+
+            const handleReportDownload = (type) => {
+                setShowDownloadMenu(false);
+                if (type === 'json') {
+                    downloadData();
+                } else if (type === 'executive') {
+                    generateExecutiveReport(data, assessmentMeta, aggregates);
+                } else if (type === 'detailed') {
+                    generateDetailedReport(data, assessmentMeta, aggregates);
+                }
+            };
 
             const handleSort = (key) => {
                 let direction = 'asc';
@@ -1164,11 +1337,60 @@
             };
 
             return (
-                <div className="max-w-6xl mx-auto">
-                    <div className="bg-white rounded-xl shadow-lg border overflow-hidden">
+                <div className="max-w-6xl mx-auto pb-10">
+                    <div className="bg-white rounded-xl shadow-lg border overflow-visible relative">
                         <div className="p-6 border-b flex justify-between items-center bg-gray-50">
                             <h2 className="text-2xl font-bold text-gray-800">Complete Assessment Summary</h2>
-                            <button onClick={downloadData} className="text-sm bg-white border px-3 py-1.5 rounded text-gray-600 hover:text-indigo-600">Download Report</button>
+                            
+                            <div className="relative" ref={menuRef}>
+                                <button 
+                                    onClick={() => setShowDownloadMenu(!showDownloadMenu)}
+                                    className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow-sm"
+                                >
+                                    <Download className="w-4 h-4" /> Download Report <ChevronDown className="w-4 h-4" />
+                                </button>
+                                
+                                {showDownloadMenu && (
+                                    <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 z-50 overflow-hidden animate-fade-in">
+                                        <div className="p-2 space-y-1">
+                                            <button 
+                                                onClick={() => handleReportDownload('executive')}
+                                                className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded flex items-start gap-3 transition"
+                                            >
+                                                <div className="p-2 bg-purple-100 rounded text-purple-600"><LayoutDashboard className="w-4 h-4" /></div>
+                                                <div>
+                                                    <span className="block font-semibold text-gray-800 text-sm">Executive Report</span>
+                                                    <span className="block text-xs text-gray-500">Charts, Scores & High-level stats. (PDF)</span>
+                                                </div>
+                                            </button>
+
+                                            <button 
+                                                onClick={() => handleReportDownload('detailed')}
+                                                className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded flex items-start gap-3 transition"
+                                            >
+                                                <div className="p-2 bg-blue-100 rounded text-blue-600"><ListChecks className="w-4 h-4" /></div>
+                                                <div>
+                                                    <span className="block font-semibold text-gray-800 text-sm">Detailed Report</span>
+                                                    <span className="block text-xs text-gray-500">Full list of controls, evidence & notes. (PDF)</span>
+                                                </div>
+                                            </button>
+                                            
+                                            <div className="border-t my-1"></div>
+                                            
+                                            <button 
+                                                onClick={() => handleReportDownload('json')}
+                                                className="w-full text-left px-4 py-3 hover:bg-gray-50 rounded flex items-start gap-3 transition"
+                                            >
+                                                <div className="p-2 bg-gray-100 rounded text-gray-600"><FileJson className="w-4 h-4" /></div>
+                                                <div>
+                                                    <span className="block font-semibold text-gray-800 text-sm">Backup Data</span>
+                                                    <span className="block text-xs text-gray-500">Save raw JSON for later restoration.</span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                         <div className="overflow-x-auto">
                             <table className="w-full text-sm text-left">
@@ -1671,7 +1893,7 @@
                 document.body.appendChild(downloadAnchorNode);
                 downloadAnchorNode.click();
                 downloadAnchorNode.remove();
-                showNotify("Assessment saved to file!");
+                showNotify("Backup JSON file saved!");
             };
 
             const handleFileUpload = (event) => {
@@ -1809,46 +2031,7 @@
 
             // Calculate Aggregates
             const aggregates = useMemo(() => {
-                let totalScore = 0;
-                let totalMax = 0;
-                let counts = { 1: 0, 2: 0, 3: 0, 4: 0, na: 0, unassigned: 0 };
-                
-                // Tier Ranking Logic
-                let tierRank = 0;
-                let sequenceBroken = false;
-
-                data.forEach((tier, index) => {
-                    const stats = calculateTierScore(tier);
-                    totalScore += stats.score;
-                    totalMax += tier.maxScore;
-                    
-                    tier.controls.forEach(c => {
-                        if (c.selectedLevel === 'N/A') counts.na++;
-                        else if (c.selectedLevel) counts[c.selectedLevel]++;
-                        else counts.unassigned++;
-                    });
-
-                    // Check for Tier Ranking advancement
-                    // Rule: All controls in this tier must be Level 4 or N/A
-                    // AND all previous tiers must have been passed (handled by sequenceBroken)
-                    if (!sequenceBroken) {
-                        // Check if safeguards exist and are all valid (4 or N/A)
-                        if (tier.controls && tier.controls.length > 0) {
-                            const isTierComplete = tier.controls.every(c => c.selectedLevel == 4 || c.selectedLevel === 'N/A');
-                            if (isTierComplete) {
-                                tierRank = index + 1; // Promote to this Tier (index 0 is Tier 1)
-                            } else {
-                                sequenceBroken = true; // Stop advancing
-                            }
-                        } else {
-                            // If a tier has no controls, we assume it's passed, but in this context 
-                            // we usually expect controls. If empty, we allow advancement.
-                            tierRank = index + 1;
-                        }
-                    }
-                });
-
-                return { totalScore, totalMax, counts, tierRank };
+                return calculateAggregates(data);
             }, [data]);
 
             // --- Main Render Switch ---
@@ -1856,7 +2039,7 @@
                 if (view === 'intro') return <IntroductionView setView={setView} />;
                 if (view === 'info') return <AssessmentInfoView meta={assessmentMeta} updateMeta={updateAssessmentMeta} assessmentTypes={assessmentTypes} selectedTypeID={selectedTypeID} />;
                 if (view === 'score') return <ScoreView aggregates={aggregates} data={data} setView={setView} />;
-                if (view === 'summary') return <SummaryView data={data} downloadData={downloadData} sortConfig={sortConfig} setSortConfig={setSortConfig} />;
+                if (view === 'summary') return <SummaryView data={data} downloadData={downloadData} sortConfig={sortConfig} setSortConfig={setSortConfig} assessmentMeta={assessmentMeta} />;
                 if (view === 'about') return <AboutView />;
                 if (view.startsWith('tier-')) return <TierView tierIndex={parseInt(view.split('-')[1])} data={data} updateControl={updateControl} showNotify={showNotify} setView={setView} />;
                 return <IntroductionView setView={setView} />;
