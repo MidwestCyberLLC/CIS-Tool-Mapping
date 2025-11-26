@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout /t 5 /nobreak)",
+      "Bash(npm run build:*)",
+      "Bash(taskkill:*)",
+      "Bash(xcopy /E /I /Y src optimized-buildsrc)",
+      "Bash(xcopy:*)",
+      "Bash(xcopy /Y package.json optimized-build )",
+      "Bash(robocopy src optimized-buildsrc /E /NFL /NDL /NJH /NJS)",
+      "Bash(powershell -Command \"Copy-Item -Path ''src'' -Destination ''optimized-build\\src'' -Recurse -Force\")",
+      "Bash(powershell -Command \"Copy-Item -Path ''index.html'',''package.json'',''vite.config.js'',''tailwind.config.js'',''postcss.config.js'',''.gitignore'',''OPTIMIZATION_README.md'',''PERFORMANCE_SUMMARY.md'' -Destination ''optimized-build\\'' -Force\")",
+      "Bash(dir:*)",
+      "Bash(tree:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
