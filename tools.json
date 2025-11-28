@@ -24,10 +24,10 @@
     {
         "ID": "T3",
         "Name": "Abnormal Security",
-        "Description": "Abnormal Security is an AI-powered email and cloud security platform that uses behavioral AI and machine learning to detect and prevent advanced email threats, including phishing, business email compromise (BEC), and lateral movement attacks. The platform analyzes communication patterns, relationships, and content to identify anomalous behavior that traditional email security solutions miss, providing real-time threat detection and response capabilities across email and cloud collaboration environments.",
+        "Description": "Abnormal Security is an AI-powered email and cloud security platform that uses behavioral analytics and machine learning to detect and prevent advanced email threats, including phishing, business email compromise (BEC), account takeover, and malware. The platform analyzes user behavior patterns, organizational communication norms, and threat indicators to identify anomalous activities that traditional security tools miss. It provides real-time threat detection, automated response capabilities, and integration with existing email and cloud environments.",
         "URL": "https://www.abnormalsecurity.com",
         "EducationUse": false,
-        "Cost": "$$$, $$$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -79,10 +79,10 @@
     {
         "ID": "T8",
         "Name": "Alation Data Intelligence Platform",
-        "Description": "Alation Data Intelligence Platform is a comprehensive data governance and metadata management solution that provides organizations with visibility, understanding, and control over their data assets across enterprise systems. The platform enables data cataloging, lineage tracking, quality monitoring, and collaborative data stewardship to support informed decision-making and regulatory compliance. It serves as a centralized hub for data documentation, discovery, and governance, helping organizations manage data as a strategic asset while reducing risks associated with data misuse and unauthorized access.",
+        "Description": "Alation Data Intelligence Platform is a data governance and metadata management solution that provides comprehensive visibility, understanding, and control over enterprise data assets across distributed environments. The platform enables organizations to catalog, classify, and govern data through collaborative features, automated metadata collection, and intelligent search capabilities. Alation helps organizations implement data governance policies, manage data quality, ensure compliance, and facilitate secure data access through role-based controls and audit trails.",
         "URL": "https://www.alation.com/",
         "EducationUse": false,
-        "Cost": "$$$, $$$$, $$$$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -112,10 +112,10 @@
     {
         "ID": "T11",
         "Name": "Allegro Packets",
-        "Description": "Allegro Packets is a network packet capture and analysis platform that provides deep packet inspection (DPI) capabilities for real-time network monitoring, troubleshooting, and security analysis. The tool enables security teams to capture, decode, and analyze network traffic at the packet level to identify anomalies, investigate security incidents, and understand network behavior across complex infrastructure environments.",
-        "URL": "https://www.allegro-packets.com/",
+        "Description": "Allegro Packets is a comprehensive network packet analysis and visualization platform designed for real-time and historical network traffic inspection, troubleshooting, and security monitoring. It provides deep packet inspection, application performance analysis, and network forensics capabilities to help organizations understand, monitor, and secure their network communications. The tool combines packet capture, decoding, and advanced analytics to detect anomalies, investigate incidents, and optimize network performance.",
+        "URL": "https://www.allegro-packets.com",
         "EducationUse": false,
-        "Cost": "$$$$, $$$$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -134,9 +134,9 @@
     {
         "ID": "T13",
         "Name": "Amazon S3 Glacier Deep Archive",
-        "Description": "Amazon S3 Glacier Deep Archive is a cloud-based archival storage service designed for long-term data retention and compliance requirements, offering extremely low-cost storage for data that is rarely accessed. The service provides automated data protection through encryption, versioning, and immutable storage capabilities, making it suitable for organizations needing to maintain comprehensive backup and disaster recovery archives. It is primarily used for regulatory compliance, long-term data preservation, and cost-effective backup solutions where retrieval times of 12 hours or more are acceptable.",
+        "Description": "Amazon S3 Glacier Deep Archive is a cloud-based long-term data archival and backup service that stores infrequently accessed data at extremely low costs. It is designed for organizations that need to retain data for compliance, regulatory, or historical purposes with retrieval times measured in hours to days. The service provides durable, secure, encrypted storage with configurable access controls and audit logging capabilities.",
         "URL": "https://aws.amazon.com/s3/storage-classes/glacier/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "",
         "Source": "Claude",
         "Priority": "none",
@@ -398,7 +398,7 @@
     {
         "ID": "T37",
         "Name": "AWS Backup",
-        "Description": "AWS Backup is a fully managed, policy-based service that enables centralized, compliant backup and recovery of data across AWS services and on-premises environments. The tool automates backup scheduling, retention management, and cross-region/cross-account backup replication to ensure business continuity and disaster recovery capabilities. AWS Backup integrates with multiple AWS services (EC2, RDS, DynamoDB, EFS, etc.) to provide a unified backup management and restoration platform.",
+        "Description": "AWS Backup is a fully managed, centralized service that simplifies and automates the backup of data across AWS services and on-premises environments. It provides policy-based backup solutions with centralized management, compliance monitoring, and automated recovery capabilities across multiple AWS resources including EC2, RDS, DynamoDB, EFS, and others. The tool enables organizations to meet recovery time objectives (RTO) and recovery point objectives (RPO) while maintaining compliance with regulatory requirements.",
         "URL": "https://aws.amazon.com/backup/",
         "EducationUse": true,
         "Cost": "$$, $$$",
@@ -486,7 +486,7 @@
     {
         "ID": "T45",
         "Name": "AWS S3 Glacier Deep Archive",
-        "Description": "AWS S3 Glacier Deep Archive is a long-term data archival and backup storage service offered by Amazon Web Services that provides extremely low-cost storage for data that is rarely accessed and can tolerate retrieval latencies of several hours. The service is designed for compliance, regulatory, and historical data retention requirements where organizations need to maintain data for extended periods while minimizing storage costs. It offers the lowest storage price of any AWS storage class, making it ideal for organizations with large volumes of archival data that must be retained but accessed infrequently.",
+        "Description": "AWS S3 Glacier Deep Archive is a highly cost-effective, long-term data archival and backup service designed for data that is rarely accessed and can tolerate retrieval times of several hours. It provides secure, durable storage with automatic encryption, compliance certifications, and extensive audit logging capabilities to meet regulatory retention requirements. This service is part of the AWS storage portfolio and offers 99.999999999% (11 nines) durability through geographically distributed redundancy.",
         "URL": "https://aws.amazon.com/s3/storage-classes/glacier/",
         "EducationUse": false,
         "Cost": "",
@@ -497,7 +497,7 @@
     {
         "ID": "T46",
         "Name": "AWS Systems Manager Automation",
-        "Description": "AWS Systems Manager Automation is a service that enables users to safely automate common maintenance and deployment tasks across AWS resources without requiring manual intervention. It provides a framework for creating runbooks—predefined workflows that can orchestrate AWS API calls, scripts, and conditional logic to perform complex operational tasks at scale. The tool integrates with other AWS services to enable automated remediation, configuration management, and operational workflows while maintaining security controls and audit capabilities.",
+        "Description": "AWS Systems Manager Automation is a cloud-based service that enables users to automate common IT operations and application management tasks across AWS resources without manual intervention. It provides pre-built automation documents (runbooks) and allows creation of custom workflows to execute remediation, maintenance, and operational tasks at scale. The tool integrates with other AWS services to streamline patch management, infrastructure configuration, and compliance remediation across hybrid and cloud environments.",
         "URL": "https://aws.amazon.com/systems-manager/automation/",
         "EducationUse": false,
         "Cost": "$, $$",
@@ -530,9 +530,9 @@
     {
         "ID": "T49",
         "Name": "Azure Archive Storage",
-        "Description": "Azure Archive Storage is a cloud-based data archival solution provided by Microsoft Azure that offers long-term, cost-effective storage for infrequently accessed data. It is designed to store data that must be retained for compliance, regulatory, or business reasons but is rarely accessed after initial storage. The service provides secure, durable storage with retrieval capabilities, supporting organizations' data retention and archival strategies within a cloud environment.",
-        "URL": "https://azure.microsoft.com/en-us/products/storage/blobs/",
-        "EducationUse": false,
+        "Description": "Azure Archive Storage is a cloud-based data storage tier within Microsoft Azure that provides ultra-low-cost storage for infrequently accessed data with flexible retrieval options. It is designed for long-term retention, compliance, and archival purposes, offering significantly reduced storage costs compared to other Azure storage tiers. This tier supports various data retention policies, encryption, and compliance frameworks suitable for organizations requiring secure, compliant data preservation.",
+        "URL": "https://azure.microsoft.com/en-us/services/storage/archive-storage/",
+        "EducationUse": true,
         "Cost": "",
         "Source": "Claude",
         "Priority": "none",
@@ -574,9 +574,9 @@
     {
         "ID": "T53",
         "Name": "Azure Monitor Logs",
-        "Description": "Azure Monitor Logs is a cloud-based log aggregation and analytics platform that collects, stores, and analyzes telemetry data from Azure resources, on-premises infrastructure, and multi-cloud environments. It provides centralized logging, querying capabilities through Kusto Query Language (KQL), and integration with security tools for threat detection and compliance monitoring. The platform enables organizations to gain visibility into system performance, security events, and operational metrics across their entire infrastructure.",
-        "URL": "https://azure.microsoft.com/en-us/products/monitor",
-        "EducationUse": true,
+        "Description": "Azure Monitor Logs is a cloud-based log aggregation and analysis platform that collects, analyzes, and visualizes telemetry data from Azure resources, on-premises infrastructure, and multi-cloud environments. It provides organizations with centralized logging, querying capabilities through Kusto Query Language (KQL), and advanced analytics for security monitoring, performance troubleshooting, and compliance reporting. The tool serves as a core component of Azure's security and operational monitoring ecosystem, enabling real-time detection of anomalies and security threats.",
+        "URL": "https://azure.microsoft.com/en-us/services/monitor/",
+        "EducationUse": false,
         "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
@@ -1003,7 +1003,7 @@
     {
         "ID": "T92",
         "Name": "CleanBrowsing",
-        "Description": "CleanBrowsing is a DNS-based content filtering and web security service that blocks malicious websites, adult content, and other unwanted categories by intercepting DNS queries at the network level. It operates as a recursive DNS resolver that filters requests before they reach their destination, providing protection across all devices on a network without requiring per-device installation. The service is designed to enhance security and provide parental controls through straightforward DNS configuration.",
+        "Description": "CleanBrowsing is a DNS-based content filtering and web security service that blocks malicious websites, adult content, and other unwanted categories at the DNS level before users connect to them. It operates as a free and paid DNS filtering service designed to protect users across multiple devices and networks by intercepting DNS queries and preventing access to categorized harmful or inappropriate websites.",
         "URL": "https://www.cleanbrowsing.org",
         "EducationUse": true,
         "Cost": "$, $$",
@@ -1234,7 +1234,7 @@
     {
         "ID": "T113",
         "Name": "Darktrace Network Traffic Analysis (NTA)",
-        "Description": "Darktrace Network Traffic Analysis is an AI-driven cybersecurity platform that uses machine learning and behavioral analytics to monitor, detect, and respond to anomalous network activity and cyber threats in real-time. The tool provides enterprise-wide visibility into network behavior, identifying previously unknown threats and compromised devices through pattern recognition rather than signature-based detection. It functions as both a detection and response platform, enabling security teams to rapidly identify and investigate suspicious network communications and potential data exfiltration attempts.",
+        "Description": "Darktrace Network Traffic Analysis is an AI-driven cybersecurity platform that uses machine learning and behavioral analytics to detect and respond to anomalous network activity and potential threats in real-time. The tool analyzes network traffic patterns to identify sophisticated cyberattacks, insider threats, and compromised devices that traditional security tools might miss. Darktrace provides autonomous response capabilities through its Antigena component, enabling automatic containment of threats without human intervention.",
         "URL": "https://www.darktrace.com/",
         "EducationUse": false,
         "Cost": "$$$$, $$$$$",
@@ -1355,7 +1355,7 @@
     {
         "ID": "T124",
         "Name": "Druva Data Protection Cloud",
-        "Description": "Druva Data Protection Cloud is a cloud-native data resilience platform that provides backup, disaster recovery, and data protection for enterprises across multiple data sources including SaaS applications, endpoints, and on-premises infrastructure. The platform enables organizations to protect, recover, and manage data across hybrid and multi-cloud environments while maintaining compliance with regulatory requirements. It delivers unified data protection with features including ransomware detection, immutable backups, and rapid recovery capabilities.",
+        "Description": "Druva Data Protection Cloud is a SaaS-based data resilience and backup solution designed to protect data across cloud and on-premises environments. The platform provides comprehensive data backup, disaster recovery, and ransomware protection capabilities specifically optimized for cloud-native applications, databases, and virtual machines. It enables organizations to safeguard critical data with features including continuous data protection, rapid recovery, and cyber-resilience capabilities to mitigate evolving threats.",
         "URL": "https://www.druva.com/",
         "EducationUse": false,
         "Cost": "$$, $$$, $$$$",
@@ -1399,7 +1399,7 @@
     {
         "ID": "T128",
         "Name": "Elastic Security (formerly ELK Stack)",
-        "Description": "Elastic Security is a comprehensive security information and event management (SIEM) and extended detection and response (XDR) platform built on the Elastic Stack that aggregates, analyzes, and correlates security data from diverse sources across an organization's infrastructure. It provides real-time threat detection, investigation capabilities, and automated response workflows through advanced analytics, machine learning, and behavioral analysis. The platform enables security teams to detect, investigate, and respond to security threats across endpoints, networks, and cloud environments from a unified interface.",
+        "Description": "Elastic Security is a comprehensive security information and event management (SIEM) and extended detection and response (XDR) platform built on the Elastic Stack that ingests, processes, and analyzes security data from multiple sources across an organization's infrastructure. It provides real-time threat detection, investigation capabilities, and automated response features through centralized log aggregation, correlation, and visualization. The platform enables security teams to identify and respond to security incidents by correlating events from endpoints, networks, applications, and cloud environments.",
         "URL": "https://www.elastic.co/security",
         "EducationUse": false,
         "Cost": "$, $$, $$$, $$$$, $$$$$",
@@ -1410,7 +1410,7 @@
     {
         "ID": "T129",
         "Name": "Elastic Security",
-        "Description": "Elastic Security is a comprehensive security information and event management (SIEM) and extended detection and response (XDR) platform built on the Elastic Stack that provides real-time threat detection, investigation, and response capabilities. It integrates log aggregation, security analytics, threat intelligence, and automated response workflows to detect and respond to security incidents across cloud, on-premises, and hybrid environments. The platform enables security teams to collect, analyze, and investigate security events from thousands of data sources to identify and remediate threats.",
+        "Description": "Elastic Security is a comprehensive security information and event management (SIEM) and extended detection and response (XDR) platform built on the Elastic Stack that provides real-time threat detection, investigation, and response capabilities. It ingests and analyzes security data from multiple sources including endpoint agents, network devices, and cloud environments to identify and correlate security incidents. The platform enables security teams to detect advanced threats, investigate compromises, and respond to incidents through centralized visibility and automated workflows.",
         "URL": "https://www.elastic.co/security",
         "EducationUse": false,
         "Cost": "$$, $$$, $$$$, $$$$$",
@@ -1443,7 +1443,7 @@
     {
         "ID": "T132",
         "Name": "Elasticsearch (with Beats)",
-        "Description": "Elasticsearch is a distributed search and analytics engine that, combined with Beats (lightweight data shippers), forms a comprehensive log aggregation and security monitoring platform. When deployed as part of the Elastic Stack, it enables organizations to collect, parse, index, and analyze security logs and event data in real-time to detect threats, investigate incidents, and maintain compliance with security policies.",
+        "Description": "Elasticsearch is a distributed search and analytics engine that ingests, stores, and analyzes large volumes of data in real-time, while Beats are lightweight data shippers that collect and forward data from various sources to Elasticsearch. Together, they form the core of the Elastic Stack and provide comprehensive logging, monitoring, and security analytics capabilities for identifying threats, investigating incidents, and maintaining visibility across IT infrastructure.",
         "URL": "https://www.elastic.co/elasticsearch",
         "EducationUse": false,
         "Cost": "$, $$, $$$, $$$$, $$$$$",
@@ -1487,7 +1487,7 @@
     {
         "ID": "T136",
         "Name": "Elasticsearch (with Logstash & Kibana - the ELK Stack)",
-        "Description": "Elasticsearch is a distributed search and analytics engine that, combined with Logstash (data processing pipeline) and Kibana (visualization platform), forms the ELK Stack—a comprehensive log management and security information and event management (SIEM) solution. The tool ingests, processes, stores, and visualizes massive volumes of structured and unstructured data from diverse sources, enabling organizations to detect security threats, investigate incidents, and gain operational insights through real-time monitoring and historical analysis.",
+        "Description": "Elasticsearch is a distributed search and analytics engine that, when combined with Logstash (data processing pipeline) and Kibana (visualization platform), forms the ELK Stack—a comprehensive log management and security information and event management (SIEM) solution. The ELK Stack collects, processes, indexes, and visualizes security events, system logs, and operational data in real-time, enabling organizations to detect threats, investigate incidents, and monitor infrastructure health at scale.",
         "URL": "https://www.elastic.co/",
         "EducationUse": false,
         "Cost": "$, $$, $$$, $$$$, $$$$$",
@@ -1498,9 +1498,9 @@
     {
         "ID": "T137",
         "Name": "Elasticsearch (with Logstash and Kibana - ELK Stack)",
-        "Description": "The Elasticsearch, Logstash, and Kibana (ELK) Stack is a comprehensive, open-source data collection, processing, and visualization platform designed for real-time analysis of large volumes of structured and unstructured data. Logstash ingests and processes logs from multiple sources, Elasticsearch indexes and stores the data for rapid searching and analytics, and Kibana provides interactive dashboards and visualization capabilities. The ELK Stack is widely used for security information and event management (SIEM), infrastructure monitoring, application performance monitoring, and compliance logging across enterprise environments.",
+        "Description": "Elasticsearch is a distributed search and analytics engine that, when combined with Logstash (data processing pipeline) and Kibana (visualization platform), forms the ELK Stack—a comprehensive log management and security information and event management (SIEM) solution. The ELK Stack enables organizations to collect, process, store, and analyze vast amounts of log data and security events in real-time, providing visibility into system activities, threat detection, and forensic investigation capabilities.",
         "URL": "https://www.elastic.co/",
-        "EducationUse": false,
+        "EducationUse": true,
         "Cost": "$, $$, $$$, $$$$, $$$$$",
         "Source": "Claude",
         "Priority": "none",
@@ -1508,8 +1508,8 @@
     },
     {
         "ID": "T138",
-        "Name": "Endpoint Management Software (e.g., Microsoft Intune, Jamf)",
-        "Description": "Endpoint Management Software (such as Microsoft Intune or Jamf) is a centralized platform designed to manage, monitor, and secure devices across an organization, including desktops, laptops, tablets, and mobile phones. These tools enable IT administrators to enforce security policies, deploy software and updates, manage configurations, and ensure compliance across distributed endpoints. They serve as the foundational infrastructure for device lifecycle management and security posture enforcement.",
+        "Name": "Endpoint Management Software (e.g.",
+        "Description": "Endpoint Management Software (EMS) is a centralized platform that enables IT administrators to monitor, manage, configure, and secure devices (computers, laptops, tablets, and smartphones) across an organization from a single console. This tool provides capabilities including device inventory tracking, patch management, compliance enforcement, remote support, and security policy deployment to ensure consistent security posture across all endpoints. EMS solutions often integrate mobile device management (MDM), computer management, and application management functions to provide comprehensive endpoint protection.",
         "URL": "https://www.microsoft.com/en-us/security/business/microsoft-intune",
         "EducationUse": true,
         "Cost": "$$, $$$, $$$$",
@@ -1520,8 +1520,8 @@
     {
         "ID": "T139",
         "Name": "Endpoint Protector by CoSoSys",
-        "Description": "Endpoint Protector is a comprehensive Data Loss Prevention (DLP) and USB device control solution designed to protect sensitive data across endpoints and removable media. The tool monitors and controls data flows across email, web, cloud applications, removable devices, and local file transfers to prevent unauthorized data exfiltration. It combines behavioral analysis, content inspection, and device access control to provide multi-layered data protection for organizations.",
-        "URL": "https://www.endpointprotector.com/",
+        "Description": "Endpoint Protector is a comprehensive data loss prevention (DLP) and endpoint security solution designed to protect organizations against unauthorized data exfiltration, theft, and misuse through monitoring and controlling access to sensitive information on endpoints. The tool combines DLP capabilities with removable media control, encryption, and detailed audit logging to prevent data breaches across devices including laptops, desktops, and servers. It provides real-time monitoring of data transfers, USB device management, email filtering, and cloud application access controls to enforce data protection policies across the entire endpoint infrastructure.",
+        "URL": "https://www.cososys.com/endpoint-protector/",
         "EducationUse": false,
         "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
@@ -1542,7 +1542,7 @@
     {
         "ID": "T141",
         "Name": "ESET Endpoint Security",
-        "Description": "ESET Endpoint Security is a comprehensive endpoint protection platform that combines antivirus, anti-malware, anti-ransomware, and endpoint detection and response (EDR) capabilities to protect individual computers and networked devices from cyber threats. The tool provides real-time threat detection, behavioral analysis, and advanced threat protection across Windows, macOS, and Linux platforms with centralized management capabilities through ESET Security Management Center.",
+        "Description": "ESET Endpoint Security is a comprehensive endpoint protection platform that combines antivirus, anti-malware, and anti-ransomware capabilities with advanced threat detection and response features. The tool provides real-time protection against malware, viruses, and other cyber threats while maintaining minimal system performance impact. It serves as a core component of endpoint security infrastructure for organizations ranging from small businesses to large enterprises.",
         "URL": "https://www.eset.com/us/business/endpoint-security/",
         "EducationUse": true,
         "Cost": "$$, $$$",
@@ -1575,7 +1575,7 @@
     {
         "ID": "T144",
         "Name": "FileVault (macOS)",
-        "Description": "FileVault is Apple's native full-disk encryption technology integrated into macOS that automatically encrypts the entire contents of a Mac's storage drive using XTS-AES 128-bit encryption. It protects data at rest by rendering the disk unreadable without the correct authentication credentials, preventing unauthorized access to files even if the physical drive is removed or the computer is stolen. FileVault operates transparently to users, encrypting and decrypting data automatically without impacting system performance.",
+        "Description": "FileVault is Apple's native full-disk encryption technology built into macOS that automatically encrypts the entire contents of a Mac's storage drive using XTS-AES 128-bit encryption. The tool protects data at rest by requiring authentication (password or recovery key) before the operating system can access encrypted data, ensuring that sensitive information remains protected even if the device is lost, stolen, or physically accessed by unauthorized users. FileVault is integrated directly into the macOS operating system and can be managed both locally and through Mobile Device Management (MDM) solutions.",
         "URL": "https://support.apple.com/en-us/HT204837",
         "EducationUse": true,
         "Cost": "$",
@@ -1685,9 +1685,9 @@
     {
         "ID": "T154",
         "Name": "Fortinet Security Fabric",
-        "Description": "Fortinet Security Fabric is an integrated, AI-driven cybersecurity platform that provides comprehensive threat protection across networks, endpoints, cloud, and applications through a unified architecture. The platform consolidates multiple security functions including firewalls, intrusion prevention, web filtering, antimalware, and advanced threat protection into a single fabric-based ecosystem. It is designed to enable organizations to detect, prevent, and respond to cyber threats in real-time through coordinated security intelligence and automated threat response mechanisms.",
-        "URL": "https://www.fortinet.com/",
-        "EducationUse": false,
+        "Description": "Fortinet Security Fabric is a comprehensive, integrated security platform that combines network security, endpoint protection, cloud security, and threat intelligence into a unified ecosystem. The platform provides centralized management and orchestration across multiple security layers including firewalls, advanced threat protection, secure email gateways, and endpoint detection and response (EDR). Security Fabric enables organizations to detect, prevent, and respond to cybersecurity threats through coordinated defense mechanisms across their entire IT infrastructure.",
+        "URL": "https://www.fortinet.com/products/security-fabric",
+        "EducationUse": true,
         "Cost": "$$, $$$, $$$$, $$$$$",
         "Source": "Claude",
         "Priority": "none",
@@ -1751,10 +1751,10 @@
     {
         "ID": "T160",
         "Name": "Google Cloud Backup and DR",
-        "Description": "Google Cloud Backup and DR is a managed backup and disaster recovery service that provides automated, scalable backup solutions for workloads running on Google Cloud Platform and on-premises environments. The tool enables organizations to protect their data through continuous backup capabilities, point-in-time recovery, and rapid restoration to minimize data loss and downtime. It supports multiple workload types including virtual machines, databases, and applications across hybrid cloud infrastructures.",
+        "Description": "Google Cloud Backup and DR is a comprehensive backup and disaster recovery solution designed to protect workloads running on Google Cloud Platform (GCP) and on-premises environments. The platform provides automated backup capabilities, rapid recovery options, and business continuity features to ensure data availability and minimize downtime during incidents. It supports multiple workload types including virtual machines, databases, and applications across hybrid cloud environments.",
         "URL": "https://cloud.google.com/backup-disaster-recovery",
         "EducationUse": false,
-        "Cost": "$$, $$$, $$$$",
+        "Cost": "$$, $$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -1762,7 +1762,7 @@
     {
         "ID": "T161",
         "Name": "Google Cloud Data Loss Prevention (DLP)",
-        "Description": "Google Cloud Data Loss Prevention (DLP) is a fully managed, cloud-native service that uses machine learning and pattern matching to discover, classify, and protect sensitive data across Google Cloud Platform (GCP) and hybrid environments. The tool automatically identifies personally identifiable information (PII), financial data, healthcare records, and other sensitive content, then applies redaction, masking, tokenization, and encryption to prevent unauthorized data exposure. It integrates with GCP storage services, databases, and BigQuery to provide continuous data protection and compliance monitoring.",
+        "Description": "Google Cloud Data Loss Prevention (DLP) is a cloud-native service that discovers, classifies, and protects sensitive data across Google Cloud Platform and hybrid environments. It uses machine learning and pattern matching to identify personally identifiable information (PII), payment card data, credentials, and other sensitive information types in structured and unstructured data. The tool enables organizations to implement data protection policies, redact or mask sensitive content, and maintain compliance with data protection regulations through automated scanning and classification workflows.",
         "URL": "https://cloud.google.com/dlp",
         "EducationUse": false,
         "Cost": "$$, $$$",
@@ -1971,10 +1971,10 @@
     {
         "ID": "T180",
         "Name": "Google Workspace Identity Aware Proxy (IAP)",
-        "Description": "Google Cloud Identity-Aware Proxy (IAP) is a security service that intercepts web requests to applications and verifies user identity and device security posture before granting access to protected resources. It provides identity-based and device-aware access control through integration with Google Cloud's authentication and authorization infrastructure, enabling zero-trust security principles for both on-premises and cloud-based applications. IAP enforces fine-grained access policies based on user identity, group membership, and device compliance status without requiring a VPN.",
+        "Description": "Google Workspace Identity Aware Proxy (IAP) is a zero-trust access control solution that verifies user identity and device security before granting access to internal applications and resources. It uses Google Cloud's identity and access management capabilities to enforce context-aware access policies, ensuring only authenticated and authorized users from compliant devices can reach protected applications. IAP acts as an intermediary between users and applications, replacing traditional VPN-based access models with modern, cloud-native security controls.",
         "URL": "https://cloud.google.com/iap",
         "EducationUse": true,
-        "Cost": "$$, $$$",
+        "Cost": "$, $$, $$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2015,9 +2015,9 @@
     {
         "ID": "T184",
         "Name": "Group Policy Editor (Windows)",
-        "Description": "Group Policy Editor (GPEdit.msc) is a Windows administrative tool that enables centralized management and configuration of operating system settings, security policies, and application behavior across individual computers or entire Active Directory domains. It provides a graphical interface to create, modify, and enforce group policies that control user and computer configurations, including security settings, software installation, and system restrictions. Group Policy is fundamental to Windows security governance, allowing administrators to enforce compliance requirements and standardize configurations at scale.",
-        "URL": "https://docs.microsoft.com/en-us/windows/win32/adsi/group-policy",
-        "EducationUse": true,
+        "Description": "Group Policy Editor (GPEdit.msc) is a Windows system utility that allows administrators to configure and manage security policies, system settings, and user preferences across individual computers or entire networks through Active Directory. It provides centralized control over Windows operating system behavior, application settings, and security configurations by applying policy objects that define what users and computers can and cannot do. This tool is fundamental to Windows security hardening and compliance management in enterprise environments.",
+        "URL": "https://docs.microsoft.com/en-us/windows/win32/gpedit/group-policy-start-page",
+        "EducationUse": false,
         "Cost": "$",
         "Source": "Claude",
         "Priority": "none",
@@ -2213,10 +2213,10 @@
     {
         "ID": "T202",
         "Name": "Ivanti Endpoint Manager",
-        "Description": "Ivanti Endpoint Manager (formerly LANDESK Management Suite) is a comprehensive unified endpoint management (UEM) platform that provides IT organizations with tools to manage, secure, and support devices across multiple operating systems including Windows, macOS, Linux, iOS, and Android. The platform combines asset management, patch management, security compliance, mobile device management, and remote support capabilities into a single integrated solution designed for organizations of all sizes.",
-        "URL": "https://www.ivanti.com/products/ivanti-endpoint-manager",
+        "Description": "Ivanti Endpoint Manager (formerly LANDESK Management Suite) is a comprehensive endpoint management and mobile device management (MDM) platform that enables organizations to manage, secure, and support devices across their entire IT infrastructure. The tool provides unified management capabilities for desktops, laptops, servers, mobile devices, and IoT endpoints, including patch management, configuration management, security compliance, and remote support functionalities.",
+        "URL": "https://www.ivanti.com/products/endpoint-manager",
         "EducationUse": true,
-        "Cost": "$$$, $$$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2290,10 +2290,10 @@
     {
         "ID": "T209",
         "Name": "Jamf Pro",
-        "Description": "Jamf Pro is a comprehensive Mobile Device Management (MDM) and Unified Endpoint Management (UEM) platform designed to manage, secure, and monitor Apple devices (Mac, iPad, iPhone) across organizations. It provides centralized device management, security policy enforcement, software deployment, and compliance monitoring capabilities specifically optimized for Apple ecosystems. Jamf Pro enables IT administrators to enforce security standards, manage device configurations, and ensure regulatory compliance across enterprise Apple device fleets.",
+        "Description": "Jamf Pro is a comprehensive Mobile Device Management (MDM) and Unified Endpoint Management (UEM) platform specifically designed for Apple ecosystem devices including macOS, iOS, iPadOS, and tvOS. It enables IT administrators to deploy, manage, secure, and monitor Apple devices at scale across organizations while enforcing security policies, compliance requirements, and configuration standards.",
         "URL": "https://www.jamf.com/products/jamf-pro/",
         "EducationUse": true,
-        "Cost": "$$, $$$, $$$$",
+        "Cost": "$$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2301,7 +2301,7 @@
     {
         "ID": "T210",
         "Name": "Jamf Protect (formerly Jamf Threat Defense)",
-        "Description": "Jamf Protect is an endpoint security and threat detection platform specifically designed for macOS and iOS devices, providing real-time malware detection, threat intelligence, and incident response capabilities. The tool combines behavioral analysis, machine learning, and threat hunting to identify and respond to advanced threats on Apple devices. It integrates with Jamf Pro (Apple device management platform) to provide unified security management and remediation across organizations' Apple device ecosystems.",
+        "Description": "Jamf Protect is an endpoint security and threat detection platform specifically designed for Apple macOS and iOS devices, providing real-time malware detection, threat intelligence, and incident response capabilities. The tool combines behavioral analysis, machine learning, and signature-based detection to identify and remediate security threats on Mac and iOS endpoints. It integrates with Jamf Pro MDM (Mobile Device Management) to enable centralized security policy enforcement and threat management across Apple device fleets.",
         "URL": "https://www.jamf.com/products/jamf-protect/",
         "EducationUse": true,
         "Cost": "$$, $$$, $$$$",
@@ -2444,10 +2444,10 @@
     {
         "ID": "T223",
         "Name": "KillDisk",
-        "Description": "KillDisk is a data destruction and secure erasure utility designed to permanently eliminate sensitive data from storage devices beyond recovery. The tool uses advanced overwriting algorithms compliant with international data sanitization standards (such as NIST and DoD) to ensure that deleted files, free space, and entire drives cannot be recovered through forensic analysis. KillDisk is primarily used for decommissioning hardware, managing data lifecycle, and ensuring regulatory compliance when disposing of or repurposing computing equipment.",
+        "Description": "KillDisk is a specialized data destruction and secure erasure software designed to permanently eliminate sensitive data from storage devices beyond recovery. The tool employs multiple overwriting algorithms (including DoD 5220.22-M, Gutmann, and NIST standards) to ensure complete destruction of files, folders, and entire disk drives, making it impossible for forensic tools to recover deleted information. KillDisk is primarily used by organizations and individuals requiring certified data sanitization for compliance, decommissioning, or security purposes.",
         "URL": "https://www.killdisk.com/",
         "EducationUse": false,
-        "Cost": "$$, $$$",
+        "Cost": "$, $$, $$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2642,10 +2642,10 @@
     {
         "ID": "T241",
         "Name": "ManageEngine Patch Manager Plus",
-        "Description": "ManageEngine Patch Manager Plus is a comprehensive patch management solution that automates the detection, testing, and deployment of security patches across Windows, Mac, and Linux systems in enterprise environments. The tool provides centralized control over patch lifecycles, vulnerability remediation, and compliance reporting to reduce security risks from unpatched systems. It integrates with existing IT infrastructure to streamline patch operations and ensure timely updates across thousands of endpoints.",
+        "Description": "ManageEngine Patch Manager Plus is a comprehensive patch management solution that automates the deployment of software updates and security patches across Windows, Mac, and Linux endpoints in an organization. The tool enables IT administrators to centrally manage patch deployment schedules, monitor patch compliance, and ensure systems remain current with the latest security fixes to reduce vulnerability exposure. It integrates with existing IT infrastructure and provides detailed reporting and compliance tracking capabilities.",
         "URL": "https://www.manageengine.com/patch-management/",
         "EducationUse": true,
-        "Cost": "$$, $$$, $$$$",
+        "Cost": "$$, $$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2664,10 +2664,10 @@
     {
         "ID": "T243",
         "Name": "Microsoft Active Directory DNS",
-        "Description": "Microsoft Active Directory DNS is an integrated DNS service that operates within Active Directory environments to provide dynamic DNS resolution, service discovery, and host name resolution for domain-connected systems. It enables automatic registration of computer and service records, facilitates Kerberos authentication through SRV records, and maintains the hierarchical namespace structure essential to Active Directory operations. This tool is fundamental to AD infrastructure, supporting authentication, authorization, and network resource discovery in Windows-based enterprise environments.",
-        "URL": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/understanding-ad-ds",
+        "Description": "Microsoft Active Directory DNS is a domain name system service integrated with Active Directory that resolves domain names to IP addresses within enterprise networks. It provides centralized DNS management, dynamic DNS updates, and secure name resolution tied to Active Directory authentication and authorization policies. This tool is fundamental to Windows domain infrastructure, enabling seamless network communication and resource discovery for authenticated users and devices.",
+        "URL": "https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/understanding-active-directory-integrated-dns-zones",
         "EducationUse": true,
-        "Cost": "$$$, $$$$",
+        "Cost": "$, $$, $$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2730,10 +2730,10 @@
     {
         "ID": "T249",
         "Name": "Microsoft Azure Multi-Factor Authentication",
-        "Description": "Microsoft Azure Multi-Factor Authentication (MFA) is a cloud-based security service that provides multi-factor verification capabilities to protect user access to applications and data. The tool requires users to provide multiple forms of identity verification (such as passwords, phone calls, text messages, mobile app notifications, or biometric authentication) before granting access to resources. Azure MFA integrates seamlessly with Microsoft 365, Azure services, and third-party applications to enforce strong authentication policies across an organization.",
-        "URL": "https://www.microsoft.com/en-us/security/business/identity-access/azure-multi-factor-authentication",
+        "Description": "Microsoft Azure Multi-Factor Authentication (MFA) is a cloud-based security service that provides an additional layer of verification beyond passwords to authenticate user identities. It supports multiple authentication methods including mobile apps, phone calls, SMS, and hardware tokens to verify user identity during login and access to critical resources. Azure MFA integrates seamlessly with Microsoft 365, Azure services, and thousands of third-party applications through conditional access policies and enterprise integration.",
+        "URL": "https://www.microsoft.com/en-us/security/business/identity-access/azure-mfa",
         "EducationUse": true,
-        "Cost": "$$, $$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2763,10 +2763,10 @@
     {
         "ID": "T252",
         "Name": "Microsoft Defender Antivirus",
-        "Description": "Microsoft Defender Antivirus is a built-in, real-time malware protection engine integrated into Windows operating systems that provides signature-based and behavioral threat detection. It offers comprehensive endpoint protection including virus scanning, malware removal, and integration with Windows security features, functioning as both a standalone solution and a component of the broader Microsoft Defender ecosystem.",
-        "URL": "https://www.microsoft.com/en-us/windows/security/defender",
+        "Description": "Microsoft Defender Antivirus is a built-in endpoint protection solution provided as part of Windows 10/11 and Windows Server that uses real-time scanning, behavioral analysis, and cloud-based threat intelligence to detect and remediate malware, viruses, and other malicious software. It provides comprehensive antimalware protection as a core component of the Microsoft Defender threat protection suite, leveraging machine learning and artificial intelligence to identify both known and emerging threats.",
+        "URL": "https://www.microsoft.com/en-us/windows/comprehensive-security",
         "EducationUse": true,
-        "Cost": "$, $$, $$$",
+        "Cost": "$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2873,10 +2873,10 @@
     {
         "ID": "T262",
         "Name": "Microsoft Defender Vulnerability Management",
-        "Description": "Microsoft Defender Vulnerability Management is a cloud-based vulnerability management platform that provides continuous asset discovery, threat and vulnerability assessment, and risk-based remediation prioritization across an organization's entire attack surface. It integrates with the Microsoft Defender ecosystem to identify, track, and help remediate vulnerabilities in real-time across endpoints, on-premises infrastructure, and multicloud environments.",
-        "URL": "https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/",
+        "Description": "Microsoft Defender Vulnerability Management is a cloud-based vulnerability and exposure management platform integrated within Microsoft's Defender ecosystem that identifies, prioritizes, and remediates security vulnerabilities across an organization's digital assets. It provides continuous discovery of weaknesses in devices, software, and configurations, leveraging machine learning and threat intelligence to assess risk and recommend remediation actions. The tool is designed to reduce organizational attack surface and improve security posture through automated vulnerability scanning, impact analysis, and remediation tracking.",
+        "URL": "https://www.microsoft.com/en-us/security/business/vulnerability-management",
         "EducationUse": true,
-        "Cost": "$$, $$$, $$$$, $$$$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -2928,8 +2928,8 @@
     {
         "ID": "T267",
         "Name": "Microsoft Entra ID (Azure AD) Multi-Factor Authentication",
-        "Description": "Microsoft Entra ID (formerly Azure AD) Multi-Factor Authentication is a cloud-based identity and access management service that provides multi-factor authentication capabilities to verify user identity through multiple verification methods before granting access to resources. This tool enforces strong authentication mechanisms across Microsoft 365, Azure services, and integrated third-party applications, significantly reducing the risk of unauthorized access due to compromised credentials. It supports various authentication factors including passwords, authenticator apps, hardware security keys, phone calls, and SMS verification.",
-        "URL": "https://www.microsoft.com/en-us/security/business/identity-access/azure-active-directory",
+        "Description": "Microsoft Entra ID Multi-Factor Authentication (MFA) is a cloud-based identity verification service that requires users to provide multiple forms of authentication before gaining access to applications and resources. It strengthens security by combining something the user knows (password), something they have (phone, hardware token), or something they are (biometric), significantly reducing the risk of unauthorized account access.",
+        "URL": "https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id",
         "EducationUse": true,
         "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
@@ -2961,10 +2961,10 @@
     {
         "ID": "T270",
         "Name": "Microsoft Intune",
-        "Description": "Microsoft Intune is a cloud-based mobile device management (MDM) and mobile application management (MAM) solution that enables organizations to manage and protect corporate data on personal and organizational devices. It provides comprehensive endpoint management capabilities including device configuration, application deployment, compliance monitoring, and conditional access controls across Windows, macOS, iOS, and Android platforms. Intune integrates deeply with Microsoft 365 and Azure AD to enforce security policies and ensure data protection across hybrid and remote work environments.",
-        "URL": "https://www.microsoft.com/en-us/microsoft-365/business/microsoft-intune",
+        "Description": "Microsoft Intune is a cloud-based mobile device management (MDM) and mobile application management (MAM) solution that enables organizations to manage and protect corporate data on devices including smartphones, tablets, and computers. It provides unified endpoint management capabilities across iOS, Android, macOS, and Windows platforms, allowing IT administrators to enforce security policies, manage applications, and ensure compliance with organizational standards. Intune integrates deeply with Microsoft 365 and Azure Active Directory to provide comprehensive identity and access management alongside device management.",
+        "URL": "https://www.microsoft.com/en-us/cloud-platform/microsoft-intune",
         "EducationUse": true,
-        "Cost": "$$, $$$, $$$$",
+        "Cost": "$$, $$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -3060,7 +3060,7 @@
     {
         "ID": "T279",
         "Name": "Microsoft SharePoint",
-        "Description": "Microsoft SharePoint is an enterprise content management and collaboration platform that enables organizations to create websites, manage documents, store information, and facilitate team collaboration across the enterprise. It serves as a centralized repository for document storage, version control, and knowledge management while integrating with other Microsoft 365 services. SharePoint provides governance, security, and compliance features designed to protect organizational data while enabling secure sharing and collaboration.",
+        "Description": "Microsoft SharePoint is an enterprise content management and collaboration platform that enables organizations to create websites, manage documents, and facilitate team collaboration within a secure environment. It serves as a centralized repository for document storage, version control, and information sharing while integrating with other Microsoft 365 services. SharePoint provides role-based access control, compliance features, and workflow automation capabilities designed to support organizational information governance and business processes.",
         "URL": "https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration",
         "EducationUse": true,
         "Cost": "$$, $$$, $$$$, $$$$$",
@@ -3115,7 +3115,7 @@
     {
         "ID": "T284",
         "Name": "Microsoft Windows Time Service",
-        "Description": "Microsoft Windows Time Service (W32Time) is a system service that synchronizes the computer's clock with a time source, maintaining accurate system time across Windows-based networks. The service is critical for authentication protocols like Kerberos, digital signatures, and audit logging, as it ensures consistent time references across distributed systems. It operates as a built-in component of Windows operating systems and supports various time synchronization protocols including Network Time Protocol (NTP).",
+        "Description": "Microsoft Windows Time Service (W32Time) is a system service that synchronizes the date and time across computers on a network, ensuring consistent timekeeping across Windows-based infrastructure. This service is critical for network operations, security protocols, and audit logging, as many security mechanisms (such as Kerberos authentication, certificate validation, and event log timestamps) depend on accurate time synchronization. W32Time uses the Network Time Protocol (NTP) and can function as both a time client and server within Active Directory environments.",
         "URL": "https://learn.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-time-service",
         "EducationUse": true,
         "Cost": "$",
@@ -3269,7 +3269,7 @@
     {
         "ID": "T298",
         "Name": "NTP Server (ntp.org)",
-        "Description": "NTP Server (Network Time Protocol) is a networking protocol and reference implementation used to synchronize clocks across computer systems and networks to within milliseconds of Coordinated Universal Time (UTC). The NTP.org project provides the authoritative open-source NTP implementation and maintains a global network of public time servers that enable accurate timekeeping across the internet. Precise time synchronization is critical for security logging, cryptographic operations, system authentication, and coordinated network operations.",
+        "Description": "NTP Server (Network Time Protocol) is a networking protocol and service that synchronizes the clocks of computers and network devices to a reference time source, ensuring precise timekeeping across distributed systems. NTP is fundamental to cybersecurity operations, as accurate time synchronization is critical for log correlation, authentication mechanisms, cryptographic operations, and forensic analysis. The ntp.org project provides reference implementations and public NTP servers that enable organizations to maintain synchronized time across their infrastructure.",
         "URL": "https://www.ntp.org/",
         "EducationUse": true,
         "Cost": "$",
@@ -3280,10 +3280,10 @@
     {
         "ID": "T299",
         "Name": "Okta Access Gateway",
-        "Description": "Okta Access Gateway (formerly known as Okta Identity Cloud Access Gateway) is an on-premises application access management solution that provides secure, zero-trust access to legacy and cloud applications without requiring VPN. It functions as a reverse proxy that authenticates and authorizes users through Okta's identity platform before granting access to protected applications, enabling organizations to enforce consistent security policies across their entire application portfolio.",
+        "Description": "Okta Access Gateway (formerly known as Okta On-Premises Gateway) is a secure, lightweight connector that enables organizations to extend Okta's identity and access management capabilities to on-premises applications and resources that cannot be directly accessed from the cloud. It acts as a reverse proxy and authentication gateway, allowing seamless integration between Okta's cloud-based identity platform and legacy or internal applications while maintaining security and compliance requirements.",
         "URL": "https://www.okta.com/products/access-gateway/",
         "EducationUse": true,
-        "Cost": "$$$, $$$$, $$$$$",
+        "Cost": "$$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -3368,10 +3368,10 @@
     {
         "ID": "T307",
         "Name": "OpenDNS (Zscaler)",
-        "Description": "OpenDNS (now part of Zscaler's cloud security platform) is a cloud-based DNS filtering and security service that provides real-time threat protection by blocking malicious domains, phishing sites, and malware command-and-control servers at the DNS layer. It functions as a proactive security gateway that intercepts and analyzes DNS queries before they reach their destinations, preventing users from accessing dangerous or policy-violating websites. The platform combines DNS security with advanced analytics to detect and respond to threats while enabling organizations to enforce acceptable use policies and reduce security incidents.",
+        "Description": "OpenDNS is a cloud-based DNS security and web filtering solution that provides real-time threat protection by filtering malicious domains, blocking phishing attacks, and controlling web access at the DNS level. As part of Zscaler's security platform, it protects organizations by intercepting DNS queries before they reach malicious destinations and providing visibility into network traffic and threats. The tool operates as a managed DNS service that can be deployed across multiple locations and devices without requiring on-premise hardware.",
         "URL": "https://www.zscaler.com/products/opendns",
         "EducationUse": true,
-        "Cost": "$$, $$$, $$$$",
+        "Cost": "$$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -3467,7 +3467,7 @@
     {
         "ID": "T316",
         "Name": "OWASP Training",
-        "Description": "OWASP Training refers to the educational resources and formal training programs provided by the Open Worldwide Application Security Project (OWASP) to develop security awareness and technical skills in application security. These training offerings include courses, workshops, certifications, and learning materials focused on secure coding practices, vulnerability identification, and secure software development lifecycle (SDLC) practices. OWASP Training serves as a foundational educational platform for developers, security professionals, and organizations seeking to reduce application-level security vulnerabilities.",
+        "Description": "OWASP Training encompasses educational resources, courses, and materials developed by the Open Worldwide Application Security Project (OWASP) to teach developers, security professionals, and organizations about application security best practices and secure coding principles. The training covers vulnerabilities, secure development lifecycle practices, and emerging threats in web and mobile application security. This tool serves as a foundational educational resource for building security awareness and competency across technical teams.",
         "URL": "https://owasp.org/www-project-training/",
         "EducationUse": false,
         "Cost": "$",
@@ -3698,7 +3698,7 @@
     {
         "ID": "T337",
         "Name": "Quad9",
-        "Description": "Quad9 is a free, public DNS resolver service that provides security-focused DNS resolution by filtering malicious domains, phishing sites, and known malware command-and-control servers in real-time. The service operates globally across multiple data centers and protects users at the DNS level before connections to harmful sites can be established. Quad9 emphasizes privacy protection by not logging user queries and offering DNSSEC validation to ensure DNS response integrity.",
+        "Description": "Quad9 is a free, privacy-focused Domain Name System (DNS) resolver service that provides malware protection, threat intelligence filtering, and DNSSEC validation by blocking access to known malicious domains in real-time. By replacing an organization's default DNS provider, Quad9 filters queries against threat intelligence feeds from multiple security vendors, preventing users from connecting to phishing sites, malware distribution networks, and command-and-control servers without requiring additional hardware or software installation. The service operates as a recursive resolver that intercepts DNS queries and cross-references them against a continuously updated database of known malicious domains.",
         "URL": "https://www.quad9.net/",
         "EducationUse": true,
         "Cost": "$",
@@ -3885,7 +3885,7 @@
     {
         "ID": "T354",
         "Name": "Rubrik Cloud Data Management (with Cold Storage Tier)",
-        "Description": "Rubrik Cloud Data Management is an enterprise-grade data management platform that provides unified backup, recovery, and archival capabilities across on-premises, cloud, and hybrid environments. With its Cold Storage Tier feature, it enables cost-effective long-term retention and compliance-driven archival of data through immutable, air-gapped storage mechanisms. The platform offers automated policy-based data protection, ransomware detection and recovery, and compliance reporting across diverse workloads including virtual machines, databases, applications, and Kubernetes environments.",
+        "Description": "Rubrik Cloud Data Management is an enterprise-grade data protection and recovery platform that provides unified backup, recovery, and compliance capabilities across on-premises, cloud, and hybrid environments. The Cold Storage Tier feature extends retention capabilities by automatically tiering older backup data to cost-effective cloud storage (such as AWS Glacier or Azure Archive), enabling long-term retention and regulatory compliance while reducing storage costs. This tool is designed to protect critical business data, ensure business continuity, and meet data governance and compliance requirements.",
         "URL": "https://www.rubrik.com/",
         "EducationUse": false,
         "Cost": "",
@@ -3896,7 +3896,7 @@
     {
         "ID": "T355",
         "Name": "Rubrik Cloud Data Management",
-        "Description": "Rubrik Cloud Data Management is an enterprise-grade data resilience platform that provides backup, recovery, and ransomware protection for data across cloud and on-premises environments. The tool specializes in rapid data recovery, immutable snapshots, and threat detection capabilities to protect against data loss and ransomware attacks. It integrates with multiple cloud platforms and on-premises infrastructure to offer unified data management and protection across hybrid environments.",
+        "Description": "Rubrik Cloud Data Management is a cloud-native platform that provides data protection, recovery, and management capabilities across hybrid cloud environments. The tool enables organizations to backup, recover, and manage data across on-premises, cloud, and multi-cloud infrastructures while providing ransomware detection, compliance reporting, and disaster recovery capabilities. It focuses on eliminating silos between backup, disaster recovery, and cloud management through unified data management.",
         "URL": "https://www.rubrik.com/",
         "EducationUse": false,
         "Cost": "$$$$, $$$$$",
@@ -4127,8 +4127,8 @@
     {
         "ID": "T376",
         "Name": "Shred-It",
-        "Description": "Shred-It is a data destruction and secure document disposal service provided by Stericycle that specializes in the secure shredding and destruction of physical documents and storage media containing sensitive information. The tool/service helps organizations comply with data protection regulations by ensuring that confidential documents are permanently and irretrievably destroyed through certified shredding processes. Shred-It primarily serves as a physical security and data sanitization solution rather than a digital cybersecurity tool.",
-        "URL": "https://www.shredit.com",
+        "Description": "Shred-It is a data destruction and secure document disposal service provided by Stericycle that specializes in the secure shredding of physical documents and sensitive materials. The tool/service ensures compliance with data protection regulations by permanently destroying confidential information to prevent unauthorized access or recovery. Shred-It serves organizations across various sectors seeking to maintain data confidentiality and meet regulatory requirements for secure disposal.",
+        "URL": "https://www.shred-it.com",
         "EducationUse": true,
         "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
@@ -4424,10 +4424,10 @@
     {
         "ID": "T403",
         "Name": "Splunk Enterprise",
-        "Description": "Splunk Enterprise is a comprehensive data analytics and security information and event management (SIEM) platform that aggregates, indexes, and analyzes machine-generated data from various sources across an IT infrastructure. It enables organizations to search, monitor, and visualize security events, system logs, and operational data in real-time to detect threats, investigate incidents, and optimize IT operations. Splunk Enterprise provides dashboards, alerts, reports, and automated response capabilities to support security monitoring, compliance, and threat hunting activities.",
+        "Description": "Splunk Enterprise is a comprehensive data platform that ingests, indexes, and analyzes machine data from across an organization's IT infrastructure, applications, and security systems. It functions as a centralized log management and Security Information and Event Management (SIEM) solution, enabling real-time monitoring, threat detection, forensic investigation, and operational intelligence through advanced searching, reporting, and visualization capabilities.",
         "URL": "https://www.splunk.com/en_us/products/splunk-enterprise.html",
         "EducationUse": false,
-        "Cost": "$$, $$$, $$$$, $$$$$",
+        "Cost": "$$$, $$$$, $$$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -4457,10 +4457,10 @@
     {
         "ID": "T406",
         "Name": "Splunk",
-        "Description": "Splunk is a comprehensive data platform that collects, indexes, and analyzes machine-generated big data from various sources across IT infrastructure, security systems, and applications. It provides real-time visibility into system performance, security events, and operational intelligence through powerful search, visualization, and alerting capabilities. Splunk serves as a central hub for security monitoring, compliance reporting, and incident response across enterprise environments.",
+        "Description": "Splunk is a comprehensive data platform that ingests, indexes, and analyzes machine data from various sources across an organization's IT infrastructure, security systems, and applications. It provides real-time visibility into security events, system performance, and user behavior through powerful search capabilities, dashboards, and automated alerting. Splunk serves as a central Security Information and Event Management (SIEM) solution, enabling threat detection, incident response, and compliance reporting.",
         "URL": "https://www.splunk.com",
         "EducationUse": false,
-        "Cost": "$$$$, $$$$$",
+        "Cost": "$$, $$$, $$$$, $$$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -4490,10 +4490,10 @@
     {
         "ID": "T409",
         "Name": "Sumo Logic Cloud SIEM",
-        "Description": "Sumo Logic Cloud SIEM is a cloud-native Security Information and Event Management (SIEM) platform that collects, ingests, and analyzes security logs and event data from across an organization's IT infrastructure. It provides real-time threat detection, investigation capabilities, and security analytics to identify and respond to security incidents through machine learning and behavioral analytics.",
-        "URL": "https://www.sumologic.com/",
+        "Description": "Sumo Logic Cloud SIEM is a cloud-native security information and event management (SIEM) platform that aggregates, analyzes, and correlates security data from across an organization's infrastructure, applications, and cloud services. It provides real-time threat detection, investigation capabilities, and compliance reporting through machine learning-driven analytics and automated threat response workflows. The platform enables security teams to identify and respond to security incidents rapidly in distributed and hybrid cloud environments.",
+        "URL": "https://www.sumologic.com/solutions/cloud-siem/",
         "EducationUse": false,
-        "Cost": "$$$$, $$$$$",
+        "Cost": "$$, $$$, $$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -4501,10 +4501,10 @@
     {
         "ID": "T410",
         "Name": "Sumo Logic",
-        "Description": "Sumo Logic is a cloud-native, machine learning-powered analytics platform that collects, analyzes, and visualizes log and event data from IT infrastructure, applications, and security systems in real-time. It serves as a Security Information and Event Management (SIEM) and observability solution, enabling organizations to detect threats, investigate incidents, and troubleshoot operational issues through centralized log aggregation and advanced analytics. The platform provides security monitoring, compliance reporting, and operational insights across hybrid cloud and on-premises environments.",
+        "Description": "Sumo Logic is a cloud-native, machine learning-powered platform that provides real-time log management, monitoring, and security analytics across distributed systems and applications. It collects, ingests, and analyzes massive volumes of machine data from cloud infrastructure, on-premises systems, and hybrid environments to enable visibility into operational performance, security threats, and compliance requirements. The platform serves as a centralized data hub for security operations, IT operations, and application performance monitoring, facilitating rapid incident detection and response through advanced analytics and automated threat intelligence.",
         "URL": "https://www.sumologic.com",
         "EducationUse": false,
-        "Cost": "$$, $$$, $$$$",
+        "Cost": "$$$, $$$$, $$$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -4534,10 +4534,10 @@
     {
         "ID": "T413",
         "Name": "Symantec Data Loss Prevention",
-        "Description": "Symantec Data Loss Prevention (DLP) is an enterprise-grade data security solution designed to discover, monitor, and protect sensitive data across networks, endpoints, and cloud environments. The tool employs content inspection, contextual analysis, and policy-based enforcement to prevent unauthorized disclosure of confidential information including intellectual property, financial data, and personally identifiable information (PII). DLP operates through multiple enforcement points including network, endpoint, and cloud channels to provide comprehensive data protection across the organization's infrastructure.",
-        "URL": "https://www.broadcom.com/products/cybersecurity/information-protection/data-loss-prevention",
+        "Description": "Symantec Data Loss Prevention (DLP) is a comprehensive enterprise security solution designed to monitor, detect, and prevent unauthorized transmission of sensitive data across networks, endpoints, and cloud environments. The tool uses content analysis, contextual matching, and policy-based controls to identify and block data exfiltration attempts across email, web, file transfers, and removable media. It combines deep content inspection with machine learning to enforce data protection policies and maintain compliance with regulatory requirements such as HIPAA, PCI-DSS, and GDPR.",
+        "URL": "https://www.broadcom.com/products/cybersecurity-services/data-loss-prevention",
         "EducationUse": false,
-        "Cost": "$$$$, $$$$$",
+        "Cost": "$$$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -4710,7 +4710,7 @@
     {
         "ID": "T429",
         "Name": "Varonis Data Classification",
-        "Description": "Varonis Data Classification is an automated data discovery and classification platform that identifies, categorizes, and tags sensitive information across an organization's data repositories, including file systems, cloud storage, and databases. The tool uses machine learning and predefined classification policies to automatically label data based on content patterns, metadata, and business rules, enabling organizations to understand their data landscape and enforce appropriate access controls and protection measures.",
+        "Description": "Varonis Data Classification is a data governance and classification platform that automatically discovers, classifies, and catalogs sensitive data across an organization's on-premises and cloud storage environments. The tool uses machine learning and content analysis to identify personally identifiable information (PII), intellectual property, and other sensitive data types, enabling organizations to understand their data landscape and implement appropriate security controls. It integrates with various data repositories including file servers, SharePoint, Microsoft 365, Google Workspace, AWS S3, and other storage systems to provide comprehensive data visibility and compliance reporting.",
         "URL": "https://www.varonis.com/products/data-classification",
         "EducationUse": false,
         "Cost": "$$$$, $$$$$",
@@ -4743,10 +4743,10 @@
     {
         "ID": "T432",
         "Name": "Veeam Backup & Replication",
-        "Description": "Veeam Backup & Replication is an enterprise-grade data protection and disaster recovery solution that provides comprehensive backup, restore, and replication capabilities for virtual, physical, and cloud environments. The tool enables organizations to protect their critical data and applications through automated backup schedules, point-in-time recovery, and business continuity features across multiple platforms including VMware, Hyper-V, and cloud infrastructure.",
-        "URL": "https://www.veeam.com/",
+        "Description": "Veeam Backup & Replication is an enterprise-grade backup and disaster recovery (DR) solution designed to protect virtualized, physical, and cloud-based workloads. The tool provides comprehensive data backup, replication, and recovery capabilities with features including instant recovery, granular restore options, and multi-platform support across VMware, Hyper-V, physical servers, and cloud environments. It serves as a critical component of business continuity and data resilience strategies by enabling organizations to minimize recovery time objectives (RTO) and recovery point objectives (RPO).",
+        "URL": "https://www.veeam.com/backup-replication.html",
         "EducationUse": false,
-        "Cost": "$$, $$$, $$$$, $$$$$",
+        "Cost": "$$$, $$$$, $$$$$",
         "Source": "Claude",
         "Priority": "none",
         "Priority-End": "12/31/2099"
@@ -4875,9 +4875,9 @@
     {
         "ID": "T444",
         "Name": "Windows Defender Exploit Guard",
-        "Description": "Windows Defender Exploit Guard is a built-in Windows security feature that provides advanced threat protection against zero-day exploits and sophisticated attacks targeting applications and the operating system. It leverages multiple protection mechanisms including code integrity checks, memory protection, and behavioral analysis to prevent exploit-based attacks from compromising system integrity. This tool is integrated directly into Windows 10/11 and Microsoft Defender, making it a foundational component of the Windows security stack.",
-        "URL": "https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-exploit-guard/microsoft-defender-exploit-guard",
-        "EducationUse": false,
+        "Description": "Windows Defender Exploit Guard is a built-in Windows 10/11 security feature that provides advanced protection against memory-based exploits and zero-day attacks through behavior-based detection and mitigation. It employs multiple exploit mitigation techniques including Control Flow Guard (CFG), Data Execution Prevention (DEP), Address Space Layout Randomization (ASLR), and Arbitrary Code Guard (ACG) to prevent attackers from exploiting vulnerabilities in applications. This tool operates at the kernel level to intercept and block malicious code execution patterns before they can compromise system integrity.",
+        "URL": "https://learn.microsoft.com/en-us/windows/security/threat-protection/exploit-guard/exploit-guard",
+        "EducationUse": true,
         "Cost": "$",
         "Source": "Claude",
         "Priority": "none",
